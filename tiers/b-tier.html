@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B Tier Characters — Genshin DPS Archive</title>
+  <link rel="preconnect" href="https://fonts.getElementById.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tier.css">
+</head>
+<body>
+  <div class="ambient-glow glow-tier glow-b"></div>
+
+  <div class="container">
+    <!-- Top Navigation Bar -->
+    <nav class="tier-nav-bar">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span>B Tier</span>
+      </div>
+      <div class="tier-quick-nav">
+        <a href="ss-tier.html" class="tier-pill">SS</a>
+        <a href="s-tier.html" class="tier-pill">S</a>
+        <a href="a-tier.html" class="tier-pill">A</a>
+        <a href="b-tier.html" class="tier-pill active-b">B</a>
+        <a href="c-tier.html" class="tier-pill">C</a>
+      </div>
+    </nav>
+
+    <!-- Tier Header Banner -->
+    <header class="tier-header header-b">
+      <div class="tier-title-group">
+        <h1><span>🔵</span> B Tier: Good / Viable</h1>
+        <p>Solid damage dealers that can comfortably clear Floor 12, but demand specific support investments, tighter execution, or face heavy competition from higher tiers.</p>
+      </div>
+      <div class="tier-step-nav">
+        <a href="a-tier.html" class="step-btn">← A Tier</a>
+        <a href="c-tier.html" class="step-btn">C Tier →</a>
+      </div>
+    </header>
+
+    <!-- Search & Element Filters -->
+    <section class="controls-bar">
+      <div class="search-input-wrap">
+        <input type="text" id="charSearch" class="search-input" placeholder="Search B-Tier characters...">
+      </div>
+      <div class="element-filter-group">
+        <button class="elem-btn active" data-filter="all">All</button>
+        <button class="elem-btn" data-filter="pyro">Pyro</button>
+        <button class="elem-btn" data-filter="hydro">Hydro</button>
+        <button class="elem-btn" data-filter="electro">Electro</button>
+        <button class="elem-btn" data-filter="dendro">Dendro</button>
+        <button class="elem-btn" data-filter="cryo">Cryo</button>
+        <button class="elem-btn" data-filter="anemo">Anemo</button>
+        <button class="elem-btn" data-filter="geo">Geo</button>
+      </div>
+    </section>
+
+    <!-- Character Grid -->
+    <main class="character-grid">
+      <!-- Kamisato Ayato -->
+      <a href="../characters/ayato.html" class="char-card" data-name="kamisato ayato" data-element="hydro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/ayato.webp" alt="Ayato" onerror="this.parentElement.innerHTML='💧'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-hydro">Hydro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Sword</span>
+            </div>
+            <h2 class="char-name">Kamisato Ayato</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.9</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">3/5 • High Roster Competition</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Extremely straightforward normal attack slash driver with consistent AoE Hydro application. Faces stiff ceiling competition from Neuvillette.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Sustained On-Field DPS</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Yoimiya -->
+      <a href="../characters/yoimiya.html" class="char-card" data-name="yoimiya" data-element="pyro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/yoimiya.webp" alt="Yoimiya" onerror="this.parentElement.innerHTML='🎆'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-pyro">Pyro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Bow</span>
+            </div>
+            <h2 class="char-name">Yoimiya</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.8</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">2.5/5 • Direct Pyro Redundancy</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Simple auto-target Pyro normal attack spam for mobile and single-target bosses. Low value if owning Arlecchino, Mavuika, or Hu Tao.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Single-Target Normal Attacker</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Arataki Itto -->
+      <a href="../characters/itto.html" class="char-card" data-name="arataki itto" data-element="geo">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/itto.webp" alt="Arataki Itto" onerror="this.parentElement.innerHTML='👹'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-geo">Geo</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Claymore</span>
+            </div>
+            <h2 class="char-name">Arataki Itto</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.8</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">2.5/5 • Strict Mono-Geo Roster</span>
+          </div>
+        </div>
+        <p class="char-card-summary">High continuous charged attack Geo DPS during burst. Heavily tied to Gorou C6, Albedo/Chiori, and Zhongli with virtually zero reaction flexibility.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Mono-Geo Hypercarry</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Wriothesley -->
+      <a href="../characters/wriothesley.html" class="char-card" data-name="wriothesley" data-element="cryo">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-cryo">Cryo</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Catalyst</span>
+            </div>
+            <h2 class="char-name">Wriothesley</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★★☆</span> 4.0</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">3/5 • C1 Spike Quality</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Consistent Cryo boxing combos with high Reverse Melt ceilings. At C0, HP management during enhanced state can feel restrictive without dedicated healing.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: On-Field Cryo Carry</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <div id="noResults" class="no-results">
+        <h3>No characters found</h3>
+        <p>Try adjusting your search query or element filter.</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Genshin DPS & Pull Value Archive • B Tier Roster</p>
+    </footer>
+  </div>
+
+  <script src="../js/tier.js"></script>
+</body>
+</html>
