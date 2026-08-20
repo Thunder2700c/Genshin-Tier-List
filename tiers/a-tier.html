@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Tier Characters — Genshin DPS Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tier.css">
+</head>
+<body>
+  <div class="ambient-glow glow-tier glow-a"></div>
+
+  <div class="container">
+    <!-- Top Navigation Bar -->
+    <nav class="tier-nav-bar">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span>A Tier</span>
+      </div>
+      <div class="tier-quick-nav">
+        <a href="ss-tier.html" class="tier-pill">SS</a>
+        <a href="s-tier.html" class="tier-pill">S</a>
+        <a href="a-tier.html" class="tier-pill active-a">A</a>
+        <a href="b-tier.html" class="tier-pill">B</a>
+        <a href="c-tier.html" class="tier-pill">C</a>
+      </div>
+    </nav>
+
+    <!-- Tier Header Banner -->
+    <header class="tier-header header-a">
+      <div class="tier-title-group">
+        <h1><span>🟣</span> A Tier: Very Strong</h1>
+        <p>Highly capable units that comfortably clear endgame content, but carry noticeable trade-offs in team rigidity, execution requirements, or direct role competition.</p>
+      </div>
+      <div class="tier-step-nav">
+        <a href="s-tier.html" class="step-btn">← S Tier</a>
+        <a href="b-tier.html" class="step-btn">B Tier →</a>
+      </div>
+    </header>
+
+    <!-- Search & Element Filters -->
+    <section class="controls-bar">
+      <div class="search-input-wrap">
+        <input type="text" id="charSearch" class="search-input" placeholder="Search A-Tier characters...">
+      </div>
+      <div class="element-filter-group">
+        <button class="elem-btn active" data-filter="all">All</button>
+        <button class="elem-btn" data-filter="pyro">Pyro</button>
+        <button class="elem-btn" data-filter="hydro">Hydro</button>
+        <button class="elem-btn" data-filter="electro">Electro</button>
+        <button class="elem-btn" data-filter="dendro">Dendro</button>
+        <button class="elem-btn" data-filter="cryo">Cryo</button>
+        <button class="elem-btn" data-filter="anemo">Anemo</button>
+        <button class="elem-btn" data-filter="geo">Geo</button>
+      </div>
+    </section>
+
+    <!-- Character Grid -->
+    <main class="character-grid">
+      <!-- Navia -->
+      <a href="../characters/navia.html" class="char-card" data-name="navia" data-element="geo">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/navia.webp" alt="Navia" onerror="this.parentElement.innerHTML='🟡'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-geo">Geo</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Claymore</span>
+            </div>
+            <h2 class="char-name">Navia</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★★☆</span> 4.6</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-high">4/5 • Flexible Sub/Main</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Massive front-loaded Skill burst damage powered by Crystallize shards. Highly flexible rotations and low reliance on Mono-Geo teams.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Quickswap / Frontload DPS</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Raiden Shogun -->
+      <a href="../characters/raiden.html" class="char-card" data-name="raiden shogun" data-element="electro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/raiden.webp" alt="Raiden Shogun" onerror="this.parentElement.innerHTML='⚡'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-electro">Electro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Polearm</span>
+            </div>
+            <h2 class="char-name">Raiden Shogun</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★★☆</span> 4.5</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-high">4/5 • Battery & Dual DPS</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Team energy battery with substantial burst damage and Hyperbloom off-field utility. C0 hypercarry output requires high-investment supports.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Burst DPS / Battery</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Lyney -->
+      <a href="../characters/lyney.html" class="char-card" data-name="lyney" data-element="pyro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/lyney.webp" alt="Lyney" onerror="this.parentElement.innerHTML='🎩'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-pyro">Pyro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Bow</span>
+            </div>
+            <h2 class="char-name">Lyney</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★★☆</span> 4.5</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">3.5/5 • Mono-Pyro Niche</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Extreme single-target scaling on charged shots and skill detonation. Demands a strict Mono-Pyro team structure and a reliable shielder.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Charged Attack Carry</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Xiao -->
+      <a href="../characters/xiao.html" class="char-card" data-name="xiao" data-element="anemo">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/xiao.webp" alt="Xiao" onerror="this.parentElement.innerHTML='💨'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-anemo">Anemo</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Polearm</span>
+            </div>
+            <h2 class="char-name">Xiao</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★★☆</span> 4.4</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">3.5/5 • Premium Support Heavy</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Immense AoE plunge DPS ceiling that reaches its peak alongside premium dedicated supports (Xianyun, Faruzan C6, and Furina).</p>
+        <div class="char-card-footer">
+          <span>Primary Role: AoE Plunge Hypercarry</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <div id="noResults" class="no-results">
+        <h3>No characters found</h3>
+        <p>Try adjusting your search query or element filter.</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Genshin DPS & Pull Value Archive • A Tier Roster</p>
+    </footer>
+  </div>
+
+  <script src="../js/tier.js"></script>
+</body>
+</html>
