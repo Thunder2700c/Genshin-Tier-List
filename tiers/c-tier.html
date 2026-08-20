@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C Tier Characters — Genshin DPS Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/tier.css">
+</head>
+<body>
+  <div class="ambient-glow glow-tier glow-c"></div>
+
+  <div class="container">
+    <!-- Top Navigation Bar -->
+    <nav class="tier-nav-bar">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span>C Tier</span>
+      </div>
+      <div class="tier-quick-nav">
+        <a href="ss-tier.html" class="tier-pill">SS</a>
+        <a href="s-tier.html" class="tier-pill">S</a>
+        <a href="a-tier.html" class="tier-pill">A</a>
+        <a href="b-tier.html" class="tier-pill">B</a>
+        <a href="c-tier.html" class="tier-pill active-c">C</a>
+      </div>
+    </nav>
+
+    <!-- Tier Header Banner -->
+    <header class="tier-header header-c">
+      <div class="tier-title-group">
+        <h1><span>🟢</span> C Tier: Niche / Low Priority</h1>
+        <p>Outdated kits, high investment thresholds, or characters heavily superseded by newer alternatives. Still capable of clearing with hyper-investment, but lower account pull priority.</p>
+      </div>
+      <div class="tier-step-nav">
+        <a href="b-tier.html" class="step-btn">← B Tier</a>
+        <span class="step-btn disabled">Next Tier →</span>
+      </div>
+    </header>
+
+    <!-- Search & Element Filters -->
+    <section class="controls-bar">
+      <div class="search-input-wrap">
+        <input type="text" id="charSearch" class="search-input" placeholder="Search C-Tier characters...">
+      </div>
+      <div class="element-filter-group">
+        <button class="elem-btn active" data-filter="all">All</button>
+        <button class="elem-btn" data-filter="pyro">Pyro</button>
+        <button class="elem-btn" data-filter="hydro">Hydro</button>
+        <button class="elem-btn" data-filter="electro">Electro</button>
+        <button class="elem-btn" data-filter="dendro">Dendro</button>
+        <button class="elem-btn" data-filter="cryo">Cryo</button>
+        <button class="elem-btn" data-filter="anemo">Anemo</button>
+        <button class="elem-btn" data-filter="geo">Geo</button>
+      </div>
+    </section>
+
+    <!-- Character Grid -->
+    <main class="character-grid">
+      <!-- Diluc -->
+      <a href="../characters/diluc.html" class="char-card" data-name="diluc" data-element="pyro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/diluc.webp" alt="Diluc" onerror="this.parentElement.innerHTML='🔥'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-pyro">Pyro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Claymore</span>
+            </div>
+            <h2 class="char-name">Diluc</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.3</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">1.5/5 • Standard Banner</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Standard banner Claymore carry. Gains a significant DPS ceiling boost via Xianyun plunge setups, but heavily outclassed by modern Pyro options.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Sustained Pyro DPS / Plunge</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Klee -->
+      <a href="../characters/klee.html" class="char-card" data-name="klee" data-element="pyro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/klee.webp" alt="Klee" onerror="this.parentElement.innerHTML='💣'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-pyro">Pyro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Catalyst</span>
+            </div>
+            <h2 class="char-name">Klee</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.4</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">2/5 • Clunky Mechanics</span>
+          </div>
+        </div>
+        <p class="char-card-summary">High poise damage and Pyro application, but suffers from animation-canceling demands, short attack range, and high vulnerability.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: On-Field Pyro Driver</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Eula -->
+      <a href="../characters/eula.html" class="char-card" data-name="eula" data-element="cryo">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/eula.webp" alt="Eula" onerror="this.parentElement.innerHTML='🗡️'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-cryo">Cryo / Phys</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Claymore</span>
+            </div>
+            <h2 class="char-name">Eula</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.5</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">2/5 • Physical Meta Trap</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Enormous back-loaded physical Lightfall Sword burst. Struggles against multi-wave spawns, invulnerability phases, and high physical resistance.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Physical Backloaded Nuke</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <!-- Cyno -->
+      <a href="../characters/cyno.html" class="char-card" data-name="cyno" data-element="electro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap">
+            <img src="../assets/images/characters/cyno.webp" alt="Cyno" onerror="this.parentElement.innerHTML='🐺'">
+          </div>
+          <div class="char-hero-info">
+            <div class="char-meta-row">
+              <span class="element-tag elem-electro">Electro</span>
+              <span class="rarity-tag">★★★★★</span>
+              <span class="weapon-role-tag">• Polearm</span>
+            </div>
+            <h2 class="char-name">Cyno</h2>
+          </div>
+        </div>
+        <div class="char-card-metrics">
+          <div class="metric-row">
+            <span class="metric-label">⚔️ Combat Power</span>
+            <span class="metric-score"><span class="stars">★★★☆☆</span> 3.6</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-label">💎 Pull Value</span>
+            <span class="pull-badge pull-roster">2.5/5 • Ultra-Long Field Time</span>
+          </div>
+        </div>
+        <p class="char-card-summary">Strong Quickbloom DPS during prolonged burst duration. Suffers in multi-wave content where support buffs expire mid-rotation.</p>
+        <div class="char-card-footer">
+          <span>Primary Role: Extended On-Field Carry</span>
+          <span>Full Analysis →</span>
+        </div>
+      </a>
+
+      <div id="noResults" class="no-results">
+        <h3>No characters found</h3>
+        <p>Try adjusting your search query or element filter.</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Genshin DPS & Pull Value Archive • C Tier Roster</p>
+    </footer>
+  </div>
+
+  <script src="../js/tier.js"></script>
+</body>
+</html>
