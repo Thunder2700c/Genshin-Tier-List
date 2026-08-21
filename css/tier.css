@@ -11,6 +11,7 @@
 
   --font-hero: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-text: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Mono', monospace;
 
   --text-lead: #ffffff;
   --text-body: #94a3b8;
@@ -32,11 +33,11 @@
 
   /* In-Game Genshin Rarity Gradients */
   --rarity-5-bg: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
-  --rarity-5-border: rgba(245, 158, 11, 0.5);
+  --rarity-5-border: rgba(245, 158, 11, 0.55);
   --rarity-5-glow: 0 4px 14px rgba(226, 159, 82, 0.25);
 
   --rarity-4-bg: radial-gradient(circle at 50% 25%, #9d68cb 0%, #683d91 55%, #381b55 100%);
-  --rarity-4-border: rgba(168, 85, 247, 0.5);
+  --rarity-4-border: rgba(168, 85, 247, 0.55);
   --rarity-4-glow: 0 4px 14px rgba(157, 104, 203, 0.25);
 
   --radius-sm: 8px;
@@ -44,7 +45,6 @@
   --radius-lg: 20px;
   --radius-pill: 9999px;
   --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *, *::before, *::after {
@@ -82,7 +82,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Isolated Fixed Glow */
+/* Ambient Glow Layer */
 .ambient-glow-wrapper {
   position: fixed;
   top: 0;
@@ -147,6 +147,7 @@ body {
 .breadcrumb a {
   color: var(--text-body);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .breadcrumb a:hover {
@@ -167,8 +168,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.35rem 0.85rem;
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
   border-radius: var(--radius-pill);
   text-decoration: none;
   background: var(--surface-bento);
@@ -257,7 +259,8 @@ body {
   border: 1px solid var(--line-subtle);
   color: var(--text-lead);
   text-decoration: none;
-  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   font-weight: 700;
   box-shadow: var(--glass-specular);
   transition: all 0.2s ease;
@@ -323,9 +326,10 @@ body {
   background: var(--surface-bento);
   border: 1px solid var(--line-subtle);
   color: var(--text-body);
-  padding: 0.5rem 1rem;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-pill);
-  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   font-weight: 700;
   cursor: pointer;
   box-shadow: var(--glass-specular);
@@ -336,6 +340,7 @@ body {
 
 .elem-btn:hover {
   color: #ffffff;
+  background: var(--surface-bento-hover);
 }
 
 .elem-btn.active {
@@ -381,14 +386,12 @@ body {
   border-bottom: 1px solid var(--line-subtle);
 }
 
-/* ==========================================================================
-   GENSHIN AUTHENTIC RARITY AVATAR WRAPPER (Gold & Purple Defaults)
-   ========================================================================== */
+/* Avatar Wrapper (Gold 5-Star Default) */
 .char-avatar-wrap {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-md);
-  background: var(--rarity-5-bg); /* Default 5-Star Genshin Gold */
+  background: var(--rarity-5-bg);
   border: 1px solid var(--rarity-5-border);
   box-shadow: var(--rarity-5-glow), inset 0 1px 2px rgba(255, 255, 255, 0.25);
   display: flex;
@@ -429,21 +432,22 @@ body {
 }
 
 .element-tag {
-  font-size: 0.68rem;
-  font-weight: 800;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
   text-transform: uppercase;
   padding: 0.12rem 0.5rem;
   border-radius: 4px;
   letter-spacing: 0.05em;
 }
 
-.elem-pyro { background: rgba(239, 68, 68, 0.14); color: var(--elem-pyro); border: 1px solid rgba(239, 68, 68, 0.3); }
-.elem-hydro { background: rgba(14, 165, 233, 0.14); color: var(--elem-hydro); border: 1px solid rgba(14, 165, 233, 0.3); }
+.elem-pyro    { background: rgba(239, 68, 68, 0.14); color: var(--elem-pyro); border: 1px solid rgba(239, 68, 68, 0.3); }
+.elem-hydro   { background: rgba(14, 165, 233, 0.14); color: var(--elem-hydro); border: 1px solid rgba(14, 165, 233, 0.3); }
 .elem-electro { background: rgba(168, 85, 247, 0.14); color: var(--elem-electro); border: 1px solid rgba(168, 85, 247, 0.3); }
-.elem-dendro { background: rgba(34, 197, 94, 0.14); color: var(--elem-dendro); border: 1px solid rgba(34, 197, 94, 0.3); }
-.elem-cryo { background: rgba(153, 246, 228, 0.14); color: var(--elem-cryo); border: 1px solid rgba(153, 246, 228, 0.3); }
-.elem-anemo { background: rgba(45, 212, 191, 0.14); color: var(--elem-anemo); border: 1px solid rgba(45, 212, 191, 0.3); }
-.elem-geo { background: rgba(234, 179, 8, 0.14); color: var(--elem-geo); border: 1px solid rgba(234, 179, 8, 0.3); }
+.elem-dendro  { background: rgba(34, 197, 94, 0.14); color: var(--elem-dendro); border: 1px solid rgba(34, 197, 94, 0.3); }
+.elem-cryo    { background: rgba(153, 246, 228, 0.14); color: var(--elem-cryo); border: 1px solid rgba(153, 246, 228, 0.3); }
+.elem-anemo   { background: rgba(45, 212, 191, 0.14); color: var(--elem-anemo); border: 1px solid rgba(45, 212, 191, 0.3); }
+.elem-geo     { background: rgba(234, 179, 8, 0.14); color: var(--elem-geo); border: 1px solid rgba(234, 179, 8, 0.3); }
 
 .rarity-tag {
   font-size: 0.75rem;
@@ -504,10 +508,11 @@ body {
 }
 
 .pull-badge {
+  font-family: var(--font-mono);
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-pill);
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.68rem;
+  font-weight: 700;
 }
 
 .pull-highest { background: rgba(34, 197, 94, 0.14); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
