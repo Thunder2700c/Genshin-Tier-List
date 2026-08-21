@@ -1,37 +1,37 @@
-/* ==========================================================================
-   GENSHIN DPS ARCHIVE — TRUE FROSTED GLASSMORPHISM SYSTEM
-   ========================================================================== */
-
 :root {
-  --canvas-dark: #04060a;
-  
-  /* Glass Surface Palette */
-  --glass-surface: rgba(14, 20, 32, 0.45);
-  --glass-surface-hover: rgba(22, 32, 52, 0.65);
-  --glass-inset: rgba(4, 8, 15, 0.55);
+  /* Warm Dark Roasted Canvas Palette */
+  --bg-deep: #0b0907;
+  --bg-surface: rgba(22, 17, 13, 0.65);
+  --bg-surface-hover: rgba(32, 24, 18, 0.85);
+  --bg-inset: rgba(10, 8, 6, 0.75);
 
-  /* Specular Glass Edge Borders & Inner Bevels */
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-border-hover: rgba(255, 255, 255, 0.28);
-  --glass-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
-  --glass-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65);
+  /* Specular Amber / Warm White Edge Borders */
+  --line-hairline: rgba(255, 230, 200, 0.09);
+  --line-warm: rgba(245, 158, 11, 0.28);
+  --line-strong: rgba(255, 240, 220, 0.22);
+  --glass-specular: inset 0 1px 1px 0 rgba(255, 240, 215, 0.18);
+  --card-shadow: 0 18px 45px -12px rgba(0, 0, 0, 0.75);
 
-  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Editorial Fonts */
+  --font-hero: 'Barlow Condensed', -apple-system, sans-serif;
+  --font-body: 'Instrument Sans', -apple-system, sans-serif;
   --font-mono: 'Space Mono', monospace;
 
-  --text-lead: #ffffff;
-  --text-body: #9fb0c7;
-  --text-muted: #5e6f88;
+  /* Typography Colors */
+  --text-cream: #fbf7ef;
+  --text-sand: #bdae9c;
+  --text-sepia: #6e6153;
 
+  /* Vibrant Accent Palette */
   --accent-gold: #f59e0b;
+  --accent-orange: #ea580c;
   --accent-red: #ef4444;
   --accent-purple: #a855f7;
-  --accent-blue: #3b82f6;
+  --accent-blue: #38bdf8;
   --accent-green: #10b981;
-  --accent-cyan: #38bdf8;
+  --accent-cyan: #22d3ee;
 
-  --radius-card: 18px;
+  --radius-card: 14px;
   --radius-pill: 9999px;
   --transition-snappy: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -46,17 +46,17 @@
 
 html {
   font-size: 16px;
-  background-color: var(--canvas-dark);
+  background-color: var(--bg-deep);
   color-scheme: dark;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
-  background-color: var(--canvas-dark);
-  color: var(--text-lead);
+  background-color: var(--bg-deep);
+  color: var(--text-cream);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.55;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
@@ -64,77 +64,92 @@ body {
 }
 
 /* ==========================================================================
-   AMBIENT UNDER-GLASS GLOW MESH
+   1. FILM NOISE & SOLAR BACKDROP (Codegrid / Buck's Sauce Atmosphere)
    ========================================================================== */
-.glass-ambient-mesh {
+.noise-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 99;
+}
+
+.solar-backdrop {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1440px;
+  height: 850px;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
 }
 
-.mesh-blob {
+/* Central Glowing Amber Sun */
+.sun-orb-core {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(130px);
-  opacity: 0.38;
-  will-change: transform;
-}
-
-.blob-gold {
-  width: min(600px, 85vw);
-  height: min(600px, 85vw);
   top: -120px;
-  left: 10%;
-  background: radial-gradient(circle, #f59e0b, rgba(245, 158, 11, 0.1) 70%, transparent);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(650px, 90vw);
+  height: min(650px, 90vw);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #f59e0b 0%, #ea580c 45%, rgba(234, 88, 12, 0.05) 75%, transparent 100%);
+  filter: blur(80px);
+  opacity: 0.35;
 }
 
-.blob-cyan {
-  width: min(500px, 75vw);
-  height: min(500px, 75vw);
-  top: 25%;
-  right: -80px;
-  background: radial-gradient(circle, #0ea5e9, rgba(14, 165, 233, 0.1) 70%, transparent);
+/* Secondary Ambient Fill */
+.sun-orb-secondary {
+  position: absolute;
+  top: 200px;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+  filter: blur(100px);
+  opacity: 0.4;
 }
 
-.blob-purple {
-  width: min(550px, 80vw);
-  height: min(550px, 80vw);
-  bottom: 10%;
-  left: -100px;
-  background: radial-gradient(circle, #9333ea, rgba(147, 51, 234, 0.1) 70%, transparent);
-}
-
-.blob-red {
-  width: min(450px, 70vw);
-  height: min(450px, 70vw);
-  bottom: -100px;
-  right: 20%;
-  background: radial-gradient(circle, #ef4444, rgba(239, 68, 68, 0.1) 70%, transparent);
+/* Soft Geometry Sun Ring */
+.sun-ring {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(850px, 110vw);
+  height: min(850px, 110vw);
+  border-radius: 50%;
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  box-shadow: 0 0 120px rgba(245, 158, 11, 0.06);
 }
 
 .site-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 3.5vw, 2rem) 4rem;
+  padding: 0 clamp(1.2rem, 3.5vw, 2.25rem) 5rem;
   position: relative;
   z-index: 1;
 }
 
-/* 1. Top System Bar */
+/* ==========================================================================
+   2. TOP TELEMETRY BAR
+   ========================================================================== */
 .system-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--glass-border);
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--line-hairline);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
@@ -148,30 +163,38 @@ body {
 .sys-status {
   width: 6px;
   height: 6px;
-  background: #22c55e;
+  background: var(--accent-gold);
   border-radius: 50%;
-  box-shadow: 0 0 10px #22c55e;
+  box-shadow: 0 0 10px var(--accent-gold);
 }
 
 .mono-meta {
-  color: var(--text-lead);
+  color: var(--text-cream);
   font-weight: 700;
 }
 
 .mono-meta.dim {
-  color: var(--text-muted);
+  color: var(--text-sepia);
 }
 
-/* 2. Hero Title & Philosophy Section */
+.mono-center-tag {
+  color: var(--text-sand);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+/* ==========================================================================
+   3. HERO EDITORIAL TYPOGRAPHY
+   ========================================================================== */
 .hero-section {
-  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .hero-label-wrap {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   flex-wrap: wrap;
 }
 
@@ -188,60 +211,70 @@ body {
   font-weight: 700;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--glass-specular);
-  color: var(--text-body);
+  background: rgba(255, 230, 200, 0.05);
+  border: 1px solid var(--line-hairline);
+  color: var(--text-sand);
 }
 
 .hero-header-block {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2rem;
 }
 
 .hero-main-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-family: var(--font-hero);
+  font-size: clamp(3.25rem, 9.5vw, 7.5rem);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 0.88;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
 }
 
 .title-bold {
-  display: inline-block;
-  color: var(--text-lead);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  color: var(--text-cream);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
 }
 
-.title-outline {
-  display: inline-block;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.7);
+.title-accent {
+  color: var(--accent-gold);
+  font-style: italic;
+  text-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
+}
+
+.ver-badge {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  font-weight: 400;
+  font-style: normal;
+  color: var(--accent-orange);
+  letter-spacing: 0;
+  vertical-align: super;
 }
 
 .hero-lead {
-  font-size: clamp(0.95rem, 2vw, 1.15rem);
-  color: var(--text-body);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-sand);
   max-width: 680px;
-  line-height: 1.55;
+  line-height: 1.6;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Glass Philosophy Strip */
+/* Warm Philosophy Strip */
 .philosophy-strip {
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.32);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(22, 17, 13, 0.75) 100%);
+  border: 1px solid var(--line-warm);
   border-radius: var(--radius-card);
-  padding: clamp(1.15rem, 2.5vw, 1.5rem);
+  padding: clamp(1.2rem, 2.5vw, 1.6rem);
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  box-shadow: var(--glass-shadow), var(--glass-specular);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--card-shadow), var(--glass-specular);
 }
 
 .strip-badge {
@@ -251,39 +284,39 @@ body {
 }
 
 .strip-icon {
-  font-size: 1.15rem;
+  color: var(--accent-gold);
+  font-size: 1rem;
 }
 
 .strip-title {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--accent-gold);
 }
 
 .strip-text {
-  font-size: 0.9rem;
-  color: #fef08a;
+  font-size: 0.92rem;
+  color: #fff2d6;
   line-height: 1.55;
 }
 
 /* ==========================================================================
-   3. MASTER 12-COLUMN GLASS BENTO GRID
+   4. BENTO GRID ARCHITECTURE (Translucent Smoky Glass Cards)
    ========================================================================== */
-
 .archive-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.25rem;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
 }
 
 .grid-card {
-  background: var(--glass-surface);
-  border: 1px solid var(--glass-border);
+  background: var(--bg-surface);
+  border: 1px solid var(--line-hairline);
   border-radius: var(--radius-card);
-  padding: clamp(1.35rem, 2.5vw, 1.85rem);
+  padding: clamp(1.4rem, 2.5vw, 2rem);
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -291,86 +324,82 @@ body {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  box-shadow: var(--glass-shadow), var(--glass-specular);
-  transition: transform 0.3s var(--transition-snappy), border-color 0.25s ease, background 0.25s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: var(--card-shadow), var(--glass-specular);
+  transition: transform 0.3s var(--transition-snappy), border-color 0.25s ease, background 0.25s ease;
+}
+
+.card-glow-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 240, 215, 0.4) 50%, transparent 100%);
 }
 
 .grid-card:hover {
   transform: translateY(-4px);
-  background: var(--glass-surface-hover);
-  border-color: var(--glass-border-hover);
-  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.35);
+  background: var(--bg-surface-hover);
+  border-color: var(--line-strong);
 }
 
-/* Glass Card Accents */
-
-/* SS Tier (8 Columns) */
+/* Card Geometry */
 .card-ss {
   grid-column: span 8;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(14, 20, 32, 0.45) 100%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(22, 17, 13, 0.7) 100%);
   border-color: rgba(245, 158, 11, 0.38);
 }
 
 .card-ss:hover {
   border-color: var(--accent-gold);
-  box-shadow: 0 20px 48px -10px rgba(245, 158, 11, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* S Tier (4 Columns) */
 .card-s {
   grid-column: span 4;
-  border-color: rgba(239, 68, 68, 0.32);
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
+  border-color: rgba(239, 68, 68, 0.28);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(22, 17, 13, 0.7) 100%);
 }
 
 .card-s:hover {
   border-color: var(--accent-red);
-  box-shadow: 0 20px 48px -10px rgba(239, 68, 68, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* A Tier (4 Columns) */
 .card-a {
   grid-column: span 4;
-  border-color: rgba(168, 85, 247, 0.32);
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
+  border-color: rgba(168, 85, 247, 0.28);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(22, 17, 13, 0.7) 100%);
 }
 
 .card-a:hover {
   border-color: var(--accent-purple);
-  box-shadow: 0 20px 48px -10px rgba(168, 85, 247, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* B Tier (4 Columns) */
 .card-b {
   grid-column: span 4;
-  border-color: rgba(59, 130, 246, 0.32);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
+  border-color: rgba(56, 189, 248, 0.28);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(22, 17, 13, 0.7) 100%);
 }
 
 .card-b:hover {
   border-color: var(--accent-blue);
-  box-shadow: 0 20px 48px -10px rgba(59, 130, 246, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* C Tier (4 Columns) */
 .card-c {
   grid-column: span 4;
-  border-color: rgba(16, 185, 129, 0.32);
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
+  border-color: rgba(16, 185, 129, 0.28);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(22, 17, 13, 0.7) 100%);
 }
 
 .card-c:hover {
   border-color: var(--accent-green);
-  box-shadow: 0 20px 48px -10px rgba(16, 185, 129, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* Protocol Cards (6 Columns) */
 .protocol-card {
   grid-column: span 6;
-  background: var(--glass-inset);
-  border-color: var(--glass-border);
+  background: var(--bg-inset);
+  border-color: var(--line-hairline);
 }
 
 /* Card Internal Architecture */
@@ -401,42 +430,43 @@ body {
   font-weight: 700;
   padding: 0.22rem 0.65rem;
   border-radius: var(--radius-pill);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--glass-specular);
 }
 
-.ss-badge { background: rgba(245, 158, 11, 0.22); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.45); }
-.s-badge  { background: rgba(239, 68, 68, 0.22);  color: var(--accent-red);  border: 1px solid rgba(239, 68, 68, 0.45); }
-.a-badge  { background: rgba(168, 85, 247, 0.22); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.45); }
-.b-badge  { background: rgba(59, 130, 246, 0.22); color: var(--accent-blue);  border: 1px solid rgba(59, 130, 246, 0.45); }
-.c-badge  { background: rgba(16, 185, 129, 0.22); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.45); }
+.ss-badge { background: rgba(245, 158, 11, 0.2); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.4); }
+.s-badge  { background: rgba(239, 68, 68, 0.2);  color: var(--accent-red);  border: 1px solid rgba(239, 68, 68, 0.4); }
+.a-badge  { background: rgba(168, 85, 247, 0.2); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.4); }
+.b-badge  { background: rgba(56, 189, 248, 0.2); color: var(--accent-blue);  border: 1px solid rgba(56, 189, 248, 0.4); }
+.c-badge  { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.4); }
 
 .card-hero-content {
   margin-bottom: 1.5rem;
 }
 
 .card-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-family: var(--font-hero);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text-lead);
-  margin-bottom: 0.4rem;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--text-cream);
+  margin-bottom: 0.45rem;
 }
 
 .card-sub-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-family: var(--font-hero);
+  font-size: 1.45rem;
   font-weight: 800;
+  text-transform: uppercase;
   letter-spacing: -0.01em;
-  color: var(--text-lead);
+  color: var(--text-cream);
   margin-bottom: 0.4rem;
 }
 
 .card-summary {
-  font-size: 0.86rem;
-  color: var(--text-body);
+  font-size: 0.88rem;
+  color: var(--text-sand);
   line-height: 1.55;
   margin-bottom: 1rem;
 }
@@ -448,52 +478,54 @@ body {
 }
 
 .character-chip {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.25rem 0.6rem;
+  padding: 0.22rem 0.6rem;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--text-lead);
+  background: rgba(255, 240, 215, 0.06);
+  border: 1px solid var(--line-hairline);
+  color: var(--text-cream);
 }
 
 .card-action-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text-lead);
-  border-top: 1px solid var(--glass-border);
-  padding-top: 0.85rem;
+  color: var(--text-cream);
+  border-top: 1px solid var(--line-hairline);
+  padding-top: 0.9rem;
   margin-top: auto;
 }
 
 .action-arrow {
-  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-sepia);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .grid-card:hover .action-arrow {
-  transform: translateX(4px);
-  color: var(--text-lead);
+  transform: translate(3px, -3px);
+  color: var(--text-cream);
 }
 
 .protocol-footer-tag {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  color: var(--text-muted);
-  border-top: 1px solid var(--glass-border);
+  color: var(--text-sepia);
+  border-top: 1px solid var(--line-hairline);
   padding-top: 0.75rem;
 }
 
-/* 4. Footer */
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
 .site-footer {
-  margin-top: 4rem;
+  margin-top: 4.5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--line-hairline);
 }
 
 .footer-meta {
@@ -503,24 +535,27 @@ body {
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
-  color: var(--text-lead);
+  color: var(--text-cream);
   margin-bottom: 0.5rem;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
 .footer-meta .dim {
-  color: var(--text-muted);
+  color: var(--text-sepia);
   font-weight: 400;
 }
 
 .footer-disclaimer {
-  font-size: 0.72rem;
-  color: var(--text-muted);
+  font-size: 0.74rem;
+  color: var(--text-sepia);
 }
 
-/* Viewport Adaptations */
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
 @media (max-width: 1024px) {
+  .sys-center { display: none; }
   .card-ss { grid-column: span 12; }
   .card-s  { grid-column: span 6; }
   .card-a  { grid-column: span 6; }
