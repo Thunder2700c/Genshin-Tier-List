@@ -1,8 +1,8 @@
 :root {
   --canvas-void: #030508;
   --surface-base: #080c14;
-  --surface-bento: rgba(13, 18, 28, 0.75);
-  --surface-bento-hover: rgba(20, 28, 44, 0.95);
+  --surface-bento: rgba(13, 18, 28, 0.78);
+  --surface-bento-hover: rgba(22, 30, 48, 0.95);
   --surface-inset: rgba(4, 7, 13, 0.85);
 
   --line-subtle: rgba(255, 255, 255, 0.08);
@@ -116,8 +116,8 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   gap: 1.5rem;
-  margin-bottom: clamp(1.75rem, 4vw, 3rem);
-  padding-bottom: 1.75rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
+  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--line-subtle);
   flex-wrap: wrap;
 }
@@ -135,14 +135,14 @@ body {
   background: rgba(245, 158, 11, 0.1);
   border: 1px solid rgba(245, 158, 11, 0.3);
   box-shadow: var(--glass-specular);
-  padding: 0.3rem 0.75rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-pill);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .site-title {
   font-family: var(--font-hero);
-  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -153,9 +153,9 @@ body {
 
 .site-tagline {
   color: var(--text-body);
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-size: clamp(0.88rem, 2vw, 1.02rem);
   font-weight: 500;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
 }
 
 .header-meta {
@@ -166,9 +166,9 @@ body {
 }
 
 .meta-tag {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 0.4rem 0.9rem;
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-pill);
   background: var(--surface-bento);
   border: 1px solid var(--line-subtle);
@@ -188,12 +188,13 @@ body {
 }
 
 /* ==========================================================================
-   TRUE BENTO GRID ARCHITECTURE (Photo 3 Bento System)
+   TRUE 12-COLUMN BENTO GRID SYSTEM
    ========================================================================== */
 
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: dense;
   gap: 1.25rem;
   margin-bottom: 4rem;
 }
@@ -202,7 +203,7 @@ body {
   background: var(--surface-bento);
   border: 1px solid var(--line-subtle);
   border-radius: var(--radius-lg);
-  padding: clamp(1.35rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 2.5vw, 1.85rem);
   text-decoration: none;
   color: inherit;
   backdrop-filter: blur(20px);
@@ -217,7 +218,7 @@ body {
 }
 
 .bento-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   background: var(--surface-bento-hover);
   border-color: var(--line-medium);
 }
@@ -226,13 +227,11 @@ body {
   transform: scale(0.985);
 }
 
-/* Bento Card Grid Placements */
-
-/* 1. SS-Tier Hero Card (Dominant Orange Bento Card) */
+/* Slot 1: SS-Tier Hero (8 Cols x 2 Rows) */
 .bento-hero-ss {
   grid-column: span 8;
   grid-row: span 2;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(13, 18, 28, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(13, 18, 28, 0.9) 100%);
   border-color: rgba(245, 158, 11, 0.35);
 }
 
@@ -243,22 +242,22 @@ body {
 
 .bento-hero-ss .bento-title {
   font-family: var(--font-hero);
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(2rem, 4vw, 2.85rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   color: #ffffff;
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 0.4rem 0;
 }
 
 .bento-hero-ss .bento-desc {
-  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-size: clamp(0.92rem, 1.8vw, 1.02rem);
   color: #fef08a;
-  max-width: 540px;
+  max-width: 520px;
   line-height: 1.55;
   margin-bottom: 1.25rem;
 }
 
-/* 2. Philosophy Rule Card */
+/* Slot 2: Philosophy Rule Card (4 Cols x 1 Row - Top Right) */
 .bento-rule-card {
   grid-column: span 4;
   grid-row: span 1;
@@ -266,20 +265,20 @@ body {
   border-color: rgba(245, 158, 11, 0.25);
   display: flex;
   flex-direction: row;
-  gap: 1.15rem;
+  gap: 1rem;
   align-items: flex-start;
 }
 
 .rule-icon-wrap {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   background: rgba(245, 158, 11, 0.15);
   border: 1px solid rgba(245, 158, 11, 0.35);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   flex-shrink: 0;
 }
 
@@ -289,24 +288,24 @@ body {
   letter-spacing: 0.12em;
   color: var(--chroma-ss);
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
 .rule-headline {
   font-family: var(--font-hero);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 900;
   color: #ffffff;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .rule-text {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: var(--text-body);
   line-height: 1.5;
 }
 
-/* 3. Stat Widget Card */
+/* Slot 3: Stat Baseline Widget (4 Cols x 1 Row - Bottom Right) */
 .bento-stat-widget {
   grid-column: span 4;
   grid-row: span 1;
@@ -318,15 +317,15 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .widget-icon {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
 }
 
 .widget-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   color: var(--text-muted);
@@ -334,19 +333,19 @@ body {
 
 .widget-value {
   font-family: var(--font-hero);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: #38bdf8;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .widget-sub {
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: var(--text-body);
   line-height: 1.5;
 }
 
-/* 4. S-Tier Card (Red) */
+/* Slot 4: S-Tier (6 Cols x 1 Row) */
 .bento-card-s {
   grid-column: span 6;
   border-color: rgba(239, 68, 68, 0.25);
@@ -358,7 +357,7 @@ body {
   box-shadow: 0 16px 40px -10px rgba(239, 68, 68, 0.25), var(--glass-specular);
 }
 
-/* 5. A-Tier Card (Purple) */
+/* Slot 5: A-Tier (6 Cols x 1 Row) */
 .bento-card-a {
   grid-column: span 6;
   border-color: rgba(168, 85, 247, 0.25);
@@ -370,7 +369,7 @@ body {
   box-shadow: 0 16px 40px -10px rgba(168, 85, 247, 0.25), var(--glass-specular);
 }
 
-/* 6. B-Tier Card (Blue) */
+/* Slot 6: B-Tier (4 Cols x 1 Row) */
 .bento-card-b {
   grid-column: span 4;
   border-color: rgba(59, 130, 246, 0.25);
@@ -382,7 +381,7 @@ body {
   box-shadow: 0 16px 40px -10px rgba(59, 130, 246, 0.25), var(--glass-specular);
 }
 
-/* 7. C-Tier Card (Green) */
+/* Slot 7: C-Tier (4 Cols x 1 Row) */
 .bento-card-c {
   grid-column: span 4;
   border-color: rgba(16, 185, 129, 0.25);
@@ -394,7 +393,7 @@ body {
   box-shadow: 0 16px 40px -10px rgba(16, 185, 129, 0.25), var(--glass-specular);
 }
 
-/* 8. Redundancy Radar Widget */
+/* Slot 8: Redundancy Radar Widget (4 Cols x 1 Row) */
 .bento-redundancy-widget {
   grid-column: span 4;
   background: var(--surface-inset);
@@ -405,19 +404,19 @@ body {
   color: #fbbf24;
 }
 
-/* Internal Bento UI Elements */
+/* Bento Card Elements */
 .bento-card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .tier-pill-badge {
   font-family: var(--font-hero);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 900;
-  padding: 0.35rem 0.85rem;
+  padding: 0.3rem 0.8rem;
   border-radius: var(--radius-pill);
   box-shadow: var(--glass-specular);
 }
@@ -429,35 +428,35 @@ body {
 .pill-c  { background: rgba(16, 185, 129, 0.2); border: 1px solid var(--chroma-c);  color: var(--chroma-c); }
 
 .bento-icon {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
 }
 
 .bento-sub-title {
   font-family: var(--font-hero);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.01em;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .bento-sub-desc {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   color: var(--text-body);
-  line-height: 1.55;
-  margin-bottom: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0.85rem;
 }
 
 .bento-roster-preview {
   display: flex;
-  gap: 0.45rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .roster-chip {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  padding: 0.25rem 0.65rem;
+  padding: 0.22rem 0.6rem;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -468,11 +467,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 800;
   color: var(--text-lead);
   border-top: 1px solid var(--line-subtle);
-  padding-top: 0.85rem;
+  padding-top: 0.75rem;
   margin-top: auto;
 }
 
@@ -492,30 +491,28 @@ body {
   border-top: 1px solid var(--line-subtle);
   padding-top: 2rem;
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
 }
 
 .disclaimer-subtext {
-  font-size: 0.75rem;
-  margin-top: 0.4rem;
+  font-size: 0.74rem;
+  margin-top: 0.35rem;
   color: #334155;
 }
 
-/* Responsive Bento Breakpoints */
-@media (max-width: 960px) {
-  .bento-hero-ss { grid-column: span 12; }
+/* Tablet & Chromebook Viewport Adaptations */
+@media (max-width: 1024px) {
+  .bento-hero-ss { grid-column: span 12; grid-row: auto; }
   .bento-rule-card { grid-column: span 6; }
   .bento-stat-widget { grid-column: span 6; }
   .bento-card-s { grid-column: span 6; }
   .bento-card-a { grid-column: span 6; }
-  .bento-card-b { grid-column: span 6; }
-  .bento-card-c { grid-column: span 6; }
-  .bento-redundancy-widget { grid-column: span 12; }
+  .bento-card-b { grid-column: span 4; }
+  .bento-card-c { grid-column: span 4; }
+  .bento-redundancy-widget { grid-column: span 4; }
 }
 
-@media (max-width: 640px) {
-  .site-header { flex-direction: column; align-items: flex-start; }
-  .header-meta { width: 100%; justify-content: flex-start; }
+@media (max-width: 768px) {
   .bento-grid { grid-template-columns: 1fr; gap: 1rem; }
   .bento-hero-ss,
   .bento-rule-card,
