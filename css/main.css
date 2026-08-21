@@ -1,24 +1,36 @@
 :root {
   --bg-dark: #0a0a0a;
   --bg-surface: #111111;
-  --line-hairline: rgba(255, 255, 255, 0.08);
-  --line-light: rgba(255, 255, 255, 0.18);
+  --bg-surface-hover: #161616;
   
+  --line-hairline: rgba(255, 255, 255, 0.08);
+  --line-light: rgba(255, 255, 255, 0.16);
+  --line-strong: rgba(255, 255, 255, 0.35);
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Space Mono', monospace;
 
   --text-white: #f5f5f5;
-  --text-dim: #888888;
-  --text-muted: #444444;
+  --text-dim: #949494;
+  --text-muted: #555555;
 
   --accent-gold: #f59e0b;
-  --accent-orange: #ea580c;
+  --accent-red: #ef4444;
+  --accent-purple: #a855f7;
+  --accent-blue: #38bdf8;
+  --accent-green: #10b981;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 9999px;
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-width: 0;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -47,19 +59,19 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.04) 0%, transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Scroll Indicators */
+/* Scroll Progression Telemetry */
 .scroll-pct {
   position: fixed;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1.25rem;
+  right: 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: var(--text-dim);
+  color: var(--text-muted);
   z-index: 100;
 }
 
@@ -83,9 +95,9 @@ body {
 .scroll-wrap {
   position: relative;
   z-index: 1;
-  max-width: 1300px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 clamp(1.2rem, 4vw, 3.5rem);
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
 }
 
 /* Typographic Accents */
@@ -97,84 +109,169 @@ body {
 .section-num {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--text-dim);
+  color: var(--accent-gold);
+  font-weight: 700;
 }
 
-/* 1. Hero Section */
-.hero {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 3rem;
-}
-
-.hero-tagline {
-  font-size: clamp(1.75rem, 4vw, 3.2rem);
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-  color: var(--text-white);
-  max-width: 900px;
-  margin-bottom: 3.5rem;
-}
-
-.hero-line {
-  width: 100%;
-  height: 1px;
-  background: var(--line-hairline);
-  margin-bottom: 1.25rem;
-}
-
-.hero-bar {
+/* ==========================================================================
+   1. TOP SYSTEM BAR
+   ========================================================================== */
+.top-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line-hairline);
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
-.mono-badge {
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.hero-bar-center {
+.nav-left {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
-.nav-item {
-  color: var(--text-dim);
-  text-decoration: none;
-  transition: color 0.2s ease;
+.status-indicator {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
 }
 
-.nav-item:hover {
+.mono-brand {
+  font-weight: 700;
   color: var(--text-white);
+}
+
+.mono-dim {
+  color: var(--text-muted);
+}
+
+.mono-tag {
+  color: var(--text-dim);
+}
+
+/* ==========================================================================
+   2. HERO SECTION
+   ========================================================================== */
+.hero-section {
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line-hairline);
+}
+
+.hero-label-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-hairline);
+  color: var(--text-dim);
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  max-width: 900px;
+  margin-bottom: 1.25rem;
+}
+
+.hero-lead {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--text-dim);
+  max-width: 720px;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-hairline);
+  flex-wrap: wrap;
+}
+
+.nav-bar-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.tier-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.tier-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-white);
+  text-decoration: none;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--line-hairline);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.tier-link:hover {
+  background: var(--bg-surface-hover);
+  border-color: var(--line-light);
+}
+
+.tier-link.ss-gold {
+  color: var(--accent-gold);
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.08);
 }
 
 .sep {
   color: var(--text-muted);
+  font-size: 0.8rem;
 }
 
-.mono-dim {
-  color: var(--text-dim);
-}
-
-/* 2. Spotlight Viewfinder Frame */
+/* ==========================================================================
+   3. SPOTLIGHT VIEWFINDER SECTION
+   ========================================================================== */
 .spotlight-section {
-  padding: 6rem 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   border-bottom: 1px solid var(--line-hairline);
 }
 
 .spotlight-inner {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: 240px 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
 }
 
@@ -183,7 +280,7 @@ body {
   width: 100%;
   aspect-ratio: 4 / 3;
   background: var(--bg-surface);
-  padding: 12px;
+  padding: 10px;
 }
 
 .spotlight-img {
@@ -193,11 +290,11 @@ body {
   display: block;
 }
 
-/* Corner Crop Brackets (Luke Baffait Signature) */
+/* Corner Crop Brackets (Luke Baffait signature) */
 .frame-corner {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border: 1.5px solid #ffffff;
 }
 
@@ -207,44 +304,47 @@ body {
 .frame-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
 
 .spotlight-phrase {
-  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
-  line-height: 1.45;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.5;
   color: var(--text-white);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .spotlight-author {
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: var(--text-dim);
+  color: var(--accent-gold);
+  font-weight: 700;
 }
 
-/* 3. Interactive Archive List */
+/* ==========================================================================
+   4. INTERACTIVE TIER REGISTRY LIST
+   ========================================================================== */
 .archive-section {
-  padding: 6rem 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   border-bottom: 1px solid var(--line-hairline);
 }
 
 .section-header-bar {
   display: flex;
   align-items: baseline;
-  gap: 1rem;
-  padding-bottom: 1.5rem;
+  gap: 0.75rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--line-hairline);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   flex-wrap: wrap;
 }
 
 .section-title {
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .section-meta {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-dim);
+  font-size: 0.7rem;
+  color: var(--text-muted);
   margin-left: auto;
 }
 
@@ -254,114 +354,136 @@ body {
 }
 
 .archive-item {
-  display: grid;
-  grid-template-columns: 50px 1.5fr 1fr 30px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 1.85rem 0;
+  padding: 1.35rem 0.5rem;
   border-bottom: 1px solid var(--line-hairline);
   text-decoration: none;
   color: inherit;
-  transition: padding-left 0.25s ease, color 0.2s ease;
+  transition: padding-left 0.25s var(--ease-snappy), background-color 0.2s ease;
+  gap: 1rem;
 }
 
 .archive-item:hover {
   padding-left: 1rem;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 .item-index {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--text-muted);
+  font-weight: 700;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .item-name {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  font-weight: 600;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.item-sub {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
 }
 
 .item-tag {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-dim);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--line-hairline);
 }
+
+.item-tag.gold   { color: var(--accent-gold);   border-color: rgba(245, 158, 11, 0.35); }
+.item-tag.red    { color: var(--accent-red);    border-color: rgba(239, 68, 68, 0.35); }
+.item-tag.purple { color: var(--accent-purple); border-color: rgba(168, 85, 247, 0.35); }
+.item-tag.blue   { color: var(--accent-blue);   border-color: rgba(56, 189, 248, 0.35); }
+.item-tag.green  { color: var(--accent-green);  border-color: rgba(16, 185, 129, 0.35); }
 
 .item-arrow {
   font-family: var(--font-mono);
   font-size: 1.1rem;
   color: var(--text-muted);
-  transition: transform 0.25s ease, color 0.2s ease;
+  transition: transform 0.25s var(--ease-snappy), color 0.2s ease;
 }
 
 .archive-item:hover .item-arrow {
   transform: translate(3px, -3px);
-  color: #ffffff;
+  color: var(--text-white);
 }
 
-/* 4. Protocols Section */
+/* ==========================================================================
+   5. PROTOCOLS GRID
+   ========================================================================== */
 .protocols-section {
-  padding: 6rem 0;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   border-bottom: 1px solid var(--line-hairline);
 }
 
-.protocols-inner {
+.protocols-grid {
   display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
 
-.protocols-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.protocols-lead {
-  font-size: 0.95rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-}
-
-.protocols-right {
+.protocol-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--line-hairline);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--line-hairline);
+  gap: 0.65rem;
 }
 
-.protocol-group {
-  border-bottom: 1px solid var(--line-hairline);
-  padding: 1.5rem 0;
-}
-
-.protocol-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-
-.protocol-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.protocol-arrow {
+.protocol-code {
   font-family: var(--font-mono);
-  font-size: 1.1rem;
-  color: var(--text-dim);
+  font-size: 0.7rem;
+  color: var(--accent-gold);
+  font-weight: 700;
 }
 
-.protocol-body {
-  margin-top: 0.85rem;
-  font-size: 0.9rem;
-  color: var(--text-dim);
-  line-height: 1.6;
+.protocol-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
-/* 5. Footer */
+.protocol-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
 .site-footer {
-  padding: 4rem 0 3rem;
+  padding: 3.5rem 0 3rem;
 }
 
 .footer-inner {
@@ -383,6 +505,7 @@ body {
 .footer-nav {
   display: flex;
   gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .footer-nav a {
@@ -394,11 +517,11 @@ body {
 }
 
 .footer-nav a:hover {
-  color: #ffffff;
+  color: var(--text-white);
 }
 
 /* ==========================================================================
-   FLOATING PREVIEW CARD (Luke Baffait Cursor Interaction)
+   DESKTOP FLOATING PREVIEW CARD (Hidden on Touch/Mobile)
    ========================================================================== */
 .item-preview-card {
   position: fixed;
@@ -407,6 +530,7 @@ body {
   width: 240px;
   background: #141414;
   border: 1px solid var(--line-light);
+  border-radius: var(--radius-sm);
   padding: 8px;
   pointer-events: none;
   z-index: 999;
@@ -424,11 +548,17 @@ body {
   margin-bottom: 6px;
 }
 
+.preview-tier {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
 .preview-img-wrap {
   width: 100%;
   height: 135px;
   overflow: hidden;
   background: #000;
+  border-radius: 4px;
 }
 
 .preview-img-wrap img {
@@ -448,11 +578,20 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Responsive Adaptations */
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+   ========================================================================== */
 @media (max-width: 900px) {
   .spotlight-inner { grid-template-columns: 1fr; }
-  .protocols-inner { grid-template-columns: 1fr; }
-  .archive-item { grid-template-columns: 40px 1fr 30px; }
+  .spotlight-frame { max-width: 280px; }
+  .protocols-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .top-nav { flex-direction: column; align-items: flex-start; gap: 0.35rem; }
+  .nav-right { display: none; }
+  .section-meta { display: none; }
+  .archive-item { padding: 1.15rem 0; }
   .item-tag { display: none; }
   .item-preview-card { display: none !important; }
 }
