@@ -1,20 +1,28 @@
-:root {
-  --bg-canvas: #06080d;
-  --bg-surface: #0b0f17;
-  --bg-surface-hover: #111724;
-  --bg-inset: #04060a;
+/* ==========================================================================
+   GENSHIN DPS ARCHIVE — TRUE FROSTED GLASSMORPHISM SYSTEM
+   ========================================================================== */
 
-  --line-hairline: rgba(255, 255, 255, 0.08);
-  --line-medium: rgba(255, 255, 255, 0.16);
-  --line-focus: rgba(255, 255, 255, 0.35);
+:root {
+  --canvas-dark: #04060a;
+  
+  /* Glass Surface Palette */
+  --glass-surface: rgba(14, 20, 32, 0.45);
+  --glass-surface-hover: rgba(22, 32, 52, 0.65);
+  --glass-inset: rgba(4, 8, 15, 0.55);
+
+  /* Specular Glass Edge Borders & Inner Bevels */
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.28);
+  --glass-specular: inset 0 1px 1px 0 rgba(255, 255, 255, 0.22);
+  --glass-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65);
 
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Space Mono', monospace;
 
   --text-lead: #ffffff;
-  --text-body: #94a3b8;
-  --text-muted: #55647a;
+  --text-body: #9fb0c7;
+  --text-muted: #5e6f88;
 
   --accent-gold: #f59e0b;
   --accent-red: #ef4444;
@@ -23,7 +31,7 @@
   --accent-green: #10b981;
   --accent-cyan: #38bdf8;
 
-  --radius-card: 16px;
+  --radius-card: 18px;
   --radius-pill: 9999px;
   --transition-snappy: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -38,30 +46,83 @@
 
 html {
   font-size: 16px;
-  background-color: var(--bg-canvas);
+  background-color: var(--canvas-dark);
   color-scheme: dark;
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 body {
-  background-color: var(--bg-canvas);
-  background-image: 
-    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.05) 0%, transparent 60%);
-  background-size: 32px 32px, 100% 100%;
+  background-color: var(--canvas-dark);
   color: var(--text-lead);
   font-family: var(--font-body);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   AMBIENT UNDER-GLASS GLOW MESH
+   ========================================================================== */
+.glass-ambient-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.mesh-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.38;
+  will-change: transform;
+}
+
+.blob-gold {
+  width: min(600px, 85vw);
+  height: min(600px, 85vw);
+  top: -120px;
+  left: 10%;
+  background: radial-gradient(circle, #f59e0b, rgba(245, 158, 11, 0.1) 70%, transparent);
+}
+
+.blob-cyan {
+  width: min(500px, 75vw);
+  height: min(500px, 75vw);
+  top: 25%;
+  right: -80px;
+  background: radial-gradient(circle, #0ea5e9, rgba(14, 165, 233, 0.1) 70%, transparent);
+}
+
+.blob-purple {
+  width: min(550px, 80vw);
+  height: min(550px, 80vw);
+  bottom: 10%;
+  left: -100px;
+  background: radial-gradient(circle, #9333ea, rgba(147, 51, 234, 0.1) 70%, transparent);
+}
+
+.blob-red {
+  width: min(450px, 70vw);
+  height: min(450px, 70vw);
+  bottom: -100px;
+  right: 20%;
+  background: radial-gradient(circle, #ef4444, rgba(239, 68, 68, 0.1) 70%, transparent);
 }
 
 .site-container {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 clamp(1rem, 3.5vw, 2rem) 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* 1. Top System Bar */
@@ -70,7 +131,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--line-hairline);
+  border-bottom: 1px solid var(--glass-border);
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.05em;
@@ -89,7 +150,7 @@ body {
   height: 6px;
   background: #22c55e;
   border-radius: 50%;
-  box-shadow: 0 0 8px #22c55e;
+  box-shadow: 0 0 10px #22c55e;
 }
 
 .mono-meta {
@@ -125,10 +186,13 @@ body {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.65rem;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line-hairline);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--glass-specular);
   color: var(--text-body);
 }
 
@@ -149,12 +213,13 @@ body {
 .title-bold {
   display: inline-block;
   color: var(--text-lead);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .title-outline {
   display: inline-block;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.65);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.7);
 }
 
 .hero-lead {
@@ -162,17 +227,21 @@ body {
   color: var(--text-body);
   max-width: 680px;
   line-height: 1.55;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* Philosophy Strip */
+/* Glass Philosophy Strip */
 .philosophy-strip {
-  background: rgba(245, 158, 11, 0.05);
-  border: 1px solid rgba(245, 158, 11, 0.25);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.32);
   border-radius: var(--radius-card);
-  padding: clamp(1rem, 2.5vw, 1.4rem);
+  padding: clamp(1.15rem, 2.5vw, 1.5rem);
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
 }
 
 .strip-badge {
@@ -182,39 +251,39 @@ body {
 }
 
 .strip-icon {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .strip-title {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--accent-gold);
 }
 
 .strip-text {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: #fef08a;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* ==========================================================================
-   3. MASTER 12-COLUMN BENTO GRID (Seamless Layout)
+   3. MASTER 12-COLUMN GLASS BENTO GRID
    ========================================================================== */
 
 .archive-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1.25rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .grid-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--line-hairline);
+  background: var(--glass-surface);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-card);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding: clamp(1.35rem, 2.5vw, 1.85rem);
   text-decoration: none;
   color: inherit;
   display: flex;
@@ -222,77 +291,86 @@ body {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  transition: transform 0.25s var(--transition-snappy), border-color 0.2s ease, background 0.2s ease;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: var(--glass-shadow), var(--glass-specular);
+  transition: transform 0.3s var(--transition-snappy), border-color 0.25s ease, background 0.25s ease, box-shadow 0.3s ease;
 }
 
 .grid-card:hover {
   transform: translateY(-4px);
-  background: var(--bg-surface-hover);
-  border-color: var(--line-medium);
+  background: var(--glass-surface-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
-/* Card Column Spans */
+/* Glass Card Accents */
 
 /* SS Tier (8 Columns) */
 .card-ss {
   grid-column: span 8;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, var(--bg-surface) 100%);
-  border-color: rgba(245, 158, 11, 0.3);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(14, 20, 32, 0.45) 100%);
+  border-color: rgba(245, 158, 11, 0.38);
 }
 
 .card-ss:hover {
   border-color: var(--accent-gold);
+  box-shadow: 0 20px 48px -10px rgba(245, 158, 11, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 /* S Tier (4 Columns) */
 .card-s {
   grid-column: span 4;
-  border-color: rgba(239, 68, 68, 0.25);
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.08) 0%, var(--bg-surface) 100%);
+  border-color: rgba(239, 68, 68, 0.32);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
 }
 
 .card-s:hover {
   border-color: var(--accent-red);
+  box-shadow: 0 20px 48px -10px rgba(239, 68, 68, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 /* A Tier (4 Columns) */
 .card-a {
   grid-column: span 4;
-  border-color: rgba(168, 85, 247, 0.25);
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, var(--bg-surface) 100%);
+  border-color: rgba(168, 85, 247, 0.32);
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
 }
 
 .card-a:hover {
   border-color: var(--accent-purple);
+  box-shadow: 0 20px 48px -10px rgba(168, 85, 247, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 /* B Tier (4 Columns) */
 .card-b {
   grid-column: span 4;
-  border-color: rgba(59, 130, 246, 0.25);
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, var(--bg-surface) 100%);
+  border-color: rgba(59, 130, 246, 0.32);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
 }
 
 .card-b:hover {
   border-color: var(--accent-blue);
+  box-shadow: 0 20px 48px -10px rgba(59, 130, 246, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
 /* C Tier (4 Columns) */
 .card-c {
   grid-column: span 4;
-  border-color: rgba(16, 185, 129, 0.25);
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-surface) 100%);
+  border-color: rgba(16, 185, 129, 0.32);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14) 0%, rgba(14, 20, 32, 0.45) 100%);
 }
 
 .card-c:hover {
   border-color: var(--accent-green);
+  box-shadow: 0 20px 48px -10px rgba(16, 185, 129, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.4);
 }
 
-/* Protocol Cards (6 Columns each on Bottom Row) */
+/* Protocol Cards (6 Columns) */
 .protocol-card {
   grid-column: span 6;
-  background: var(--bg-inset);
-  border-color: var(--line-hairline);
+  background: var(--glass-inset);
+  border-color: var(--glass-border);
 }
 
 /* Card Internal Architecture */
@@ -321,15 +399,18 @@ body {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
-  padding: 0.22rem 0.6rem;
+  padding: 0.22rem 0.65rem;
   border-radius: var(--radius-pill);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--glass-specular);
 }
 
-.ss-badge { background: rgba(245, 158, 11, 0.18); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.35); }
-.s-badge  { background: rgba(239, 68, 68, 0.18);  color: var(--accent-red);  border: 1px solid rgba(239, 68, 68, 0.35); }
-.a-badge  { background: rgba(168, 85, 247, 0.18); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.35); }
-.b-badge  { background: rgba(59, 130, 246, 0.18); color: var(--accent-blue);  border: 1px solid rgba(59, 130, 246, 0.35); }
-.c-badge  { background: rgba(16, 185, 129, 0.18); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.35); }
+.ss-badge { background: rgba(245, 158, 11, 0.22); color: var(--accent-gold); border: 1px solid rgba(245, 158, 11, 0.45); }
+.s-badge  { background: rgba(239, 68, 68, 0.22);  color: var(--accent-red);  border: 1px solid rgba(239, 68, 68, 0.45); }
+.a-badge  { background: rgba(168, 85, 247, 0.22); color: var(--accent-purple); border: 1px solid rgba(168, 85, 247, 0.45); }
+.b-badge  { background: rgba(59, 130, 246, 0.22); color: var(--accent-blue);  border: 1px solid rgba(59, 130, 246, 0.45); }
+.c-badge  { background: rgba(16, 185, 129, 0.22); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.45); }
 
 .card-hero-content {
   margin-bottom: 1.5rem;
@@ -369,10 +450,12 @@ body {
 .character-chip {
   font-size: 0.74rem;
   font-weight: 700;
-  padding: 0.22rem 0.55rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--line-hairline);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--text-lead);
 }
 
@@ -383,7 +466,7 @@ body {
   font-size: 0.8rem;
   font-weight: 700;
   color: var(--text-lead);
-  border-top: 1px solid var(--line-hairline);
+  border-top: 1px solid var(--glass-border);
   padding-top: 0.85rem;
   margin-top: auto;
 }
@@ -402,7 +485,7 @@ body {
   font-family: var(--font-mono);
   font-size: 0.68rem;
   color: var(--text-muted);
-  border-top: 1px solid var(--line-hairline);
+  border-top: 1px solid var(--glass-border);
   padding-top: 0.75rem;
 }
 
@@ -410,7 +493,7 @@ body {
 .site-footer {
   margin-top: 4rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--line-hairline);
+  border-top: 1px solid var(--glass-border);
 }
 
 .footer-meta {
@@ -436,10 +519,7 @@ body {
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   VIEWPORT ADAPTATIONS (Desktop, 14" Chromebook, Tablet, Mobile)
-   ========================================================================== */
-
+/* Viewport Adaptations */
 @media (max-width: 1024px) {
   .card-ss { grid-column: span 12; }
   .card-s  { grid-column: span 6; }
