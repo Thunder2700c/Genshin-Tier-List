@@ -6,7 +6,7 @@
   <title>GENSHIN ARCHIVE // 7.0 META DIRECTORY</title>
   <meta name="theme-color" content="#0a0a0a">
   
-  <!-- Luke Baffait Typographic Pairing: Inter + Space Mono -->
+  <!-- High-End Editorial Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-  <!-- Ambient Under-Layer -->
+  <!-- Background Atmosphere -->
   <div class="intro-bg" id="intro-bg"></div>
 
   <!-- Scroll Progression Telemetry -->
@@ -27,40 +27,50 @@
   <!-- Master Content Wrapper -->
   <div class="scroll-wrap" id="scroll-wrap">
 
-    <!-- 1. Hero Section (Luke Baffait Style) -->
-    <section class="hero" id="hero">
-      <div class="hero-content">
-        <div class="hero-tagline" id="hero-tagline">
-          Independent theorycrafting, <span class="accent-italic">evaluating pull value</span> and C0 baselines,<br>
-          across the Version 7.0 Stellar-Conduct meta shift.
-        </div>
+    <!-- 1. Top System Header -->
+    <header class="top-nav">
+      <div class="nav-left">
+        <span class="status-indicator"></span>
+        <span class="mono-brand">GENSHIN ARCHIVE</span>
+        <span class="mono-dim">// VER 7.0</span>
+      </div>
+      <div class="nav-right">
+        <span class="mono-tag">DATABASE SYNCED : AUG 2026</span>
+      </div>
+    </header>
 
-        <div class="hero-line" id="hero-line"></div>
-        
-        <!-- Bottom Hero Telemetry Bar -->
-        <div class="hero-bar" id="hero-bar">
-          <div class="hero-bar-left">
-            <span class="mono-badge">🡺 V7.0 ARCHIVE</span>
-          </div>
-          <nav class="hero-bar-center" aria-label="Meta Filters">
-            <a class="nav-item" href="tiers/ss-tier.html">SS-Tier</a>
-            <span class="sep">/</span>
-            <a class="nav-item" href="tiers/s-tier.html">S-Tier</a>
-            <span class="sep">/</span>
-            <a class="nav-item" href="tiers/a-tier.html">A-Tier</a>
-            <span class="sep">/</span>
-            <a class="nav-item" href="tiers/b-tier.html">B-Tier</a>
-            <span class="sep">/</span>
-            <a class="nav-item" href="tiers/c-tier.html">C-Tier</a>
-          </nav>
-          <div class="hero-bar-right">
-            <span class="mono-dim">DATABASE // AUG 2026</span>
-          </div>
+    <!-- 2. Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-label-wrap">
+        <span class="section-tag">[ 00 // REGISTRY ]</span>
+        <span class="tag-pill">PULL VALUE & DPS FRAMEWORK</span>
+      </div>
+
+      <h1 class="hero-title">
+        INDEPENDENT <span class="accent-italic">THEORYCRAFTING</span> FOR VERSION 7.0
+      </h1>
+
+      <p class="hero-lead">
+        Evaluating on-field carry potential, reaction scaling across the Stellar-Conduct meta shift, and C0 realistic damage baselines with zero whale screenshot distortions.
+      </p>
+
+      <div class="hero-nav-bar">
+        <span class="nav-bar-label">QUICK REGISTRY:</span>
+        <div class="tier-nav-links">
+          <a class="tier-link ss-gold" href="tiers/ss-tier.html">SS-Tier</a>
+          <span class="sep">/</span>
+          <a class="tier-link" href="tiers/s-tier.html">S-Tier</a>
+          <span class="sep">/</span>
+          <a class="tier-link" href="tiers/a-tier.html">A-Tier</a>
+          <span class="sep">/</span>
+          <a class="tier-link" href="tiers/b-tier.html">B-Tier</a>
+          <span class="sep">/</span>
+          <a class="tier-link" href="tiers/c-tier.html">C-Tier</a>
         </div>
       </div>
     </section>
 
-    <!-- 2. Spotlight Spotlight / Viewfinder Section -->
+    <!-- 3. Spotlight Banner Frame -->
     <section class="spotlight-section">
       <div class="spotlight-inner">
         <div class="spotlight-frame">
@@ -72,133 +82,146 @@
         </div>
         <div class="spotlight-caption">
           <p class="spotlight-phrase">
-            "A character achieving record DPS does not justify your Primogems if your roster already commands an equivalent carry. <span class="accent-italic">Luxury redundancy is an account trap.</span>"
+            "A character achieving record DPS does not make them an essential pull. If your account already commands an equivalent elemental carry, <span class="accent-italic">pulling is luxury redundancy</span>."
           </p>
           <span class="spotlight-author">— CORE AXIOM // 01</span>
         </div>
       </div>
     </section>
 
-    <!-- 3. Interactive Tier Registry (Adapted from Luke's Project List) -->
+    <!-- 4. Interactive Tier Registry List -->
     <section class="archive-section" id="archive">
       <div class="section-header-bar">
         <span class="section-num">[01]</span>
         <h2 class="section-title">COMBAT TIER REGISTRY</h2>
-        <span class="section-meta">// HOVER TO PREVIEW ROSTER</span>
+        <span class="section-meta">// SELECT TIER TO VIEW FULL ANALYSIS</span>
       </div>
 
       <div class="archive-list" id="archive-list">
         
         <!-- SS Tier Item -->
         <a href="tiers/ss-tier.html" class="archive-item" 
-           data-id="ss-tier" 
            data-img="assets/images/characters/mavuika.webp" 
            data-tier="SS TIER // EXCEPTIONAL"
            data-roster="Mavuika, Wriothesley (C1), Cyno (C1), Sandrone">
-          <span class="item-index">01</span>
-          <span class="item-name">SS Tier — Pinnacle Scaling</span>
-          <span class="item-tag">Stellar-Conduct Lead</span>
-          <span class="item-arrow">🡵</span>
+          <div class="item-left">
+            <span class="item-index">01</span>
+            <div class="item-info">
+              <span class="item-name">SS Tier — Pinnacle Scaling</span>
+              <span class="item-sub">Mavuika, Wriothesley (C1), Cyno (C1), Sandrone</span>
+            </div>
+          </div>
+          <div class="item-right">
+            <span class="item-tag gold">Stellar-Conduct Peak</span>
+            <span class="item-arrow">↗</span>
+          </div>
         </a>
 
         <!-- S Tier Item -->
         <a href="tiers/s-tier.html" class="archive-item" 
-           data-id="s-tier" 
            data-img="assets/images/characters/varka.webp" 
            data-tier="S TIER // TOP TIER"
            data-roster="Varka, Skirk, Mizuki">
-          <span class="item-index">02</span>
-          <span class="item-name">S Tier — High DPS / Minor Restrictions</span>
-          <span class="item-tag">Skill Heavy</span>
-          <span class="item-arrow">🡵</span>
+          <div class="item-left">
+            <span class="item-index">02</span>
+            <div class="item-info">
+              <span class="item-name">S Tier — High DPS Ceiling</span>
+              <span class="item-sub">Varka, Skirk, Mizuki</span>
+            </div>
+          </div>
+          <div class="item-right">
+            <span class="item-tag red">Skill Focused</span>
+            <span class="item-arrow">↗</span>
+          </div>
         </a>
 
         <!-- A Tier Item -->
         <a href="tiers/a-tier.html" class="archive-item" 
-           data-id="a-tier" 
            data-img="assets/images/characters/arlecchino.webp" 
            data-tier="A TIER // VERY STRONG"
            data-roster="Arlecchino, Neuvillette, Chasca, Kinich">
-          <span class="item-index">03</span>
-          <span class="item-name">A Tier — Proven Hypercarries</span>
-          <span class="item-tag">High Competition</span>
-          <span class="item-arrow">🡵</span>
+          <div class="item-left">
+            <span class="item-index">03</span>
+            <div class="item-info">
+              <span class="item-name">A Tier — Proven Hypercarries</span>
+              <span class="item-sub">Arlecchino, Neuvillette, Chasca, Kinich</span>
+            </div>
+          </div>
+          <div class="item-right">
+            <span class="item-tag purple">Role Overlap</span>
+            <span class="item-arrow">↗</span>
+          </div>
         </a>
 
         <!-- B Tier Item -->
         <a href="tiers/b-tier.html" class="archive-item" 
-           data-id="b-tier" 
            data-img="assets/images/characters/ayaka.webp" 
            data-tier="B TIER // VIABLE"
            data-roster="Ayaka, Clorinde, Gaming (C6), Raiden (C2)">
-          <span class="item-index">04</span>
-          <span class="item-name">B Tier — High Investment Demands</span>
-          <span class="item-tag">Constellation Spikes</span>
-          <span class="item-arrow">🡵</span>
+          <div class="item-left">
+            <span class="item-index">04</span>
+            <div class="item-info">
+              <span class="item-name">B Tier — High Investment Demands</span>
+              <span class="item-sub">Ayaka, Clorinde, Gaming (C6), Raiden (C2)</span>
+            </div>
+          </div>
+          <div class="item-right">
+            <span class="item-tag blue">Constellation Spikes</span>
+            <span class="item-arrow">↗</span>
+          </div>
         </a>
 
         <!-- C Tier Item -->
         <a href="tiers/c-tier.html" class="archive-item" 
-           data-id="c-tier" 
            data-img="assets/images/characters/yoimiya.webp" 
            data-tier="C TIER // NICHE"
            data-roster="Yoimiya, Diluc, Itto, Eula">
-          <span class="item-index">05</span>
-          <span class="item-name">C Tier — Standard / Low Pull Priority</span>
-          <span class="item-tag">High Redundancy</span>
-          <span class="item-arrow">🡵</span>
+          <div class="item-left">
+            <span class="item-index">05</span>
+            <div class="item-info">
+              <span class="item-name">C Tier — Standard / Low Priority</span>
+              <span class="item-sub">Yoimiya, Diluc, Itto, Eula</span>
+            </div>
+          </div>
+          <div class="item-right">
+            <span class="item-tag green">High Redundancy</span>
+            <span class="item-arrow">↗</span>
+          </div>
         </a>
 
       </div>
     </section>
 
-    <!-- 4. Protocol Breakdowns (Adapted from Luke's Skills Accordion) -->
+    <!-- 5. Protocols Section -->
     <section class="protocols-section" id="protocols">
-      <div class="protocols-inner">
-        <div class="protocols-left">
-          <span class="section-num">[02]</span>
-          <h2 class="protocols-title">EVALUATION PROTOCOLS</h2>
-          <p class="protocols-lead">
-            Methodology applied across every calculation to eliminate whale distortions and screenshot bait.
-          </p>
+      <div class="section-header-bar">
+        <span class="section-num">[02]</span>
+        <h2 class="section-title">EVALUATION PROTOCOLS</h2>
+        <span class="section-meta">// CORE METHODOLOGY</span>
+      </div>
+
+      <div class="protocols-grid">
+        <div class="protocol-card">
+          <span class="protocol-code">PROTOCOL // 01</span>
+          <h3 class="protocol-heading">C0 Realistic Baselines</h3>
+          <p class="protocol-desc">Evaluated strictly with accessible 4-star weapons, standard $75/180$ CRIT sub-stats, and realistic multi-wave Energy Recharge thresholds.</p>
         </div>
-        <div class="protocols-right">
-          
-          <div class="protocol-group">
-            <div class="protocol-header">
-              <span class="protocol-title">01 / C0 Realistic Benchmarks</span>
-              <span class="protocol-arrow">+</span>
-            </div>
-            <div class="protocol-body">
-              <p>Calculations strictly mandate accessible 4-star weapons, achievable $75/180$ CRIT ratios, and non-negotiable Energy Recharge thresholds for reliable burst uptime.</p>
-            </div>
-          </div>
 
-          <div class="protocol-group">
-            <div class="protocol-header">
-              <span class="protocol-title">02 / 7.0 Stellar-Conduct Dynamics</span>
-              <span class="protocol-arrow">+</span>
-            </div>
-            <div class="protocol-body">
-              <p>Evaluation of multi-target continuous elemental discharges enabled by rapid Cryo/Electro drivers like Odette, Cyno, and Sandrone.</p>
-            </div>
-          </div>
+        <div class="protocol-card">
+          <span class="protocol-code">PROTOCOL // 02</span>
+          <h3 class="protocol-heading">7.0 Stellar-Conduct Fluidity</h3>
+          <p class="protocol-desc">Prioritizing continuous multi-target reaction discharges triggered by rapid Cryo and Electro enablers over rigid circle-bound burst windows.</p>
+        </div>
 
-          <div class="protocol-group">
-            <div class="protocol-header">
-              <span class="protocol-title">03 / Rotational Rigidity & Buff Falloff</span>
-              <span class="protocol-arrow">+</span>
-            </div>
-            <div class="protocol-body">
-              <p>Penalizing carries whose on-field commitments exceed 12 seconds, resulting in unbuffed damage windows after support cooldowns expire.</p>
-            </div>
-          </div>
-
+        <div class="protocol-card">
+          <span class="protocol-code">PROTOCOL // 03</span>
+          <h3 class="protocol-heading">Account Redundancy Radar</h3>
+          <p class="protocol-desc">Distinguishing genuine account upgrades from duplicate on-field carries to ensure maximum pull efficiency on every banner.</p>
         </div>
       </div>
     </section>
 
-    <!-- 5. Minimal Editorial Footer -->
+    <!-- 6. Footer -->
     <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-col">
@@ -217,7 +240,7 @@
 
   </div>
 
-  <!-- Hover Floating Preview Card (Luke Baffait Mechanic) -->
+  <!-- Desktop Floating Preview Cursor Card -->
   <div class="item-preview-card" id="itemPreviewCard">
     <div class="preview-meta">
       <span class="preview-tier" id="previewTier">SS TIER</span>
