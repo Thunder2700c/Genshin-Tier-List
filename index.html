@@ -6,11 +6,11 @@
   <title>Genshin DPS & Pull Value Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <!-- Fixed Ambient Glow Wrapper (Prevents Horizontal Scroll) -->
+  <!-- Fixed Ambient Glow Layer -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
     <div class="ambient-glow glow-top"></div>
     <div class="ambient-glow glow-bottom"></div>
@@ -20,142 +20,153 @@
     <!-- Header -->
     <header class="site-header">
       <div class="brand">
-        <div class="brand-badge">ARCHIVE</div>
+        <div class="brand-badge">ARCHIVE • VER 7.0</div>
         <h1 class="site-title">GENSHIN DPS ARCHIVE</h1>
-        <p class="site-tagline">DPS • Pull Value • Account Efficiency</p>
+        <p class="site-tagline">DPS Ceilings • Account Redundancy • Realistic Pull Efficiency</p>
       </div>
       <div class="header-meta">
-        <span class="meta-tag version-tag">Version 7.0</span>
-        <span class="meta-tag date-tag">Updated: August 2026</span>
+        <span class="meta-tag version-tag">Version 7.0 Live</span>
+        <span class="meta-tag date-tag">August 2026</span>
       </div>
     </header>
 
-    <!-- Core Philosophy Callout -->
-    <section class="disclaimer-banner">
-      <div class="disclaimer-icon">⚠️</div>
-      <div class="disclaimer-content">
-        <h2>POWER ≠ PULL VALUE</h2>
-        <p>A character being extremely powerful does not automatically mean you should pull them. Your existing characters, supports, team requirements, and account redundancy matter.</p>
+    <!-- Master Bento Grid Layout -->
+    <main class="bento-grid">
+      
+      <!-- Bento Item 1: Giant Featured SS-Tier Showcase Card (Orange Focus) -->
+      <a href="tiers/ss-tier.html" class="bento-card bento-hero-ss">
+        <div class="bento-card-bg-glow"></div>
+        <div class="bento-card-top">
+          <div class="tier-pill-badge pill-ss">SS TIER</div>
+          <span class="bento-icon">👑</span>
+        </div>
+        <div class="bento-card-content">
+          <h2 class="bento-title">EXCEPTIONAL</h2>
+          <p class="bento-desc">Highest overall DPS ceilings and pinnacle account-clearing value at C0 baseline.</p>
+          <div class="bento-roster-preview">
+            <span class="roster-chip">Mavuika</span>
+            <span class="roster-chip">Wriothesley (C1)</span>
+            <span class="roster-chip">Cyno (C1)</span>
+            <span class="roster-chip">Sandrone</span>
+            <span class="roster-chip">+4 More</span>
+          </div>
+        </div>
+        <div class="bento-card-footer">
+          <span>Explore SS Tier Characters</span>
+          <span class="bento-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Bento Item 2: Core Philosophy Rule (Alert Card) -->
+      <div class="bento-card bento-rule-card">
+        <div class="rule-icon-wrap">⚠️</div>
+        <div class="rule-body">
+          <span class="rule-micro-label">CORE ARCHIVE PHILOSOPHY</span>
+          <h3 class="rule-headline">POWER ≠ PULL VALUE</h3>
+          <p class="rule-text">A character being top-tier does not mean you should pull. If your account already owns an equivalent on-field carry, pulling is luxury redundancy.</p>
+        </div>
       </div>
-    </section>
 
-    <!-- Tier Navigation Grid -->
-    <main class="tier-section">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Select Tier</h2>
-        <p class="section-desc">Explore DPS character breakdowns, realistic damage limits, and contextual pull recommendations.</p>
+      <!-- Bento Item 3: S-Tier (Crimson Focus) -->
+      <a href="tiers/s-tier.html" class="bento-card bento-card-s">
+        <div class="bento-card-top">
+          <div class="tier-pill-badge pill-s">S TIER</div>
+          <span class="bento-icon">🔥</span>
+        </div>
+        <div class="bento-card-content">
+          <h3 class="bento-sub-title">TOP TIER</h3>
+          <p class="bento-sub-desc">Extremely high combat scaling with minor rotation or team restrictions.</p>
+          <div class="bento-roster-preview">
+            <span class="roster-chip">Mizuki</span>
+            <span class="roster-chip">Varka</span>
+            <span class="roster-chip">Skirk</span>
+          </div>
+        </div>
+        <div class="bento-card-footer">
+          <span>View S Tier</span>
+          <span class="bento-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Bento Item 4: A-Tier (Royal Purple Focus) -->
+      <a href="tiers/a-tier.html" class="bento-card bento-card-a">
+        <div class="bento-card-top">
+          <div class="tier-pill-badge pill-a">A TIER</div>
+          <span class="bento-icon">🟣</span>
+        </div>
+        <div class="bento-card-content">
+          <h3 class="bento-sub-title">VERY STRONG (A / A+)</h3>
+          <p class="bento-sub-desc">Endgame dominators with specific support reliance or high role competition.</p>
+          <div class="bento-roster-preview">
+            <span class="roster-chip">Arlecchino</span>
+            <span class="roster-chip">Neuvillette</span>
+            <span class="roster-chip">Chasca</span>
+            <span class="roster-chip">Kinich</span>
+          </div>
+        </div>
+        <div class="bento-card-footer">
+          <span>View A Tier</span>
+          <span class="bento-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- Bento Item 5: Stat Metric Widget (C0 Baseline Pillar) -->
+      <div class="bento-card bento-stat-widget">
+        <div class="widget-head">
+          <span class="widget-icon">🎯</span>
+          <span class="widget-label">C0 REALISTIC BASELINE</span>
+        </div>
+        <h4 class="widget-value">Zero Whale Distortions</h4>
+        <p class="widget-sub">Evaluated strictly with 4-star weapons, standard artifacts, and non-screenshot setups.</p>
       </div>
 
-      <div class="tier-grid">
-        <!-- SS Tier -->
-        <a href="tiers/ss-tier.html" class="tier-card tier-ss">
-          <div class="tier-card-header">
-            <span class="tier-badge">SS</span>
-            <span class="tier-icon">👑</span>
-          </div>
-          <div class="tier-card-body">
-            <h3 class="tier-name">SS TIER</h3>
-            <span class="tier-label">Exceptional</span>
-            <p class="tier-description">Highest overall DPS, unmatched flexibility, and pinnacle account value.</p>
-          </div>
-          <div class="tier-card-footer">
-            <span>View Characters</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+      <!-- Bento Item 6: B-Tier (Cerulean Blue Focus) -->
+      <a href="tiers/b-tier.html" class="bento-card bento-card-b">
+        <div class="bento-card-top">
+          <div class="tier-pill-badge pill-b">B TIER</div>
+          <span class="bento-icon">🔵</span>
+        </div>
+        <div class="bento-card-content">
+          <h3 class="bento-sub-title">GOOD & VIABLE</h3>
+          <p class="bento-sub-desc">Capable units requiring dedicated investment or constellation thresholds (C1/C2/C6).</p>
+        </div>
+        <div class="bento-card-footer">
+          <span>View B Tier</span>
+          <span class="bento-arrow">→</span>
+        </div>
+      </a>
 
-        <!-- S Tier -->
-        <a href="tiers/s-tier.html" class="tier-card tier-s">
-          <div class="tier-card-header">
-            <span class="tier-badge">S</span>
-            <span class="tier-icon">🔥</span>
-          </div>
-          <div class="tier-card-body">
-            <h3 class="tier-name">S TIER</h3>
-            <span class="tier-label">Top Tier</span>
-            <p class="tier-description">Extremely high damage output with minor team constraints or role overlap.</p>
-          </div>
-          <div class="tier-card-footer">
-            <span>View Characters</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+      <!-- Bento Item 7: C-Tier (Emerald Green Focus) -->
+      <a href="tiers/c-tier.html" class="bento-card bento-card-c">
+        <div class="bento-card-top">
+          <div class="tier-pill-badge pill-c">C TIER</div>
+          <span class="bento-icon">🟢</span>
+        </div>
+        <div class="bento-card-content">
+          <h3 class="bento-sub-title">NICHE / LOW PRIORITY</h3>
+          <p class="bento-sub-desc">Specialized, power-crept, or standard banner units with lower pull return.</p>
+        </div>
+        <div class="bento-card-footer">
+          <span>View C Tier</span>
+          <span class="bento-arrow">→</span>
+        </div>
+      </a>
 
-        <!-- A Tier -->
-        <a href="tiers/a-tier.html" class="tier-card tier-a">
-          <div class="tier-card-header">
-            <span class="tier-badge">A</span>
-            <span class="tier-icon">🟣</span>
-          </div>
-          <div class="tier-card-body">
-            <h3 class="tier-name">A TIER</h3>
-            <span class="tier-label">Very Strong</span>
-            <p class="tier-description">Highly capable units that easily clear endgame content without peak investment.</p>
-          </div>
-          <div class="tier-card-footer">
-            <span>View Characters</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- B Tier -->
-        <a href="tiers/b-tier.html" class="tier-card tier-b">
-          <div class="tier-card-header">
-            <span class="tier-badge">B</span>
-            <span class="tier-icon">🔵</span>
-          </div>
-          <div class="tier-card-body">
-            <h3 class="tier-name">B TIER</h3>
-            <span class="tier-label">Good / Viable</span>
-            <p class="tier-description">Solid damage dealers that require dedicated support teams or higher investment.</p>
-          </div>
-          <div class="tier-card-footer">
-            <span>View Characters</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
-
-        <!-- C Tier -->
-        <a href="tiers/c-tier.html" class="tier-card tier-c">
-          <div class="tier-card-header">
-            <span class="tier-badge">C</span>
-            <span class="tier-icon">🟢</span>
-          </div>
-          <div class="tier-card-body">
-            <h3 class="tier-name">C TIER</h3>
-            <span class="tier-label">Niche / Low Priority</span>
-            <p class="tier-description">Specialized or power-crept units with heavy investment demands or direct upgrades.</p>
-          </div>
-          <div class="tier-card-footer">
-            <span>View Characters</span>
-            <span class="arrow">→</span>
-          </div>
-        </a>
+      <!-- Bento Item 8: Redundancy Calculator Preview Widget -->
+      <div class="bento-card bento-redundancy-widget">
+        <div class="widget-head">
+          <span class="widget-icon">🔄</span>
+          <span class="widget-label">ACCOUNT REDUNDANCY RADAR</span>
+        </div>
+        <h4 class="widget-value">Protect Your Primogems</h4>
+        <p class="widget-sub">Distinguishes on-field duplication from missing elemental puzzle pieces.</p>
       </div>
+
     </main>
-
-    <!-- Core Pillars Summary -->
-    <section class="pillars-section">
-      <div class="pillar-card">
-        <div class="pillar-icon">🎯</div>
-        <h3>C0 Realistic Baseline</h3>
-        <p>Evaluated at realistic investment levels. No 5-buff whale screenshot distortions.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon">🔄</div>
-        <h3>Account Redundancy</h3>
-        <p>Identifies duplicate on-field elemental roles to save your Primogems for missing puzzle pieces.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-icon">💎</div>
-        <h3>Contextual Pull Value</h3>
-        <p>Separate ratings for fresh accounts, mid-game rosters, and established veteran accounts.</p>
-      </div>
-    </section>
 
     <!-- Footer -->
     <footer class="site-footer">
-      <p>Genshin DPS & Pull Value Archive • Built for Account Efficiency</p>
+      <p>Genshin DPS & Pull Value Archive • Designed for Pure Account Efficiency</p>
       <p class="disclaimer-subtext">Not affiliated with or endorsed by HoYoverse. Genshin Impact is a registered trademark of HoYoverse.</p>
     </footer>
   </div>
