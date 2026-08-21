@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>S Tier Characters — Genshin DPS Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/tier.css">
 </head>
 <body>
-  <div class="ambient-glow glow-tier glow-s"></div>
+  <!-- Fixed Ambient Glow Layer -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="ambient-glow glow-tier glow-s"></div>
+  </div>
 
   <div class="container">
     <nav class="tier-nav-bar">
@@ -30,8 +33,8 @@
 
     <header class="tier-header header-s">
       <div class="tier-title-group">
-        <h1><span>🔥</span> S Tier: Top Tier</h1>
-        <p>Exceptional combat power with slight rotational or team composition restrictions compared to SS tier.</p>
+        <h1><span>🔴</span> S Tier: Top Tier / Meta Defining</h1>
+        <p>Extremely high raw damage output and strong reaction scalability with minor rotational constraints.</p>
       </div>
       <div class="tier-step-nav">
         <a href="ss-tier.html" class="step-btn">← SS Tier</a>
@@ -56,100 +59,55 @@
     </section>
 
     <main class="character-grid">
-      <!-- Mizuki -->
-      <a href="../characters/mizuki.html" class="char-card" data-name="mizuki" data-element="anemo">
-        <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/mizuki.webp" alt="Mizuki" onerror="this.parentElement.innerHTML='💨'">
-          </div>
-          <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-anemo">Anemo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Catalyst (C0)</span>
-            </div>
-            <h2 class="char-name">Mizuki</h2>
-          </div>
-        </div>
-        <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 4.9</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Anemo Driver</span>
-          </div>
-        </div>
-        <p class="char-card-summary">Potent crowd grouping fused with relentless swirling field control and rapid catalyst attacks.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Swirl DPS Driver</span>
-          <span>Full Analysis →</span>
-        </div>
-      </a>
-
       <!-- Varka -->
-      <a href="../characters/varka.html" class="char-card" data-name="varka" data-element="anemo">
+      <a href="../characters/varka.html" class="char-card" data-name="varka knight of boreas" data-element="anemo">
         <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/varka.webp" alt="Varka" onerror="this.parentElement.innerHTML='🗡️'">
-          </div>
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/varka.webp" alt="Varka" onerror="this.parentElement.innerHTML='⚔️'"></div>
           <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-anemo">Anemo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Claymore (C0)</span>
-            </div>
+            <div class="char-meta-row"><span class="element-tag elem-anemo">Anemo</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Claymore (C0)</span></div>
             <h2 class="char-name">Varka</h2>
           </div>
         </div>
         <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 4.9</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-high">4.8/5 • Skill-Based DPS</span>
-          </div>
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 4.8</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-high">4.5/5 • Skill-Based DPS Monster</span></div>
         </div>
-        <p class="char-card-summary">Heavy-hitting Anemo Claymore combatant focusing on massive Skill DPS scaling and poise breaking.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Skill-Based Hypercarry</span>
-          <span>Full Analysis →</span>
-        </div>
+        <p class="char-card-summary">Colossal skill-focused normal/charged slashes with built-in poise break and supreme single-target output.</p>
+        <div class="char-card-footer"><span>Primary Role: Skill-Based Physical/Anemo Carry</span><span>Full Analysis →</span></div>
       </a>
 
       <!-- Skirk -->
       <a href="../characters/skirk.html" class="char-card" data-name="skirk" data-element="cryo">
         <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/skirk.webp" alt="Skirk" onerror="this.parentElement.innerHTML='❄️'">
-          </div>
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/skirk.webp" alt="Skirk" onerror="this.parentElement.innerHTML='🌌'"></div>
           <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-cryo">Cryo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Sword (C0)</span>
-            </div>
+            <div class="char-meta-row"><span class="element-tag elem-cryo">Cryo</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Sword (C0)</span></div>
             <h2 class="char-name">Skirk</h2>
           </div>
         </div>
         <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 4.9</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Single-Target Nuke</span>
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 4.8</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-high">4.5/5 • Abyssal Hypercarry</span></div>
+        </div>
+        <p class="char-card-summary">Fast-paced spatial slice mechanics dealing devastating multi-target damage independent of strict elemental setups.</p>
+        <div class="char-card-footer"><span>Primary Role: Dimensional Slash Hypercarry</span><span>Full Analysis →</span></div>
+      </a>
+
+      <!-- Mizuki -->
+      <a href="../characters/mizuki.html" class="char-card" data-name="mizuki" data-element="hydro">
+        <div class="char-card-hero">
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/mizuki.webp" alt="Mizuki" onerror="this.parentElement.innerHTML='🌊'"></div>
+          <div class="char-hero-info">
+            <div class="char-meta-row"><span class="element-tag elem-hydro">Hydro</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Catalyst (C0)</span></div>
+            <h2 class="char-name">Mizuki</h2>
           </div>
         </div>
-        <p class="char-card-summary">Extremely swift multi-hit sword sequences and devastating frontloaded Cryo burst damage.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Frontload Finisher</span>
-          <span>Full Analysis →</span>
+        <div class="char-card-metrics">
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 4.7</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-high">4.5/5 • Hydro Enabler / DPS</span></div>
         </div>
+        <p class="char-card-summary">Dual-role Hydro application with rapid lunar cascading, delivering enormous personal damage alongside team buffs.</p>
+        <div class="char-card-footer"><span>Primary Role: Lunar Hydro Carry</span><span>Full Analysis →</span></div>
       </a>
 
       <div id="noResults" class="no-results">
