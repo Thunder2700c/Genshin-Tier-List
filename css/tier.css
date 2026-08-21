@@ -30,6 +30,15 @@
   --elem-anemo: #2dd4bf;
   --elem-geo: #eab308;
 
+  /* In-Game Genshin Rarity Gradients */
+  --rarity-5-bg: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
+  --rarity-5-border: rgba(245, 158, 11, 0.5);
+  --rarity-5-glow: 0 4px 14px rgba(226, 159, 82, 0.25);
+
+  --rarity-4-bg: radial-gradient(circle at 50% 25%, #9d68cb 0%, #683d91 55%, #381b55 100%);
+  --rarity-4-border: rgba(168, 85, 247, 0.5);
+  --rarity-4-glow: 0 4px 14px rgba(157, 104, 203, 0.25);
+
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -42,6 +51,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  min-width: 0;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -264,7 +274,7 @@ body {
   pointer-events: none;
 }
 
-/* Fixed Controls Tooling & Horizontal Scroll */
+/* Controls Tooling */
 .controls-bar {
   display: flex;
   flex-direction: column;
@@ -326,7 +336,6 @@ body {
 
 .elem-btn:hover {
   color: #ffffff;
-  border-color: var(--line-medium);
 }
 
 .elem-btn.active {
@@ -372,25 +381,38 @@ body {
   border-bottom: 1px solid var(--line-subtle);
 }
 
+/* ==========================================================================
+   GENSHIN AUTHENTIC RARITY AVATAR WRAPPER (Gold & Purple Defaults)
+   ========================================================================== */
 .char-avatar-wrap {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-md);
-  background: var(--surface-inset);
+  background: var(--rarity-5-bg); /* Default 5-Star Genshin Gold */
+  border: 1px solid var(--rarity-5-border);
+  box-shadow: var(--rarity-5-glow), inset 0 1px 2px rgba(255, 255, 255, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.8rem;
-  border: 1px solid var(--line-subtle);
   flex-shrink: 0;
   overflow: hidden;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+/* 4-Star Character Avatar Override (Purple) */
+.char-avatar-wrap.rarity-4,
+.char-card[data-rarity="4"] .char-avatar-wrap {
+  background: var(--rarity-4-bg);
+  border: 1px solid var(--rarity-4-border);
+  box-shadow: var(--rarity-4-glow), inset 0 1px 2px rgba(255, 255, 255, 0.25);
 }
 
 .char-avatar-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .char-hero-info {
@@ -426,6 +448,10 @@ body {
 .rarity-tag {
   font-size: 0.75rem;
   color: #facc15;
+}
+
+.rarity-tag-4star {
+  color: #c084fc;
 }
 
 .weapon-role-tag {
