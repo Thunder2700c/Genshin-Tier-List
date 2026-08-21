@@ -3,253 +3,236 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>GENSHIN ARCHIVE // 7.0 META DIRECTORY</title>
-  <meta name="theme-color" content="#0a0a0a">
-  
-  <!-- High-End Editorial Typography -->
+  <title>Genshin DPS & Pull Value Archive — Version 7.0 Meta</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 
-  <!-- Background Atmosphere -->
-  <div class="intro-bg" id="intro-bg"></div>
-
-  <!-- Scroll Progression Telemetry -->
-  <div class="scroll-pct" id="scroll-pct">(0%)</div>
-  <div class="scroll-timeline" id="scroll-timeline">
-    <div class="st-bar" id="st-bar"></div>
+  <!-- Ambient Glow Backdrop Layer -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="ambient-glow glow-gold"></div>
+    <div class="ambient-glow glow-blue"></div>
   </div>
 
-  <!-- Master Content Wrapper -->
-  <div class="scroll-wrap" id="scroll-wrap">
-
-    <!-- 1. Top System Header -->
-    <header class="top-nav">
-      <div class="nav-left">
-        <span class="status-indicator"></span>
-        <span class="mono-brand">GENSHIN ARCHIVE</span>
-        <span class="mono-dim">// VER 7.0</span>
+  <div class="site-container">
+    
+    <!-- Top System Telemetry Bar -->
+    <header class="system-bar">
+      <div class="sys-left">
+        <span class="sys-status"></span>
+        <span class="mono-meta">ARCHIVE // V7.0</span>
+        <span class="mono-meta dim">STELLAR SHIFT</span>
       </div>
-      <div class="nav-right">
-        <span class="mono-tag">DATABASE SYNCED : AUG 2026</span>
+      <div class="sys-right">
+        <span class="mono-meta">LAST UPDATED: AUG 2026</span>
       </div>
     </header>
 
-    <!-- 2. Hero Section -->
-    <section class="hero-section" id="hero">
+    <!-- Hero Title & Axiom Section -->
+    <section class="hero-section">
       <div class="hero-label-wrap">
-        <span class="section-tag">[ 00 // REGISTRY ]</span>
-        <span class="tag-pill">PULL VALUE & DPS FRAMEWORK</span>
+        <span class="section-tag">[ 00 // DIRECTORY ]</span>
+        <span class="tag-pill">PULL EFFICIENCY FRAMEWORK</span>
       </div>
 
-      <h1 class="hero-title">
-        INDEPENDENT <span class="accent-italic">THEORYCRAFTING</span> FOR VERSION 7.0
-      </h1>
+      <div class="hero-header-block">
+        <h1 class="hero-main-title">
+          <span class="title-bold">GENSHIN DPS</span>
+          <span class="title-outline">ARCHIVE</span>
+        </h1>
+        <p class="hero-lead">
+          A pure theorycrafting database evaluating on-field carry potential, C0 realistic baselines, and account pull value for Version 7.0 endgame content.
+        </p>
+      </div>
 
-      <p class="hero-lead">
-        Evaluating on-field carry potential, reaction scaling across the Stellar-Conduct meta shift, and C0 realistic damage baselines with zero whale screenshot distortions.
-      </p>
-
-      <div class="hero-nav-bar">
-        <span class="nav-bar-label">QUICK REGISTRY:</span>
-        <div class="tier-nav-links">
-          <a class="tier-link ss-gold" href="tiers/ss-tier.html">SS-Tier</a>
-          <span class="sep">/</span>
-          <a class="tier-link" href="tiers/s-tier.html">S-Tier</a>
-          <span class="sep">/</span>
-          <a class="tier-link" href="tiers/a-tier.html">A-Tier</a>
-          <span class="sep">/</span>
-          <a class="tier-link" href="tiers/b-tier.html">B-Tier</a>
-          <span class="sep">/</span>
-          <a class="tier-link" href="tiers/c-tier.html">C-Tier</a>
+      <!-- Core Philosophy Alert Banner -->
+      <div class="philosophy-strip">
+        <div class="strip-badge">
+          <span class="strip-icon">⚠️</span>
+          <span class="strip-title">CORE RULE: POWER ≠ PULL VALUE</span>
         </div>
+        <p class="strip-text">
+          A character achieving top-tier DPS does not automatically make them a mandatory pull. If your account already owns an equivalent on-field carry, pulling is luxury redundancy.
+        </p>
       </div>
     </section>
 
-    <!-- 3. Spotlight Banner Frame -->
-    <section class="spotlight-section">
-      <div class="spotlight-inner">
-        <div class="spotlight-frame">
-          <img class="spotlight-img" src="assets/images/characters/mavuika.webp" alt="Version 7.0 Spotlight" onerror="this.parentElement.style.background='#141414'">
-          <span class="frame-corner tl"></span>
-          <span class="frame-corner tr"></span>
-          <span class="frame-corner bl"></span>
-          <span class="frame-corner br"></span>
+    <!-- Master Bento Grid (Tier Registry & Key Protocols) -->
+    <main class="archive-grid">
+      
+      <!-- 1. SS Tier Showcase Card (Large 8-col Block) -->
+      <a href="tiers/ss-tier.html" class="grid-card card-ss">
+        <div class="card-top-bar">
+          <span class="tier-index gold">[ 01 // SS TIER ]</span>
+          <span class="card-status-badge ss-badge">EXCEPTIONAL</span>
         </div>
-        <div class="spotlight-caption">
-          <p class="spotlight-phrase">
-            "A character achieving record DPS does not make them an essential pull. If your account already commands an equivalent elemental carry, <span class="accent-italic">pulling is luxury redundancy</span>."
+
+        <div class="card-hero-content">
+          <h2 class="card-title">SS TIER</h2>
+          <p class="card-summary">
+            Pinnacle combat ceiling, unmatched reaction scalability in 7.0 Stellar-Conduct, and essential account-clearing value.
           </p>
-          <span class="spotlight-author">— CORE AXIOM // 01</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Interactive Tier Registry List -->
-    <section class="archive-section" id="archive">
-      <div class="section-header-bar">
-        <span class="section-num">[01]</span>
-        <h2 class="section-title">COMBAT TIER REGISTRY</h2>
-        <span class="section-meta">// SELECT TIER TO VIEW FULL ANALYSIS</span>
-      </div>
-
-      <div class="archive-list" id="archive-list">
-        
-        <!-- SS Tier Item -->
-        <a href="tiers/ss-tier.html" class="archive-item" 
-           data-img="assets/images/characters/mavuika.webp" 
-           data-tier="SS TIER // EXCEPTIONAL"
-           data-roster="Mavuika, Wriothesley (C1), Cyno (C1), Sandrone">
-          <div class="item-left">
-            <span class="item-index">01</span>
-            <div class="item-info">
-              <span class="item-name">SS Tier — Pinnacle Scaling</span>
-              <span class="item-sub">Mavuika, Wriothesley (C1), Cyno (C1), Sandrone</span>
-            </div>
+          
+          <div class="roster-preview-pills">
+            <span class="character-chip">Mavuika</span>
+            <span class="character-chip">Wriothesley (C1)</span>
+            <span class="character-chip">Cyno (C1)</span>
+            <span class="character-chip">Sandrone</span>
+            <span class="character-chip">+4 More</span>
           </div>
-          <div class="item-right">
-            <span class="item-tag gold">Stellar-Conduct Peak</span>
-            <span class="item-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- S Tier Item -->
-        <a href="tiers/s-tier.html" class="archive-item" 
-           data-img="assets/images/characters/varka.webp" 
-           data-tier="S TIER // TOP TIER"
-           data-roster="Varka, Skirk, Mizuki">
-          <div class="item-left">
-            <span class="item-index">02</span>
-            <div class="item-info">
-              <span class="item-name">S Tier — High DPS Ceiling</span>
-              <span class="item-sub">Varka, Skirk, Mizuki</span>
-            </div>
-          </div>
-          <div class="item-right">
-            <span class="item-tag red">Skill Focused</span>
-            <span class="item-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- A Tier Item -->
-        <a href="tiers/a-tier.html" class="archive-item" 
-           data-img="assets/images/characters/arlecchino.webp" 
-           data-tier="A TIER // VERY STRONG"
-           data-roster="Arlecchino, Neuvillette, Chasca, Kinich">
-          <div class="item-left">
-            <span class="item-index">03</span>
-            <div class="item-info">
-              <span class="item-name">A Tier — Proven Hypercarries</span>
-              <span class="item-sub">Arlecchino, Neuvillette, Chasca, Kinich</span>
-            </div>
-          </div>
-          <div class="item-right">
-            <span class="item-tag purple">Role Overlap</span>
-            <span class="item-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- B Tier Item -->
-        <a href="tiers/b-tier.html" class="archive-item" 
-           data-img="assets/images/characters/ayaka.webp" 
-           data-tier="B TIER // VIABLE"
-           data-roster="Ayaka, Clorinde, Gaming (C6), Raiden (C2)">
-          <div class="item-left">
-            <span class="item-index">04</span>
-            <div class="item-info">
-              <span class="item-name">B Tier — High Investment Demands</span>
-              <span class="item-sub">Ayaka, Clorinde, Gaming (C6), Raiden (C2)</span>
-            </div>
-          </div>
-          <div class="item-right">
-            <span class="item-tag blue">Constellation Spikes</span>
-            <span class="item-arrow">↗</span>
-          </div>
-        </a>
-
-        <!-- C Tier Item -->
-        <a href="tiers/c-tier.html" class="archive-item" 
-           data-img="assets/images/characters/yoimiya.webp" 
-           data-tier="C TIER // NICHE"
-           data-roster="Yoimiya, Diluc, Itto, Eula">
-          <div class="item-left">
-            <span class="item-index">05</span>
-            <div class="item-info">
-              <span class="item-name">C Tier — Standard / Low Priority</span>
-              <span class="item-sub">Yoimiya, Diluc, Itto, Eula</span>
-            </div>
-          </div>
-          <div class="item-right">
-            <span class="item-tag green">High Redundancy</span>
-            <span class="item-arrow">↗</span>
-          </div>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- 5. Protocols Section -->
-    <section class="protocols-section" id="protocols">
-      <div class="section-header-bar">
-        <span class="section-num">[02]</span>
-        <h2 class="section-title">EVALUATION PROTOCOLS</h2>
-        <span class="section-meta">// CORE METHODOLOGY</span>
-      </div>
-
-      <div class="protocols-grid">
-        <div class="protocol-card">
-          <span class="protocol-code">PROTOCOL // 01</span>
-          <h3 class="protocol-heading">C0 Realistic Baselines</h3>
-          <p class="protocol-desc">Evaluated strictly with accessible 4-star weapons, standard $75/180$ CRIT sub-stats, and realistic multi-wave Energy Recharge thresholds.</p>
         </div>
 
-        <div class="protocol-card">
-          <span class="protocol-code">PROTOCOL // 02</span>
-          <h3 class="protocol-heading">7.0 Stellar-Conduct Fluidity</h3>
-          <p class="protocol-desc">Prioritizing continuous multi-target reaction discharges triggered by rapid Cryo and Electro enablers over rigid circle-bound burst windows.</p>
+        <div class="card-action-footer">
+          <span>View All SS-Tier Characters</span>
+          <span class="action-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 2. S Tier Card (4-col Block) -->
+      <a href="tiers/s-tier.html" class="grid-card card-s">
+        <div class="card-top-bar">
+          <span class="tier-index red">[ 02 // S TIER ]</span>
+          <span class="card-status-badge s-badge">TOP TIER</span>
         </div>
 
-        <div class="protocol-card">
-          <span class="protocol-code">PROTOCOL // 03</span>
-          <h3 class="protocol-heading">Account Redundancy Radar</h3>
-          <p class="protocol-desc">Distinguishing genuine account upgrades from duplicate on-field carries to ensure maximum pull efficiency on every banner.</p>
+        <div class="card-hero-content">
+          <h3 class="card-title">S TIER</h3>
+          <p class="card-summary">
+            Extremely high damage output with minor rotation constraints or role specializations.
+          </p>
+          <div class="roster-preview-pills">
+            <span class="character-chip">Varka</span>
+            <span class="character-chip">Skirk</span>
+            <span class="character-chip">Mizuki</span>
+          </div>
         </div>
+
+        <div class="card-action-footer">
+          <span>View S Tier</span>
+          <span class="action-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 3. A Tier Card (4-col Block) -->
+      <a href="tiers/a-tier.html" class="grid-card card-a">
+        <div class="card-top-bar">
+          <span class="tier-index purple">[ 03 // A TIER ]</span>
+          <span class="card-status-badge a-badge">VERY STRONG</span>
+        </div>
+
+        <div class="card-hero-content">
+          <h3 class="card-title">A TIER</h3>
+          <p class="card-summary">
+            Proven endgame carries with specific support reliance or high role competition.
+          </p>
+          <div class="roster-preview-pills">
+            <span class="character-chip">Arlecchino</span>
+            <span class="character-chip">Neuvillette</span>
+            <span class="character-chip">Chasca</span>
+            <span class="character-chip">Kinich</span>
+          </div>
+        </div>
+
+        <div class="card-action-footer">
+          <span>View A Tier</span>
+          <span class="action-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 4. B Tier Card (4-col Block) -->
+      <a href="tiers/b-tier.html" class="grid-card card-b">
+        <div class="card-top-bar">
+          <span class="tier-index blue">[ 04 // B TIER ]</span>
+          <span class="card-status-badge b-badge">VIABLE</span>
+        </div>
+
+        <div class="card-hero-content">
+          <h3 class="card-title">B TIER</h3>
+          <p class="card-summary">
+            Solid damage dealers requiring dedicated investment, constellation spikes, or specialized setups.
+          </p>
+          <div class="roster-preview-pills">
+            <span class="character-chip">Ayaka</span>
+            <span class="character-chip">Gaming (C6)</span>
+            <span class="character-chip">Raiden (C2)</span>
+          </div>
+        </div>
+
+        <div class="card-action-footer">
+          <span>View B Tier</span>
+          <span class="action-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 5. C Tier Card (4-col Block) -->
+      <a href="tiers/c-tier.html" class="grid-card card-c">
+        <div class="card-top-bar">
+          <span class="tier-index green">[ 05 // C TIER ]</span>
+          <span class="card-status-badge c-badge">NICHE</span>
+        </div>
+
+        <div class="card-hero-content">
+          <h3 class="card-title">C TIER</h3>
+          <p class="card-summary">
+            Specialized or standard banner units facing direct power creep and high redundancy.
+          </p>
+          <div class="roster-preview-pills">
+            <span class="character-chip">Yoimiya</span>
+            <span class="character-chip">Diluc</span>
+            <span class="character-chip">Itto</span>
+          </div>
+        </div>
+
+        <div class="card-action-footer">
+          <span>View C Tier</span>
+          <span class="action-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- 6. Protocol Widget 01: C0 Baseline -->
+      <div class="grid-card protocol-card">
+        <div class="card-top-bar">
+          <span class="tier-index cyan">[ PROTOCOL // 01 ]</span>
+        </div>
+        <div class="card-hero-content">
+          <h4 class="card-sub-title">C0 REALISTIC BASELINE</h4>
+          <p class="card-summary">
+            Zero whale screenshot distortions. All ratings assume 4-star weapons, attainable artifact sub-stats, and realistic multi-wave Energy Recharge requirements.
+          </p>
+        </div>
+        <div class="protocol-footer-tag">BENCHMARK: ACCESSIBLE CLEARING</div>
       </div>
-    </section>
 
-    <!-- 6. Footer -->
+      <!-- 7. Protocol Widget 02: Account Redundancy -->
+      <div class="grid-card protocol-card">
+        <div class="card-top-bar">
+          <span class="tier-index gold">[ PROTOCOL // 02 ]</span>
+        </div>
+        <div class="card-hero-content">
+          <h4 class="card-sub-title">ACCOUNT REDUNDANCY RADAR</h4>
+          <p class="card-summary">
+            Identifies overlapping on-field elemental roles before you spend Primogems, ensuring your roster completes missing reaction puzzles.
+          </p>
+        </div>
+        <div class="protocol-footer-tag">GOAL: MAX PRIMOGEM EFFICIENCY</div>
+      </div>
+
+    </main>
+
+    <!-- Technical Footer -->
     <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-col">
-          <span class="footer-brand">GENSHIN DPS ARCHIVE</span>
-          <span class="mono-dim">© 2026 // VERSION 7.0 FRAMEWORK</span>
-        </div>
-        <div class="footer-col footer-nav">
-          <a href="tiers/ss-tier.html">SS-Tier</a>
-          <a href="tiers/s-tier.html">S-Tier</a>
-          <a href="tiers/a-tier.html">A-Tier</a>
-          <a href="tiers/b-tier.html">B-Tier</a>
-          <a href="tiers/c-tier.html">C-Tier</a>
-        </div>
+      <div class="footer-meta">
+        <span>GENSHIN DPS ARCHIVE // VER 7.0</span>
+        <span class="dim">INDEPENDENT COMBAT THEORYCRAFTING</span>
       </div>
+      <p class="footer-disclaimer">
+        Not affiliated with or endorsed by HoYoverse. Genshin Impact is a registered trademark of HoYoverse.
+      </p>
     </footer>
 
-  </div>
-
-  <!-- Desktop Floating Preview Cursor Card -->
-  <div class="item-preview-card" id="itemPreviewCard">
-    <div class="preview-meta">
-      <span class="preview-tier" id="previewTier">SS TIER</span>
-      <span class="preview-label">ROSTER</span>
-    </div>
-    <div class="preview-img-wrap">
-      <img id="previewImg" src="assets/images/characters/mavuika.webp" alt="Preview">
-    </div>
-    <div class="preview-roster" id="previewRoster">Mavuika, Wriothesley (C1), Cyno (C1)</div>
   </div>
 
   <script src="js/main.js"></script>
