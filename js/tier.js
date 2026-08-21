@@ -1,21 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('charSearch');
   const filterButtons = document.querySelectorAll('.elem-btn');
-  const cards = document.querySelectorAll('.char-card');
+  const charCards = document.querySelectorAll('.char-card');
   const noResults = document.getElementById('noResults');
 
-  let activeElement = 'all';
-  let searchTerm = '';
+  let activeFilter = 'all';
+  let searchQuery = '';
 
-  function applyFilters() {
+  function filterCharacters() {
     let visibleCount = 0;
 
-    cards.forEach(card => {
+    charCards.forEach((card) => {
       const name = (card.getAttribute('data-name') || '').toLowerCase();
-      const element = card.getAttribute('data-element') || '';
+      const element = (card.getAttribute('data-element') || '').toLowerCase();
 
-      const matchesSearch = name.includes(searchTerm);
-      const matchesElement = (activeElement === 'all') || (element === activeElement);
+      const matchesSearch = !searchQuery || name.includes(searchQuery);
+      const matchesElement = activeFilter === 'all' || element === activeFilter;
 
       if (matchesSearch && matchesElement) {
         card.style.display = 'flex';
@@ -30,19 +30,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Live Search Input
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      searchTerm = e.target.value.trim().toLowerCase();
-      applyFilters();
+      searchQuery = e.target.value.trim().toLowerCase();
+      filterCharacters();
     });
   }
 
-  filterButtons.forEach(btn => {
+  // Element Filter Buttons
+  filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
+      filterButtons.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-      activeElement = btn.getAttribute('data-filter') || 'all';
-      applyFilters();
+
+      activeFilter = (btn.getAttribute('data-filter') || 'all').toLowerCase();
+      filterCharacters();
     });
+  });
+
+  // Stagger In Animation on Load
+  charCards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(12px)';
+    card.style.transition = 'opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+
+    setTimeout(() => {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, 40 * index);
   });
 });
