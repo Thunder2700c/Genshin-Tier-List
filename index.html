@@ -4,172 +4,296 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Genshin DPS & Pull Value Archive</title>
+  
+  <!-- High-End Agency Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <!-- Fixed Ambient Glow Layer -->
-  <div class="ambient-glow-wrapper" aria-hidden="true">
-    <div class="ambient-glow glow-top"></div>
-    <div class="ambient-glow glow-bottom"></div>
+
+  <!-- Film Grain Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Floating Cursor Preview (Codegrid Interactive Image Reveal Engine) -->
+  <div class="cursor-follower" id="cursorFollower" aria-hidden="true">
+    <div class="cursor-media-wrap">
+      <img id="cursorImg" src="" alt="Character Preview">
+    </div>
+    <div class="cursor-meta">
+      <span id="cursorTier" class="cursor-tag">SS TIER</span>
+      <span id="cursorName" class="cursor-title">MAVUIKA</span>
+    </div>
   </div>
 
-  <div class="container">
-    <!-- Header -->
-    <header class="site-header">
-      <div class="brand">
-        <div class="brand-badge">ARCHIVE • VER 7.0</div>
-        <h1 class="site-title">GENSHIN DPS ARCHIVE</h1>
-        <p class="site-tagline">DPS Ceilings • Account Redundancy • Realistic Pull Efficiency</p>
+  <div class="site-wrapper">
+    
+    <!-- Top System Telemetry Bar -->
+    <header class="telemetry-bar">
+      <div class="telemetry-left">
+        <span class="status-pulse"></span>
+        <span class="mono-tag">[SYS.ARCHIVE.ONLINE]</span>
+        <span class="mono-dim">// VER 7.0 STELLAR SHIFT</span>
       </div>
-      <div class="header-meta">
-        <span class="meta-tag version-tag">Version 7.0 Live</span>
-        <span class="meta-tag date-tag">August 2026</span>
+      <div class="telemetry-center">
+        <span class="mono-dim">COORDINATES: 54.91°N / PULL_EFFICIENCY</span>
+      </div>
+      <div class="telemetry-right">
+        <span class="mono-tag">DATABASE SYNCED: AUG 2026</span>
       </div>
     </header>
 
-    <!-- Master Bento Grid (12-Column Responsive Layout) -->
-    <main class="bento-grid">
+    <!-- Hero Section -->
+    <section class="hero-agency">
+      <div class="hero-tag-row">
+        <span class="agency-badge">AUTHENTIC COMBAT METRICS</span>
+        <span class="agency-badge outline">ZERO SCREENSHOT DISTORTIONS</span>
+      </div>
       
-      <!-- 1. SS-Tier Hero Card (8 Cols x 2 Rows) -->
-      <a href="tiers/ss-tier.html" class="bento-card bento-hero-ss">
-        <div class="bento-card-top">
-          <div class="tier-pill-badge pill-ss">SS TIER</div>
-          <span class="bento-icon">👑</span>
-        </div>
-        <div class="bento-card-content">
-          <h2 class="bento-title">EXCEPTIONAL</h2>
-          <p class="bento-desc">Highest overall DPS ceilings and pinnacle account-clearing value at C0 baseline.</p>
-          <div class="bento-roster-preview">
-            <span class="roster-chip">Mavuika</span>
-            <span class="roster-chip">Wriothesley (C1)</span>
-            <span class="roster-chip">Cyno (C1)</span>
-            <span class="roster-chip">Sandrone</span>
-            <span class="roster-chip">+4 More</span>
-          </div>
-        </div>
-        <div class="bento-card-footer">
-          <span>Explore SS Tier Characters</span>
-          <span class="bento-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- 2. Core Philosophy Rule Card (4 Cols x 1 Row - Top Right) -->
-      <div class="bento-card bento-rule-card">
-        <div class="rule-icon-wrap">⚠️</div>
-        <div class="rule-body">
-          <span class="rule-micro-label">CORE ARCHIVE PHILOSOPHY</span>
-          <h3 class="rule-headline">POWER ≠ PULL VALUE</h3>
-          <p class="rule-text">A character being top-tier does not mean you should pull. If your account already owns an equivalent on-field carry, pulling is luxury redundancy.</p>
-        </div>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title">
+          <span class="hero-line"><span class="hero-char">GENSHIN</span> <span class="hero-char italic">DPS</span></span>
+          <span class="hero-line"><span class="hero-char stroke">ARCHIVE</span> <span class="hero-char sub-ver">[7.0]</span></span>
+        </h1>
       </div>
 
-      <!-- 3. Stat Baseline Widget (4 Cols x 1 Row - Bottom Right next to SS) -->
-      <div class="bento-card bento-stat-widget">
-        <div class="widget-head">
-          <span class="widget-icon">🎯</span>
-          <span class="widget-label">C0 REALISTIC BASELINE</span>
+      <div class="hero-desc-grid">
+        <p class="hero-lead">
+          A brutalist theorycrafting directory evaluating character pull value, C0 baseline damage ceilings, and reaction fluidity across the 7.0 Stellar-Conduct meta shift.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#directory" class="magnetic-btn" data-strength="25">
+            <span class="btn-fill"></span>
+            <span class="btn-text">EXPLORE DIRECTORY ↓</span>
+          </a>
         </div>
-        <h4 class="widget-value">Zero Whale Distortions</h4>
-        <p class="widget-sub">Evaluated strictly with 4-star weapons, standard artifacts, and non-screenshot setups.</p>
+      </div>
+    </section>
+
+    <!-- Infinite Kinetic Marquee -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-move">
+        <span class="ticker-item">STELLAR-CONDUCT OVERRIDE</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">NO WHALE DISTORTIONS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">ACCOUNT REDUNDANCY RADAR</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">C0 VS C1 CONSTELLATION SPIKES</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">DISENCHANTMENT IN DEEP SHADOWS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">STELLAR-CONDUCT OVERRIDE</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">NO WHALE DISTORTIONS</span>
+        <span class="ticker-sep">✦</span>
+        <span class="ticker-item">ACCOUNT REDUNDANCY RADAR</span>
+        <span class="ticker-sep">✦</span>
+      </div>
+    </div>
+
+    <!-- Editorial Interactive Tier Directory -->
+    <section class="directory-section" id="directory">
+      <div class="section-title-bar">
+        <span class="section-num">[01]</span>
+        <h2 class="section-heading">COMBAT TIER REGISTRY</h2>
+        <span class="section-note">// HOVER ITEMS FOR TELEMETRY PREVIEW</span>
       </div>
 
-      <!-- 4. S-Tier Card (6 Cols x 1 Row) -->
-      <a href="tiers/s-tier.html" class="bento-card bento-card-s">
-        <div class="bento-card-top">
-          <div class="tier-pill-badge pill-s">S TIER</div>
-          <span class="bento-icon">🔥</span>
-        </div>
-        <div class="bento-card-content">
-          <h3 class="bento-sub-title">TOP TIER</h3>
-          <p class="bento-sub-desc">Extremely high combat scaling with minor rotation or team restrictions.</p>
-          <div class="bento-roster-preview">
-            <span class="roster-chip">Mizuki</span>
-            <span class="roster-chip">Varka</span>
-            <span class="roster-chip">Skirk</span>
+      <div class="interactive-index-list">
+        
+        <!-- Row: SS Tier -->
+        <a href="tiers/ss-tier.html" class="index-row ss-row" 
+           data-img="assets/images/characters/mavuika.webp" 
+           data-tier="SS TIER" 
+           data-name="MAVUIKA • WRIOTHESLEY">
+          <div class="row-num">01</div>
+          <div class="row-main">
+            <div class="row-title-wrap">
+              <span class="row-tier-indicator gold"></span>
+              <h3 class="row-tier-title">SS // EXCEPTIONAL</h3>
+            </div>
+            <p class="row-desc">Pinnacle damage ceiling, unmatched reaction scalability, and non-negotiable account value.</p>
           </div>
-        </div>
-        <div class="bento-card-footer">
-          <span>View S Tier</span>
-          <span class="bento-arrow">→</span>
-        </div>
-      </a>
-
-      <!-- 5. A-Tier Card (6 Cols x 1 Row) -->
-      <a href="tiers/a-tier.html" class="bento-card bento-card-a">
-        <div class="bento-card-top">
-          <div class="tier-pill-badge pill-a">A TIER</div>
-          <span class="bento-icon">🟣</span>
-        </div>
-        <div class="bento-card-content">
-          <h3 class="bento-sub-title">VERY STRONG (A / A+)</h3>
-          <p class="bento-sub-desc">Endgame dominators with specific support reliance or high role competition.</p>
-          <div class="bento-roster-preview">
-            <span class="roster-chip">Arlecchino</span>
-            <span class="roster-chip">Neuvillette</span>
-            <span class="roster-chip">Chasca</span>
-            <span class="roster-chip">Kinich</span>
+          <div class="row-meta">
+            <span class="roster-tag">MAVUIKA</span>
+            <span class="roster-tag">WRIOTHESLEY (C1)</span>
+            <span class="roster-tag">CYNO (C1)</span>
+            <span class="roster-tag">SANDRONE</span>
           </div>
-        </div>
-        <div class="bento-card-footer">
-          <span>View A Tier</span>
-          <span class="bento-arrow">→</span>
-        </div>
-      </a>
+          <div class="row-arrow">↗</div>
+        </a>
 
-      <!-- 6. B-Tier Card (4 Cols x 1 Row) -->
-      <a href="tiers/b-tier.html" class="bento-card bento-card-b">
-        <div class="bento-card-top">
-          <div class="tier-pill-badge pill-b">B TIER</div>
-          <span class="bento-icon">🔵</span>
-        </div>
-        <div class="bento-card-content">
-          <h3 class="bento-sub-title">GOOD & VIABLE</h3>
-          <p class="bento-sub-desc">Capable units requiring dedicated investment or constellation thresholds (C1/C2/C6).</p>
-        </div>
-        <div class="bento-card-footer">
-          <span>View B Tier</span>
-          <span class="bento-arrow">→</span>
-        </div>
-      </a>
+        <!-- Row: S Tier -->
+        <a href="tiers/s-tier.html" class="index-row s-row" 
+           data-img="assets/images/characters/varka.webp" 
+           data-tier="S TIER" 
+           data-name="VARKA • SKIRK • MIZUKI">
+          <div class="row-num">02</div>
+          <div class="row-main">
+            <div class="row-title-wrap">
+              <span class="row-tier-indicator red"></span>
+              <h3 class="row-tier-title">S // TOP TIER</h3>
+            </div>
+            <p class="row-desc">Extremely high combat scaling with minor rotation or specialized team requirements.</p>
+          </div>
+          <div class="row-meta">
+            <span class="roster-tag">VARKA</span>
+            <span class="roster-tag">SKIRK</span>
+            <span class="roster-tag">MIZUKI</span>
+          </div>
+          <div class="row-arrow">↗</div>
+        </a>
 
-      <!-- 7. C-Tier Card (4 Cols x 1 Row) -->
-      <a href="tiers/c-tier.html" class="bento-card bento-card-c">
-        <div class="bento-card-top">
-          <div class="tier-pill-badge pill-c">C TIER</div>
-          <span class="bento-icon">🟢</span>
-        </div>
-        <div class="bento-card-content">
-          <h3 class="bento-sub-title">NICHE / LOW PRIORITY</h3>
-          <p class="bento-sub-desc">Specialized, power-crept, or standard banner units with lower pull return.</p>
-        </div>
-        <div class="bento-card-footer">
-          <span>View C Tier</span>
-          <span class="bento-arrow">→</span>
-        </div>
-      </a>
+        <!-- Row: A Tier -->
+        <a href="tiers/a-tier.html" class="index-row a-row" 
+           data-img="assets/images/characters/arlecchino.webp" 
+           data-tier="A TIER" 
+           data-name="ARLECCHINO • NEUVILLETTE">
+          <div class="row-num">03</div>
+          <div class="row-main">
+            <div class="row-title-wrap">
+              <span class="row-tier-indicator purple"></span>
+              <h3 class="row-tier-title">A // VERY STRONG</h3>
+            </div>
+            <p class="row-desc">Proven endgame dominators facing heavy role competition or specific support reliance.</p>
+          </div>
+          <div class="row-meta">
+            <span class="roster-tag">ARLECCHINO</span>
+            <span class="roster-tag">NEUVILLETTE</span>
+            <span class="roster-tag">CHASCA</span>
+            <span class="roster-tag">KINICH</span>
+          </div>
+          <div class="row-arrow">↗</div>
+        </a>
 
-      <!-- 8. Redundancy Radar Widget (4 Cols x 1 Row) -->
-      <div class="bento-card bento-redundancy-widget">
-        <div class="widget-head">
-          <span class="widget-icon">🔄</span>
-          <span class="widget-label">ACCOUNT REDUNDANCY RADAR</span>
-        </div>
-        <h4 class="widget-value">Protect Your Primogems</h4>
-        <p class="widget-sub">Distinguishes on-field role duplication from missing elemental puzzle pieces.</p>
+        <!-- Row: B Tier -->
+        <a href="tiers/b-tier.html" class="index-row b-row" 
+           data-img="assets/images/characters/ayaka.webp" 
+           data-tier="B TIER" 
+           data-name="AYAKA • CLORINDE • HU TAO">
+          <div class="row-num">04</div>
+          <div class="row-main">
+            <div class="row-title-wrap">
+              <span class="row-tier-indicator blue"></span>
+              <h3 class="row-tier-title">B // VIABLE / HIGH-INVEST</h3>
+            </div>
+            <p class="row-desc">Solid carries requiring dedicated investment, 4-star C6 lineups, or constellation breakpoints.</p>
+          </div>
+          <div class="row-meta">
+            <span class="roster-tag">AYAKA</span>
+            <span class="roster-tag">CLORINDE</span>
+            <span class="roster-tag">GAMING (C6)</span>
+            <span class="roster-tag">RAIDEN (C2)</span>
+          </div>
+          <div class="row-arrow">↗</div>
+        </a>
+
+        <!-- Row: C Tier -->
+        <a href="tiers/c-tier.html" class="index-row c-row" 
+           data-img="assets/images/characters/yoimiya.webp" 
+           data-tier="C TIER" 
+           data-name="YOIMIYA • DILUC • GANYU">
+          <div class="row-num">05</div>
+          <div class="row-main">
+            <div class="row-title-wrap">
+              <span class="row-tier-indicator green"></span>
+              <h3 class="row-tier-title">C // NICHE / LOW PRIORITY</h3>
+            </div>
+            <p class="row-desc">Standard banner units or power-crept carries with high redundancy and lower pull return.</p>
+          </div>
+          <div class="row-meta">
+            <span class="roster-tag">YOIMIYA</span>
+            <span class="roster-tag">DILUC</span>
+            <span class="roster-tag">ITTO</span>
+            <span class="roster-tag">EULA</span>
+          </div>
+          <div class="row-arrow">↗</div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Technical Manifesto & Engineering Bento -->
+    <section class="manifesto-section">
+      <div class="section-title-bar">
+        <span class="section-num">[02]</span>
+        <h2 class="section-heading">EVALUATION PROTOCOL</h2>
+        <span class="section-note">// ARCHITECTURAL PILLARS</span>
       </div>
 
-    </main>
+      <div class="manifesto-grid">
+        
+        <!-- Widget 1: Brutalist Warning -->
+        <div class="manifesto-card rule-manifesto">
+          <div class="card-meta-top">
+            <span class="mono-tag-accent">PROTOCOL 01</span>
+            <span class="mono-code">PWR_VS_PULL</span>
+          </div>
+          <h3 class="manifesto-title">POWER ≠ PULL VALUE</h3>
+          <p class="manifesto-body">
+            A character achieving record DPS does not justify your Primogems if your roster already houses an equivalent on-field carry. Luxury redundancy is an account efficiency trap.
+          </p>
+          <div class="manifesto-footer-mono">STATUS: NON-NEGOTIABLE</div>
+        </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <p>Genshin DPS & Pull Value Archive • Designed for Account Efficiency</p>
-      <p class="disclaimer-subtext">Not affiliated with or endorsed by HoYoverse. Genshin Impact is a registered trademark of HoYoverse.</p>
+        <!-- Widget 2: C0 Baseline Metric -->
+        <div class="manifesto-card tech-manifesto">
+          <div class="card-meta-top">
+            <span class="mono-tag-accent">PROTOCOL 02</span>
+            <span class="mono-code">BASELINE_CALC</span>
+          </div>
+          <h3 class="manifesto-title">REALISTIC BENCHMARKS</h3>
+          <p class="manifesto-body">
+            Strict evaluation using accessible 4-star weapons, achievable $75/180$ CRIT distributions, realistic multi-wave Energy Recharge gates, and standard team buff durations.
+          </p>
+          <div class="manifesto-footer-mono">TARGET: 100% ROTATION UPTIME</div>
+        </div>
+
+        <!-- Widget 3: 7.0 Meta Shift Tracker -->
+        <div class="manifesto-card shift-manifesto">
+          <div class="card-meta-top">
+            <span class="mono-tag-accent">PROTOCOL 03</span>
+            <span class="mono-code">STELLAR_DYNAMICS</span>
+          </div>
+          <h3 class="manifesto-title">7.0 REACTION ROTATIONS</h3>
+          <p class="manifesto-body">
+            Legacy circle-bound Melt is out. Continuous multi-target Stellar-Conduct cascading triggered by rapid Cryo/Electro drivers represents the new combat ceiling.
+          </p>
+          <div class="manifesto-footer-mono">CORE ENABLER: ODETTE // 7.0</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Agency Technical Footer -->
+    <footer class="agency-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">GENSHIN DPS ARCHIVE</span>
+          <p class="footer-sub">Independent Computational Theorycrafting Framework</p>
+        </div>
+        <div class="footer-links">
+          <a href="tiers/ss-tier.html" class="footer-link">SS_TIER</a>
+          <a href="tiers/s-tier.html" class="footer-link">S_TIER</a>
+          <a href="tiers/a-tier.html" class="footer-link">A_TIER</a>
+          <a href="tiers/b-tier.html" class="footer-link">B_TIER</a>
+          <a href="tiers/c-tier.html" class="footer-link">C_TIER</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="mono-dim">© 2026 ARCHIVE LABS // VER 7.0 PRODUCTION</span>
+        <span class="mono-dim">NOT AFFILIATED WITH HOYOVERSE</span>
+      </div>
     </footer>
+
   </div>
 
+  <!-- GSAP 3 & ScrollTrigger CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
