@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>SS Tier Characters — Genshin DPS Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/tier.css">
 </head>
 <body>
-  <div class="ambient-glow glow-tier glow-ss"></div>
+  <!-- Fixed Ambient Glow Layer -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="ambient-glow glow-tier glow-ss"></div>
+  </div>
 
   <div class="container">
     <nav class="tier-nav-bar">
@@ -30,8 +33,8 @@
 
     <header class="tier-header header-ss">
       <div class="tier-title-group">
-        <h1><span>👑</span> SS Tier: Exceptional</h1>
-        <p>Highest combat ceiling, peak DPS output, and unmatched value in high-difficulty endgame content.</p>
+        <h1><span>👑</span> SS Tier: Exceptional / Must Pull</h1>
+        <p>Pinnacle combat ceiling, unmatched reaction scalability across 7.0 Stellar-Conduct, and essential account-clearing value.</p>
       </div>
       <div class="tier-step-nav">
         <span class="step-btn disabled">← Prev Tier</span>
@@ -59,257 +62,69 @@
       <!-- Mavuika -->
       <a href="../characters/mavuika.html" class="char-card" data-name="mavuika" data-element="pyro">
         <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/mavuika.webp" alt="Mavuika" onerror="this.parentElement.innerHTML='🔥'">
-          </div>
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/mavuika.webp" alt="Mavuika" onerror="this.parentElement.innerHTML='🔥'"></div>
           <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-pyro">Pyro</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Claymore (C0)</span>
-            </div>
+            <div class="char-meta-row"><span class="element-tag elem-pyro">Pyro</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Claymore (C0)</span></div>
             <h2 class="char-name">Mavuika</h2>
           </div>
         </div>
         <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Universal Anchor</span>
-          </div>
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 5.0</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-highest">5/5 • Essential Archon</span></div>
         </div>
-        <p class="char-card-summary">Overwhelming burst scaling and sweep AoE damage. Flexibly operates as an on-field carry or off-field enabler.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Main / Dual DPS</span>
-          <span>Full Analysis →</span>
-        </div>
+        <p class="char-card-summary">Unrivaled Nightsoul burst multiplier and continuous off-field Pyro application that redefined offensive ceilings.</p>
+        <div class="char-card-footer"><span>Primary Role: Universal Pyro Carry / Sub-DPS</span><span>Full Analysis →</span></div>
       </a>
 
       <!-- Wriothesley (C1) -->
       <a href="../characters/wriothesley.html" class="char-card" data-name="wriothesley" data-element="cryo">
         <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
-          </div>
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'"></div>
           <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-cryo">Cryo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Catalyst (C1)</span>
-            </div>
+            <div class="char-meta-row"><span class="element-tag elem-cryo">Cryo</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Catalyst (C1)</span></div>
             <h2 class="char-name">Wriothesley</h2>
           </div>
         </div>
         <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • C1 Spike</span>
-          </div>
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 5.0</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-highest">5/5 • C1 God-Tier Spike</span></div>
         </div>
-        <p class="char-card-summary">Unlocks continuous enhanced rebuking uppercuts at C1 with zero HP maintenance restrictions in Melt teams.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Melt Brawler</span>
-          <span>Full Analysis →</span>
-        </div>
+        <p class="char-card-summary">At C1, Rebuke: Vaulting Fist achieves complete rotation uptime and 200% DMG bonus with 7.0 Disenchantment set.</p>
+        <div class="char-card-footer"><span>Primary Role: Sustained Cryo Brawler</span><span>Full Analysis →</span></div>
       </a>
 
       <!-- Cyno (C1) -->
       <a href="../characters/cyno.html" class="char-card" data-name="cyno" data-element="electro">
         <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/cyno.webp" alt="Cyno" onerror="this.parentElement.innerHTML='🐺'">
-          </div>
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/cyno.webp" alt="Cyno" onerror="this.parentElement.innerHTML='🐺'"></div>
           <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-electro">Electro</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Polearm (C1)</span>
-            </div>
+            <div class="char-meta-row"><span class="element-tag elem-electro">Electro</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Polearm (C1)</span></div>
             <h2 class="char-name">Cyno</h2>
           </div>
         </div>
         <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Hypercarry</span>
-          </div>
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 5.0</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-highest">5/5 • 7.0 Conduct King</span></div>
         </div>
-        <p class="char-card-summary">Massive attack speed acceleration and relentless extended Quickbloom triggers under optimal support setups.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Quickbloom Finisher</span>
-          <span>Full Analysis →</span>
-        </div>
+        <p class="char-card-summary">Supercharged in Version 7.0 as the highest-frequency on-field driver for Odette and Sandrone's Stellar-Conduct reaction.</p>
+        <div class="char-card-footer"><span>Primary Role: Stellar-Conduct Driver</span><span>Full Analysis →</span></div>
       </a>
 
       <!-- Sandrone -->
-      <a href="../characters/sandrone.html" class="char-card" data-name="sandrone" data-element="cryo">
+      <a href="../characters/sandrone.html" class="char-card" data-name="sandrone marionette" data-element="cryo">
         <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/sandrone.webp" alt="Sandrone" onerror="this.parentElement.innerHTML='❄️'">
-          </div>
+          <div class="char-avatar-wrap"><img src="../assets/images/characters/sandrone.webp" alt="Sandrone" onerror="this.parentElement.innerHTML='⚙️'"></div>
           <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-cryo">Cryo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Claymore (C0)</span>
-            </div>
+            <div class="char-meta-row"><span class="element-tag elem-cryo">Cryo</span><span class="rarity-tag">★★★★★</span><span class="weapon-role-tag">• Bow (C0)</span></div>
             <h2 class="char-name">Sandrone</h2>
           </div>
         </div>
         <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • New Meta Anchor</span>
-          </div>
+          <div class="metric-row"><span class="metric-label">⚔️ Combat Power</span><span class="metric-score"><span class="stars">★★★★★</span> 4.9</span></div>
+          <div class="metric-row"><span class="metric-label">💎 Pull Value</span><span class="pull-badge pull-highest">5/5 • Premier Automaton Carry</span></div>
         </div>
-        <p class="char-card-summary">Automaton-assisted high-impact physical and Cryo destruction with overwhelming frontloaded multipliers.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: On-Field Heavy DPS</span>
-          <span>Full Analysis →</span>
-        </div>
-      </a>
-
-      <!-- Traveler (Cryo) -->
-      <a href="../characters/traveler-cryo.html" class="char-card" data-name="traveler cryo" data-element="cryo">
-        <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/traveler-cryo.webp" alt="Cryo Traveler" onerror="this.parentElement.innerHTML='❄️'">
-          </div>
-          <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-cryo">Cryo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Sword (C0)</span>
-            </div>
-            <h2 class="char-name">Traveler (Cryo)</h2>
-          </div>
-        </div>
-        <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Free Accessible</span>
-          </div>
-        </div>
-        <p class="char-card-summary">Pinnacle free-to-play Cryo driver featuring unmatched elemental application and rapid sword combo multipliers.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Cryo Main DPS</span>
-          <span>Full Analysis →</span>
-        </div>
-      </a>
-
-      <!-- Zibai -->
-      <a href="../characters/zibai.html" class="char-card" data-name="zibai" data-element="geo">
-        <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/zibai.webp" alt="Zibai" onerror="this.parentElement.innerHTML='🟡'">
-          </div>
-          <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-geo">Geo</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Sword (C0)</span>
-            </div>
-            <h2 class="char-name">Zibai</h2>
-          </div>
-        </div>
-        <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Geo Sovereign</span>
-          </div>
-        </div>
-        <p class="char-card-summary">Redefines Geo damage output with swift blade slashes and high-frequency construct resonance.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: On-Field Geo Carry</span>
-          <span>Full Analysis →</span>
-        </div>
-      </a>
-
-      <!-- Nefer -->
-      <a href="../characters/nefer.html" class="char-card" data-name="nefer" data-element="dendro">
-        <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/nefer.webp" alt="Nefer" onerror="this.parentElement.innerHTML='🌱'">
-          </div>
-          <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-dendro">Dendro</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Catalyst (C0)</span>
-            </div>
-            <h2 class="char-name">Nefer</h2>
-          </div>
-        </div>
-        <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Spread Master</span>
-          </div>
-        </div>
-        <p class="char-card-summary">Dominant Dendro catalyst carry with instantaneous Spread procs and relentless field control.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: Reaction Hypercarry</span>
-          <span>Full Analysis →</span>
-        </div>
-      </a>
-
-      <!-- Flins -->
-      <a href="../characters/flins.html" class="char-card" data-name="flins" data-element="electro">
-        <div class="char-card-hero">
-          <div class="char-avatar-wrap">
-            <img src="../assets/images/characters/flins.webp" alt="Flins" onerror="this.parentElement.innerHTML='⚡'">
-          </div>
-          <div class="char-hero-info">
-            <div class="char-meta-row">
-              <span class="element-tag elem-electro">Electro</span>
-              <span class="rarity-tag">★★★★★</span>
-              <span class="weapon-role-tag">• Polearm (C0)</span>
-            </div>
-            <h2 class="char-name">Flins</h2>
-          </div>
-        </div>
-        <div class="char-card-metrics">
-          <div class="metric-row">
-            <span class="metric-label">⚔️ Combat Power</span>
-            <span class="metric-score"><span class="stars">★★★★★</span> 5.0</span>
-          </div>
-          <div class="metric-row">
-            <span class="metric-label">💎 Pull Value</span>
-            <span class="pull-badge pull-highest">5/5 • Electro Peak</span>
-          </div>
-        </div>
-        <p class="char-card-summary">High-frequency Electro piercing strikes that shred multi-target and single-target floors alike.</p>
-        <div class="char-card-footer">
-          <span>Primary Role: On-Field Polearm Carry</span>
-          <span>Full Analysis →</span>
-        </div>
+        <p class="char-card-summary">Continuous autonomous Cryo payload strikes and unmatched off-field synergy with 7.0 reaction frameworks.</p>
+        <div class="char-card-footer"><span>Primary Role: Heavy Cryo DPS / Reaction Core</span><span>Full Analysis →</span></div>
       </a>
 
       <div id="noResults" class="no-results">
