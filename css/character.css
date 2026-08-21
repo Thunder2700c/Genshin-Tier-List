@@ -34,6 +34,15 @@
   --warning-bg: rgba(251, 191, 36, 0.08);
   --warning-border: rgba(251, 191, 36, 0.28);
 
+  /* In-Game Genshin Rarity Gradients */
+  --rarity-5-bg: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
+  --rarity-5-border: rgba(245, 158, 11, 0.55);
+  --rarity-5-glow: 0 6px 20px rgba(226, 159, 82, 0.35);
+
+  --rarity-4-bg: radial-gradient(circle at 50% 25%, #9d68cb 0%, #683d91 55%, #381b55 100%);
+  --rarity-4-border: rgba(168, 85, 247, 0.55);
+  --rarity-4-glow: 0 6px 20px rgba(157, 104, 203, 0.35);
+
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
@@ -175,25 +184,37 @@ body {
   flex: 1;
 }
 
+/* ==========================================================================
+   GENSHIN AUTHENTIC HERO AVATAR (Gold & Purple Defaults)
+   ========================================================================== */
 .hero-avatar {
-  width: clamp(72px, 15vw, 92px);
-  height: clamp(72px, 15vw, 92px);
+  width: clamp(76px, 15vw, 96px);
+  height: clamp(76px, 15vw, 96px);
   border-radius: var(--radius-md);
-  background: var(--surface-inset);
-  border: 1px solid var(--line-medium);
+  background: var(--rarity-5-bg); /* Default 5-Star Genshin Gold */
+  border: 1px solid var(--rarity-5-border);
+  box-shadow: var(--rarity-5-glow), inset 0 1px 2px rgba(255, 255, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+/* 4-Star Override */
+.hero-avatar.rarity-4 {
+  background: var(--rarity-4-bg);
+  border: 1px solid var(--rarity-4-border);
+  box-shadow: var(--rarity-4-glow), inset 0 1px 2px rgba(255, 255, 255, 0.35);
 }
 
 .hero-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .hero-meta {
@@ -245,6 +266,10 @@ body {
   color: #facc15;
   font-size: 1rem;
   letter-spacing: 0.1em;
+}
+
+.badge-rarity-4star {
+  color: #c084fc;
 }
 
 /* Sections Modular Layout */
@@ -552,7 +577,6 @@ body {
   font-size: 0.85rem;
 }
 
-/* Responsive Overhaul */
 @media (max-width: 768px) {
   .hero-card { flex-direction: column; align-items: flex-start; }
   .hero-right-badges {
