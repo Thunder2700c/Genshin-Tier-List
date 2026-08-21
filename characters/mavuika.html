@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Mavuika — DPS & Pull Value Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="../css/character.css">
 </head>
 <body>
-  <div class="ambient-glow glow-character glow-pyro"></div>
+  <!-- Fixed Ambient Glow Layer -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="ambient-glow glow-character glow-pyro"></div>
+  </div>
 
   <div class="container">
     <!-- Breadcrumb -->
@@ -22,7 +25,7 @@
         <span>/</span>
         <span>Mavuika</span>
       </div>
-      <a href="../tiers/ss-tier.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">← Back to SS Tier</a>
+      <a href="../tiers/ss-tier.html" style="color: var(--text-body); text-decoration: none; font-size: 0.82rem; font-weight: 700;">← Back to SS Tier</a>
     </nav>
 
     <!-- 1. Hero Card -->
@@ -33,11 +36,12 @@
         </div>
         <div>
           <div class="hero-meta">
-            <span class="badge-tier-ss" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">Pyro</span>
-            <span style="font-size: 0.8rem; color: var(--text-subtle);">Claymore</span>
+            <span class="element-tag elem-pyro">Pyro</span>
+            <span class="weapon-role-tag">• Claymore</span>
+            <span class="meta-tag version-tag" style="font-size: 0.72rem; padding: 0.15rem 0.55rem;">Natlan Archon</span>
           </div>
           <h1 class="char-title">Mavuika</h1>
-          <p class="char-role-sub">Primary Role: On-Field Main DPS / Dual DPS / Off-Field Enabler</p>
+          <p class="char-role-sub">Primary Role: On-Field Hypercarry / Nightsoul Dual-DPS / Off-Field Enabler</p>
         </div>
       </div>
       <div class="hero-right-badges">
@@ -92,19 +96,19 @@
         <div class="decision-box pull-box">
           <h3 class="decision-title">✅ PULL IF</h3>
           <ul class="decision-list">
-            <li>• You lack a dominant 5-star on-field DPS for Abyss clearing.</li>
-            <li>• You need flexible off-field Pyro application with massive burst capability.</li>
-            <li>• You want a top-tier driver for Natlan's Nightsoul burst mechanic.</li>
+            <li>• You lack a dominant 5-star on-field DPS for high-floor Abyss clearing.</li>
+            <li>• You need flexible off-field Pyro application with huge frontloaded burst nukes.</li>
+            <li>• You want a premier anchor for Natlan's Nightsoul burst mechanic.</li>
             <li>• You already have or plan to build Xilonen and Citlali.</li>
           </ul>
         </div>
         <div class="decision-box skip-box">
           <h3 class="decision-title">❌ SKIP IF</h3>
           <ul class="decision-list">
-            <li>• You already own a fully built Arlecchino or Hu Tao team.</li>
-            <li>• Your account lacks foundational supports (Xilonen, Furina, Kazuha).</li>
-            <li>• You dislike driving-based combat modes or vehicle combat mechanics.</li>
-            <li>• You are basing your pull decision solely on 2M+ screenshot showcases.</li>
+            <li>• You already own a fully built Arlecchino or Hu Tao team and lack other elements.</li>
+            <li>• Your account lacks foundational universal supports (Xilonen, Furina, Kazuha).</li>
+            <li>• You dislike vehicle combat maneuvers or driving-based mechanical execution.</li>
+            <li>• You are basing your pull decision solely on 2M+ screenshot showcase clips.</li>
           </ul>
         </div>
       </div>
@@ -116,7 +120,7 @@
         <div class="redundancy-head">
           <span>⚠️</span> Account Redundancy Warning
         </div>
-        <p>Already own a built <strong>Arlecchino</strong> or <strong>Hu Tao</strong>? Mavuika competes for the exact same on-field Pyro hypercarry slot on Floor 12. While her off-field flexibility gives her an edge over pure hypercarries, pulling her will not solve missing elemental coverage on accounts lacking Cryo, Hydro, or Dendro damage dealers.</p>
+        <p>Already own a built <strong>Arlecchino</strong> or <strong>Hu Tao</strong>? Mavuika fulfills the same primary on-field Pyro carry slot on Floor 12. While her off-field flexibility gives her an edge over pure hypercarries, pulling her will not solve missing elemental coverage on accounts lacking Cryo, Hydro, or Dendro damage dealers.</p>
         <div class="overlap-tags">
           <span class="overlap-tag">Primary Role: On-Field Pyro Carry</span>
           <span class="overlap-tag">Direct Overlap: Arlecchino</span>
@@ -127,60 +131,61 @@
       </div>
     </section>
 
-    <!-- 6. Strengths, Weaknesses & Execution -->
+    <!-- 6. Talent Priority & Target Stat Benchmarks -->
     <section class="section-block">
       <div class="section-header-wrap">
-        <h2>⚖️ Strengths, Weaknesses & Execution</h2>
-      </div>
-      <div class="decision-grid" style="margin-bottom: 1.25rem;">
-        <div class="decision-box" style="background: rgba(34, 197, 94, 0.04); border: 1px solid rgba(34, 197, 94, 0.2);">
-          <h3 class="decision-title" style="color: #4ade80;">🟢 STRENGTHS</h3>
-          <ul class="decision-list">
-            <li>• Industry-leading burst scaling and sweeping AoE attacks.</li>
-            <li>• Dual-role capability: can act as pure on-field carry or off-field enabler.</li>
-            <li>• Independent of Bennett's circle-impact restriction during vehicle state.</li>
-            <li>• Night Soul traversal and combat mobility reduce field downtime.</li>
-          </ul>
-        </div>
-        <div class="decision-box" style="background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.2);">
-          <h3 class="decision-title" style="color: #f87171;">🔴 WEAKNESSES</h3>
-          <ul class="decision-list">
-            <li>• Heavy reliance on Nightsoul points from teammates to maximize burst.</li>
-            <li>• Vehicle turning radius takes adjustment against hyper-mobile enemies.</li>
-            <li>• High competition for premier off-field supports (Xilonen, Citlali, Furina).</li>
-            <li>• Overlaps heavily with existing high-investment Pyro rosters.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">🧠 Gameplay Difficulty</span><span style="font-weight: 700; color: #4ade80;">Moderate (Vehicle Maneuvers)</span></div>
-        <div class="rating-item"><span class="rating-category">🔄 Rotation Difficulty</span><span style="font-weight: 700; color: #4ade80;">Easy (Forgiving Timers)</span></div>
-      </div>
-    </section>
-
-    <!-- 7. Team Requirements & Synergies -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>🧩 Team Requirements</h2>
+        <h2>📊 Talent Priority & Target Stat Benchmarks</h2>
       </div>
       <div class="ratings-grid" style="margin-bottom: 1.25rem;">
-        <div class="rating-item"><span class="rating-category">Support Dependency</span><span style="font-weight: 700;">Medium</span></div>
-        <div class="rating-item"><span class="rating-category">Premium Dependency</span><span style="font-weight: 700;">Moderate (Prefers Natlan Supports)</span></div>
-        <div class="rating-item"><span class="rating-category">Reaction Reliance</span><span style="font-weight: 700;">High (Forward Melt / Vape)</span></div>
-        <div class="rating-item"><span class="rating-category">Team Flexibility</span><span class="rating-stars">★★★★☆</span></div>
+        <div class="rating-item"><span class="rating-category">1st: Elemental Burst (Massive Multipliers)</span><span style="font-weight: 800; color: #38bdf8;">Crown Priority (Lv 10)</span></div>
+        <div class="rating-item"><span class="rating-category">2nd: Elemental Skill (Vehicle / Off-Field)</span><span style="font-weight: 800; color: var(--text-lead);">Priority (Lv 9+)</span></div>
+        <div class="rating-item"><span class="rating-category">3rd: Normal Attack</span><span style="font-weight: 800; color: var(--text-muted);">Lower Priority (Lv 6+)</span></div>
       </div>
-      <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-        <strong>Recommended Teammates:</strong><br>
-        • <strong>Best-in-Slot Team:</strong> Mavuika + Xilonen + Citlali + Bennett / Furina<br>
-        • <strong>F2P Alternative:</strong> Mavuika + Xingqiu + Sucrose + Bennett<br>
-        • <strong>Dual-Carry Setup:</strong> Mavuika (Off-Field) + Kinich / Chasca + Bennett + Xilonen
-      </p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Target Stat</th>
+              <th>Optimal Goal Value</th>
+              <th>Theorycrafting & Practical Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ATK</strong></td>
+              <td>2,200 ~ 2,500</td>
+              <td>Scales heavily with ATK%; Bennett and Pyro Resonance push this higher.</td>
+            </tr>
+            <tr>
+              <td><strong>Elemental Mastery</strong></td>
+              <td>150 ~ 250</td>
+              <td>Essential for Forward Melt and Vaporize multiplier scaling.</td>
+            </tr>
+            <tr>
+              <td><strong>CRIT Rate</strong></td>
+              <td>60% ~ 75%</td>
+              <td>4pc Obsidian Codex grants +40% CRIT Rate during Nightsoul state.</td>
+            </tr>
+            <tr>
+              <td><strong>CRIT DMG</strong></td>
+              <td>180% ~ 220%+</td>
+              <td>Prioritize CRIT DMG circlet once base CRIT Rate is established.</td>
+            </tr>
+            <tr>
+              <td><strong>Energy Recharge</strong></td>
+              <td>120% ~ 140%</td>
+              <td>Nightsoul burst points from teammates significantly reduce ER stress.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
-    <!-- 8. Weapons & Artifacts Matrix -->
+    <!-- 7. Weapons & Artifacts Matrix -->
     <section class="section-block">
       <div class="section-header-wrap">
-        <h2>⭐ Weapons & Artifacts</h2>
+        <h2>⭐ Weapons & Artifacts Matrix</h2>
       </div>
       <div class="data-table-wrap" style="margin-bottom: 1.5rem;">
         <table class="data-table">
@@ -209,7 +214,7 @@
               <td><strong>Best 4★ (BP)</strong></td>
               <td>Serpent Spine (R1–R5)</td>
               <td>4★</td>
-              <td>Rivaling R1 5-star weapons at R5 with full damage stacks.</td>
+              <td>Rivals R1 5-star weapons at R5 with full damage stacks.</td>
             </tr>
             <tr>
               <td><strong>Best F2P</strong></td>
@@ -222,35 +227,70 @@
       </div>
 
       <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">Recommended Set</span><span style="font-weight: 700; color: #ffffff;">Obsidian Codex (4pc)</span></div>
-        <div class="rating-item"><span class="rating-category">Main Stats</span><span style="font-weight: 600; color: var(--text-muted);">ATK% (or EM) / Pyro DMG / CRIT DMG</span></div>
+        <div class="rating-item"><span class="rating-category">Recommended Set</span><span style="font-weight: 800; color: #38bdf8;">Obsidian Codex (4pc)</span></div>
+        <div class="rating-item"><span class="rating-category">Main Stats</span><span style="font-weight: 600; color: var(--text-body);">ATK% (or EM) / Pyro DMG / CRIT DMG</span></div>
         <div class="rating-item"><span class="rating-category">Investment Difficulty</span><span class="rating-stars">★★☆☆☆ Moderate</span></div>
         <div class="rating-item"><span class="rating-category">F2P Friendliness</span><span class="rating-stars">★★★★☆ 4.5/5</span></div>
       </div>
     </section>
 
-    <!-- 9. Constellation Scaling (C0 Benchmark) -->
+    <!-- 8. Constellation Scaling -->
     <section class="section-block">
       <div class="section-header-wrap">
-        <h2>🌌 Constellation Scaling (C0 Benchmark)</h2>
+        <h2>🌌 Constellation Scaling Breakdown</h2>
       </div>
       <div class="ratings-grid" style="grid-template-columns: 1fr;">
         <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: #38bdf8; min-width: 40px;">C0</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Complete baseline. Zero mechanical handicaps; full damage potential unlocked at baseline.</span>
+          <span style="font-weight: 800; color: #38bdf8; min-width: 45px;">C0</span>
+          <span style="font-size: 0.88rem; color: var(--text-body);">Complete baseline. Zero mechanical handicaps; full damage potential unlocked at baseline.</span>
         </div>
         <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: var(--tier-ss); min-width: 40px;">C1</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Increases Nightsoul generation rate and grants bonus ATK; smooths out rotations outside Natlan teams.</span>
+          <span style="font-weight: 800; color: var(--tier-ss); min-width: 45px;">C1</span>
+          <span style="font-size: 0.88rem; color: var(--text-body);">Increases Nightsoul generation rate and grants bonus ATK; smooths out rotations outside Natlan teams.</span>
         </div>
         <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: var(--tier-ss); min-width: 40px;">C2</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Major direct multiplier spike. Grants flat DEF shred to nearby enemies during combat mode (~25% team DPS gain).</span>
+          <span style="font-weight: 800; color: var(--tier-ss); min-width: 45px;">C2</span>
+          <span style="font-size: 0.88rem; color: var(--text-body);">Major direct multiplier spike. Grants flat DEF shred to nearby enemies during combat mode (~25% team DPS gain).</span>
         </div>
         <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: #a855f7; min-width: 40px;">C6</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Whale ceiling damage. Unlocks perpetual combat state. (Excluded from tier placement evaluations).</span>
+          <span style="font-weight: 800; color: #a855f7; min-width: 45px;">C6</span>
+          <span style="font-size: 0.88rem; color: var(--text-body);">Whale ceiling damage. Unlocks perpetual combat state. (Excluded from tier placement evaluations).</span>
         </div>
+      </div>
+    </section>
+
+    <!-- 9. Team Requirements & Synergies -->
+    <section class="section-block">
+      <div class="section-header-wrap">
+        <h2>🧩 Team Requirements & Synergies</h2>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Archetype</th>
+              <th>Full Lineup</th>
+              <th>Synergy Strategy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Best-in-Slot Forward Melt</strong></td>
+              <td>Mavuika + Xilonen + Citlali + Bennett / Furina</td>
+              <td>Combines Nightsoul burst generation, huge Cryo application, and Bennett's ATK buff for devastating frontloaded Melt nukes.</td>
+            </tr>
+            <tr>
+              <td><strong>F2P Vaporize</strong></td>
+              <td>Mavuika + Xingqiu + Sucrose + Bennett</td>
+              <td>High-accessibility core utilizing consistent Hydro application and 4pc Viridescent Venerer resistance shred.</td>
+            </tr>
+            <tr>
+              <td><strong>Dual-Carry Nightsoul Setup</strong></td>
+              <td>Mavuika (Off-Field) + Kinich / Chasca + Bennett + Xilonen</td>
+              <td>Leverages Mavuika's coordinated off-field Pyro strikes while generating continuous Nightsoul points for the primary carry.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -274,7 +314,7 @@
           <h3>⚠️ Misleading Showcase Setup (Screenshots)</h3>
           <ul>
             <li>• <strong>Weapon / Constellation:</strong> C6 R5 with perfect substat artifacts.</li>
-            <li>• <strong>Buff Stacking:</strong> Food buffs + Pyro Potion + Abyss Floor 7 + 5 support buffs.</li>
+            <li>• <strong>Buff Stacking:</strong> Food buffs + Pyro Potion + Floor 7 blessing + 5 support buffs.</li>
             <li>• <strong>Target Condition:</strong> Downed Level 60 boss with -80% native resistance.</li>
             <li>• <strong>Artifact Setup:</strong> 5% CRIT Rate / 320% CDMG "screenshot-fishing" build.</li>
             <li>• <strong>Reality:</strong> Cannot complete practical Abyss 12 rotations under these conditions.</li>
