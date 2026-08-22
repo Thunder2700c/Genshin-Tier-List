@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Live Search Input
+  // Real-time Search Listener
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       searchQuery = e.target.value.trim().toLowerCase();
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Element Filter Buttons
+  // Element Pill Filter Listener
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterButtons.forEach((b) => b.classList.remove('active'));
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Stagger In Animation on Load
+  // Stagger in character cards on initial load
   charCards.forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(12px)';
@@ -58,6 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       card.style.opacity = '1';
       card.style.transform = 'translateY(0)';
-    }, 40 * index);
+    }, 35 * index);
   });
 });
