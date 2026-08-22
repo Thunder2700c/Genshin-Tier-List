@@ -10,38 +10,59 @@
   <link rel="stylesheet" href="../css/tier.css">
 </head>
 <body>
-  <!-- Fixed Ambient Glow Layer -->
+  <!-- Ambient Glow Backdrop Layer -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
     <div class="ambient-glow glow-tier glow-a"></div>
   </div>
 
-  <div class="container">
-    <nav class="tier-nav-bar">
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <span>A Tier</span>
+  <div class="site-container">
+    <!-- Top System Telemetry Bar -->
+    <header class="system-bar">
+      <div class="sys-left">
+        <span class="status-pulse"></span>
+        <div class="breadcrumb-nav">
+          <a href="../index.html">HOME</a>
+          <span class="mono-meta dim">/</span>
+          <span class="mono-meta">A TIER</span>
+        </div>
       </div>
-      <div class="tier-quick-nav">
-        <a href="ss-tier.html" class="tier-pill">SS</a>
-        <a href="s-tier.html" class="tier-pill">S</a>
-        <a href="a-tier.html" class="tier-pill active-a">A</a>
-        <a href="b-tier.html" class="tier-pill">B</a>
-        <a href="c-tier.html" class="tier-pill">C</a>
-      </div>
-    </nav>
-
-    <header class="tier-header header-a">
-      <div class="tier-title-group">
-        <h1><span>🟣</span> A Tier: Very Strong / High Value</h1>
-        <p>Proven Floor 12 endgame dominators facing heavy role competition, specific support dependencies, or minor mechanical hurdles.</p>
-      </div>
-      <div class="tier-step-nav">
-        <a href="s-tier.html" class="step-btn">← S Tier</a>
-        <a href="b-tier.html" class="step-btn">B Tier →</a>
+      <div class="sys-right">
+        <span class="mono-meta">LAST UPDATED: AUG 2026</span>
       </div>
     </header>
 
+    <!-- Tier Header Hero Section -->
+    <section class="hero-section">
+      <div class="hero-label-wrap">
+        <span class="section-tag a-purple">[ 03 // A TIER ]</span>
+        <span class="tag-pill">VERY STRONG / HIGH VALUE</span>
+      </div>
+
+      <h1 class="hero-main-title">
+        <span class="title-bold">A TIER</span>
+        <span class="title-outline">ROSTER</span>
+      </h1>
+
+      <p class="hero-lead">
+        Proven Floor 12 endgame dominators facing heavy role competition, specific support dependencies, or minor mechanical vulnerabilities.
+      </p>
+
+      <div class="hero-nav-bar">
+        <div class="tier-nav-links">
+          <a href="ss-tier.html" class="tier-pill">SS</a>
+          <a href="s-tier.html" class="tier-pill">S</a>
+          <a href="a-tier.html" class="tier-pill active-a">A</a>
+          <a href="b-tier.html" class="tier-pill">B</a>
+          <a href="c-tier.html" class="tier-pill">C</a>
+        </div>
+        <div class="tier-step-nav">
+          <a href="s-tier.html" class="step-btn">← S Tier</a>
+          <a href="b-tier.html" class="step-btn">B Tier →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls Tooling Bar -->
     <section class="controls-bar">
       <div class="search-input-wrap">
         <input type="text" id="charSearch" class="search-input" placeholder="Search A-Tier characters...">
@@ -58,6 +79,7 @@
       </div>
     </section>
 
+    <!-- Character Bento Grid -->
     <main class="character-grid">
       <!-- Arlecchino -->
       <a href="../characters/arlecchino.html" class="char-card" data-name="arlecchino the knave" data-element="pyro">
@@ -133,6 +155,7 @@
       </div>
     </main>
 
+    <!-- Technical Footer -->
     <footer class="site-footer">
       <p>Genshin DPS & Pull Value Archive • A Tier Roster</p>
     </footer>
