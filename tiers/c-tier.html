@@ -10,38 +10,59 @@
   <link rel="stylesheet" href="../css/tier.css">
 </head>
 <body>
-  <!-- Fixed Ambient Glow Layer -->
+  <!-- Ambient Glow Backdrop Layer -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
     <div class="ambient-glow glow-tier glow-c"></div>
   </div>
 
-  <div class="container">
-    <nav class="tier-nav-bar">
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <span>C Tier</span>
+  <div class="site-container">
+    <!-- Top System Telemetry Bar -->
+    <header class="system-bar">
+      <div class="sys-left">
+        <span class="status-pulse"></span>
+        <div class="breadcrumb-nav">
+          <a href="../index.html">HOME</a>
+          <span class="mono-meta dim">/</span>
+          <span class="mono-meta">C TIER</span>
+        </div>
       </div>
-      <div class="tier-quick-nav">
-        <a href="ss-tier.html" class="tier-pill">SS</a>
-        <a href="s-tier.html" class="tier-pill">S</a>
-        <a href="a-tier.html" class="tier-pill">A</a>
-        <a href="b-tier.html" class="tier-pill">B</a>
-        <a href="c-tier.html" class="tier-pill active-c">C</a>
-      </div>
-    </nav>
-
-    <header class="tier-header header-c">
-      <div class="tier-title-group">
-        <h1><span>🟢</span> C Tier: Niche / Low Priority</h1>
-        <p>Specialized or power-crept damage dealers that can still clear Abyss with hyper-investment, but provide low account pull priority.</p>
-      </div>
-      <div class="tier-step-nav">
-        <a href="b-tier.html" class="step-btn">← B Tier</a>
-        <span class="step-btn disabled">Next Tier →</span>
+      <div class="sys-right">
+        <span class="mono-meta">LAST UPDATED: AUG 2026</span>
       </div>
     </header>
 
+    <!-- Tier Header Hero Section -->
+    <section class="hero-section">
+      <div class="hero-label-wrap">
+        <span class="section-tag c-green">[ 05 // C TIER ]</span>
+        <span class="tag-pill">NICHE / LOW ACCOUNT PRIORITY</span>
+      </div>
+
+      <h1 class="hero-main-title">
+        <span class="title-bold">C TIER</span>
+        <span class="title-outline">ROSTER</span>
+      </h1>
+
+      <p class="hero-lead">
+        Specialized or power-crept damage dealers that can still clear Abyss with hyper-investment, but present high account redundancy and low pull priority.
+      </p>
+
+      <div class="hero-nav-bar">
+        <div class="tier-nav-links">
+          <a href="ss-tier.html" class="tier-pill">SS</a>
+          <a href="s-tier.html" class="tier-pill">S</a>
+          <a href="a-tier.html" class="tier-pill">A</a>
+          <a href="b-tier.html" class="tier-pill">B</a>
+          <a href="c-tier.html" class="tier-pill active-c">C</a>
+        </div>
+        <div class="tier-step-nav">
+          <a href="b-tier.html" class="step-btn">← B Tier</a>
+          <span class="step-btn disabled">Next Tier →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls Tooling Bar -->
     <section class="controls-bar">
       <div class="search-input-wrap">
         <input type="text" id="charSearch" class="search-input" placeholder="Search C-Tier characters...">
@@ -58,6 +79,7 @@
       </div>
     </section>
 
+    <!-- Character Bento Grid -->
     <main class="character-grid">
       <!-- Yoimiya -->
       <a href="../characters/yoimiya.html" class="char-card" data-name="yoimiya" data-element="pyro">
@@ -161,7 +183,7 @@
         <div class="char-card-footer"><span>Primary Role: Quickswap Spread DPS</span><span>Full Analysis →</span></div>
       </a>
 
-      <!-- Sethos (C6) -->
+      <!-- Sethos (4-Star) -->
       <a href="../characters/sethos.html" class="char-card" data-name="sethos" data-element="electro" data-rarity="4">
         <div class="char-card-hero">
           <div class="char-avatar-wrap rarity-4"><img src="../assets/images/characters/sethos.webp" alt="Sethos" onerror="this.parentElement.innerHTML='⚡'"></div>
@@ -178,7 +200,7 @@
         <div class="char-card-footer"><span>Primary Role: Aggravate Bow Carry</span><span>Full Analysis →</span></div>
       </a>
 
-      <!-- Ifa (C6) -->
+      <!-- Ifa (4-Star) -->
       <a href="../characters/ifa.html" class="char-card" data-name="ifa" data-element="anemo" data-rarity="4">
         <div class="char-card-hero">
           <div class="char-avatar-wrap rarity-4"><img src="../assets/images/characters/ifa.webp" alt="Ifa" onerror="this.parentElement.innerHTML='💨'"></div>
@@ -195,7 +217,7 @@
         <div class="char-card-footer"><span>Primary Role: Swirl Driver</span><span>Full Analysis →</span></div>
       </a>
 
-      <!-- Keqing (C4) -->
+      <!-- Keqing -->
       <a href="../characters/keqing.html" class="char-card" data-name="keqing" data-element="electro">
         <div class="char-card-hero">
           <div class="char-avatar-wrap"><img src="../assets/images/characters/keqing.webp" alt="Keqing" onerror="this.parentElement.innerHTML='⚡'"></div>
@@ -212,7 +234,7 @@
         <div class="char-card-footer"><span>Primary Role: Aggravate Driver</span><span>Full Analysis →</span></div>
       </a>
 
-      <!-- Noelle (C6) -->
+      <!-- Noelle (4-Star) -->
       <a href="../characters/noelle.html" class="char-card" data-name="noelle" data-element="geo" data-rarity="4">
         <div class="char-card-hero">
           <div class="char-avatar-wrap rarity-4"><img src="../assets/images/characters/noelle.webp" alt="Noelle" onerror="this.parentElement.innerHTML='🛡️'"></div>
@@ -252,6 +274,7 @@
       </div>
     </main>
 
+    <!-- Technical Footer -->
     <footer class="site-footer">
       <p>Genshin DPS & Pull Value Archive • C Tier Roster</p>
     </footer>
