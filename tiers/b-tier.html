@@ -10,38 +10,59 @@
   <link rel="stylesheet" href="../css/tier.css">
 </head>
 <body>
-  <!-- Fixed Ambient Glow Layer -->
+  <!-- Ambient Glow Backdrop Layer -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
     <div class="ambient-glow glow-tier glow-b"></div>
   </div>
 
-  <div class="container">
-    <nav class="tier-nav-bar">
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <span>B Tier</span>
+  <div class="site-container">
+    <!-- Top System Telemetry Bar -->
+    <header class="system-bar">
+      <div class="sys-left">
+        <span class="status-pulse"></span>
+        <div class="breadcrumb-nav">
+          <a href="../index.html">HOME</a>
+          <span class="mono-meta dim">/</span>
+          <span class="mono-meta">B TIER</span>
+        </div>
       </div>
-      <div class="tier-quick-nav">
-        <a href="ss-tier.html" class="tier-pill">SS</a>
-        <a href="s-tier.html" class="tier-pill">S</a>
-        <a href="a-tier.html" class="tier-pill">A</a>
-        <a href="b-tier.html" class="tier-pill active-b">B</a>
-        <a href="c-tier.html" class="tier-pill">C</a>
-      </div>
-    </nav>
-
-    <header class="tier-header header-b">
-      <div class="tier-title-group">
-        <h1><span>🔵</span> B Tier: Good / Viable</h1>
-        <p>Capable Floor 12 clearing DPS units that require higher constellation levels, dedicated team support, or tighter rotational execution.</p>
-      </div>
-      <div class="tier-step-nav">
-        <a href="a-tier.html" class="step-btn">← A Tier</a>
-        <a href="c-tier.html" class="step-btn">C Tier →</a>
+      <div class="sys-right">
+        <span class="mono-meta">LAST UPDATED: AUG 2026</span>
       </div>
     </header>
 
+    <!-- Tier Header Hero Section -->
+    <section class="hero-section">
+      <div class="hero-label-wrap">
+        <span class="section-tag b-blue">[ 04 // B TIER ]</span>
+        <span class="tag-pill">VIABLE / HIGH INVESTMENT REQUIRED</span>
+      </div>
+
+      <h1 class="hero-main-title">
+        <span class="title-bold">B TIER</span>
+        <span class="title-outline">ROSTER</span>
+      </h1>
+
+      <p class="hero-lead">
+        Capable Floor 12 clearing DPS units that require higher constellation levels, dedicated team support, or tighter rotational execution.
+      </p>
+
+      <div class="hero-nav-bar">
+        <div class="tier-nav-links">
+          <a href="ss-tier.html" class="tier-pill">SS</a>
+          <a href="s-tier.html" class="tier-pill">S</a>
+          <a href="a-tier.html" class="tier-pill">A</a>
+          <a href="b-tier.html" class="tier-pill active-b">B</a>
+          <a href="c-tier.html" class="tier-pill">C</a>
+        </div>
+        <div class="tier-step-nav">
+          <a href="a-tier.html" class="step-btn">← A Tier</a>
+          <a href="c-tier.html" class="step-btn">C Tier →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls Tooling Bar -->
     <section class="controls-bar">
       <div class="search-input-wrap">
         <input type="text" id="charSearch" class="search-input" placeholder="Search B-Tier characters...">
@@ -58,6 +79,7 @@
       </div>
     </section>
 
+    <!-- Character Bento Grid -->
     <main class="character-grid">
       <!-- Ayaka -->
       <a href="../characters/ayaka.html" class="char-card" data-name="kamisato ayaka" data-element="cryo">
@@ -93,7 +115,7 @@
         <div class="char-card-footer"><span>Primary Role: Quickswap Electro DPS</span><span>Full Analysis →</span></div>
       </a>
 
-      <!-- Gaming (C6) -->
+      <!-- Gaming (4-Star) -->
       <a href="../characters/gaming.html" class="char-card" data-name="gaming" data-element="pyro" data-rarity="4">
         <div class="char-card-hero">
           <div class="char-avatar-wrap rarity-4"><img src="../assets/images/characters/gaming.webp" alt="Gaming" onerror="this.parentElement.innerHTML='🦁'"></div>
@@ -110,7 +132,7 @@
         <div class="char-card-footer"><span>Primary Role: Plunge Hypercarry</span><span>Full Analysis →</span></div>
       </a>
 
-      <!-- Razor (C6) -->
+      <!-- Razor (4-Star) -->
       <a href="../characters/razor.html" class="char-card" data-name="razor" data-element="electro" data-rarity="4">
         <div class="char-card-hero">
           <div class="char-avatar-wrap rarity-4"><img src="../assets/images/characters/razor.webp" alt="Razor" onerror="this.parentElement.innerHTML='🐺'"></div>
@@ -269,6 +291,7 @@
       </div>
     </main>
 
+    <!-- Technical Footer -->
     <footer class="site-footer">
       <p>Genshin DPS & Pull Value Archive • B Tier Roster</p>
     </footer>
