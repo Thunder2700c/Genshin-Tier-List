@@ -1,3 +1,7 @@
+/* ==========================================================================
+   GENSHIN DPS ARCHIVE — TIER SYSTEM STYLESHEET (UNIFIED WITH HOMEPAGE)
+   ========================================================================== */
+
 :root {
   --canvas-void: #030508;
   --surface-base: #080c14;
@@ -32,7 +36,7 @@
   --elem-anemo: #2dd4bf;
   --elem-geo: #eab308;
 
-  /* In-Game Genshin Rarity Gradients */
+  /* Authentic In-Game Genshin Rarity Gradients */
   --rarity-5-bg: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
   --rarity-5-border: rgba(245, 158, 11, 0.55);
   --rarity-5-glow: 0 4px 14px rgba(226, 159, 82, 0.25);
@@ -100,7 +104,7 @@ body {
   border-radius: 50%;
   filter: blur(140px);
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.45;
 }
 
 .glow-tier {
@@ -117,50 +121,150 @@ body {
 .glow-b  { background: radial-gradient(circle, rgba(59, 130, 246, 0.22), transparent 70%); }
 .glow-c  { background: radial-gradient(circle, rgba(16, 185, 129, 0.22), transparent 70%); }
 
-.container {
+.site-container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: clamp(1.25rem, 4vw, 2.5rem) clamp(1rem, 3.5vw, 2rem) 4rem;
   position: relative;
   z-index: 1;
 }
 
-/* Nav & Breadcrumbs */
-.tier-nav-bar {
+/* Top System Telemetry Bar */
+.system-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
   flex-wrap: wrap;
   gap: 0.75rem;
 }
 
-.breadcrumb {
+.sys-left {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
 }
 
-.breadcrumb a {
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb-nav a {
   color: var(--text-body);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.breadcrumb a:hover {
+.breadcrumb-nav a:hover {
   color: #ffffff;
 }
 
-.tier-quick-nav {
+.status-pulse {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.mono-meta {
+  color: var(--text-lead);
+  font-weight: 700;
+}
+
+.mono-meta.dim {
+  color: var(--text-muted);
+}
+
+/* Tier Header Hero Section */
+.hero-section {
+  padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(1.5rem, 3vw, 2rem);
+}
+
+.hero-label-wrap {
   display: flex;
-  gap: 0.4rem;
   align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.section-tag.ss-gold   { color: var(--tier-ss); }
+.section-tag.s-red     { color: var(--tier-s); }
+.section-tag.a-purple  { color: var(--tier-a); }
+.section-tag.b-blue    { color: var(--tier-b); }
+.section-tag.c-green   { color: var(--tier-c); }
+
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-subtle);
+  color: var(--text-body);
+}
+
+.hero-main-title {
+  font-family: var(--font-hero);
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.title-bold {
+  display: inline-block;
+  color: var(--text-lead);
+}
+
+.title-outline {
+  display: inline-block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.65);
+}
+
+.hero-lead {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--text-body);
+  max-width: 720px;
+  line-height: 1.55;
+  margin-bottom: 1.75rem;
+}
+
+/* Tier Switcher Navigation */
+.hero-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line-subtle);
+  flex-wrap: wrap;
+}
+
+.tier-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
   overflow-x: auto;
-  max-width: 100%;
   padding-bottom: 2px;
 }
 
@@ -193,75 +297,19 @@ body {
 .tier-pill.active-b  { background: rgba(59, 130, 246, 0.16); border-color: var(--tier-b);  color: var(--tier-b); }
 .tier-pill.active-c  { background: rgba(16, 185, 129, 0.16); border-color: var(--tier-c);  color: var(--tier-c); }
 
-/* Tier Header Banner */
-.tier-header {
-  background: var(--surface-bento);
-  border: 1px solid var(--line-subtle);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 3.5vw, 2rem);
-  margin-bottom: 1.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.25rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), var(--glass-specular);
-  position: relative;
-  overflow: hidden;
-}
-
-.tier-header::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-}
-
-.header-ss::before { background: var(--tier-ss); }
-.header-s::before  { background: var(--tier-s); }
-.header-a::before  { background: var(--tier-a); }
-.header-b::before  { background: var(--tier-b); }
-.header-c::before  { background: var(--tier-c); }
-
-.tier-title-group h1 {
-  font-family: var(--font-hero);
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-}
-
-.tier-title-group p {
-  color: var(--text-body);
-  font-size: clamp(0.88rem, 1.8vw, 0.95rem);
-  margin-top: 0.35rem;
-  max-width: 680px;
-}
-
-.tier-step-nav {
-  display: flex;
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-
 .step-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.95rem;
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--line-subtle);
   color: var(--text-lead);
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   font-weight: 700;
   box-shadow: var(--glass-specular);
   transition: all 0.2s ease;
@@ -278,12 +326,12 @@ body {
   pointer-events: none;
 }
 
-/* Controls Tooling */
+/* Controls Tooling Bar */
 .controls-bar {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
   width: 100%;
 }
 
@@ -350,7 +398,7 @@ body {
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Character Grid */
+/* Character Bento Grid */
 .character-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(clamp(280px, 30vw, 360px), 1fr));
@@ -387,7 +435,7 @@ body {
   border-bottom: 1px solid var(--line-subtle);
 }
 
-/* Avatar Wrapper (Gold 5-Star Default) */
+/* Avatar Frame (Gold 5-Star Default) */
 .char-avatar-wrap {
   width: 64px;
   height: 64px;
@@ -564,8 +612,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .tier-header { flex-direction: column; align-items: flex-start; }
-  .tier-step-nav { width: 100%; justify-content: space-between; }
-  .step-btn { flex: 1; }
+  .hero-nav-bar { flex-direction: column; align-items: flex-start; }
+  .step-btn { width: 100%; }
   .character-grid { grid-template-columns: 1fr; }
 }
