@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Wriothesley (C1) — Genshin DPS & Theorycrafting Archive</title>
+  <title>Wriothesley (7.0 Stellar-Conduct) — DPS & Pull Value Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -97,7 +97,7 @@
 
     .stat-matrix-val {
       font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: #ffffff;
     }
@@ -182,6 +182,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .item-rank-desc {
@@ -210,42 +211,6 @@
       display: flex;
       flex-direction: column;
       gap: 0.85rem;
-    }
-
-    .team-avatar-strip {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .team-char-cell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      flex: 1;
-    }
-
-    .team-char-avatar {
-      width: 54px;
-      height: 54px;
-      border-radius: var(--radius-sm, 8px);
-      object-fit: cover;
-      background: #111;
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .team-char-name {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-lead, #ffffff);
-      text-align: center;
-    }
-
-    .team-char-role {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.62rem;
-      color: var(--text-muted, #64748b);
     }
 
     .talent-priority-list {
@@ -296,9 +261,37 @@
       top: 0.15rem;
     }
 
+    .decision-grid-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .decision-box {
+      padding: 1.25rem;
+      border-radius: var(--radius-md, 14px);
+      background: rgba(4, 7, 13, 0.6);
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+    }
+
+    .pull-box { border-color: rgba(34, 197, 94, 0.3); }
+    .skip-box { border-color: rgba(239, 68, 68, 0.3); }
+
+    .decision-title {
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .pull-box .decision-title { color: #4ade80; }
+    .skip-box .decision-title { color: #ef4444; }
+
     @media (max-width: 900px) {
       .char-profile-header { grid-template-columns: 1fr; }
+      .char-portrait-frame { max-width: 220px; }
       .bento-col-8, .bento-col-6, .bento-col-4 { grid-column: span 12; }
+      .decision-grid-bento { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -331,129 +324,260 @@
             <span class="character-chip" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">SS TIER (C1) // 5★</span>
             <span class="character-chip">CRYO</span>
             <span class="character-chip">CATALYST</span>
-            <span class="character-chip" style="color: #64748b;">VA: Joe Zieja (EN) / Ono Daisuke (JP)</span>
+            <span class="character-chip" style="color: #64748b;">VERSION 7.0 ANALYSIS</span>
           </div>
           <h1 class="char-full-title">WRIOTHESLEY</h1>
-          <p class="char-subtitle-role">Duke of Fortress of Meropide • Sustained Cryo Brawler & Rebuke Nuke</p>
+          <p class="char-subtitle-role">Primary Role: Stellar-Conduct Driver / Sustained Normal Attack Hypercarry</p>
         </div>
 
         <div class="stat-matrix-grid">
           <div class="stat-matrix-item">
-            <div class="stat-matrix-label">Main DPS Tier</div>
-            <div class="stat-matrix-val" style="color: #f59e0b;">SS (C1) / S (C0)</div>
+            <div class="stat-matrix-label">Overall DPS (Conduct)</div>
+            <div class="stat-matrix-val" style="color: #f59e0b;">★★★★★ 5.0</div>
           </div>
           <div class="stat-matrix-item">
-            <div class="stat-matrix-label">Constellation Spike</div>
-            <div class="stat-matrix-val" style="color: #ef4444;">C1 (+200% DMG)</div>
+            <div class="stat-matrix-label">Single Target Bossing</div>
+            <div class="stat-matrix-val" style="color: #f59e0b;">★★★★★ 5.0</div>
           </div>
           <div class="stat-matrix-item">
-            <div class="stat-matrix-label">Pull Value</div>
-            <div class="stat-matrix-val" style="color: #4ade80;">5 / 5 (at C1)</div>
+            <div class="stat-matrix-label">AoE Mob Coverage</div>
+            <div class="stat-matrix-val" style="color: #94a3b8;">★★★☆☆ 3.5</div>
           </div>
           <div class="stat-matrix-item">
-            <div class="stat-matrix-label">Primary Reaction</div>
-            <div class="stat-matrix-val">Melt / Conduct</div>
+            <div class="stat-matrix-label">C1 Transformation</div>
+            <div class="stat-matrix-val" style="color: #4ade80;">★★★★★ 5.0</div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Contextual Pull Matrix & 7.0 Shift -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-8">
-        <span class="card-header-tag">[ 01 // META PERFORMANCE OVERVIEW ]</span>
-        <h2 style="font-family: var(--font-hero); font-size: 1.4rem;">The Unstoppable C1 Cryo Juggernaut</h2>
+        <span class="card-header-tag">[ 01 // 7.0 META SHIFT: STELLAR-CONDUCT OVER OUTDATED MELT ]</span>
+        <h2 style="font-family: var(--font-hero); font-size: 1.4rem;">Pinnacle 7.0 Stellar-Conduct Driver</h2>
         <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
-          At C0, Wriothesley is constrained by a strict $60\%$ HP gate to access his enhanced charged attacks. At <strong>C1 (Terror for the Evildoers)</strong>, this restriction is completely removed—guaranteeing <em>Rebuke: Vaulting Fist</em> every 5-hit Normal Attack string alongside an extra $+200\%$ DMG multiplier. Combined with 7.0 HP fluctuation artifact sets, his rotational consistency and sustained single-target DPS reach absolute pinnacle thresholds.
+          In Version 7.0, Wriothesley's optimal clearing archetype has shifted away from circle-bound Reverse-Melt setups into a high-frequency <strong>Stellar-Conduct driver</strong>. With Odette's aura mechanics and the <em>Disenchantment in Deep Shadows</em> artifact set, his constant catalyst Cryo application triggers sustained electro-cryo reaction cascades that easily clear multi-wave endgame chambers.
         </p>
         <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-md); padding: 1rem;">
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">THE C1 TRANSFORMATION RULE</div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">ROSTER ROLE & OVERLAP SUMMARY</div>
           <p style="font-size: 0.85rem; color: #fef08a; line-height: 1.5;">
-            C1 converts Wriothesley from a fragile high-risk melee brawler into a self-sustaining juggernaut that automatically heals $30\%$ Max HP every rotation cycle without needing dedicated shield babysitting.
+            <strong>Primary Archetype:</strong> Stellar-Conduct Driver &bull; <strong>Secondary:</strong> Premium Freeze / Burn-Melt &bull; <strong>Role Overlap:</strong> Skirk, Sandrone.
           </p>
         </div>
       </div>
 
       <div class="analysis-bento-card bento-col-4">
-        <span class="card-header-tag">[ 02 // TALENT PRIORITY ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">Skill Leveling Order</h3>
-        <div class="talent-priority-list">
-          <div class="talent-node pri-1">1. Normal Attack (Fists)</div>
-          <div class="talent-node pri-2">2. Elemental Skill</div>
-          <div class="talent-node pri-3">3. Elemental Burst</div>
+        <span class="card-header-tag">[ 02 // CONTEXTUAL PULL VALUE ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">7.0 Ecosystem Assessment</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">New / Mid-Game Account</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #4ade80;">🟢 High Priority (If Target C1)</div>
+          </div>
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Building 7.0 Stellar-Conduct</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #4ade80;">🟢 Pinnacle Driver</div>
+          </div>
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Strictly C0 Only (No Healer)</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #fbbf24;">🟡 5s Lockout Management</div>
+          </div>
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Legacy Melt Roster</div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #f87171;">🔴 Transition to Conduct Set</div>
+          </div>
         </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
-          Normal Attack talent levels directly dictate both his normal punches and the devastating <em>Rebuke: Vaulting Fist</em> motion value scaling.
-        </p>
       </div>
     </div>
 
+    <!-- Decision Box: Pull If vs Skip If -->
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-12">
+        <span class="card-header-tag">[ 03 // PULL DECISION MATRIX ]</span>
+        <div class="decision-grid-bento">
+          <div class="decision-box pull-box">
+            <h3 class="decision-title">✅ PULL IF</h3>
+            <ul class="bullet-point-list">
+              <li>You plan to unlock his C1 constellation to completely remove the 5-second special charged attack restriction.</li>
+              <li>You are building 7.0 Stellar-Conduct teams with enablers like Odette, Sandrone, and off-field Electro triggers.</li>
+              <li>You want a relentless on-field catalyst normal attacker with virtually zero reliance on Burst cooldowns.</li>
+              <li>You enjoy dynamic melee brawling combos and high-poise single-target boss disruption.</li>
+            </ul>
+          </div>
+          <div class="decision-box skip-box">
+            <h3 class="decision-title">❌ SKIP IF</h3>
+            <ul class="bullet-point-list">
+              <li>You are strictly staying at C0 and dislike managing tight HP thresholds (dropping below 50% disables Stellar damage).</li>
+              <li>You need sweeping wide-room AoE clearing without grouping supports like Sucrose or Kazuha.</li>
+              <li>You already have an invested Cryo carry (Skirk/Ayaka) and do not plan to run Electro/Stellar-Conduct teams.</li>
+              <li>You rely on passive circle healers that prevent him from dipping below 60% HP at C0.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Talent Priority & Target Stat Benchmarks -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-6">
-        <span class="card-header-tag">[ 03 // STAT GOAL BENCHMARKS ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Realistic C1 Optimization Targets</h3>
-        
+        <span class="card-header-tag">[ 04 // TALENT LEVELING PRIORITY ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Skill Order Hierarchy</h3>
+        <div class="talent-priority-list">
+          <div class="talent-node pri-1">1st: Normal Attack (95% DMG - Crown Lv 10)</div>
+          <div class="talent-node pri-2">2nd: Elemental Skill (Buff Multiplier - Lv 9+)</div>
+          <div class="talent-node pri-3">3rd: Elemental Burst (Secondary - Lv 8)</div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-body); margin-top: 0.5rem; line-height: 1.55;">
+          Normal Attack talent levels directly dictate his normal punches and <em>Rebuke: Vaulting Fist</em> motion value scaling. Burst remains purely supplementary.
+        </p>
+      </div>
+
+      <div class="analysis-bento-card bento-col-6">
+        <span class="card-header-tag">[ 05 // STAT BENCHMARKS ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Target Thresholds</h3>
         <div class="data-table-wrap">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Stat Metric</th>
-                <th>Target Threshold</th>
-                <th>Justification</th>
+                <th>Target Stat</th>
+                <th>Optimal Goal</th>
+                <th>Theorycrafting Notes</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td><strong>ATK</strong></td>
-                <td style="color: #f59e0b; font-weight: 700;">2,000+</td>
-                <td>High baseline needed to scale both punches and Rebuke multipliers.</td>
+                <td style="color: #f59e0b; font-weight: 700;">2,000 ~ 2,200</td>
+                <td>2,100 is the optimal sweet spot with an ATK% Sands.</td>
               </tr>
               <tr>
                 <td><strong>CRIT Rate</strong></td>
-                <td style="color: #38bdf8; font-weight: 700;">35% ~ 50% (Base)</td>
-                <td>Reaches 71% ~ 86% with 4pc Marechaussee Hunter stack bonuses.</td>
+                <td style="color: #38bdf8; font-weight: 700;">70% ~ 80%</td>
+                <td>Aim for 70%+ on Deep Shadows; Marechaussee caps at 50%–60%.</td>
               </tr>
               <tr>
                 <td><strong>CRIT DMG</strong></td>
                 <td style="color: #a855f7; font-weight: 700;">200%+</td>
-                <td>Ascension stat is CRIT DMG, allowing easily attainable high ceilings.</td>
+                <td>Stack CRIT DMG circlet & substats once rate benchmarks are met.</td>
               </tr>
               <tr>
                 <td><strong>Energy Recharge</strong></td>
-                <td>110% ~ 125%</td>
-                <td>Low burst reliance; Burst is used at the end of rotations to close waves.</td>
-              </tr>
-              <tr>
-                <td><strong>Elemental Mastery</strong></td>
-                <td>100 ~ 180 (Melt)</td>
-                <td>Crucial in Reverse-Melt setups driving Xiangling/Mavuika procs.</td>
+                <td>100% ~ 130%</td>
+                <td>Keep under 130%; burst is supplementary and does not gate rotations.</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+    </div>
 
+    <!-- Advanced Combo Nuance (Zajef Theorycraft) -->
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-12">
+        <span class="card-header-tag">[ 06 // COMBO NUANCE & HP MANAGEMENT (C0 MATH) ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Rotation Execution Mechanics</h3>
+        <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">
+          At C0, one full normal attack string drains <strong>27% HP</strong>, while a Special Charged Attack heals <strong>30% HP</strong> (+3% net positive per $N5C$). Uncontrolled $N5C$ spam causes Wriothesley to slowly overheal above 60% HP, locking him out of his passive. Additionally, his <strong>3rd hit ($N3$) is a dedicated Stellar hit</strong> that must connect under buffs.
+        </p>
+        <div class="data-table-wrap" style="margin-top: 0.5rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Combo Technique</th>
+                <th>Input Sequence</th>
+                <th>Strategic Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>$N1 \rightarrow E$ Opener</strong></td>
+                <td><code>Normal 1 → Skill (E) → Normal 2 → Normal 3</code></td>
+                <td>Casting Skill does not cancel the attack string. Opening with $N1$ makes the first hit after Skill $N2$, landing the buffed $N3$ Stellar hit instantly while maintaining exact HP neutrality across rotations.</td>
+              </tr>
+              <tr>
+                <td><strong>$N4$-Dash Skip</strong></td>
+                <td><code>N1 → N2 → N3 → Dash → N5</code></td>
+                <td>Skips the double-hit $N4$ animation without dropping combo count, compensating for the $+4.5\%$ HP variance and balancing out HP consumption.</td>
+              </tr>
+              <tr>
+                <td><strong>Emergency Boss Recovery</strong></td>
+                <td><code>Direct $N3C$ or $N1C$</code></td>
+                <td>If knocked by aggressive enemies below 50% HP (where hits lose Stellar status), immediately execute a Charged Attack to heal back into the 50%–60% operational zone.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weapons & Artifacts Matrix -->
+    <div class="bento-row">
       <div class="analysis-bento-card bento-col-6">
-        <span class="card-header-tag">[ 04 // ARTIFACT LOADOUTS ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Best-in-Slot & Main Stat Setup</h3>
-        
-        <div class="item-rank-row">
-          <div class="item-rank-info">
-            <div class="item-rank-name">Marechaussee Hunter (4pc) <span class="item-rank-tag">BiS Universal</span></div>
-            <div class="item-rank-desc">+15% Normal/Charged DMG and +36% CRIT Rate triggered by constant self-inflicted HP fluctuations.</div>
+        <span class="card-header-tag">[ 07 // WEAPON MATRIX ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Catalyst Tier Hierarchy</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Cashflow Supervision <span class="item-rank-tag">BiS 5★</span></div>
+              <div class="item-rank-desc">+16% ATK, +8% ATK SPD, +48% NA DMG, +42% CA DMG. Perfect synergy with HP fluctuations.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Tulaytullah's Remembrance <span class="item-rank-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239,68,68,0.3);">5★ Alt</span></div>
+              <div class="item-rank-desc">Matches NA damage buffs of Cashflow with +10% ATK Speed for smoother combo flow.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Lost Prayer to the Sacred Winds <span class="item-rank-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border-color: rgba(168,85,247,0.3);">General 5★</span></div>
+              <div class="item-rank-desc">Provides a massive 33.1% CRIT Rate stat stick and continuous stacking elemental DMG bonus.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">The Widsith <span class="item-rank-tag" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56,189,248,0.3);">Top 4★</span></div>
+              <div class="item-rank-desc">Elite CRIT DMG sub-stat; all 3 theme song buffs provide huge burst windows.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Ballad of the Boundless Blue <span class="item-rank-tag" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34,197,94,0.3);">F2P Event</span></div>
+              <div class="item-rank-desc">Solves ER requirements while providing steady NA and CA damage bonuses.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Flowing Purity <span class="item-rank-tag" style="background: rgba(255, 255, 255, 0.08); color: #fff; border-color: var(--line-subtle);">F2P Craftable</span></div>
+              <div class="item-rank-desc">Easily clears the Bond of Life penalty through Special Charged Attacks to grant elemental DMG%.</div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="item-rank-row">
-          <div class="item-rank-info">
-            <div class="item-rank-name">Disenchantment in Deep Shadows (4pc) <span class="item-rank-tag" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--line-subtle);">7.0 Conduct</span></div>
-            <div class="item-rank-desc">Premier option in dual Cryo/Electro Stellar-Conduct reaction compositions.</div>
+      <div class="analysis-bento-card bento-col-6">
+        <span class="card-header-tag">[ 08 // ARTIFACT LOADOUTS ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Artifact Sets & Main Stats</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Disenchantment in Deep Shadows (4pc) <span class="item-rank-tag">7.0 BiS</span></div>
+              <div class="item-rank-desc">Maximizes multi-target Stellar-Conduct reaction damage and CRIT values during continuous attack loops.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Marechaussee Hunter (4pc) <span class="item-rank-tag" style="background: rgba(255, 255, 255, 0.05); color: #fff; border-color: var(--line-subtle);">Alternative</span></div>
+              <div class="item-rank-desc">+15% Normal/Charged DMG and +36% CRIT Rate triggered by constant self-inflicted HP fluctuations.</div>
+            </div>
           </div>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
           <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
             <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">SANDS</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">ATK% / EM (Melt)</div>
+            <div style="font-weight: 700; font-size: 0.85rem;">ATK%</div>
           </div>
           <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
             <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">GOBLET</div>
@@ -461,121 +585,19 @@
           </div>
           <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
             <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">CIRCLET</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">CRIT DMG</div>
+            <div style="font-weight: 700; font-size: 0.85rem;">CRIT DMG / Rate</div>
           </div>
         </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+          <strong>Substat Priority:</strong> CRIT DMG &gt; CRIT Rate &gt; ATK% &gt; ER
+        </p>
       </div>
     </div>
 
+    <!-- Constellations Breakdown -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-12">
-        <span class="card-header-tag">[ 05 // WEAPON TIER LIST ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Catalyst Arsenal Hierarchy</h3>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.85rem;">
-          <div class="item-rank-row">
-            <div class="item-rank-info">
-              <div class="item-rank-name">Cashflow Supervision <span class="item-rank-tag">Signature BiS</span></div>
-              <div class="item-rank-desc">+22.1% CRIT Rate, raw ATK buffs, and up to +48% Normal & +42% Charged Attack DMG via HP fluctuations.</div>
-            </div>
-          </div>
-          <div class="item-rank-row">
-            <div class="item-rank-info">
-              <div class="item-rank-name">Tulaytullah's Remembrance <span class="item-rank-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239,68,68,0.3);">5★ Alt</span></div>
-              <div class="item-rank-desc">Massive 44.1% CRIT DMG stat stick with up to +48% Normal Attack DMG bonus.</div>
-            </div>
-          </div>
-          <div class="item-rank-row">
-            <div class="item-rank-info">
-              <div class="item-rank-name">Lost Prayer to the Sacred Winds <span class="item-rank-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border-color: rgba(168,85,247,0.3);">Standard 5★</span></div>
-              <div class="item-rank-desc">Consistent Elemental DMG stacking and 33.1% CRIT Rate (take care not to overcap with Marechaussee).</div>
-            </div>
-          </div>
-          <div class="item-rank-row">
-            <div class="item-rank-info">
-              <div class="item-rank-name">The Widsith (R5) <span class="item-rank-tag" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56,189,248,0.3);">4★ Gacha BiS</span></div>
-              <div class="item-rank-desc">55.1% CRIT DMG; all 3 RNG song buffs (ATK%, Elemental DMG%, EM) yield colossal frontloaded damage.</div>
-            </div>
-          </div>
-          <div class="item-rank-row">
-            <div class="item-rank-info">
-              <div class="item-rank-name">Flowing Purity <span class="item-rank-tag" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34,197,94,0.3);">Craftable BiS</span></div>
-              <div class="item-rank-desc">Bond of Life mechanic cleared easily by Wriothesley's self-healing to grant +16~32% All Elemental DMG.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-row">
-      <div class="analysis-bento-card bento-col-6">
-        <span class="card-header-tag">[ 06 // PREMIUM TEAM SYNERGY ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Hyper-Freeze / Melt Dominance</h3>
-        <div class="team-lineup-card">
-          <div class="team-avatar-strip">
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
-              <span class="team-char-name">Wriothesley</span>
-              <span class="team-char-role">Main Carry</span>
-            </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/furina.webp" alt="Furina">
-              <span class="team-char-name">Furina</span>
-              <span class="team-char-role">Fanfare / Sub</span>
-            </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/shenhe.webp" alt="Shenhe">
-              <span class="team-char-name">Shenhe / Odette</span>
-              <span class="team-char-role">Cryo Quills</span>
-            </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/xianyun.webp" alt="Xianyun">
-              <span class="team-char-name">Xianyun / Jean</span>
-              <span class="team-char-role">VV / Healer</span>
-            </div>
-          </div>
-          <p style="font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
-            <strong>Furina</strong> stacks Fanfare instantly off Wriothesley's self-drain, while <strong>Shenhe</strong> or <strong>Odette</strong> elevates every individual punch multiplier to endgame record limits.
-          </p>
-        </div>
-      </div>
-
-      <div class="analysis-bento-card bento-col-6">
-        <span class="card-header-tag">[ 07 // ACCESSIBLE F2P ROTATION ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Classic Reverse-Melt Core</h3>
-        <div class="team-lineup-card">
-          <div class="team-avatar-strip">
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
-              <span class="team-char-name">Wriothesley</span>
-              <span class="team-char-role">Main Carry</span>
-            </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/xiangling.webp" alt="Xiangling">
-              <span class="team-char-name">Xiangling</span>
-              <span class="team-char-role">Pyronado</span>
-            </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett">
-              <span class="team-char-name">Bennett</span>
-              <span class="team-char-role">ATK Buff / Heal</span>
-            </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/sucrose.webp" alt="Sucrose">
-              <span class="team-char-name">Sucrose</span>
-              <span class="team-char-role">EM Share / VV</span>
-            </div>
-          </div>
-          <p style="font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
-            <strong>Bennett + Xiangling</strong> provide relentless off-field Pyro for Wriothesley to melt his Rebuke charged attacks, with <strong>Sucrose</strong> sharing $+200\text{ EM}$.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="bento-row">
-      <div class="analysis-bento-card bento-col-12">
-        <span class="card-header-tag">[ 08 // CONSTELLATION VALUE ASSIGNMENT ]</span>
+        <span class="card-header-tag">[ 09 // CONSTELLATION SCALING BREAKDOWN ]</span>
         <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Constellation Assessment</h3>
         <div class="data-table-wrap">
           <table class="data-table">
@@ -589,22 +611,34 @@
             </thead>
             <tbody>
               <tr>
+                <td><strong>C0</strong></td>
+                <td>Base Kit</td>
+                <td style="color: #38bdf8; font-family: var(--font-mono);">★★★☆☆</td>
+                <td>Exceptional raw damage, but restricted by the 5-second Special CA cooldown and 50%–60% HP operational window.</td>
+              </tr>
+              <tr>
                 <td><strong>C1</strong></td>
                 <td>Terror for the Evildoers</td>
-                <td style="color: #ef4444; font-family: var(--font-mono);">★★★★★ (MANDATORY SPIKE)</td>
-                <td>Removes HP restriction; triggers Rebuke on 5th hit with +200% DMG and restores 30% HP. Complete gameplay transformation.</td>
+                <td style="color: #ef4444; font-family: var(--font-mono);">★★★★★ (TRANSFORMATIVE SPIKE)</td>
+                <td>Every 5th hit of normal attacks guarantees a Gracious Rebuke, buffs CA damage by +200%, and extends Chilling Penalty duration by +4s. Eliminates mechanical HP handicaps.</td>
               </tr>
               <tr>
                 <td><strong>C2</strong></td>
                 <td>Shackles for the Arrogant</td>
                 <td style="color: #f59e0b; font-family: var(--font-mono);">★★★★☆</td>
-                <td>Each prosecution stack increases Burst DMG by 40% (up to +200% total).</td>
+                <td>Increases Elemental Burst damage by up to +200% (+40% per Prosecution Edict stack), providing a huge frontloaded nuke.</td>
+              </tr>
+              <tr>
+                <td><strong>C4</strong></td>
+                <td>Redemption for the Nameless</td>
+                <td style="color: #a855f7; font-family: var(--font-mono);">★★★★☆</td>
+                <td>Rebuke healing increased to 50% Max HP. Overflow healing grants +20% on-field ATK SPD (4s) or +10% party ATK SPD (6s).</td>
               </tr>
               <tr>
                 <td><strong>C6</strong></td>
                 <td>Shields for the Steadfast</td>
                 <td style="color: #a855f7; font-family: var(--font-mono);">★★★★★ (WHALE)</td>
-                <td>Rebuke gains +10% CRIT Rate and +80% CRIT DMG while firing an additional icicle dealing 100% of base damage.</td>
+                <td>Rebuke gains +10% CRIT Rate, +80% CRIT DMG, and unleashes an additional icicle dealing 100% of base damage.</td>
               </tr>
             </tbody>
           </table>
@@ -612,23 +646,77 @@
       </div>
     </div>
 
+    <!-- Team Compositions -->
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-12">
+        <span class="card-header-tag">[ 10 // VERSION 7.0 TEAM COMPOSITIONS ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Lineup Strategies</h3>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Archetype</th>
+                <th>Full Lineup</th>
+                <th>Synergy & Rotation Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>7.0 Stellar-Conduct (Peak Ceiling)</strong></td>
+                <td>Wriothesley + Odette + Sandrone (or Yae Miko) + Beidou / Aliosha / Sucrose</td>
+                <td>Wriothesley acts as the rapid Cryo trigger under Odette's aura to unleash continuous high-scaling Stellar-Conduct discharges.</td>
+              </tr>
+              <tr>
+                <td><strong>Premium Freeze</strong></td>
+                <td>Wriothesley + Furina + Escoffier / Shenhe + Kazuha / Xilonen</td>
+                <td>Permanently locks crowdable chambers while stacking massive Fanfare buffs and Cryo RES shred.</td>
+              </tr>
+              <tr>
+                <td><strong>Burn-Melt Core</strong></td>
+                <td>Wriothesley + Emilie + Xiangling / Bennett + Xilonen / Citlali / Durin</td>
+                <td>Sustained Burning aura provides constant forward Pyro triggers for huge Reverse-Melt punch ticks.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Damage Showcase Reality vs 7.0 Baseline -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-6" style="border-color: rgba(34, 197, 94, 0.3);">
-        <span class="card-header-tag" style="color: #22c55e;">[ 09 // STRENGTHS ]</span>
+        <span class="card-header-tag" style="color: #22c55e;">[ 11 // REALISTIC C1 / DEEP SHADOWS BASELINE ]</span>
         <ul class="bullet-point-list">
-          <li><strong>Fluid Melee Flow:</strong> Uninterrupted punch strings with zero stamina cost on Rebuke at C1.</li>
-          <li><strong>Exceptional Self-Sustain:</strong> Completely independent of healers when C1 is unlocked.</li>
-          <li><strong>Extreme Reaction Versatility:</strong> Masters Freeze, Reverse-Melt, and 7.0 Stellar-Conduct equally.</li>
+          <li><strong>Weapon:</strong> R1 Cashflow Supervision or R5 Flowing Purity.</li>
+          <li><strong>Artifacts:</strong> 4pc Disenchantment in Deep Shadows (75% CR / 210% CDMG, 2,100 ATK).</li>
+          <li><strong>Team:</strong> Wriothesley + Odette + Sandrone + Beidou.</li>
+          <li><strong>Output:</strong> Sustained 45k–75k normal punches combined with continuous multi-target Stellar-Conduct procs.</li>
         </ul>
       </div>
 
       <div class="analysis-bento-card bento-col-6" style="border-color: rgba(239, 68, 68, 0.3);">
-        <span class="card-header-tag" style="color: #ef4444;">[ 10 // LIMITATIONS & TRAPS ]</span>
+        <span class="card-header-tag" style="color: #ef4444;">[ 12 // MISLEADING LEGACY MELT SHOWCASE TRAPS ]</span>
         <ul class="bullet-point-list">
-          <li><strong>The C0 Restriction:</strong> At C0, managing his $60\%$ HP gate is clunky without high-tier shields.</li>
-          <li><strong>Melee Hitbox Range:</strong> Requires close contact; vulnerable to hyper-mobile boss knockbacks.</li>
-          <li><strong>Role Redundancy:</strong> If you own Ayaka or Sandrone, pulling is luxury personal preference.</li>
+          <li><strong>Trap:</strong> Relying on slow 1-hit Xiangling/Bennett Pyro circles in multi-wave Abyss.</li>
+          <li><strong>Distortions:</strong> C6 R5 fishing for massive single-hit uppercut screenshots.</li>
+          <li><strong>Reality:</strong> 7.0 endgame content favors fluid multi-wave reaction drivers over circle-bound Melt nuke setups.</li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Final Verdict Box -->
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-12" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--surface-bento) 100%); border-color: rgba(245, 158, 11, 0.35);">
+        <span class="card-header-tag">[ 13 // FINAL VERDICT ]</span>
+        <h2 style="font-family: var(--font-hero); font-size: 1.5rem; color: #ffffff;">SS TIER (C1) — THE PREMIER CRYODRIVER</h2>
+        <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+          Wriothesley's ascension to SS-Tier in Version 7.0 is driven by the brand-new Stellar-Conduct reaction ecosystem and the <em>Disenchantment in Deep Shadows</em> artifact set. When paired with his transformative C1 constellation, he eliminates all HP handicaps to become one of the fastest, most consistent, and fluid reaction drivers in the entire game.
+        </p>
+        <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.5rem;">
+          <span class="character-chip" style="color: #4ade80; border-color: rgba(34, 197, 94, 0.3);">Stellar-Conduct Builders: 🟢 Top Priority</span>
+          <span class="character-chip" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">Targeting C1: 🟢 Must Pull</span>
+          <span class="character-chip" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">C0 Only: 🟡 Manage 5s Lockout</span>
+        </div>
       </div>
     </div>
 
