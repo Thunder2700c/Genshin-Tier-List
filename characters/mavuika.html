@@ -3,344 +3,636 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Mavuika — DPS & Pull Value Archive</title>
+  <title>Mavuika — Genshin DPS & Theorycrafting Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/character.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <style>
+    .char-profile-header {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(1.5rem, 3.5vw, 2.5rem);
+      background: var(--surface-bento, rgba(13, 18, 28, 0.75));
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-lg, 20px);
+      padding: clamp(1.25rem, 3vw, 2rem);
+      margin-bottom: 2rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .char-portrait-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-md, 14px);
+      background: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
+      border: 1px solid rgba(245, 158, 11, 0.55);
+      box-shadow: 0 8px 24px rgba(226, 159, 82, 0.25);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .char-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-meta-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .meta-top-badges {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .char-full-title {
+      font-family: var(--font-hero, 'Outfit', sans-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .char-subtitle-role {
+      font-size: 1rem;
+      color: var(--text-body, #94a3b8);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .stat-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .stat-matrix-item {
+      background: rgba(4, 7, 13, 0.7);
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-sm, 8px);
+      padding: 0.65rem 0.85rem;
+    }
+
+    .stat-matrix-label {
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.68rem;
+      color: var(--text-muted, #64748b);
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-matrix-val {
+      font-family: var(--font-hero, 'Outfit', sans-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .bento-row {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .bento-col-12 { grid-column: span 12; }
+    .bento-col-8  { grid-column: span 8; }
+    .bento-col-6  { grid-column: span 6; }
+    .bento-col-4  { grid-column: span 4; }
+
+    .analysis-bento-card {
+      background: var(--surface-bento, rgba(13, 18, 28, 0.75));
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-lg, 20px);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card-header-tag {
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.72rem;
+      color: var(--tier-ss, #f59e0b);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .data-table-wrap {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .data-table th, .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+    }
+
+    .data-table th {
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--text-muted, #64748b);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .item-rank-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.75rem;
+      border-radius: var(--radius-sm, 8px);
+      background: rgba(4, 7, 13, 0.6);
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+    }
+
+    .item-rank-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-rank-name {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .item-rank-desc {
+      font-size: 0.8rem;
+      color: var(--text-body, #94a3b8);
+      margin-top: 0.2rem;
+      line-height: 1.4;
+    }
+
+    .item-rank-tag {
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.65rem;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--tier-ss, #f59e0b);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      font-weight: 700;
+    }
+
+    .team-lineup-card {
+      background: rgba(4, 7, 13, 0.6);
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+      border-radius: var(--radius-md, 14px);
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .team-avatar-strip {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .team-char-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      flex: 1;
+    }
+
+    .team-char-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius-sm, 8px);
+      object-fit: cover;
+      background: #111;
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+    }
+
+    .team-char-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-lead, #ffffff);
+      text-align: center;
+    }
+
+    .team-char-role {
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.62rem;
+      color: var(--text-muted, #64748b);
+    }
+
+    .talent-priority-list {
+      display: flex;
+      gap: 0.65rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .talent-node {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(4, 7, 13, 0.8);
+      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-pill, 9999px);
+      font-family: var(--font-mono, 'Space Mono', monospace);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .talent-node.pri-1 { border-color: rgba(245, 158, 11, 0.4); color: #f59e0b; }
+    .talent-node.pri-2 { border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
+    .talent-node.pri-3 { border-color: var(--line-subtle, rgba(255, 255, 255, 0.08)); color: var(--text-muted, #64748b); }
+
+    .bullet-point-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .bullet-point-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--text-body, #94a3b8);
+    }
+
+    .bullet-point-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--tier-ss, #f59e0b);
+      font-size: 0.75rem;
+      top: 0.15rem;
+    }
+
+    @media (max-width: 900px) {
+      .char-profile-header { grid-template-columns: 1fr; }
+      .bento-col-8, .bento-col-6, .bento-col-4 { grid-column: span 12; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Fixed Ambient Glow Layer -->
+
   <div class="ambient-glow-wrapper" aria-hidden="true">
-    <div class="ambient-glow glow-character glow-pyro"></div>
+    <div class="ambient-glow glow-gold" style="background: radial-gradient(circle, rgba(239, 68, 68, 0.25), transparent 70%);"></div>
+    <div class="ambient-glow glow-blue" style="background: radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent 70%);"></div>
   </div>
 
-  <div class="container">
-    <!-- Breadcrumb -->
-    <nav class="char-nav-bar">
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <a href="../tiers/ss-tier.html">SS Tier</a>
-        <span>/</span>
-        <span>Mavuika</span>
+  <div class="site-container">
+    <header class="system-bar">
+      <div class="sys-left">
+        <span class="sys-status"></span>
+        <span class="mono-meta"><a href="../index.html" style="color: inherit; text-decoration: none;">ARCHIVE</a> // <a href="../tiers/ss-tier.html" style="color: inherit; text-decoration: none;">SS TIER</a> // MAVUIKA</span>
       </div>
-      <a href="../tiers/ss-tier.html" style="color: var(--text-body); text-decoration: none; font-size: 0.82rem; font-weight: 700;">← Back to SS Tier</a>
-    </nav>
-
-    <!-- 1. Hero Card -->
-    <header class="hero-card">
-      <div class="hero-left">
-        <div class="hero-avatar">
-          <img src="../assets/images/characters/mavuika.webp" alt="Mavuika" onerror="this.parentElement.innerHTML='🔥'">
-        </div>
-        <div>
-          <div class="hero-meta">
-            <span class="element-tag elem-pyro">Pyro</span>
-            <span class="weapon-role-tag">• Claymore</span>
-            <span class="meta-tag version-tag" style="font-size: 0.72rem; padding: 0.15rem 0.55rem;">Natlan Archon</span>
-          </div>
-          <h1 class="char-title">Mavuika</h1>
-          <p class="char-role-sub">Primary Role: On-Field Hypercarry / Nightsoul Dual-DPS / Off-Field Enabler</p>
-        </div>
-      </div>
-      <div class="hero-right-badges">
-        <span class="badge-tier badge-tier-ss">SS TIER</span>
-        <span class="badge-rarity">★★★★★</span>
+      <div class="sys-right">
+        <span class="mono-meta">THEORYCRAFTING VER 7.0</span>
       </div>
     </header>
 
-    <!-- 2. Combat Power Ratings -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>⚔️ Combat Power (C0 Baseline)</h2>
+    <section class="char-profile-header">
+      <div class="char-portrait-frame">
+        <img src="../assets/images/characters/mavuika.webp" alt="Mavuika" onerror="this.parentElement.innerHTML='🔥'">
       </div>
-      <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">Overall DPS</span><span class="rating-stars">★★★★★ 5.0</span></div>
-        <div class="rating-item"><span class="rating-category">Single Target</span><span class="rating-stars">★★★★★ 5.0</span></div>
-        <div class="rating-item"><span class="rating-category">AoE Coverage</span><span class="rating-stars">★★★★★ 5.0</span></div>
-        <div class="rating-item"><span class="rating-category">Burst Damage</span><span class="rating-stars">★★★★★ 5.0</span></div>
-        <div class="rating-item"><span class="rating-category">Sustained DPS</span><span class="rating-stars">★★★★☆ 4.8</span></div>
-        <div class="rating-item"><span class="rating-category">Rotation Consistency</span><span class="rating-stars">★★★★★ 5.0</span></div>
-      </div>
-    </section>
 
-    <!-- 3. Contextual Pull Value -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>💎 Contextual Pull Value</h2>
-      </div>
-      <div class="pull-matrix">
-        <div class="matrix-card">
-          <div class="matrix-header">New Account</div>
-          <div class="matrix-value" style="color: #4ade80;">🟢 Must Pull / Account Anchor</div>
+      <div class="profile-meta-block">
+        <div>
+          <div class="meta-top-badges">
+            <span class="character-chip" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">SS TIER // 5★ ARCHON</span>
+            <span class="character-chip">PYRO</span>
+            <span class="character-chip">CLAYMORE</span>
+            <span class="character-chip" style="color: #64748b;">VA: Allegra Clark (EN) / Komatsu Mikako (JP)</span>
+          </div>
+          <h1 class="char-full-title">MAVUIKA</h1>
+          <p class="char-subtitle-role">The Pyro Archon • Universal Offensive Engine & Nightsoul Hypercarry</p>
         </div>
-        <div class="matrix-card">
-          <div class="matrix-header">Mid-Game Account</div>
-          <div class="matrix-value" style="color: #4ade80;">🟢 Extremely High Value</div>
-        </div>
-        <div class="matrix-card">
-          <div class="matrix-header">Established Account</div>
-          <div class="matrix-value" style="color: #fbbf24;">🟡 Check Pyro DPS Roster</div>
-        </div>
-        <div class="matrix-card">
-          <div class="matrix-header">Owns Arlecchino + Hu Tao</div>
-          <div class="matrix-value" style="color: #f87171;">🔴 Role Redundant (Luxury)</div>
-        </div>
-      </div>
-    </section>
 
-    <!-- 4. Decision: Pull If vs Skip If -->
-    <section class="section-block">
-      <div class="decision-grid">
-        <div class="decision-box pull-box">
-          <h3 class="decision-title">✅ PULL IF</h3>
-          <ul class="decision-list">
-            <li>• You lack a dominant 5-star on-field DPS for high-floor Abyss clearing.</li>
-            <li>• You need flexible off-field Pyro application with huge frontloaded burst nukes.</li>
-            <li>• You want a premier anchor for Natlan's Nightsoul burst mechanic.</li>
-            <li>• You already have or plan to build Xilonen and Citlali.</li>
-          </ul>
-        </div>
-        <div class="decision-box skip-box">
-          <h3 class="decision-title">❌ SKIP IF</h3>
-          <ul class="decision-list">
-            <li>• You already own a fully built Arlecchino or Hu Tao team and lack other elements.</li>
-            <li>• Your account lacks foundational universal supports (Xilonen, Furina, Kazuha).</li>
-            <li>• You dislike vehicle combat maneuvers or driving-based mechanical execution.</li>
-            <li>• You are basing your pull decision solely on 2M+ screenshot showcase clips.</li>
-          </ul>
+        <div class="stat-matrix-grid">
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Main DPS Tier</div>
+            <div class="stat-matrix-val" style="color: #f59e0b;">SS Tier</div>
+          </div>
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Off-Field Sub-DPS</div>
+            <div class="stat-matrix-val" style="color: #f59e0b;">SS Tier</div>
+          </div>
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Pull Value</div>
+            <div class="stat-matrix-val" style="color: #4ade80;">5 / 5 (Essential)</div>
+          </div>
+          <div class="stat-matrix-item">
+            <div class="stat-matrix-label">Core Mechanic</div>
+            <div class="stat-matrix-val">Nightsoul Drive</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. Account Redundancy Warning -->
-    <section class="section-block">
-      <div class="redundancy-box">
-        <div class="redundancy-head">
-          <span>⚠️</span> Account Redundancy Warning
-        </div>
-        <p>Already own a built <strong>Arlecchino</strong> or <strong>Hu Tao</strong>? Mavuika fulfills the same primary on-field Pyro carry slot on Floor 12. While her off-field flexibility gives her an edge over pure hypercarries, pulling her will not solve missing elemental coverage on accounts lacking Cryo, Hydro, or Dendro damage dealers.</p>
-        <div class="overlap-tags">
-          <span class="overlap-tag">Primary Role: On-Field Pyro Carry</span>
-          <span class="overlap-tag">Direct Overlap: Arlecchino</span>
-          <span class="overlap-tag">Hu Tao</span>
-          <span class="overlap-tag">Yoimiya</span>
-          <span class="overlap-tag">Lyney</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. Talent Priority & Target Stat Benchmarks -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>📊 Talent Priority & Target Stat Benchmarks</h2>
-      </div>
-      <div class="ratings-grid" style="margin-bottom: 1.25rem;">
-        <div class="rating-item"><span class="rating-category">1st: Elemental Burst (Massive Multipliers)</span><span style="font-weight: 800; color: #38bdf8;">Crown Priority (Lv 10)</span></div>
-        <div class="rating-item"><span class="rating-category">2nd: Elemental Skill (Vehicle / Off-Field)</span><span style="font-weight: 800; color: var(--text-lead);">Priority (Lv 9+)</span></div>
-        <div class="rating-item"><span class="rating-category">3rd: Normal Attack</span><span style="font-weight: 800; color: var(--text-muted);">Lower Priority (Lv 6+)</span></div>
-      </div>
-
-      <div class="data-table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Target Stat</th>
-              <th>Optimal Goal Value</th>
-              <th>Theorycrafting & Practical Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>ATK</strong></td>
-              <td>2,200 ~ 2,500</td>
-              <td>Scales heavily with ATK%; Bennett and Pyro Resonance push this higher.</td>
-            </tr>
-            <tr>
-              <td><strong>Elemental Mastery</strong></td>
-              <td>150 ~ 250</td>
-              <td>Essential for Forward Melt and Vaporize multiplier scaling.</td>
-            </tr>
-            <tr>
-              <td><strong>CRIT Rate</strong></td>
-              <td>60% ~ 75%</td>
-              <td>4pc Obsidian Codex grants +40% CRIT Rate during Nightsoul state.</td>
-            </tr>
-            <tr>
-              <td><strong>CRIT DMG</strong></td>
-              <td>180% ~ 220%+</td>
-              <td>Prioritize CRIT DMG circlet once base CRIT Rate is established.</td>
-            </tr>
-            <tr>
-              <td><strong>Energy Recharge</strong></td>
-              <td>120% ~ 140%</td>
-              <td>Nightsoul burst points from teammates significantly reduce ER stress.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 7. Weapons & Artifacts Matrix -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>⭐ Weapons & Artifacts Matrix</h2>
-      </div>
-      <div class="data-table-wrap" style="margin-bottom: 1.5rem;">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Priority</th>
-              <th>Weapon Name</th>
-              <th>Rarity</th>
-              <th>Notes / Performance</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Signature (R1)</strong></td>
-              <td>A Thousand Blazing Suns</td>
-              <td>5★</td>
-              <td>Best-in-slot. Massive CRIT Rate and ATK/Burst DMG amplification.</td>
-            </tr>
-            <tr>
-              <td><strong>Best 5★ Alt</strong></td>
-              <td>Beacon of the Reed Sea / Verdict</td>
-              <td>5★</td>
-              <td>Excellent CRIT stat stick with consistent passive uptime.</td>
-            </tr>
-            <tr>
-              <td><strong>Best 4★ (BP)</strong></td>
-              <td>Serpent Spine (R1–R5)</td>
-              <td>4★</td>
-              <td>Rivals R1 5-star weapons at R5 with full damage stacks.</td>
-            </tr>
-            <tr>
-              <td><strong>Best F2P</strong></td>
-              <td>Earth Shaker (Craftable)</td>
-              <td>4★</td>
-              <td>Craftable Natlan Claymore. Provides free Skill DMG bonus via Pyro triggers.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">Recommended Set</span><span style="font-weight: 800; color: #38bdf8;">Obsidian Codex (4pc)</span></div>
-        <div class="rating-item"><span class="rating-category">Main Stats</span><span style="font-weight: 600; color: var(--text-body);">ATK% (or EM) / Pyro DMG / CRIT DMG</span></div>
-        <div class="rating-item"><span class="rating-category">Investment Difficulty</span><span class="rating-stars">★★☆☆☆ Moderate</span></div>
-        <div class="rating-item"><span class="rating-category">F2P Friendliness</span><span class="rating-stars">★★★★☆ 4.5/5</span></div>
-      </div>
-    </section>
-
-    <!-- 8. Constellation Scaling -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>🌌 Constellation Scaling Breakdown</h2>
-      </div>
-      <div class="ratings-grid" style="grid-template-columns: 1fr;">
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 800; color: #38bdf8; min-width: 45px;">C0</span>
-          <span style="font-size: 0.88rem; color: var(--text-body);">Complete baseline. Zero mechanical handicaps; full damage potential unlocked at baseline.</span>
-        </div>
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 800; color: var(--tier-ss); min-width: 45px;">C1</span>
-          <span style="font-size: 0.88rem; color: var(--text-body);">Increases Nightsoul generation rate and grants bonus ATK; smooths out rotations outside Natlan teams.</span>
-        </div>
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 800; color: var(--tier-ss); min-width: 45px;">C2</span>
-          <span style="font-size: 0.88rem; color: var(--text-body);">Major direct multiplier spike. Grants flat DEF shred to nearby enemies during combat mode (~25% team DPS gain).</span>
-        </div>
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 800; color: #a855f7; min-width: 45px;">C6</span>
-          <span style="font-size: 0.88rem; color: var(--text-body);">Whale ceiling damage. Unlocks perpetual combat state. (Excluded from tier placement evaluations).</span>
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-8">
+        <span class="card-header-tag">[ 01 // META PERFORMANCE OVERVIEW ]</span>
+        <h2 style="font-family: var(--font-hero); font-size: 1.4rem;">The Pinnacle Pyro Standard of Version 7.0</h2>
+        <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+          Mavuika serves as the definitive offensive centerpiece for Natlan and Version 7.0 teamcrafting. Her Elemental Burst possesses the single highest raw motion value scaling in the Pyro roster, while her Elemental Skill provides permanent 100% uptime off-field Pyro coordinated strikes that consume zero energy, operating entirely on <strong>Fighting Spirit</strong>.
+        </p>
+        <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-md); padding: 1rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">THE UNIVERSAL ARCHON PRINCIPLE</div>
+          <p style="font-size: 0.85rem; color: #fef08a; line-height: 1.5;">
+            Even on accounts that already possess hypercarries like Arlecchino or Hu Tao, Mavuika delivers irreplaceable account value by serving as the ultimate off-field enabler for Melt, Overload, and Stellar-Conduct compositions.
+          </p>
         </div>
       </div>
-    </section>
 
-    <!-- 9. Team Requirements & Synergies -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>🧩 Team Requirements & Synergies</h2>
-      </div>
-      <div class="data-table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Archetype</th>
-              <th>Full Lineup</th>
-              <th>Synergy Strategy</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Best-in-Slot Forward Melt</strong></td>
-              <td>Mavuika + Xilonen + Citlali + Bennett / Furina</td>
-              <td>Combines Nightsoul burst generation, huge Cryo application, and Bennett's ATK buff for devastating frontloaded Melt nukes.</td>
-            </tr>
-            <tr>
-              <td><strong>F2P Vaporize</strong></td>
-              <td>Mavuika + Xingqiu + Sucrose + Bennett</td>
-              <td>High-accessibility core utilizing consistent Hydro application and 4pc Viridescent Venerer resistance shred.</td>
-            </tr>
-            <tr>
-              <td><strong>Dual-Carry Nightsoul Setup</strong></td>
-              <td>Mavuika (Off-Field) + Kinich / Chasca + Bennett + Xilonen</td>
-              <td>Leverages Mavuika's coordinated off-field Pyro strikes while generating continuous Nightsoul points for the primary carry.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- 10. Damage Showcase Reality vs Realistic Performance -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>📸 Damage Showcase Reality Check</h2>
-      </div>
-      <div class="showcase-comparison">
-        <div class="showcase-panel showcase-reality">
-          <h3>✅ Realistic C0 Abyss Baseline</h3>
-          <ul>
-            <li>• <strong>Weapon:</strong> R1 Earth Shaker / R1 Serpent Spine.</li>
-            <li>• <strong>Artifacts:</strong> 4pc Obsidian Codex (~65% CRIT / 160% CDMG).</li>
-            <li>• <strong>Support Context:</strong> Standard C0 supports (Xilonen / Bennett / Citlali).</li>
-            <li>• <strong>Expected Output:</strong> 70k–130k per Melt hit with a 250k–400k initial burst slash.</li>
-            <li>• <strong>Consistency:</strong> High multi-wave uptime without fishing for CRIT rolls.</li>
-          </ul>
+      <div class="analysis-bento-card bento-col-4">
+        <span class="card-header-tag">[ 02 // TALENT PRIORITY ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">Skill Leveling Order</h3>
+        <div class="talent-priority-list">
+          <div class="talent-node pri-1">1. Elemental Burst</div>
+          <div class="talent-node pri-2">2. Elemental Skill</div>
+          <div class="talent-node pri-3">3. Normal Attack</div>
         </div>
-        <div class="showcase-panel showcase-trap">
-          <h3>⚠️ Misleading Showcase Setup (Screenshots)</h3>
-          <ul>
-            <li>• <strong>Weapon / Constellation:</strong> C6 R5 with perfect substat artifacts.</li>
-            <li>• <strong>Buff Stacking:</strong> Food buffs + Pyro Potion + Floor 7 blessing + 5 support buffs.</li>
-            <li>• <strong>Target Condition:</strong> Downed Level 60 boss with -80% native resistance.</li>
-            <li>• <strong>Artifact Setup:</strong> 5% CRIT Rate / 320% CDMG "screenshot-fishing" build.</li>
-            <li>• <strong>Reality:</strong> Cannot complete practical Abyss 12 rotations under these conditions.</li>
-          </ul>
+        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
+          Elemental Burst contains her multi-million nuke multipliers and on-field driving state, while Skill scales her coordinated off-field damage.
+        </p>
+      </div>
+    </div>
+
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-6">
+        <span class="card-header-tag">[ 03 // STAT GOAL BENCHMARKS ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Realistic C0 Optimization Targets</h3>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Stat Metric</th>
+                <th>Target Threshold</th>
+                <th>Justification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ATK</strong></td>
+                <td style="color: #f59e0b; font-weight: 700;">2,200+</td>
+                <td>Raw ATK scales both off-field Flameweaver and Burst driving slashes.</td>
+              </tr>
+              <tr>
+                <td><strong>CRIT Rate</strong></td>
+                <td style="color: #38bdf8; font-weight: 700;">60% ~ 75%</td>
+                <td>Guarantees massive single-hit Burst instances never miss a critical strike.</td>
+              </tr>
+              <tr>
+                <td><strong>CRIT DMG</strong></td>
+                <td style="color: #a855f7; font-weight: 700;">170% ~ 220%+</td>
+                <td>Primary damage amplifier across weapon and artifact substats.</td>
+              </tr>
+              <tr>
+                <td><strong>Elemental Mastery</strong></td>
+                <td>100 ~ 200 (Melt/Vape)</td>
+                <td>Exponentially increases Forward Melt procs alongside Citlali.</td>
+              </tr>
+              <tr>
+                <td><strong>Energy Recharge</strong></td>
+                <td>100% (Not Needed)</td>
+                <td>Kit utilizes <strong>Fighting Spirit</strong> instead of standard energy meter.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </section>
 
-    <!-- 11. Final Verdict -->
-    <section class="verdict-box">
-      <span class="badge-tier badge-tier-ss" style="display: inline-block; margin-bottom: 0.75rem;">SS TIER</span>
-      <h2>FINAL VERDICT</h2>
-      <p class="verdict-summary">Mavuika sets the benchmark for Pyro DPS and team synergy in Version 7.0. Her dual ability to output overwhelming on-field damage while retaining off-field sub-DPS utility makes her an invaluable anchor for new and developing rosters, though existing accounts with peak Arlecchino or Hu Tao teams should carefully weigh role redundancy.</p>
-      <div class="verdict-recommendations">
-        <span class="rec-pill" style="color: #4ade80; border-color: rgba(34, 197, 94, 0.3);">New Players: 🟢 Must Pull</span>
-        <span class="rec-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">Mid-Game: 🟢 High Priority</span>
-        <span class="rec-pill" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Established: 🟡 Evaluate Pyro Roster</span>
+      <div class="analysis-bento-card bento-col-6">
+        <span class="card-header-tag">[ 04 // ARTIFACT LOADOUTS ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Best-in-Slot & Main Stat Setup</h3>
+        
+        <div class="item-rank-row">
+          <div class="item-rank-info">
+            <div class="item-rank-name">Obsidian Codex (4pc) <span class="item-rank-tag">BiS On-Field Carry</span></div>
+            <div class="item-rank-desc">+15% DMG during Nightsoul and an astonishing +40% CRIT Rate when consuming Nightsoul points.</div>
+          </div>
+        </div>
+
+        <div class="item-rank-row">
+          <div class="item-rank-info">
+            <div class="item-rank-name">Scroll of the Hero of Cinder City (4pc) <span class="item-rank-tag" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--line-subtle);">BiS Sub-DPS / Support</span></div>
+            <div class="item-rank-desc">Provides party-wide +40% All Elemental DMG bonus upon triggering Nightsoul Burst.</div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">SANDS</div>
+            <div style="font-weight: 700; font-size: 0.85rem;">ATK% / EM</div>
+          </div>
+          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">GOBLET</div>
+            <div style="font-weight: 700; font-size: 0.85rem;">Pyro DMG%</div>
+          </div>
+          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">CIRCLET</div>
+            <div style="font-weight: 700; font-size: 0.85rem;">CRIT DMG / Rate</div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-12">
+        <span class="card-header-tag">[ 05 // WEAPON TIER LIST ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Claymore Arsenal Hierarchy</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.85rem;">
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">A Thousand Blazing Suns <span class="item-rank-tag">Signature BiS</span></div>
+              <div class="item-rank-desc">+44.1% CRIT Rate, teamwide Nightsoul ATK buff, and massive +40% CRIT DMG upon casting Skill/Burst.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Beacon of the Reed Sea <span class="item-rank-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239,68,68,0.3);">5★ Alt</span></div>
+              <div class="item-rank-desc">+33.1% CRIT Rate with easy unconditional +40% ATK stacking from taking damage or casting skill.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Serpent Spine (R5) <span class="item-rank-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border-color: rgba(168,85,247,0.3);">BP King</span></div>
+              <div class="item-rank-desc">+50% All DMG bonus and +27.6% CRIT Rate; rivals standard 5-star claymores when paired with a shielder.</div>
+            </div>
+          </div>
+          <div class="item-rank-row">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Earth Shaker <span class="item-rank-tag" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34,197,94,0.3);">Craftable BiS</span></div>
+              <div class="item-rank-desc">Natlan craftable claymore granting up to +32% Skill DMG bonus upon triggering Pyro-related reactions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-6">
+        <span class="card-header-tag">[ 06 // PREMIUM TEAM SYNERGY ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Nightsoul Forward Melt Core</h3>
+        <div class="team-lineup-card">
+          <div class="team-avatar-strip">
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/mavuika.webp" alt="Mavuika">
+              <span class="team-char-name">Mavuika</span>
+              <span class="team-char-role">Main Carry</span>
+            </div>
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/citlali.webp" alt="Citlali">
+              <span class="team-char-name">Citlali</span>
+              <span class="team-char-role">Cryo Shield / Melt</span>
+            </div>
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/xilonen.webp" alt="Xilonen">
+              <span class="team-char-name">Xilonen</span>
+              <span class="team-char-role">RES Shred / Heal</span>
+            </div>
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett">
+              <span class="team-char-name">Bennett</span>
+              <span class="team-char-role">ATK Engine</span>
+            </div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
+            <strong>Citlali</strong> provides reliable Cryo application and Nightsoul points, while <strong>Xilonen</strong> shreds 36% Cryo & Pyro resistance to ensure Mavuika's Melt nukes hit peak ceiling.
+          </p>
+        </div>
+      </div>
+
+      <div class="analysis-bento-card bento-col-6">
+        <span class="card-header-tag">[ 07 // ACCESSIBLE F2P ROTATION ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">F2P Vaporize Rotation</h3>
+        <div class="team-lineup-card">
+          <div class="team-avatar-strip">
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/mavuika.webp" alt="Mavuika">
+              <span class="team-char-name">Mavuika</span>
+              <span class="team-char-role">Main Carry</span>
+            </div>
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/xingqiu.webp" alt="Xingqiu">
+              <span class="team-char-name">Xingqiu</span>
+              <span class="team-char-role">Hydro Rainswords</span>
+            </div>
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett">
+              <span class="team-char-name">Bennett</span>
+              <span class="team-char-role">ATK Buff</span>
+            </div>
+            <div class="team-char-cell">
+              <img class="team-char-avatar" src="../assets/images/characters/sucrose.webp" alt="Sucrose">
+              <span class="team-char-name">Sucrose</span>
+              <span class="team-char-role">VV Shred / EM</span>
+            </div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
+            <strong>Xingqiu</strong> provides defensive stagger resistance and continuous off-field Hydro to vaporize Mavuika's high-multiplier motorbike slashes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-12">
+        <span class="card-header-tag">[ 08 // CONSTELLATION VALUE ASSIGNMENT ]</span>
+        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Constellation Assessment</h3>
+        <div class="data-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Mechanical Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>C1</strong></td>
+                <td>The Night-Lord's Vision</td>
+                <td style="color: #ef4444; font-family: var(--font-mono);">★★★★★</td>
+                <td>Increases Fighting Spirit cap by 25% and grants up to +40% ATK to the entire team.</td>
+              </tr>
+              <tr>
+                <td><strong>C2</strong></td>
+                <td>The Ashes of Creation</td>
+                <td style="color: #ef4444; font-family: var(--font-mono);">★★★★★ (GOD TIER)</td>
+                <td>Increases Base ATK by 200 and shreds opponent DEF by 20% during Nightsoul state. Massive multiplier increase.</td>
+              </tr>
+              <tr>
+                <td><strong>C6</strong></td>
+                <td>The Sun That Never Sets</td>
+                <td style="color: #a855f7; font-family: var(--font-mono);">★★★★★ (WHALE)</td>
+                <td>Grants unlimited Fighting Spirit access, allowing permanent on-field Archon burst form uptime.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="bento-row">
+      <div class="analysis-bento-card bento-col-6" style="border-color: rgba(34, 197, 94, 0.3);">
+        <span class="card-header-tag" style="color: #22c55e;">[ 09 // STRENGTHS ]</span>
+        <ul class="bullet-point-list">
+          <li><strong>Zero Energy Reliance:</strong> Burst is charged via party-wide Nightsoul usage and Normal Attacks.</li>
+          <li><strong>Universal Dual-Role Mastery:</strong> Functions seamlessly as both a hypercarry and top-tier off-field sub-DPS.</li>
+          <li><strong>Supreme Exploration:</strong> Unmatched motorcycle mobility across Natlan and open-world terrain.</li>
+        </ul>
+      </div>
+
+      <div class="analysis-bento-card bento-col-6" style="border-color: rgba(239, 68, 68, 0.3);">
+        <span class="card-header-tag" style="color: #ef4444;">[ 10 // LIMITATIONS & TRAPS ]</span>
+        <ul class="bullet-point-list">
+          <li><strong>Natlan Synergies Preferred:</strong> Fighting Spirit charges slightly slower in teams with zero Natlan allies.</li>
+          <li><strong>Interruption Vulnerability:</strong> Requires shield protection during the wind-up of her major burst animations.</li>
+        </ul>
+      </div>
+    </div>
+
     <footer class="site-footer">
-      <p>Genshin DPS & Pull Value Archive • Character Evaluation</p>
+      <div class="footer-meta">
+        <span>GENSHIN DPS ARCHIVE // CHARACTER ANALYSIS</span>
+        <span class="dim">INDEPENDENT COMPUTATIONAL THEORYCRAFTING</span>
+      </div>
+      <p class="footer-disclaimer">
+        Not affiliated with or endorsed by HoYoverse. Genshin Impact is a registered trademark of HoYoverse.
+      </p>
     </footer>
   </div>
-
-  <script src="../js/character.js"></script>
 </body>
 </html>
