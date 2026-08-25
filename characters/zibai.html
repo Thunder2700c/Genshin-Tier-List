@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css">
   <style>
-    /* Scoped Character Architecture */
     .char-profile-header {
       display: grid;
       grid-template-columns: 280px 1fr;
@@ -103,17 +102,6 @@
       color: #ffffff;
     }
 
-    /* Section Bento Containers */
-    .bento-section-title {
-      font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
     .bento-row {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -147,7 +135,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* Table Styles */
     .data-table-wrap {
       overflow-x: auto;
       width: 100%;
@@ -173,11 +160,6 @@
       background: rgba(0, 0, 0, 0.25);
     }
 
-    .data-table tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    /* Weapon & Item Cards */
     .item-rank-row {
       display: flex;
       align-items: center;
@@ -230,7 +212,6 @@
       font-weight: 700;
     }
 
-    /* Team Showcase */
     .team-lineup-card {
       background: rgba(4, 7, 13, 0.6);
       border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
@@ -243,8 +224,9 @@
 
     .team-avatar-strip {
       display: flex;
-      gap: 0.75rem;
-      align-items: center;
+      gap: 0.4rem;
+      align-items: stretch;
+      justify-content: space-between;
     }
 
     .team-char-cell {
@@ -253,15 +235,37 @@
       align-items: center;
       gap: 0.3rem;
       flex: 1;
+      justify-content: flex-start;
+    }
+
+    .team-char-cell.multi {
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm, 8px);
+      padding: 0.25rem 0.15rem;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .team-sub-char {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      width: 100%;
     }
 
     .team-char-avatar {
-      width: 54px;
-      height: 54px;
+      width: 50px;
+      height: 50px;
       border-radius: var(--radius-sm, 8px);
       object-fit: cover;
       background: #111;
       border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+    }
+
+    .team-sub-char .team-char-avatar {
+      width: 40px;
+      height: 40px;
     }
 
     .team-char-name {
@@ -269,6 +273,11 @@
       font-weight: 700;
       color: var(--text-lead, #ffffff);
       text-align: center;
+      line-height: 1.2;
+    }
+
+    .team-sub-char .team-char-name {
+      font-size: 0.65rem;
     }
 
     .team-char-role {
@@ -276,6 +285,8 @@
       font-size: 0.62rem;
       color: var(--text-muted, #64748b);
       text-align: center;
+      margin-top: auto;
+      line-height: 1.2;
     }
 
     .talent-priority-list {
@@ -335,7 +346,6 @@
 </head>
 <body>
 
-  <!-- Ambient Glow Layer -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
     <div class="ambient-glow glow-gold" style="background: radial-gradient(circle, rgba(234, 179, 8, 0.22), transparent 70%);"></div>
     <div class="ambient-glow glow-blue" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);"></div>
@@ -343,7 +353,6 @@
 
   <div class="site-container">
     
-    <!-- Top System Bar -->
     <header class="system-bar">
       <div class="sys-left">
         <span class="sys-status"></span>
@@ -354,7 +363,6 @@
       </div>
     </header>
 
-    <!-- Character Hero Profile Card -->
     <section class="char-profile-header">
       <div class="char-portrait-frame">
         <img src="../assets/images/characters/zibai.webp" alt="Zibai" onerror="this.parentElement.innerHTML='⚪'">
@@ -399,12 +407,12 @@
         <span class="card-header-tag">[ 01 // META PERFORMANCE OVERVIEW ]</span>
         <h2 style="font-family: var(--font-hero); font-size: 1.4rem;">The Unrivaled Lunar-Crystallize DPS Benchmark</h2>
         <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
-          With the addition of Linnea into the Geo roster, Zibai's DPS has skyrocketed, establishing the definitive new ceiling for Main DPS carries. Even without Linnea, Zibai surpasses the damage output of most meta teams while maintaining an exceptionally straightforward and comfortable rotation, free from the strict mechanical demands of units like Nefer.
+          With the addition of Linnea into the Geo roster, Zibai's DPS has skyrocketed, establishing the definitive new ceiling for Main DPS carries[span_0](start_span)[span_0](end_span). Even without Linnea, Zibai surpasses the damage output of most meta teams while maintaining an exceptionally straightforward and comfortable rotation, free from the strict mechanical demands of units like Nefer[span_1](start_span)[span_1](end_span).
         </p>
         <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-md); padding: 1rem;">
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">PHASE SHIFT RADIANGE & LUNAR-CRYSTALLIZE</div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">PHASE SHIFT RADIANCE & LUNAR-CRYSTALLIZE</div>
           <p style="font-size: 0.85rem; color: #fef08a; line-height: 1.5;">
-            Zibai primarily casts her Elemental Skill to infuse attacks with Geo and accrue <em>Phase Shift Radiance</em> through Normal Attacks and Lunar-Crystallize triggers, culminating in the colossal frontloaded nuke: <strong>Spirit Steed's Stride</strong>.
+            Zibai primarily casts her Elemental Skill to infuse attacks with Geo and accrue <em>Phase Shift Radiance</em> through Normal Attacks and Lunar-Crystallize triggers, culminating in the colossal frontloaded nuke: <strong>Spirit Steed's Stride</strong>[span_2](start_span)[span_2](end_span).
           </p>
         </div>
       </div>
@@ -418,7 +426,7 @@
           <div class="talent-node pri-3">3. Normal Attack</div>
         </div>
         <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
-          <strong>Elemental Skill (Heaven and Earth Made Manifest)</strong> is the highest priority as it governs the entire frontloaded damage of <em>Spirit Steed's Stride</em>. <strong>Elemental Burst (Tri-Sphere Eminence)</strong> follows for supplementary rotation damage. Normal Attack talent levels do not contribute meaningfully to her damage.
+          <strong>Elemental Skill (Heaven and Earth Made Manifest)</strong> is the highest priority as it governs the entire frontloaded damage of <em>Spirit Steed's Stride</em>[span_3](start_span)[span_3](end_span). <strong>Elemental Burst (Tri-Sphere Eminence)</strong> follows for supplementary rotation damage[span_4](start_span)[span_4](end_span). Normal Attack talent levels do not contribute meaningfully to her damage[span_5](start_span)[span_5](end_span).
         </p>
       </div>
     </div>
@@ -442,27 +450,27 @@
               <tr>
                 <td><strong>DEF</strong></td>
                 <td style="color: #f59e0b; font-weight: 700;">2,500+</td>
-                <td>Scales 100% of her offensive motion values; ATK yields near-zero value.</td>
+                <td>Scales 100% of her offensive motion values; ATK yields near-zero value[span_6](start_span)[span_6](end_span).</td>
               </tr>
               <tr>
                 <td><strong>CRIT Rate</strong></td>
                 <td style="color: #38bdf8; font-weight: 700;">40% ~ 50%</td>
-                <td>Unbuffed base; reaches 75%+ with 4pc Night of the Sky's Unveiling.</td>
+                <td>Unbuffed base; reaches 75%+ with 4pc Night of the Sky's Unveiling[span_7](start_span)[span_7](end_span).</td>
               </tr>
               <tr>
                 <td><strong>CRIT DMG</strong></td>
                 <td style="color: #a855f7; font-weight: 700;">175%+</td>
-                <td>Balances her ascension CRIT stat to maintain an optimal 1:2 ratio.</td>
+                <td>Balances her ascension CRIT stat to maintain an optimal 1:2 ratio[span_8](start_span)[span_8](end_span).</td>
               </tr>
               <tr>
                 <td><strong>Elemental Mastery</strong></td>
                 <td>100 ~ 200</td>
-                <td>Directly augments personal Lunar-Crystallize reaction damage multipliers.</td>
+                <td>Directly augments personal Lunar-Crystallize reaction damage multipliers[span_9](start_span)[span_9](end_span).</td>
               </tr>
               <tr>
                 <td><strong>Energy Recharge</strong></td>
                 <td>110% ~ 130%</td>
-                <td>Optional substat; allows casting Burst comfortably every other rotation.</td>
+                <td>Optional substat; allows casting Burst comfortably every other rotation[span_10](start_span)[span_10](end_span).</td>
               </tr>
             </tbody>
           </table>
@@ -477,7 +485,7 @@
           <img class="item-rank-avatar" src="../assets/images/artifacts/night_skys_unveiling.webp" alt="Night of the Sky's Unveiling" onerror="this.style.background='#222'">
           <div class="item-rank-info">
             <div class="item-rank-name">Night of the Sky's Unveiling (4pc) <span class="item-rank-tag">BiS by Far</span></div>
-            <div class="item-rank-desc">Uncontested BiS. Boosts Lunar Reaction DMG and provides significant CRIT Rate buffs easily triggered by Moonsign units.</div>
+            <div class="item-rank-desc">Uncontested BiS. Boosts Lunar Reaction DMG and provides significant CRIT Rate buffs easily triggered by Moonsign units[span_11](start_span)[span_11](end_span).</div>
           </div>
         </div>
 
@@ -485,14 +493,14 @@
           <img class="item-rank-avatar" src="../assets/images/artifacts/husk_opulent_dreams.webp" alt="Husk of Opulent Dreams" onerror="this.style.background='#222'">
           <div class="item-rank-info">
             <div class="item-rank-name">Husk of Opulent Dreams (4pc) <span class="item-rank-tag" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--line-subtle);">Distant 2nd</span></div>
-            <div class="item-rank-desc">High DEF stacking, but the Geo DMG bonus is largely redundant since Lunar-Crystallize does not scale with DMG%.</div>
+            <div class="item-rank-desc">High DEF stacking, but the Geo DMG bonus is largely redundant since Lunar-Crystallize does not scale with DMG%[span_12](start_span)[span_12](end_span).</div>
           </div>
         </div>
 
         <div class="item-rank-row">
           <div class="item-rank-info">
             <div class="item-rank-name">2pc Husk / 2pc Wanderer's Troupe <span class="item-rank-tag" style="background: rgba(255,255,255,0.05); color: #94a3b8; border-color: var(--line-subtle);">Transitional</span></div>
-            <div class="item-rank-desc">Temporary 2pc DEF% and 2pc Elemental Mastery pairing during the early farming phase.</div>
+            <div class="item-rank-desc">Temporary 2pc DEF% and 2pc Elemental Mastery pairing during the early farming phase[span_13](start_span)[span_13](end_span).</div>
           </div>
         </div>
 
@@ -524,42 +532,42 @@
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Lightbearing Moonshard <span class="item-rank-tag">Signature BiS</span></div>
-              <div class="item-rank-desc">Increases DEF and Lunar-Crystallize DMG with a massive CRIT DMG bonus. Tailor-made to elevate her kit entirely.</div>
+              <div class="item-rank-desc">Increases DEF and Lunar-Crystallize DMG with a massive CRIT DMG bonus. Tailor-made to elevate her kit entirely[span_14](start_span)[span_14](end_span).</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Uraku Misugiri <span class="item-rank-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239,68,68,0.3);">5★ Alt</span></div>
-              <div class="item-rank-desc">Provides a direct DEF increase, Normal Attack DMG, and Elemental Skill DMG buffs that double upon dealing Geo DMG.</div>
+              <div class="item-rank-desc">Provides a direct DEF increase, Normal Attack DMG, and Elemental Skill DMG buffs that double upon dealing Geo DMG[span_15](start_span)[span_15](end_span).</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Light of Foliar Incision <span class="item-rank-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border-color: rgba(168,85,247,0.3);">5★ CDMG Stick</span></div>
-              <div class="item-rank-desc">Massive CRIT DMG sub-stat with Normal Attack and Skill buffs based on EM (requires higher EM investment to maximize).</div>
+              <div class="item-rank-desc">Massive CRIT DMG sub-stat with Normal Attack and Skill buffs based on EM (requires higher EM investment to maximize)[span_16](start_span)[span_16](end_span).</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Flute of Ezpitzal <span class="item-rank-tag" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56,189,248,0.3);">Craftable BiS</span></div>
-              <div class="item-rank-desc">Premier F2P craftable option providing high DEF% sub-stat and an additional stacking DEF boost when casting Elemental Skill.</div>
+              <div class="item-rank-desc">Premier F2P craftable option providing high DEF% sub-stat and an additional stacking DEF boost when casting Elemental Skill[span_17](start_span)[span_17](end_span).</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Harbinger of Dawn <span class="item-rank-tag" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34,197,94,0.3);">3★ F2P King</span></div>
-              <div class="item-rank-desc">At R5, provides a huge 28% CRIT Rate and 46.9% CRIT DMG stat line when maintained above 90% HP via healers/shielders.</div>
+              <div class="item-rank-desc">At R5, provides a huge 28% CRIT Rate and 46.9% CRIT DMG stat line when maintained above 90% HP via healers/shielders[span_18](start_span)[span_18](end_span).</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Peak Patrol Song / Cinnabar Spindle <span class="item-rank-tag" style="background: rgba(255, 255, 255, 0.08); color: #fff; border-color: var(--line-subtle);">Viable Alts</span></div>
-              <div class="item-rank-desc">Alternative DEF-boosting options that scale her Skill hits directly.</div>
+              <div class="item-rank-desc">Alternative DEF-boosting options that scale her Skill hits directly[span_19](start_span)[span_19](end_span).</div>
             </div>
           </div>
 
@@ -567,7 +575,7 @@
       </div>
     </div>
 
-    <!-- Team Compositions & Roster Synergies -->
+    <!-- Team Compositions & Roster Synergies (Stacked Dual Alternative Support) -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 06 // LUNAR-CRYSTALLIZE PREMIUM ]</span>
@@ -576,28 +584,40 @@
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/zibai.webp" alt="Zibai">
+              <img class="team-char-avatar" src="../assets/images/characters/zibai.webp" alt="Zibai" onerror="this.parentElement.innerHTML='⚪'">
               <span class="team-char-name">Zibai</span>
               <span class="team-char-role">Main DPS</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/columbina.webp" alt="Columbina">
+              <img class="team-char-avatar" src="../assets/images/characters/columbina.webp" alt="Columbina" onerror="this.parentElement.innerHTML='🕊️'">
               <span class="team-char-name">Columbina</span>
               <span class="team-char-role">Lunar Sub-DPS</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/linnea.webp" alt="Linnea">
-              <span class="team-char-name">Linnea / Aino</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/linnea.webp" alt="Linnea" onerror="this.parentElement.innerHTML='🌸'">
+                <span class="team-char-name">Linnea</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/aino.webp" alt="Aino" onerror="this.parentElement.innerHTML='❄️'">
+                <span class="team-char-name">Aino</span>
+              </div>
               <span class="team-char-role">Moonsign Buff</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/gorou.webp" alt="Gorou">
-              <span class="team-char-name">Gorou / Illuga</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/gorou.webp" alt="Gorou" onerror="this.parentElement.innerHTML='🐕'">
+                <span class="team-char-name">Gorou</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/illuga.webp" alt="Illuga" onerror="this.parentElement.innerHTML='🛡️'">
+                <span class="team-char-name">Illuga</span>
+              </div>
               <span class="team-char-role">DEF / CRIT Buff</span>
             </div>
           </div>
           <p style="font-size: 0.8rem; color: var(--text-body); line-height: 1.5;">
-            <strong>Columbina & Linnea</strong> provide secondary damage and massive Lunar-Crystallize amplification. <strong>Gorou & Illuga</strong> provide flat DEF and Geo CRIT buffs to max out Zibai's multipliers.
+            <strong>Columbina & Linnea</strong> provide secondary damage and massive Lunar-Crystallize amplification[span_20](start_span)[span_20](end_span). <strong>Gorou & Illuga</strong> provide flat DEF and Geo CRIT buffs to max out Zibai's multipliers[span_21](start_span)[span_21](end_span).
           </p>
         </div>
       </div>
@@ -609,28 +629,34 @@
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/zibai.webp" alt="Zibai">
+              <img class="team-char-avatar" src="../assets/images/characters/zibai.webp" alt="Zibai" onerror="this.parentElement.innerHTML='⚪'">
               <span class="team-char-name">Zibai</span>
               <span class="team-char-role">Main DPS</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/columbina.webp" alt="Columbina">
+              <img class="team-char-avatar" src="../assets/images/characters/columbina.webp" alt="Columbina" onerror="this.parentElement.innerHTML='🕊️'">
               <span class="team-char-name">Columbina</span>
               <span class="team-char-role">Moonsign Core</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/ineffa.webp" alt="Ineffa">
+              <img class="team-char-avatar" src="../assets/images/characters/ineffa.webp" alt="Ineffa" onerror="this.parentElement.innerHTML='⚡'">
               <span class="team-char-name">Ineffa</span>
               <span class="team-char-role">Lunar-Charged</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/illuga.webp" alt="Illuga">
-              <span class="team-char-name">Illuga / Gorou</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/illuga.webp" alt="Illuga" onerror="this.parentElement.innerHTML='🛡️'">
+                <span class="team-char-name">Illuga</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/gorou.webp" alt="Gorou" onerror="this.parentElement.innerHTML='🐕'">
+                <span class="team-char-name">Gorou</span>
+              </div>
               <span class="team-char-role">DEF Buffer</span>
             </div>
           </div>
           <p style="font-size: 0.8rem; color: var(--text-body); line-height: 1.5;">
-            Damage is distributed evenly between Zibai's high-scaling Lunar-Crystallize strikes and Ineffa's off-field Lunar-Charged discharge loops.
+            Damage is distributed evenly between Zibai's high-scaling Lunar-Crystallize strikes and Ineffa's off-field Lunar-Charged discharge loops[span_22](start_span)[span_22](end_span).
           </p>
         </div>
       </div>
@@ -642,28 +668,46 @@
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/zibai.webp" alt="Zibai">
+              <img class="team-char-avatar" src="../assets/images/characters/zibai.webp" alt="Zibai" onerror="this.parentElement.innerHTML='⚪'">
               <span class="team-char-name">Zibai</span>
               <span class="team-char-role">Main DPS</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/aino.webp" alt="Aino">
-              <span class="team-char-name">Aino / Jahoda</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/aino.webp" alt="Aino" onerror="this.parentElement.innerHTML='❄️'">
+                <span class="team-char-name">Aino</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/jahoda.webp" alt="Jahoda" onerror="this.parentElement.innerHTML='🍃'">
+                <span class="team-char-name">Jahoda</span>
+              </div>
               <span class="team-char-role">Moonsign Core</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/xingqiu.webp" alt="Xingqiu">
-              <span class="team-char-name">Xingqiu / Candace</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/xingqiu.webp" alt="Xingqiu" onerror="this.parentElement.innerHTML='💧'">
+                <span class="team-char-name">Xingqiu</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/candace.webp" alt="Candace" onerror="this.parentElement.innerHTML='🛡️'">
+                <span class="team-char-name">Candace</span>
+              </div>
               <span class="team-char-role">Hydro App</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/gorou.webp" alt="Gorou">
-              <span class="team-char-name">Gorou / Yun Jin</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/gorou.webp" alt="Gorou" onerror="this.parentElement.innerHTML='🐕'">
+                <span class="team-char-name">Gorou</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/yunjin.webp" alt="Yun Jin" onerror="this.parentElement.innerHTML='🎭'">
+                <span class="team-char-name">Yun Jin</span>
+              </div>
               <span class="team-char-role">DEF Support</span>
             </div>
           </div>
           <p style="font-size: 0.8rem; color: var(--text-body); line-height: 1.5;">
-            A F2P-friendly team that still fulfills the Hydro and Geo requirements to trigger Ascendant Gleam and continuous Lunar-Crystallize reactions.
+            A F2P-friendly team that still fulfills the Hydro and Geo requirements to trigger Ascendant Gleam and continuous Lunar-Crystallize reactions[span_23](start_span)[span_23](end_span).
           </p>
         </div>
       </div>
@@ -690,37 +734,37 @@
                 <td><strong>C1</strong></td>
                 <td>Burst Forth With Vigor, But Enter in Silence</td>
                 <td style="color: #f59e0b; font-family: var(--font-mono);">★★★☆</td>
-                <td>Instantly gains 100 Phase Shift Radiance on Skill cast; increases <em>Spirit Steed's Stride</em> max casts to 5 times (up from 4), and buffs the 1st cast's 2nd-hit Lunar-Crystallize DMG by <strong>+220%</strong>.</td>
+                <td>Instantly gains 100 Phase Shift Radiance on Skill cast; increases <em>Spirit Steed's Stride</em> max casts to 5 times (up from 4), and buffs the 1st cast's 2nd-hit Lunar-Crystallize DMG by <strong>+220%</strong>[span_24](start_span)[span_24](end_span).</td>
               </tr>
               <tr>
                 <td><strong>C2</strong></td>
                 <td>At Birth Are Souls Born, and in Death Leave But Husks</td>
                 <td style="color: #ef4444; font-family: var(--font-mono);">★★★ (MUST SPIKE)</td>
-                <td>All party members deal <strong>+30% Lunar-Crystallize DMG</strong>. The 2nd hit of <em>Spirit Steed's Stride</em> is further increased by an incredible <strong>+550% of Zibai's DEF</strong>. Best constellation in kit.</td>
+                <td>All party members deal <strong>+30% Lunar-Crystallize DMG</strong>[span_25](start_span)[span_25](end_span). The 2nd hit of <em>Spirit Steed's Stride</em> is further increased by an incredible <strong>+550% of Zibai's DEF</strong>[span_26](start_span)[span_26](end_span). Best constellation in kit[span_27](start_span)[span_27](end_span).</td>
               </tr>
               <tr>
                 <td><strong>C3</strong></td>
                 <td>Free From Constraints and Worldly Ties</td>
                 <td style="color: var(--text-muted); font-family: var(--font-mono);">★★☆☆</td>
-                <td>Increases Elemental Skill (Heaven and Earth Made Manifest) Level by 3.</td>
+                <td>Increases Elemental Skill (Heaven and Earth Made Manifest) Level by 3[span_28](start_span)[span_28](end_span).</td>
               </tr>
               <tr>
                 <td><strong>C4</strong></td>
                 <td>The Spirit Passes, Then Form Follows</td>
                 <td style="color: #f59e0b; font-family: var(--font-mono);">★★☆</td>
-                <td>Normal Attack animations do not reset during Skill; <em>Spirit Steed's Stride</em> empowers the next 4th Normal Attack to deal <strong>250% of its damage as Lunar-Crystallize DMG</strong>.</td>
+                <td>Normal Attack animations do not reset during Skill; <em>Spirit Steed's Stride</em> empowers the next 4th Normal Attack to deal <strong>250% of its damage as Lunar-Crystallize DMG</strong>[span_29](start_span)[span_29](end_span).</td>
               </tr>
               <tr>
                 <td><strong>C5</strong></td>
                 <td>Perceive the Worthless and Debate It Not</td>
                 <td style="color: var(--text-muted); font-family: var(--font-mono);">★★☆☆</td>
-                <td>Increases Elemental Burst (Tri-Sphere Eminence) Level by 3.</td>
+                <td>Increases Elemental Burst (Tri-Sphere Eminence) Level by 3[span_30](start_span)[span_30](end_span).</td>
               </tr>
               <tr>
                 <td><strong>C6</strong></td>
                 <td>The World, A Journey in Passing</td>
                 <td style="color: #a855f7; font-family: var(--font-mono);">★★★★ (WHALE)</td>
-                <td>Increases Phase Shift Radiance gain rate by 50%. <em>Spirit Steed's Stride</em> consumes all Radiance above 70, elevating skill and Lunar-Crystallize reaction DMG by +1.6% per point consumed.</td>
+                <td>Increases Phase Shift Radiance gain rate by 50%[span_31](start_span)[span_31](end_span). <em>Spirit Steed's Stride</em> consumes all Radiance above 70, elevating skill and Lunar-Crystallize reaction DMG by +1.6% per point consumed[span_32](start_span)[span_32](end_span).</td>
               </tr>
             </tbody>
           </table>
@@ -733,19 +777,19 @@
       <div class="analysis-bento-card bento-col-6" style="border-color: rgba(34, 197, 94, 0.3);">
         <span class="card-header-tag" style="color: #22c55e;">[ 10 // STRENGTHS ]</span>
         <ul class="bullet-point-list">
-          <li><strong>Pinnacle Lunar-Crystallize Carry:</strong> Redefines team DPS benchmarks with frontloaded DEF-scaling reaction nukes.</li>
-          <li><strong>Smooth Rotation Flow:</strong> Simple, intuitive combo loop (`Skill → NA x4 → Special Skill`) with high comfort.</li>
-          <li><strong>Innate Team Scaling:</strong> Hydro and Geo allies in party directly increase her personal Elemental Mastery and DEF.</li>
-          <li><strong>Night Energy Recovery:</strong> Restores Elemental Energy automatically at night for exploration convenience.</li>
+          <li><strong>Pinnacle Lunar-Crystallize Carry:</strong> Redefines team DPS benchmarks with frontloaded DEF-scaling reaction nukes[span_33](start_span)[span_33](end_span).</li>
+          <li><strong>Smooth Rotation Flow:</strong> Simple, intuitive combo loop (`Skill → NA x4 → Special Skill`) with high comfort[span_34](start_span)[span_34](end_span).</li>
+          <li><strong>Innate Team Scaling:</strong> Hydro and Geo allies in party directly increase her personal Elemental Mastery and DEF[span_35](start_span)[span_35](end_span).</li>
+          <li><strong>Night Energy Recovery:</strong> Restores Elemental Energy automatically at night for exploration convenience[span_36](start_span)[span_36](end_span).</li>
         </ul>
       </div>
 
       <div class="analysis-bento-card bento-col-6" style="border-color: rgba(239, 68, 68, 0.3);">
         <span class="card-header-tag" style="color: #ef4444;">[ 11 // LIMITATIONS & TRAPS ]</span>
         <ul class="bullet-point-list">
-          <li><strong>Restrictive Teambuilding:</strong> Rigidly tethered to Hydro and Geo Moonsign characters (Columbina, Linnea, Illuga, Aino).</li>
-          <li><strong>Contested Support Tax:</strong> Heavily competes for Columbina, who is in high demand across other top Lunar archetypes.</li>
-          <li><strong>Zero Geo Goblet Value:</strong> Lunar Reactions do not scale with Elemental DMG% bonuses, making Geo DMG goblets useless.</li>
+          <li><strong>Restrictive Teambuilding:</strong> Rigidly tethered to Hydro and Geo Moonsign characters (Columbina, Linnea, Illuga, Aino)[span_37](start_span)[span_37](end_span).</li>
+          <li><strong>Contested Support Tax:</strong> Heavily competes for Columbina, who is in high demand across other top Lunar archetypes[span_38](start_span)[span_38](end_span).</li>
+          <li><strong>Zero Geo Goblet Value:</strong> Lunar Reactions do not scale with Elemental DMG% bonuses, making Geo DMG goblets useless[span_39](start_span)[span_39](end_span).</li>
         </ul>
       </div>
     </div>
