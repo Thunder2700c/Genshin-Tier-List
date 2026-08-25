@@ -215,8 +215,9 @@
 
     .team-avatar-strip {
       display: flex;
-      gap: 0.75rem;
-      align-items: center;
+      gap: 0.4rem;
+      align-items: stretch;
+      justify-content: space-between;
     }
 
     .team-char-cell {
@@ -225,15 +226,37 @@
       align-items: center;
       gap: 0.3rem;
       flex: 1;
+      justify-content: flex-start;
+    }
+
+    .team-char-cell.multi {
+      gap: 0.4rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-sm, 8px);
+      padding: 0.25rem 0.15rem;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .team-sub-char {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      width: 100%;
     }
 
     .team-char-avatar {
-      width: 54px;
-      height: 54px;
+      width: 50px;
+      height: 50px;
       border-radius: var(--radius-sm, 8px);
       object-fit: cover;
       background: #111;
       border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
+    }
+
+    .team-sub-char .team-char-avatar {
+      width: 40px;
+      height: 40px;
     }
 
     .team-char-name {
@@ -241,6 +264,11 @@
       font-weight: 700;
       color: var(--text-lead, #ffffff);
       text-align: center;
+      line-height: 1.2;
+    }
+
+    .team-sub-char .team-char-name {
+      font-size: 0.65rem;
     }
 
     .team-char-role {
@@ -248,6 +276,8 @@
       font-size: 0.62rem;
       color: var(--text-muted, #64748b);
       text-align: center;
+      margin-top: auto;
+      line-height: 1.2;
     }
 
     .talent-priority-list {
@@ -683,7 +713,7 @@
       </div>
     </div>
 
-    <!-- Visual Team Lineup Cards (Sandrone Style Architecture) -->
+    <!-- Visual Team Lineup Cards (Sandrone Style Architecture - Stacked Alternatives) -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 10 // 7.0 STELLAR-CONDUCT (PEAK CEILING) ]</span>
@@ -692,23 +722,35 @@
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
+              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
               <span class="team-char-name">Wriothesley</span>
               <span class="team-char-role">Main Driver</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/odette.webp" alt="Odette">
+              <img class="team-char-avatar" src="../assets/images/characters/odette.webp" alt="Odette" onerror="this.parentElement.innerHTML='❄️'">
               <span class="team-char-name">Odette</span>
               <span class="team-char-role">Conduct Aura</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/sandrone.webp" alt="Sandrone">
-              <span class="team-char-name">Sandrone / Yae</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/sandrone.webp" alt="Sandrone" onerror="this.parentElement.innerHTML='⚙️'">
+                <span class="team-char-name">Sandrone</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/yae.webp" alt="Yae Miko" onerror="this.parentElement.innerHTML='🌸'">
+                <span class="team-char-name">Yae Miko</span>
+              </div>
               <span class="team-char-role">Sub-DPS</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/beidou.webp" alt="Beidou">
-              <span class="team-char-name">Beidou / Sucrose</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/beidou.webp" alt="Beidou" onerror="this.parentElement.innerHTML='⚔️'">
+                <span class="team-char-name">Beidou</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/sucrose.webp" alt="Sucrose" onerror="this.parentElement.innerHTML='🍃'">
+                <span class="team-char-name">Sucrose</span>
+              </div>
               <span class="team-char-role">Res Shred / EM</span>
             </div>
           </div>
@@ -725,23 +767,35 @@
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
+              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
               <span class="team-char-name">Wriothesley</span>
               <span class="team-char-role">Main Carry</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/furina.webp" alt="Furina">
+              <img class="team-char-avatar" src="../assets/images/characters/furina.webp" alt="Furina" onerror="this.parentElement.innerHTML='💧'">
               <span class="team-char-name">Furina</span>
               <span class="team-char-role">Fanfare Buff</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/shenhe.webp" alt="Shenhe">
-              <span class="team-char-name">Shenhe / Escoffier</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/shenhe.webp" alt="Shenhe" onerror="this.parentElement.innerHTML='❄️'">
+                <span class="team-char-name">Shenhe</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/escoffier.webp" alt="Escoffier" onerror="this.parentElement.innerHTML='🍰'">
+                <span class="team-char-name">Escoffier</span>
+              </div>
               <span class="team-char-role">Cryo Quills</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/xianyun.webp" alt="Xianyun">
-              <span class="team-char-name">Xianyun / Kazuha</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/xianyun.webp" alt="Xianyun" onerror="this.parentElement.innerHTML='🪶'">
+                <span class="team-char-name">Xianyun</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/kazuha.webp" alt="Kazuha" onerror="this.parentElement.innerHTML='🍁'">
+                <span class="team-char-name">Kazuha</span>
+              </div>
               <span class="team-char-role">VV / Healer</span>
             </div>
           </div>
@@ -758,23 +812,35 @@
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
+              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
               <span class="team-char-name">Wriothesley</span>
               <span class="team-char-role">Main Carry</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/emilie.webp" alt="Emilie">
+              <img class="team-char-avatar" src="../assets/images/characters/emilie.webp" alt="Emilie" onerror="this.parentElement.innerHTML='🌿'">
               <span class="team-char-name">Emilie</span>
               <span class="team-char-role">Dendro Burn</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/xiangling.webp" alt="Xiangling">
-              <span class="team-char-name">Xiangling / Bennett</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/xiangling.webp" alt="Xiangling" onerror="this.parentElement.innerHTML='🌶️'">
+                <span class="team-char-name">Xiangling</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett" onerror="this.parentElement.innerHTML='👍'">
+                <span class="team-char-name">Bennett</span>
+              </div>
               <span class="team-char-role">Pyro Core</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/xilonen.webp" alt="Xilonen">
-              <span class="team-char-name">Xilonen / Citlali</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/xilonen.webp" alt="Xilonen" onerror="this.parentElement.innerHTML='🐆'">
+                <span class="team-char-name">Xilonen</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/citlali.webp" alt="Citlali" onerror="this.parentElement.innerHTML='✨'">
+                <span class="team-char-name">Citlali</span>
+              </div>
               <span class="team-char-role">Res Shred / Shield</span>
             </div>
           </div>
