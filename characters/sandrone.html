@@ -7,346 +7,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    /* Scoped Character Architecture */
-    .char-profile-header {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: clamp(1.5rem, 3.5vw, 2.5rem);
-      background: var(--surface-bento, rgba(13, 18, 28, 0.75));
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-lg, 20px);
-      padding: clamp(1.25rem, 3vw, 2rem);
-      margin-bottom: 2rem;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
-    }
-
-    .char-portrait-frame {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: var(--radius-md, 14px);
-      background: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
-      border: 1px solid rgba(245, 158, 11, 0.55);
-      box-shadow: 0 8px 24px rgba(226, 159, 82, 0.25);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .char-portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-meta-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .meta-top-badges {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-
-    .char-full-title {
-      font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .char-subtitle-role {
-      font-size: 1rem;
-      color: var(--text-body, #94a3b8);
-      margin-bottom: 1.25rem;
-      font-weight: 500;
-    }
-
-    .stat-matrix-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.75rem;
-      margin-top: auto;
-    }
-
-    .stat-matrix-item {
-      background: rgba(4, 7, 13, 0.7);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-sm, 8px);
-      padding: 0.65rem 0.85rem;
-    }
-
-    .stat-matrix-label {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.68rem;
-      color: var(--text-muted, #64748b);
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-    }
-
-    .stat-matrix-val {
-      font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    /* Section Bento Containers */
-    .bento-section-title {
-      font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .bento-row {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    .bento-col-12 { grid-column: span 12; }
-    .bento-col-8  { grid-column: span 8; }
-    .bento-col-6  { grid-column: span 6; }
-    .bento-col-4  { grid-column: span 4; }
-
-    .analysis-bento-card {
-      background: var(--surface-bento, rgba(13, 18, 28, 0.75));
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-lg, 20px);
-      padding: clamp(1.25rem, 2.5vw, 1.75rem);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .card-header-tag {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.72rem;
-      color: var(--tier-ss, #f59e0b);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-
-    /* Table Styles */
-    .data-table-wrap {
-      overflow-x: auto;
-      width: 100%;
-    }
-
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      text-align: left;
-    }
-
-    .data-table th, .data-table td {
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .data-table th {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      color: var(--text-muted, #64748b);
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    .data-table tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    /* Weapon & Item Cards */
-    .item-rank-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.75rem;
-      border-radius: var(--radius-sm, 8px);
-      background: rgba(4, 7, 13, 0.6);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .item-rank-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
-      object-fit: cover;
-      background: #111;
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      flex-shrink: 0;
-    }
-
-    .item-rank-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .item-rank-name {
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .item-rank-desc {
-      font-size: 0.8rem;
-      color: var(--text-body, #94a3b8);
-      margin-top: 0.2rem;
-      line-height: 1.4;
-    }
-
-    .item-rank-tag {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.65rem;
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-      background: rgba(245, 158, 11, 0.15);
-      color: var(--tier-ss, #f59e0b);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      font-weight: 700;
-    }
-
-    /* Team Showcase */
-    .team-lineup-card {
-      background: rgba(4, 7, 13, 0.6);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-md, 14px);
-      padding: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .team-avatar-strip {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .team-char-cell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      flex: 1;
-    }
-
-    .team-char-avatar {
-      width: 54px;
-      height: 54px;
-      border-radius: var(--radius-sm, 8px);
-      object-fit: cover;
-      background: #111;
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .team-char-name {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-lead, #ffffff);
-      text-align: center;
-    }
-
-    .team-char-role {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.62rem;
-      color: var(--text-muted, #64748b);
-    }
-
-    .talent-priority-list {
-      display: flex;
-      gap: 0.65rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .talent-node {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(4, 7, 13, 0.8);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-pill, 9999px);
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .talent-node.pri-1 { border-color: rgba(245, 158, 11, 0.4); color: #f59e0b; }
-    .talent-node.pri-2 { border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
-    .talent-node.pri-3 { border-color: var(--line-subtle, rgba(255, 255, 255, 0.08)); color: var(--text-muted, #64748b); }
-
-    .bullet-point-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .bullet-point-list li {
-      position: relative;
-      padding-left: 1.25rem;
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: var(--text-body, #94a3b8);
-    }
-
-    .bullet-point-list li::before {
-      content: '✦';
-      position: absolute;
-      left: 0;
-      color: var(--tier-ss, #f59e0b);
-      font-size: 0.75rem;
-      top: 0.15rem;
-    }
-
-    @media (max-width: 900px) {
-      .char-profile-header { grid-template-columns: 1fr; }
-      .char-portrait-frame { max-width: 220px; }
-      .bento-col-8, .bento-col-6, .bento-col-4 { grid-column: span 12; }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/character.css">
 </head>
 <body>
 
-  <!-- Ambient Glow Layer -->
+  <!-- Ambient Glow Backdrop -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
-    <div class="ambient-glow glow-gold" style="background: radial-gradient(circle, rgba(245, 158, 11, 0.25), transparent 70%);"></div>
-    <div class="ambient-glow glow-blue" style="background: radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%);"></div>
+    <div class="ambient-glow glow-cryo"></div>
   </div>
 
   <div class="site-container">
     
-    <!-- Top System Bar -->
+    <!-- Top System Telemetry Bar -->
     <header class="system-bar">
       <div class="sys-left">
         <span class="sys-status"></span>
-        <span class="mono-meta"><a href="../index.html" style="color: inherit; text-decoration: none;">ARCHIVE</a> // <a href="../tiers/ss-tier.html" style="color: inherit; text-decoration: none;">SS TIER</a> // SANDRONE</span>
+        <span class="mono-meta"><a href="../index.html">ARCHIVE</a> // <a href="../tiers/ss-tier.html">SS TIER</a> // SANDRONE</span>
       </div>
       <div class="sys-right">
         <span class="mono-meta">THEORYCRAFTING VER 7.0</span>
@@ -356,16 +32,16 @@
     <!-- Character Hero Profile Card -->
     <section class="char-profile-header">
       <div class="char-portrait-frame">
-        <img src="../assets/images/characters/sandrone.webp" alt="Sandrone" onerror="this.parentElement.innerHTML='⚙️'">
+        <img src="../assets/images/characters/sandrone.webp" alt="Sandrone">
       </div>
 
       <div class="profile-meta-block">
         <div>
           <div class="meta-top-badges">
-            <span class="character-chip" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">SS TIER // 5★</span>
+            <span class="character-chip chip-gold">SS TIER // 5★</span>
             <span class="character-chip">CRYO</span>
             <span class="character-chip">CLAYMORE</span>
-            <span class="character-chip" style="color: #64748b;">VA: Deneen Melody (EN) / Honda Mariko (JP)</span>
+            <span class="character-chip chip-muted">VA: Deneen Melody (EN) / Honda Mariko (JP)</span>
           </div>
           <h1 class="char-full-title">SANDRONE</h1>
           <p class="char-subtitle-role">The Marionette • Premier 7.0 Stellar-Conduct On-Field Hypercarry</p>
@@ -374,15 +50,15 @@
         <div class="stat-matrix-grid">
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Main DPS Tier</div>
-            <div class="stat-matrix-val" style="color: #f59e0b;">SS Tier</div>
+            <div class="stat-matrix-val text-gold">SS Tier</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Exploration</div>
-            <div class="stat-matrix-val" style="color: #f59e0b;">SS Tier</div>
+            <div class="stat-matrix-val text-gold">SS Tier</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Pull Priority</div>
-            <div class="stat-matrix-val" style="color: #4ade80;">5 / 5</div>
+            <div class="stat-matrix-val text-green">5 / 5</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Target Ceiling</div>
@@ -392,17 +68,17 @@
       </div>
     </section>
 
-    <!-- Meta Evaluation & Theorycrafting Core -->
+    <!-- Meta Performance Overview & Talent Priority -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-8">
         <span class="card-header-tag">[ 01 // META PERFORMANCE OVERVIEW ]</span>
-        <h2 style="font-family: var(--font-hero); font-size: 1.4rem;">The Benchmark Carry of Version 7.0</h2>
-        <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+        <h2 class="card-title">The Benchmark Carry of Version 7.0</h2>
+        <p class="card-desc">
           With the release of Odette and the evolution of the <strong>Stellar-Conduct</strong> reaction framework, Sandrone defines the offensive ceiling of Version 7.0. Her near-exponential scaling from <em>Stellar Glimmer</em> stacks and seamless Charged Attack cadence allow her to deliver the highest continuous DPS score in the game when paired with proper Electro batteries.
         </p>
-        <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-md); padding: 1rem;">
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">CORE MECHANICAL ADVANTAGE</div>
-          <p style="font-size: 0.85rem; color: #fef08a; line-height: 1.5;">
+        <div class="highlight-banner">
+          <div class="highlight-title">CORE MECHANICAL ADVANTAGE</div>
+          <p class="highlight-body">
             Unlike traditional Cryo units locked to Freeze or Forward Melt, Sandrone’s damage output is elevated directly through teammate procs and A4 passive ATK-to-EM conversion, bypassing standard internal cooldown restrictions.
           </p>
         </div>
@@ -410,13 +86,13 @@
 
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 02 // TALENT PRIORITY ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">Skill Leveling Order</h3>
+        <h3 class="card-subtitle">Skill Leveling Order</h3>
         <div class="talent-priority-list">
           <div class="talent-node pri-1">1. Normal / Charged Attack</div>
           <div class="talent-node pri-2">2. Elemental Burst</div>
           <div class="talent-node pri-3">3. Elemental Skill</div>
         </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.5rem;">
+        <p class="talent-note">
           Charged Attacks represent 65%+ of her total damage output during Fagio's <strong>Decoding Mode</strong>. Her Burst provides a massive rotation nuke, while Skill is used mainly for utility and Decoding Power reduction.
         </p>
       </div>
@@ -426,7 +102,7 @@
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 03 // STAT GOAL BENCHMARKS ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Realistic C0 Optimization Targets</h3>
+        <h3 class="card-subtitle">Realistic C0 Optimization Targets</h3>
         
         <div class="data-table-wrap">
           <table class="data-table">
@@ -440,27 +116,27 @@
             <tbody>
               <tr>
                 <td><strong>ATK</strong></td>
-                <td style="color: #f59e0b; font-weight: 700;">2,000+</td>
+                <td class="text-gold bold">2,000+</td>
                 <td>Caps A4 Passive (converts ATK to EM for Stellar-Conduct).</td>
               </tr>
               <tr>
                 <td><strong>Energy Recharge</strong></td>
-                <td style="color: #38bdf8; font-weight: 700;">125% ~ 145%</td>
+                <td class="text-blue bold">125% ~ 145%</td>
                 <td>Guarantees burst uptime every rotation without battery choke.</td>
               </tr>
               <tr>
                 <td><strong>CRIT Rate</strong></td>
-                <td>30% ~ 40% (Base)</td>
+                <td class="bold">30% ~ 40% (Base)</td>
                 <td>Reaches 75%+ with Ascension stat & 4pc Artifact set effects.</td>
               </tr>
               <tr>
                 <td><strong>CRIT DMG</strong></td>
-                <td style="color: #a855f7; font-weight: 700;">180%+</td>
+                <td class="text-purple bold">180%+</td>
                 <td>Primary scaling stat across Claymore and Circlet substats.</td>
               </tr>
               <tr>
                 <td><strong>Elemental Mastery</strong></td>
-                <td>150 ~ 200</td>
+                <td class="bold">150 ~ 200</td>
                 <td>Secondary luxury; mostly covered by A4 ATK conversion.</td>
               </tr>
             </tbody>
@@ -470,36 +146,38 @@
 
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 04 // ARTIFACT LOADOUTS ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Best-in-Slot & Main Stat Setup</h3>
+        <h3 class="card-subtitle">Best-in-Slot & Main Stat Setup</h3>
         
-        <div class="item-rank-row">
-          <img class="item-rank-avatar" src="../assets/images/artifacts/disenchantment.webp" alt="Disenchantment" onerror="this.style.background='#222'">
-          <div class="item-rank-info">
-            <div class="item-rank-name">Disenchantment in Deep Shadows (4pc) <span class="item-rank-tag">BiS</span></div>
-            <div class="item-rank-desc">Provides massive Stellar-Conduct reaction amplification and stacking CRIT Rate bonuses during rotation.</div>
+        <div class="stack-list">
+          <div class="item-rank-row">
+            <img class="item-rank-avatar" src="../assets/images/artifacts/disenchantment.webp" alt="Disenchantment">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Disenchantment in Deep Shadows (4pc) <span class="item-rank-tag">BiS</span></div>
+              <div class="item-rank-desc">Provides massive Stellar-Conduct reaction amplification and stacking CRIT Rate bonuses during rotation.</div>
+            </div>
+          </div>
+
+          <div class="item-rank-row">
+            <img class="item-rank-avatar" src="../assets/images/artifacts/gilded_dreams.webp" alt="Gilded Dreams">
+            <div class="item-rank-info">
+              <div class="item-rank-name">Gilded Dreams (4pc) <span class="item-rank-tag tag-subtle">Alternative</span></div>
+              <div class="item-rank-desc">High ATK% and EM yields based on team elemental composition (Cryo + Electro).</div>
+            </div>
           </div>
         </div>
 
-        <div class="item-rank-row">
-          <img class="item-rank-avatar" src="../assets/images/artifacts/gilded_dreams.webp" alt="Gilded Dreams" onerror="this.style.background='#222'">
-          <div class="item-rank-info">
-            <div class="item-rank-name">Gilded Dreams (4pc) <span class="item-rank-tag" style="background: rgba(255,255,255,0.05); color: #fff; border-color: var(--line-subtle);">Alternative</span></div>
-            <div class="item-rank-desc">High ATK% and EM yields based on team elemental composition (Cryo + Electro).</div>
+        <div class="mainstat-grid">
+          <div class="mainstat-cell">
+            <div class="mainstat-label">SANDS</div>
+            <div class="mainstat-val">ATK% &gt; EM</div>
           </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
-          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">SANDS</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">ATK% > EM</div>
+          <div class="mainstat-cell">
+            <div class="mainstat-label">GOBLET</div>
+            <div class="mainstat-val">ATK% &gt; EM <span class="text-red tag-mini">(No Cryo%)</span></div>
           </div>
-          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">GOBLET</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">ATK% > EM <span style="color: #ef4444; font-size: 0.65rem;">(No Cryo%)</span></div>
-          </div>
-          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">CIRCLET</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">CRIT DMG / Rate</div>
+          <div class="mainstat-cell">
+            <div class="mainstat-label">CIRCLET</div>
+            <div class="mainstat-val">CRIT DMG / Rate</div>
           </div>
         </div>
       </div>
@@ -509,10 +187,9 @@
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-12">
         <span class="card-header-tag">[ 05 // WEAPON TIER LIST ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Claymore Arsenal Hierarchy</h3>
+        <h3 class="card-title">Claymore Arsenal Hierarchy</h3>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.85rem;">
-          
+        <div class="item-grid-auto">
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">A Teaspoon of Transcendence <span class="item-rank-tag">Signature BiS</span></div>
@@ -522,39 +199,38 @@
 
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">A Thousand Blazing Suns <span class="item-rank-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239,68,68,0.3);">5★ Alt</span></div>
+              <div class="item-rank-name">A Thousand Blazing Suns <span class="item-rank-tag tag-red">5★ Alt</span></div>
               <div class="item-rank-desc">Massive CRIT DMG buff triggered upon casting Skill or Burst during rotation.</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Redhorn Stonethresher <span class="item-rank-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border-color: rgba(168,85,247,0.3);">88.2% CDMG</span></div>
+              <div class="item-rank-name">Redhorn Stonethresher <span class="item-rank-tag tag-purple">88.2% CDMG</span></div>
               <div class="item-rank-desc">Pure CRIT DMG stat-stick; DEF conversion passive is ignored, but raw stats provide immense value.</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Tidal Shadow <span class="item-rank-tag" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56,189,248,0.3);">Craftable BiS</span></div>
+              <div class="item-rank-name">Tidal Shadow <span class="item-rank-tag tag-blue">Craftable BiS</span></div>
               <div class="item-rank-desc">Effortless +48% ATK buff triggered continuously when healed by team supports like Qiqi or Escoffier.</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Mailed Flower <span class="item-rank-tag" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34,197,94,0.3);">F2P Event</span></div>
+              <div class="item-rank-name">Mailed Flower <span class="item-rank-tag tag-green">F2P Event</span></div>
               <div class="item-rank-desc">High uptime on ATK% and EM bonuses through constant elemental reaction procs.</div>
             </div>
           </div>
 
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Lithic Blade <span class="item-rank-tag" style="background: rgba(255, 255, 255, 0.08); color: #fff; border-color: var(--line-subtle);">4★ Gacha</span></div>
+              <div class="item-rank-name">Lithic Blade <span class="item-rank-tag tag-subtle">4★ Gacha</span></div>
               <div class="item-rank-desc">Gains ATK% and CRIT Rate stacks when paired with Liyue allies (Qiqi, Beidou).</div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -563,7 +239,7 @@
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 06 // PREMIUM TEAM SYNERGY ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Sandrone Stellar-Conduct Gold Standard</h3>
+        <h3 class="card-subtitle">Sandrone Stellar-Conduct Gold Standard</h3>
         
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
@@ -572,14 +248,26 @@
               <span class="team-char-name">Sandrone</span>
               <span class="team-char-role">Main Carry</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/yae.webp" alt="Yae Miko">
-              <span class="team-char-name">Yae Miko (C1)</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/yae.webp" alt="Yae Miko">
+                <span class="team-char-name">Yae Miko (C1)</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/beidou.webp" alt="Beidou">
+                <span class="team-char-name">Beidou</span>
+              </div>
               <span class="team-char-role">Conduct Buff</span>
             </div>
-            <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/odette.webp" alt="Odette">
-              <span class="team-char-name">Odette</span>
+            <div class="team-char-cell multi">
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/odette.webp" alt="Odette">
+                <span class="team-char-name">Odette</span>
+              </div>
+              <div class="team-sub-char">
+                <img class="team-char-avatar" src="../assets/images/characters/escoffier.webp" alt="Escoffier">
+                <span class="team-char-name">Escoffier</span>
+              </div>
               <span class="team-char-role">Glimmer Core</span>
             </div>
             <div class="team-char-cell">
@@ -588,7 +276,7 @@
               <span class="team-char-role">Shield / ATK</span>
             </div>
           </div>
-          <p style="font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
+          <p class="team-desc">
             <strong>C1 Yae Miko</strong> provides an astounding 50% Stellar-Conduct DMG buff alongside reliable Electro battery particles. <strong>Odette</strong> scales Stellar Glimmer damage exponentially, while <strong>Nicole</strong> ensures interruption resistance during Charged Attack casting.
           </p>
         </div>
@@ -596,7 +284,7 @@
 
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 07 // ACCESSIBLE F2P ROTATION ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">F2P / Low-Constellation Variant</h3>
+        <h3 class="card-subtitle">F2P / Low-Constellation Variant</h3>
         
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
@@ -621,7 +309,7 @@
               <span class="team-char-role">Heal / Battery</span>
             </div>
           </div>
-          <p style="font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
+          <p class="team-desc">
             <strong>C6 Beidou</strong> shreds Electro/Cryo RES by 15% and shares EM. <strong>Qiqi</strong> generates energy particles and coordinated Cryo strikes on Charged Attacks while maintaining 100% uptime on the <em>Tidal Shadow</em> ATK buff.
           </p>
         </div>
@@ -632,7 +320,7 @@
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-12">
         <span class="card-header-tag">[ 08 // CONSTELLATION SPIKES ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Constellation Value Assessment</h3>
+        <h3 class="card-title">Constellation Value Assessment</h3>
         
         <div class="data-table-wrap">
           <table class="data-table">
@@ -648,25 +336,25 @@
               <tr>
                 <td><strong>C1</strong></td>
                 <td>Morrow After the Golden Dusk</td>
-                <td style="color: #f59e0b; font-family: var(--font-mono);">★★★☆</td>
+                <td class="rating-cell text-gold">★★★☆</td>
                 <td>Fagio's Decoding Power increases 50% slower, extending attack windows; grants teamwide +30% Stellar-Conduct DMG.</td>
               </tr>
               <tr>
                 <td><strong>C2</strong></td>
                 <td>An Heiress Gazed Into the Looking-Glass</td>
-                <td style="color: #ef4444; font-family: var(--font-mono);">★★★ (MUST)</td>
+                <td class="rating-cell text-red">★★★ (MUST)</td>
                 <td>Grants up to <strong>+100% CRIT DMG</strong> on Charged Attack beams (starts at 40%, +20% per beam fired, max 3 stacks). Massive hypercarry spike.</td>
               </tr>
               <tr>
                 <td><strong>C4</strong></td>
                 <td>In Knowledge Lies the World's True Ground</td>
-                <td style="color: #f59e0b; font-family: var(--font-mono);">★★★☆</td>
+                <td class="rating-cell text-gold">★★★☆</td>
                 <td>Summons a Prismatic Resonance Cannon dealing 125% ATK as Cryo Stellar-Conduct damage every 4s.</td>
               </tr>
               <tr>
                 <td><strong>C6</strong></td>
                 <td>Narcissus Wakes, Her Eyes Upon the Dawn</td>
-                <td style="color: #a855f7; font-family: var(--font-mono);">★★★★ (WHALE)</td>
+                <td class="rating-cell text-purple">★★★★ (WHALE)</td>
                 <td>3rd beam becomes a continuous <em>Condensed Cluster Beam</em> dealing 4 additional AoE Cryo strikes at 100% ATK.</td>
               </tr>
             </tbody>
@@ -675,10 +363,10 @@
       </div>
     </div>
 
-    <!-- Strengths vs Weaknesses -->
+    <!-- Strengths vs Limitations -->
     <div class="bento-row">
-      <div class="analysis-bento-card bento-col-6" style="border-color: rgba(34, 197, 94, 0.3);">
-        <span class="card-header-tag" style="color: #22c55e;">[ 09 // STRENGTHS ]</span>
+      <div class="analysis-bento-card bento-col-6 border-green">
+        <span class="card-header-tag text-green">[ 09 // STRENGTHS ]</span>
         <ul class="bullet-point-list">
           <li><strong>Pinnacle 7.0 Multipliers:</strong> Exponential damage scaling via Stellar-Conduct reaction loops.</li>
           <li><strong>Fluid Mechanics:</strong> Highly accessible Charged Attack strings with built-in poise resistance during Fagio mode.</li>
@@ -686,8 +374,8 @@
         </ul>
       </div>
 
-      <div class="analysis-bento-card bento-col-6" style="border-color: rgba(239, 68, 68, 0.3);">
-        <span class="card-header-tag" style="color: #ef4444;">[ 10 // LIMITATIONS & REDUNDANCY ]</span>
+      <div class="analysis-bento-card bento-col-6 border-red">
+        <span class="card-header-tag text-red">[ 10 // LIMITATIONS & REDUNDANCY ]</span>
         <ul class="bullet-point-list">
           <li><strong>Extreme Reaction Lock:</strong> Confined strictly to Stellar-Conduct; severe DPS drop-off in Freeze or Melt teams.</li>
           <li><strong>High Teammate Constellation Tax:</strong> Achieving maximum theoretical ceiling strictly demands C1 Yae Miko and Odette.</li>
