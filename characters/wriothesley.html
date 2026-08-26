@@ -7,391 +7,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    .char-profile-header {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: clamp(1.5rem, 3.5vw, 2.5rem);
-      background: var(--surface-bento, rgba(13, 18, 28, 0.75));
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-lg, 20px);
-      padding: clamp(1.25rem, 3vw, 2rem);
-      margin-bottom: 2rem;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.7);
-    }
-
-    .char-portrait-frame {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: var(--radius-md, 14px);
-      background: radial-gradient(circle at 50% 25%, #e29f52 0%, #ab6726 55%, #593010 100%);
-      border: 1px solid rgba(245, 158, 11, 0.55);
-      box-shadow: 0 8px 24px rgba(226, 159, 82, 0.25);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .char-portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .profile-meta-block {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .meta-top-badges {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 0.75rem;
-    }
-
-    .char-full-title {
-      font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .char-subtitle-role {
-      font-size: 1rem;
-      color: var(--text-body, #94a3b8);
-      margin-bottom: 1.25rem;
-      font-weight: 500;
-    }
-
-    .stat-matrix-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 0.75rem;
-      margin-top: auto;
-    }
-
-    .stat-matrix-item {
-      background: rgba(4, 7, 13, 0.7);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-sm, 8px);
-      padding: 0.65rem 0.85rem;
-    }
-
-    .stat-matrix-label {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.68rem;
-      color: var(--text-muted, #64748b);
-      text-transform: uppercase;
-      margin-bottom: 0.2rem;
-    }
-
-    .stat-matrix-val {
-      font-family: var(--font-hero, 'Outfit', sans-serif);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #ffffff;
-    }
-
-    .bento-row {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 2rem;
-    }
-
-    .bento-col-12 { grid-column: span 12; }
-    .bento-col-8  { grid-column: span 8; }
-    .bento-col-6  { grid-column: span 6; }
-    .bento-col-4  { grid-column: span 4; }
-
-    .analysis-bento-card {
-      background: var(--surface-bento, rgba(13, 18, 28, 0.75));
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-lg, 20px);
-      padding: clamp(1.25rem, 2.5vw, 1.75rem);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .card-header-tag {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.72rem;
-      color: var(--tier-ss, #f59e0b);
-      font-weight: 700;
-      letter-spacing: 0.05em;
-    }
-
-    .data-table-wrap {
-      overflow-x: auto;
-      width: 100%;
-    }
-
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      text-align: left;
-    }
-
-    .data-table th, .data-table td {
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .data-table th {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      color: var(--text-muted, #64748b);
-      background: rgba(0, 0, 0, 0.25);
-    }
-
-    .item-rank-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.75rem;
-      border-radius: var(--radius-sm, 8px);
-      background: rgba(4, 7, 13, 0.6);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .item-rank-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .item-rank-name {
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .item-rank-desc {
-      font-size: 0.8rem;
-      color: var(--text-body, #94a3b8);
-      margin-top: 0.2rem;
-      line-height: 1.4;
-    }
-
-    .item-rank-tag {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.65rem;
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
-      background: rgba(245, 158, 11, 0.15);
-      color: var(--tier-ss, #f59e0b);
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      font-weight: 700;
-    }
-
-    .team-lineup-card {
-      background: rgba(4, 7, 13, 0.6);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      border-radius: var(--radius-md, 14px);
-      padding: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .team-avatar-strip {
-      display: flex;
-      gap: 0.4rem;
-      align-items: stretch;
-      justify-content: space-between;
-    }
-
-    .team-char-cell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-      flex: 1;
-      justify-content: flex-start;
-    }
-
-    .team-char-cell.multi {
-      gap: 0.4rem;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: var(--radius-sm, 8px);
-      padding: 0.25rem 0.15rem;
-      border: 1px dashed rgba(255, 255, 255, 0.08);
-    }
-
-    .team-sub-char {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.2rem;
-      width: 100%;
-    }
-
-    .team-char-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: var(--radius-sm, 8px);
-      object-fit: cover;
-      background: #111;
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .team-sub-char .team-char-avatar {
-      width: 40px;
-      height: 40px;
-    }
-
-    .team-char-name {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-lead, #ffffff);
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    .team-sub-char .team-char-name {
-      font-size: 0.65rem;
-    }
-
-    .team-char-role {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.62rem;
-      color: var(--text-muted, #64748b);
-      text-align: center;
-      margin-top: auto;
-      line-height: 1.2;
-    }
-
-    .talent-priority-list {
-      display: flex;
-      gap: 0.65rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .talent-node {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(4, 7, 13, 0.8);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-      padding: 0.4rem 0.85rem;
-      border-radius: var(--radius-pill, 9999px);
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .talent-node.pri-1 { border-color: rgba(245, 158, 11, 0.4); color: #f59e0b; }
-    .talent-node.pri-2 { border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; }
-    .talent-node.pri-3 { border-color: var(--line-subtle, rgba(255, 255, 255, 0.08)); color: var(--text-muted, #64748b); }
-
-    .bullet-point-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .bullet-point-list li {
-      position: relative;
-      padding-left: 1.25rem;
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: var(--text-body, #94a3b8);
-    }
-
-    .bullet-point-list li::before {
-      content: '✦';
-      position: absolute;
-      left: 0;
-      color: var(--tier-ss, #f59e0b);
-      font-size: 0.75rem;
-      top: 0.15rem;
-    }
-
-    .decision-grid-bento {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .decision-box {
-      padding: 1.25rem;
-      border-radius: var(--radius-md, 14px);
-      background: rgba(4, 7, 13, 0.6);
-      border: 1px solid var(--line-subtle, rgba(255, 255, 255, 0.08));
-    }
-
-    .pull-box { border-color: rgba(34, 197, 94, 0.3); }
-    .skip-box { border-color: rgba(239, 68, 68, 0.3); }
-
-    .decision-title {
-      font-family: var(--font-mono, 'Space Mono', monospace);
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .pull-box .decision-title { color: #4ade80; }
-    .skip-box .decision-title { color: #ef4444; }
-
-    @media (max-width: 900px) {
-      .char-profile-header { grid-template-columns: 1fr; }
-      .char-portrait-frame { max-width: 220px; }
-      .bento-col-8, .bento-col-6, .bento-col-4 { grid-column: span 12; }
-      .decision-grid-bento { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/character.css">
 </head>
 <body>
 
+  <!-- Ambient Glow Backdrop -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
-    <div class="ambient-glow glow-gold" style="background: radial-gradient(circle, rgba(153, 246, 228, 0.22), transparent 70%);"></div>
-    <div class="ambient-glow glow-blue" style="background: radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent 70%);"></div>
+    <div class="ambient-glow glow-cryo"></div>
   </div>
 
   <div class="site-container">
+    
+    <!-- Top System Telemetry Bar -->
     <header class="system-bar">
       <div class="sys-left">
         <span class="sys-status"></span>
-        <span class="mono-meta"><a href="../index.html" style="color: inherit; text-decoration: none;">ARCHIVE</a> // <a href="../tiers/ss-tier.html" style="color: inherit; text-decoration: none;">SS TIER</a> // WRIOTHESLEY</span>
+        <span class="mono-meta"><a href="../index.html">ARCHIVE</a> // <a href="../tiers/ss-tier.html">SS TIER</a> // WRIOTHESLEY</span>
       </div>
       <div class="sys-right">
         <span class="mono-meta">THEORYCRAFTING VER 7.0</span>
       </div>
     </header>
 
+    <!-- Character Hero Profile Card -->
     <section class="char-profile-header">
       <div class="char-portrait-frame">
-        <img src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
+        <img src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
       </div>
 
       <div class="profile-meta-block">
         <div>
           <div class="meta-top-badges">
-            <span class="character-chip" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">SS TIER (C1) // 5★</span>
+            <span class="character-chip chip-gold">SS TIER (C1) // 5★</span>
             <span class="character-chip">CRYO</span>
             <span class="character-chip">CATALYST</span>
-            <span class="character-chip" style="color: #64748b;">VERSION 7.0 ANALYSIS</span>
+            <span class="character-chip chip-muted">VERSION 7.0 ANALYSIS</span>
           </div>
           <h1 class="char-full-title">WRIOTHESLEY</h1>
           <p class="char-subtitle-role">Primary Role: Stellar-Conduct Driver / Sustained Normal Attack Hypercarry</p>
@@ -400,35 +50,35 @@
         <div class="stat-matrix-grid">
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Overall DPS (Conduct)</div>
-            <div class="stat-matrix-val" style="color: #f59e0b;">★★★★★ 5.0</div>
+            <div class="stat-matrix-val text-gold">★★★★★ 5.0</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Single Target Bossing</div>
-            <div class="stat-matrix-val" style="color: #f59e0b;">★★★★★ 5.0</div>
+            <div class="stat-matrix-val text-gold">★★★★★ 5.0</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">AoE Mob Coverage</div>
-            <div class="stat-matrix-val" style="color: #94a3b8;">★★★☆☆ 3.5</div>
+            <div class="stat-matrix-val text-muted">★★★☆☆ 3.5</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">C1 Transformation</div>
-            <div class="stat-matrix-val" style="color: #4ade80;">★★★★★ 5.0</div>
+            <div class="stat-matrix-val text-green">★★★★★ 5.0</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contextual Pull Matrix & 7.0 Shift -->
+    <!-- Meta Performance Overview & Contextual Pull Value -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-8">
         <span class="card-header-tag">[ 01 // 7.0 META SHIFT: STELLAR-CONDUCT OVER OUTDATED MELT ]</span>
-        <h2 style="font-family: var(--font-hero); font-size: 1.4rem;">Pinnacle 7.0 Stellar-Conduct Driver</h2>
-        <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+        <h2 class="card-title">Pinnacle 7.0 Stellar-Conduct Driver</h2>
+        <p class="card-desc">
           In Version 7.0, Wriothesley's optimal clearing archetype has shifted away from circle-bound Reverse-Melt setups into a high-frequency <strong>Stellar-Conduct driver</strong>. With Odette's aura mechanics and the <em>Disenchantment in Deep Shadows</em> artifact set, his constant catalyst Cryo application triggers sustained electro-cryo reaction cascades that easily clear multi-wave endgame chambers.
         </p>
-        <div style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: var(--radius-md); padding: 1rem;">
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.25rem;">ROSTER ROLE & OVERLAP SUMMARY</div>
-          <p style="font-size: 0.85rem; color: #fef08a; line-height: 1.5;">
+        <div class="highlight-banner">
+          <div class="highlight-title">ROSTER ROLE & OVERLAP SUMMARY</div>
+          <p class="highlight-body">
             <strong>Primary Archetype:</strong> Stellar-Conduct Driver &bull; <strong>Secondary:</strong> Premium Freeze / Burn-Melt &bull; <strong>Role Overlap:</strong> Skirk, Sandrone.
           </p>
         </div>
@@ -436,29 +86,29 @@
 
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 02 // CONTEXTUAL PULL VALUE ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">7.0 Ecosystem Assessment</h3>
-        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+        <h3 class="card-subtitle">7.0 Ecosystem Assessment</h3>
+        <div class="stack-list">
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">New / Mid-Game Account</div>
-            <div style="font-size: 0.85rem; font-weight: 700; color: #4ade80;">🟢 High Priority (If Target C1)</div>
+            <div class="matrix-text-green">🟢 High Priority (If Target C1)</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Building 7.0 Stellar-Conduct</div>
-            <div style="font-size: 0.85rem; font-weight: 700; color: #4ade80;">🟢 Pinnacle Driver</div>
+            <div class="matrix-text-green">🟢 Pinnacle Driver</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Strictly C0 Only (No Healer)</div>
-            <div style="font-size: 0.85rem; font-weight: 700; color: #fbbf24;">🟡 5s Lockout Management</div>
+            <div class="matrix-text-yellow">🟡 5s Lockout Management</div>
           </div>
           <div class="stat-matrix-item">
             <div class="stat-matrix-label">Legacy Melt Roster</div>
-            <div style="font-size: 0.85rem; font-weight: 700; color: #f87171;">🔴 Transition to Conduct Set</div>
+            <div class="matrix-text-red">🔴 Transition to Conduct Set</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Decision Box: Pull If vs Skip If -->
+    <!-- Pull Decision Matrix -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-12">
         <span class="card-header-tag">[ 03 // PULL DECISION MATRIX ]</span>
@@ -485,24 +135,24 @@
       </div>
     </div>
 
-    <!-- Talent Priority & Target Stat Benchmarks -->
+    <!-- Talent Leveling & Stat Benchmarks -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 04 // TALENT LEVELING PRIORITY ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Skill Order Hierarchy</h3>
+        <h3 class="card-subtitle">Skill Order Hierarchy</h3>
         <div class="talent-priority-list">
           <div class="talent-node pri-1">1st: Normal Attack (95% DMG - Crown Lv 10)</div>
           <div class="talent-node pri-2">2nd: Elemental Skill (Buff Multiplier - Lv 9+)</div>
           <div class="talent-node pri-3">3rd: Elemental Burst (Secondary - Lv 8)</div>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-body); margin-top: 0.5rem; line-height: 1.55;">
+        <p class="talent-note">
           Normal Attack talent levels directly dictate his normal punches and <em>Rebuke: Vaulting Fist</em> motion value scaling. Burst remains purely supplementary.
         </p>
       </div>
 
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 05 // STAT BENCHMARKS ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Target Thresholds</h3>
+        <h3 class="card-subtitle">Target Thresholds</h3>
         <div class="data-table-wrap">
           <table class="data-table">
             <thead>
@@ -515,22 +165,22 @@
             <tbody>
               <tr>
                 <td><strong>ATK</strong></td>
-                <td style="color: #f59e0b; font-weight: 700;">2,000 ~ 2,200</td>
+                <td class="text-gold bold">2,000 ~ 2,200</td>
                 <td>2,100 is the optimal sweet spot with an ATK% Sands.</td>
               </tr>
               <tr>
                 <td><strong>CRIT Rate</strong></td>
-                <td style="color: #38bdf8; font-weight: 700;">70% ~ 80%</td>
+                <td class="text-blue bold">70% ~ 80%</td>
                 <td>Aim for 70%+ on Deep Shadows; Marechaussee caps at 50%–60%.</td>
               </tr>
               <tr>
                 <td><strong>CRIT DMG</strong></td>
-                <td style="color: #a855f7; font-weight: 700;">200%+</td>
+                <td class="text-purple bold">200%+</td>
                 <td>Stack CRIT DMG circlet & substats once rate benchmarks are met.</td>
               </tr>
               <tr>
                 <td><strong>Energy Recharge</strong></td>
-                <td>100% ~ 130%</td>
+                <td class="bold">100% ~ 130%</td>
                 <td>Keep under 130%; burst is supplementary and does not gate rotations.</td>
               </tr>
             </tbody>
@@ -539,15 +189,15 @@
       </div>
     </div>
 
-    <!-- Advanced Combo Nuance (Zajef Theorycraft) -->
+    <!-- Rotation Mechanics -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-12">
         <span class="card-header-tag">[ 06 // COMBO NUANCE & HP MANAGEMENT (C0 MATH) ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Rotation Execution Mechanics</h3>
-        <p style="font-size: 0.88rem; color: var(--text-body); line-height: 1.6;">
+        <h3 class="card-title">Rotation Execution Mechanics</h3>
+        <p class="card-desc">
           At C0, one full normal attack string drains <strong>27% HP</strong>, while a Special Charged Attack heals <strong>30% HP</strong> (+3% net positive per $N5C$). Uncontrolled $N5C$ spam causes Wriothesley to slowly overheal above 60% HP, locking him out of his passive. Additionally, his <strong>3rd hit ($N3$) is a dedicated Stellar hit</strong> that must connect under buffs.
         </p>
-        <div class="data-table-wrap" style="margin-top: 0.5rem;">
+        <div class="data-table-wrap">
           <table class="data-table">
             <thead>
               <tr>
@@ -582,8 +232,8 @@
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 07 // WEAPON MATRIX ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Catalyst Tier Hierarchy</h3>
-        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+        <h3 class="card-subtitle">Catalyst Tier Hierarchy</h3>
+        <div class="stack-list">
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Cashflow Supervision <span class="item-rank-tag">BiS 5★</span></div>
@@ -592,31 +242,31 @@
           </div>
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Tulaytullah's Remembrance <span class="item-rank-tag" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border-color: rgba(239,68,68,0.3);">5★ Alt</span></div>
+              <div class="item-rank-name">Tulaytullah's Remembrance <span class="item-rank-tag tag-red">5★ Alt</span></div>
               <div class="item-rank-desc">Matches NA damage buffs of Cashflow with +10% ATK Speed for smoother combo flow.</div>
             </div>
           </div>
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Lost Prayer to the Sacred Winds <span class="item-rank-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7; border-color: rgba(168,85,247,0.3);">General 5★</span></div>
+              <div class="item-rank-name">Lost Prayer to the Sacred Winds <span class="item-rank-tag tag-purple">General 5★</span></div>
               <div class="item-rank-desc">Provides a massive 33.1% CRIT Rate stat stick and continuous stacking elemental DMG bonus.</div>
             </div>
           </div>
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">The Widsith <span class="item-rank-tag" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56,189,248,0.3);">Top 4★</span></div>
+              <div class="item-rank-name">The Widsith <span class="item-rank-tag tag-blue">Top 4★</span></div>
               <div class="item-rank-desc">Elite CRIT DMG sub-stat; all 3 theme song buffs provide huge burst windows.</div>
             </div>
           </div>
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Ballad of the Boundless Blue <span class="item-rank-tag" style="background: rgba(34, 197, 94, 0.15); color: #22c55e; border-color: rgba(34,197,94,0.3);">F2P Event</span></div>
+              <div class="item-rank-name">Ballad of the Boundless Blue <span class="item-rank-tag tag-green">F2P Event</span></div>
               <div class="item-rank-desc">Solves ER requirements while providing steady NA and CA damage bonuses.</div>
             </div>
           </div>
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Flowing Purity <span class="item-rank-tag" style="background: rgba(255, 255, 255, 0.08); color: #fff; border-color: var(--line-subtle);">F2P Craftable</span></div>
+              <div class="item-rank-name">Flowing Purity <span class="item-rank-tag tag-subtle">F2P Craftable</span></div>
               <div class="item-rank-desc">Easily clears the Bond of Life penalty through Special Charged Attacks to grant elemental DMG%.</div>
             </div>
           </div>
@@ -625,8 +275,8 @@
 
       <div class="analysis-bento-card bento-col-6">
         <span class="card-header-tag">[ 08 // ARTIFACT LOADOUTS ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.25rem;">Artifact Sets & Main Stats</h3>
-        <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+        <h3 class="card-subtitle">Artifact Sets & Main Stats</h3>
+        <div class="stack-list">
           <div class="item-rank-row">
             <div class="item-rank-info">
               <div class="item-rank-name">Disenchantment in Deep Shadows (4pc) <span class="item-rank-tag">7.0 BiS</span></div>
@@ -635,27 +285,27 @@
           </div>
           <div class="item-rank-row">
             <div class="item-rank-info">
-              <div class="item-rank-name">Marechaussee Hunter (4pc) <span class="item-rank-tag" style="background: rgba(255, 255, 255, 0.05); color: #fff; border-color: var(--line-subtle);">Alternative</span></div>
+              <div class="item-rank-name">Marechaussee Hunter (4pc) <span class="item-rank-tag tag-subtle">Alternative</span></div>
               <div class="item-rank-desc">+15% Normal/Charged DMG and +36% CRIT Rate triggered by constant self-inflicted HP fluctuations.</div>
             </div>
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
-          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">SANDS</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">ATK%</div>
+        <div class="mainstat-grid">
+          <div class="mainstat-cell">
+            <div class="mainstat-label">SANDS</div>
+            <div class="mainstat-val">ATK%</div>
           </div>
-          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">GOBLET</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">Cryo DMG%</div>
+          <div class="mainstat-cell">
+            <div class="mainstat-label">GOBLET</div>
+            <div class="mainstat-val">Cryo DMG%</div>
           </div>
-          <div style="background: rgba(4,7,13,0.7); padding: 0.6rem; border-radius: 6px; border: 1px solid var(--line-subtle);">
-            <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted);">CIRCLET</div>
-            <div style="font-weight: 700; font-size: 0.85rem;">CRIT DMG / Rate</div>
+          <div class="mainstat-cell">
+            <div class="mainstat-label">CIRCLET</div>
+            <div class="mainstat-val">CRIT DMG / Rate</div>
           </div>
         </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+        <p class="substat-hierarchy">
           <strong>Substat Priority:</strong> CRIT DMG &gt; CRIT Rate &gt; ATK% &gt; ER
         </p>
       </div>
@@ -665,7 +315,7 @@
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-12">
         <span class="card-header-tag">[ 09 // CONSTELLATION SCALING BREAKDOWN ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.3rem;">Constellation Assessment</h3>
+        <h3 class="card-title">Constellation Assessment</h3>
         <div class="data-table-wrap">
           <table class="data-table">
             <thead>
@@ -680,31 +330,31 @@
               <tr>
                 <td><strong>C0</strong></td>
                 <td>Base Kit</td>
-                <td style="color: #38bdf8; font-family: var(--font-mono);">★★★☆☆</td>
+                <td class="rating-cell text-blue">★★★☆☆</td>
                 <td>Exceptional raw damage, but restricted by the 5-second Special CA cooldown and 50%–60% HP operational window.</td>
               </tr>
               <tr>
                 <td><strong>C1</strong></td>
                 <td>Terror for the Evildoers</td>
-                <td style="color: #ef4444; font-family: var(--font-mono);">★★★★★ (TRANSFORMATIVE SPIKE)</td>
+                <td class="rating-cell text-red">★★★★★ (TRANSFORMATIVE SPIKE)</td>
                 <td>Every 5th hit of normal attacks guarantees a Gracious Rebuke, buffs CA damage by +200%, and extends Chilling Penalty duration by +4s. Eliminates mechanical HP handicaps.</td>
               </tr>
               <tr>
                 <td><strong>C2</strong></td>
                 <td>Shackles for the Arrogant</td>
-                <td style="color: #f59e0b; font-family: var(--font-mono);">★★★★☆</td>
+                <td class="rating-cell text-gold">★★★★☆</td>
                 <td>Increases Elemental Burst damage by up to +200% (+40% per Prosecution Edict stack), providing a huge frontloaded nuke.</td>
               </tr>
               <tr>
                 <td><strong>C4</strong></td>
                 <td>Redemption for the Nameless</td>
-                <td style="color: #a855f7; font-family: var(--font-mono);">★★★★☆</td>
+                <td class="rating-cell text-purple">★★★★☆</td>
                 <td>Rebuke healing increased to 50% Max HP. Overflow healing grants +20% on-field ATK SPD (4s) or +10% party ATK SPD (6s).</td>
               </tr>
               <tr>
                 <td><strong>C6</strong></td>
                 <td>Shields for the Steadfast</td>
-                <td style="color: #a855f7; font-family: var(--font-mono);">★★★★★ (WHALE)</td>
+                <td class="rating-cell text-purple">★★★★★ (WHALE)</td>
                 <td>Rebuke gains +10% CRIT Rate, +80% CRIT DMG, and unleashes an additional icicle dealing 100% of base damage.</td>
               </tr>
             </tbody>
@@ -713,48 +363,48 @@
       </div>
     </div>
 
-    <!-- Visual Team Lineup Cards (Sandrone Style Architecture - Stacked Alternatives) -->
+    <!-- Visual Team Lineup Cards -->
     <div class="bento-row">
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 10 // 7.0 STELLAR-CONDUCT (PEAK CEILING) ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">Conduct Driver Core</h3>
+        <h3 class="card-subtitle">Conduct Driver Core</h3>
         
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
+              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
               <span class="team-char-name">Wriothesley</span>
               <span class="team-char-role">Main Driver</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/odette.webp" alt="Odette" onerror="this.parentElement.innerHTML='❄️'">
+              <img class="team-char-avatar" src="../assets/images/characters/odette.webp" alt="Odette">
               <span class="team-char-name">Odette</span>
               <span class="team-char-role">Conduct Aura</span>
             </div>
             <div class="team-char-cell multi">
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/sandrone.webp" alt="Sandrone" onerror="this.parentElement.innerHTML='⚙️'">
+                <img class="team-char-avatar" src="../assets/images/characters/sandrone.webp" alt="Sandrone">
                 <span class="team-char-name">Sandrone</span>
               </div>
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/yae.webp" alt="Yae Miko" onerror="this.parentElement.innerHTML='🌸'">
+                <img class="team-char-avatar" src="../assets/images/characters/yae.webp" alt="Yae Miko">
                 <span class="team-char-name">Yae Miko</span>
               </div>
               <span class="team-char-role">Sub-DPS</span>
             </div>
             <div class="team-char-cell multi">
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/beidou.webp" alt="Beidou" onerror="this.parentElement.innerHTML='⚔️'">
+                <img class="team-char-avatar" src="../assets/images/characters/beidou.webp" alt="Beidou">
                 <span class="team-char-name">Beidou</span>
               </div>
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/sucrose.webp" alt="Sucrose" onerror="this.parentElement.innerHTML='🍃'">
+                <img class="team-char-avatar" src="../assets/images/characters/sucrose.webp" alt="Sucrose">
                 <span class="team-char-name">Sucrose</span>
               </div>
               <span class="team-char-role">Res Shred / EM</span>
             </div>
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-body); line-height: 1.5;">
+          <p class="team-desc">
             Wriothesley acts as the rapid Cryo trigger under Odette's aura to unleash continuous high-scaling Stellar-Conduct discharges.
           </p>
         </div>
@@ -762,44 +412,44 @@
 
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 11 // PREMIUM FREEZE ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">Hyper-Freeze CC</h3>
+        <h3 class="card-subtitle">Hyper-Freeze CC</h3>
         
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
+              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
               <span class="team-char-name">Wriothesley</span>
               <span class="team-char-role">Main Carry</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/furina.webp" alt="Furina" onerror="this.parentElement.innerHTML='💧'">
+              <img class="team-char-avatar" src="../assets/images/characters/furina.webp" alt="Furina">
               <span class="team-char-name">Furina</span>
               <span class="team-char-role">Fanfare Buff</span>
             </div>
             <div class="team-char-cell multi">
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/shenhe.webp" alt="Shenhe" onerror="this.parentElement.innerHTML='❄️'">
+                <img class="team-char-avatar" src="../assets/images/characters/shenhe.webp" alt="Shenhe">
                 <span class="team-char-name">Shenhe</span>
               </div>
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/escoffier.webp" alt="Escoffier" onerror="this.parentElement.innerHTML='🍰'">
+                <img class="team-char-avatar" src="../assets/images/characters/escoffier.webp" alt="Escoffier">
                 <span class="team-char-name">Escoffier</span>
               </div>
               <span class="team-char-role">Cryo Quills</span>
             </div>
             <div class="team-char-cell multi">
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/xianyun.webp" alt="Xianyun" onerror="this.parentElement.innerHTML='🪶'">
+                <img class="team-char-avatar" src="../assets/images/characters/xianyun.webp" alt="Xianyun">
                 <span class="team-char-name">Xianyun</span>
               </div>
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/kazuha.webp" alt="Kazuha" onerror="this.parentElement.innerHTML='🍁'">
+                <img class="team-char-avatar" src="../assets/images/characters/kazuha.webp" alt="Kazuha">
                 <span class="team-char-name">Kazuha</span>
               </div>
               <span class="team-char-role">VV / Healer</span>
             </div>
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-body); line-height: 1.5;">
+          <p class="team-desc">
             Permanently locks crowdable chambers while stacking massive Fanfare buffs and Cryo RES shred.
           </p>
         </div>
@@ -807,54 +457,54 @@
 
       <div class="analysis-bento-card bento-col-4">
         <span class="card-header-tag">[ 12 // BURN-MELT CORE ]</span>
-        <h3 style="font-family: var(--font-hero); font-size: 1.15rem;">Sustained Melt Setup</h3>
+        <h3 class="card-subtitle">Sustained Melt Setup</h3>
         
         <div class="team-lineup-card">
           <div class="team-avatar-strip">
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley" onerror="this.parentElement.innerHTML='🥊'">
+              <img class="team-char-avatar" src="../assets/images/characters/wriothesley.webp" alt="Wriothesley">
               <span class="team-char-name">Wriothesley</span>
               <span class="team-char-role">Main Carry</span>
             </div>
             <div class="team-char-cell">
-              <img class="team-char-avatar" src="../assets/images/characters/emilie.webp" alt="Emilie" onerror="this.parentElement.innerHTML='🌿'">
+              <img class="team-char-avatar" src="../assets/images/characters/emilie.webp" alt="Emilie">
               <span class="team-char-name">Emilie</span>
               <span class="team-char-role">Dendro Burn</span>
             </div>
             <div class="team-char-cell multi">
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/xiangling.webp" alt="Xiangling" onerror="this.parentElement.innerHTML='🌶️'">
+                <img class="team-char-avatar" src="../assets/images/characters/xiangling.webp" alt="Xiangling">
                 <span class="team-char-name">Xiangling</span>
               </div>
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett" onerror="this.parentElement.innerHTML='👍'">
+                <img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett">
                 <span class="team-char-name">Bennett</span>
               </div>
               <span class="team-char-role">Pyro Core</span>
             </div>
             <div class="team-char-cell multi">
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/xilonen.webp" alt="Xilonen" onerror="this.parentElement.innerHTML='🐆'">
+                <img class="team-char-avatar" src="../assets/images/characters/xilonen.webp" alt="Xilonen">
                 <span class="team-char-name">Xilonen</span>
               </div>
               <div class="team-sub-char">
-                <img class="team-char-avatar" src="../assets/images/characters/citlali.webp" alt="Citlali" onerror="this.parentElement.innerHTML='✨'">
+                <img class="team-char-avatar" src="../assets/images/characters/citlali.webp" alt="Citlali">
                 <span class="team-char-name">Citlali</span>
               </div>
               <span class="team-char-role">Res Shred / Shield</span>
             </div>
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-body); line-height: 1.5;">
+          <p class="team-desc">
             Sustained Burning aura provides constant forward Pyro triggers for huge Reverse-Melt punch ticks.
           </p>
         </div>
       </div>
     </div>
 
-    <!-- Damage Showcase Reality vs 7.0 Baseline -->
+    <!-- Damage Showcase Reality Check -->
     <div class="bento-row">
-      <div class="analysis-bento-card bento-col-6" style="border-color: rgba(34, 197, 94, 0.3);">
-        <span class="card-header-tag" style="color: #22c55e;">[ 13 // REALISTIC C1 / DEEP SHADOWS BASELINE ]</span>
+      <div class="analysis-bento-card bento-col-6 border-green">
+        <span class="card-header-tag text-green">[ 13 // REALISTIC C1 / DEEP SHADOWS BASELINE ]</span>
         <ul class="bullet-point-list">
           <li><strong>Weapon:</strong> R1 Cashflow Supervision or R5 Flowing Purity.</li>
           <li><strong>Artifacts:</strong> 4pc Disenchantment in Deep Shadows (75% CR / 210% CDMG, 2,100 ATK).</li>
@@ -863,8 +513,8 @@
         </ul>
       </div>
 
-      <div class="analysis-bento-card bento-col-6" style="border-color: rgba(239, 68, 68, 0.3);">
-        <span class="card-header-tag" style="color: #ef4444;">[ 14 // MISLEADING LEGACY MELT SHOWCASE TRAPS ]</span>
+      <div class="analysis-bento-card bento-col-6 border-red">
+        <span class="card-header-tag text-red">[ 14 // MISLEADING LEGACY MELT SHOWCASE TRAPS ]</span>
         <ul class="bullet-point-list">
           <li><strong>Trap:</strong> Relying on slow 1-hit Xiangling/Bennett Pyro circles in multi-wave Abyss.</li>
           <li><strong>Distortions:</strong> C6 R5 fishing for massive single-hit uppercut screenshots.</li>
@@ -875,20 +525,21 @@
 
     <!-- Final Verdict Box -->
     <div class="bento-row">
-      <div class="analysis-bento-card bento-col-12" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, var(--surface-bento) 100%); border-color: rgba(245, 158, 11, 0.35);">
+      <div class="analysis-bento-card bento-col-12 verdict-bento-card">
         <span class="card-header-tag">[ 15 // FINAL VERDICT ]</span>
-        <h2 style="font-family: var(--font-hero); font-size: 1.5rem; color: #ffffff;">SS TIER (C1) — THE PREMIER CRYODRIVER</h2>
-        <p style="font-size: 0.92rem; color: var(--text-body); line-height: 1.6;">
+        <h2 class="verdict-title">SS TIER (C1) — THE PREMIER CRYODRIVER</h2>
+        <p class="card-desc">
           Wriothesley's ascension to SS-Tier in Version 7.0 is driven by the brand-new Stellar-Conduct reaction ecosystem and the <em>Disenchantment in Deep Shadows</em> artifact set. When paired with his transformative C1 constellation, he eliminates all HP handicaps to become one of the fastest, most consistent, and fluid reaction drivers in the entire game.
         </p>
-        <div style="display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.5rem;">
-          <span class="character-chip" style="color: #4ade80; border-color: rgba(34, 197, 94, 0.3);">Stellar-Conduct Builders: 🟢 Top Priority</span>
-          <span class="character-chip" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">Targeting C1: 🟢 Must Pull</span>
-          <span class="character-chip" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">C0 Only: 🟡 Manage 5s Lockout</span>
+        <div class="verdict-chips-row">
+          <span class="character-chip chip-green-border">Stellar-Conduct Builders: 🟢 Top Priority</span>
+          <span class="character-chip chip-blue-border">Targeting C1: 🟢 Must Pull</span>
+          <span class="character-chip chip-yellow-border">C0 Only: 🟡 Manage 5s Lockout</span>
         </div>
       </div>
     </div>
 
+    <!-- Minimal Technical Footer -->
     <footer class="site-footer">
       <div class="footer-meta">
         <span>GENSHIN DPS ARCHIVE // CHARACTER ANALYSIS</span>
@@ -898,6 +549,8 @@
         Not affiliated with or endorsed by HoYoverse. Genshin Impact is a registered trademark of HoYoverse.
       </p>
     </footer>
+
   </div>
+
 </body>
 </html>
