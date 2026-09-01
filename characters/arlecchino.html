@@ -1,303 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arlecchino — DPS & Pull Value Archive</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/character.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Arlecchino — DPS & Pull Value Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/character.css">
 </head>
 <body>
-  <div class="ambient-glow glow-character glow-pyro"></div>
 
-  <div class="container">
-    <!-- Breadcrumbs -->
-    <nav class="char-nav-bar">
-      <div class="breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <a href="../tiers/s-tier.html">S Tier</a>
-        <span>/</span>
-        <span>Arlecchino</span>
-      </div>
-      <a href="../tiers/s-tier.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.85rem;">← Back to S Tier</a>
-    </nav>
+<!-- Ambient Backdrop Glow -->
+<div class="ambient-glow-wrapper" aria-hidden="true">
+<div class="ambient-glow glow-pyro"></div>
+</div>
 
-    <!-- 1. Hero Card -->
-    <header class="hero-card">
-      <div class="hero-left">
-        <div class="hero-avatar">
-          <img src="../assets/images/characters/arlecchino.webp" alt="Arlecchino" onerror="this.parentElement.innerHTML='🔥'">
-        </div>
-        <div>
-          <div class="hero-meta">
-            <span class="badge-tier-s" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">Pyro</span>
-            <span style="font-size: 0.8rem; color: var(--text-subtle);">Polearm</span>
-          </div>
-          <h1 class="char-title">Arlecchino</h1>
-          <p class="char-role-sub">Primary Role: Sustained On-Field Pyro Normal Attacker</p>
-        </div>
-      </div>
-      <div class="hero-right-badges">
-        <span class="badge-tier badge-tier-s">S TIER</span>
-        <span class="badge-rarity">★★★★★</span>
-      </div>
-    </header>
+<div class="site-container">
 
-    <!-- 2. Combat Power Ratings -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>⚔️ Combat Power (C0 Baseline)</h2>
-      </div>
-      <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">Overall DPS</span><span class="rating-stars">★★★★★ 4.9</span></div>
-        <div class="rating-item"><span class="rating-category">Single Target</span><span class="rating-stars">★★★★★ 5.0</span></div>
-        <div class="rating-item"><span class="rating-category">AoE Coverage</span><span class="rating-stars">★★★★☆ 4.5</span></div>
-        <div class="rating-item"><span class="rating-category">Burst Damage</span><span class="rating-stars">★★★★☆ 4.6</span></div>
-        <div class="rating-item"><span class="rating-category">Sustained DPS</span><span class="rating-stars">★★★★★ 5.0</span></div>
-        <div class="rating-item"><span class="rating-category">Rotation Consistency</span><span class="rating-stars">★★★★☆ 4.8</span></div>
-      </div>
-    </section>
+<!-- Top Telemetry Bar -->
+<header class="system-bar">
+<div class="sys-left">
+<span class="sys-status"></span>
+<span class="mono-meta"><a href="../index.html">ARCHIVE</a> // <a href="../tiers/a-tier.html">A TIER</a> // ARLECCHINO</span>
+</div>
+<div class="sys-right">
+<span class="mono-meta">VERSION 7.0</span>
+</div>
+</header>
 
-    <!-- 3. Contextual Pull Value -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>💎 Contextual Pull Value</h2>
-      </div>
-      <div class="pull-matrix">
-        <div class="matrix-card">
-          <div class="matrix-header">New Account</div>
-          <div class="matrix-value" style="color: #4ade80;">🟢 High Priority (Easy Overworld/Abyss)</div>
-        </div>
-        <div class="matrix-card">
-          <div class="matrix-header">Mid-Game Account</div>
-          <div class="matrix-value" style="color: #4ade80;">🟢 Strongly Recommended</div>
-        </div>
-        <div class="matrix-card">
-          <div class="matrix-header">Established Account</div>
-          <div class="matrix-value" style="color: #fbbf24;">🟡 Check Pyro Duplication</div>
-        </div>
-        <div class="matrix-card">
-          <div class="matrix-header">Already Own Mavuika / Hu Tao</div>
-          <div class="matrix-value" style="color: #f87171;">🔴 Direct Role Redundancy</div>
-        </div>
-      </div>
-    </section>
+<!-- Character Hero Profile Card -->
+<section class="char-profile-header">
+<div class="char-portrait-frame">
+<img src="../assets/images/characters/arlecchino-1.webp" alt="Arlecchino">
+</div>
 
-    <!-- 4. Decision: Pull If vs Skip If -->
-    <section class="section-block">
-      <div class="decision-grid">
-        <div class="decision-box pull-box">
-          <h3 class="decision-title">✅ PULL IF</h3>
-          <ul class="decision-list">
-            <li>• You need a top-tier single-target and multi-target Pyro carry with zero burst energy reliance.</li>
-            <li>• You want seamless normal attack mechanics that can switch targets without downtime.</li>
-            <li>• You already have or can build Chevreuse, Bennett, or Yelan.</li>
-            <li>• You appreciate high-risk, high-reward glass cannon combat styles.</li>
-          </ul>
-        </div>
-        <div class="decision-box skip-box">
-          <h3 class="decision-title">❌ SKIP IF</h3>
-          <ul class="decision-list">
-            <li>• You already invested heavily in Mavuika, Hu Tao, or Yoimiya.</li>
-            <li>• You struggle with dodging without external healers (cannot receive team heals in combat).</li>
-            <li>• Your account is missing essential universal supports (Kazuha / Xilonen / Furina).</li>
-            <li>• You dislike managing the Bond of Life mechanic.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<div class="profile-meta-block">
+<div>
+<div class="meta-top-badges">
+<span class="character-chip chip-gold">A TIER // 5★</span>
+<span class="character-chip">PYRO</span>
+<span class="character-chip">POLEARM</span>
+<span class="character-chip chip-muted">VA: Erin Yvette • Mori Nanako</span>
+</div>
+<h1 class="char-full-title">ARLECCHINO</h1>
+<p class="char-subtitle-role">The Knave • Sustained Pyro Hypercarry & Bond of Life Carry</p>
+</div>
 
-    <!-- 5. Account Redundancy Warning -->
-    <section class="section-block">
-      <div class="redundancy-box">
-        <div class="redundancy-head">
-          <span>⚠️</span> Account Redundancy Warning
-        </div>
-        <p>Already own <strong>Mavuika</strong> or an invested <strong>Hu Tao</strong>? Arlecchino provides virtually the same combat output and team role: an on-field Pyro carry designed to vaporize or overload boss encounters. While her uptime mechanics are more forgiving than Hu Tao, pulling her is a sidegrade rather than an account expansion if you already possess a built Pyro roster.</p>
-        <div class="overlap-tags">
-          <span class="overlap-tag">Primary Role: On-Field Pyro Carry</span>
-          <span class="overlap-tag">Direct Overlap: Mavuika</span>
-          <span class="overlap-tag">Hu Tao</span>
-          <span class="overlap-tag">Yoimiya</span>
-          <span class="overlap-tag">Lyney</span>
-        </div>
-      </div>
-    </section>
+<div class="stat-matrix-grid">
+<div class="stat-matrix-item">
+<div class="stat-matrix-label">Main DPS Tier</div>
+<div class="stat-matrix-val text-gold">A Tier</div>
+</div>
+<div class="stat-matrix-item">
+<div class="stat-matrix-label">Exploration</div>
+<div class="stat-matrix-val text-blue">S Tier (Hover Sprint)</div>
+</div>
+<div class="stat-matrix-item">
+<div class="stat-matrix-label">Pull Priority</div>
+<div class="stat-matrix-val text-green">3.5 / 5</div>
+</div>
+<div class="stat-matrix-item">
+<div class="stat-matrix-label">Core Mechanic</div>
+<div class="stat-matrix-val">Bond of Life</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- 6. Strengths, Weaknesses & Execution -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>⚖️ Strengths, Weaknesses & Execution</h2>
-      </div>
-      <div class="decision-grid" style="margin-bottom: 1.25rem;">
-        <div class="decision-box" style="background: rgba(34, 197, 94, 0.04); border: 1px solid rgba(34, 197, 94, 0.2);">
-          <h3 class="decision-title" style="color: #4ade80;">🟢 STRENGTHS</h3>
-          <ul class="decision-list">
-            <li>• Zero Energy dependence for normal attack Pyro infusions.</li>
-            <li>• Exceptional single-target damage scaling that rivals peak C0 carries.</li>
-            <li>• Extremely strong in both Vaporize and Chevreuse Overload team archetypes.</li>
-            <li>• Infusion persists after swapping out, enabling flexible mid-rotation adjustments.</li>
-          </ul>
-        </div>
-        <div class="decision-box" style="background: rgba(239, 68, 68, 0.04); border: 1px solid rgba(239, 68, 68, 0.2);">
-          <h3 class="decision-title" style="color: #f87171;">🔴 WEAKNESSES</h3>
-          <ul class="decision-list">
-            <li>• Cannot be healed by party members while in combat (relies solely on her own Burst).</li>
-            <li>• Lack of native interruption resistance at C0 necessitates a shielder against aggressive bosses.</li>
-            <li>• Heavy competition with Bennet and Xingqiu/Yelan from other team compositions.</li>
-            <li>• Direct role overlap with several existing top-tier Pyro options.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">🧠 Gameplay Difficulty</span><span style="font-weight: 700; color: #fbbf24;">Moderate (No external heals)</span></div>
-        <div class="rating-item"><span class="rating-category">🔄 Rotation Difficulty</span><span style="font-weight: 700; color: #4ade80;">Easy (E → Support Setup → CA → NA Spam)</span></div>
-      </div>
-    </section>
+<!-- 01 & 02: Performance Overview + Talent Priority -->
+<div class="bento-row">
+<div class="analysis-bento-card bento-col-8">
+<span class="card-header-tag">[ 01 // META PERFORMANCE OVERVIEW ]</span>
+<h2 class="card-title">The Crimson Moon's Sustained Pyro Hypercarry</h2>
+<p class="card-desc">
+Arlecchino functions as an on-field Pyro carry designed around high-frequency normal attacks empowered by the <strong>Bond of Life</strong> mechanic. By tagging enemies with Blood-Debt Directives via her Elemental Skill and harvesting them with Charged Attacks, she enters the <em>Masque of the Red Death</em> state. While the current meta emphasizes frontloaded burst cycles and dedicated Nod-Krai reactions (such as Lunar-Bloom and Lunar-Charged), Arlecchino's immense raw multipliers, self-buffs, and flexible team synergies allow her to deliver consistent high-tier output.
+</p>
+<div class="highlight-banner">
+<div class="highlight-title">MASQUE OF THE RED DEATH & EXCLUSIVE SELF-SUSTAIN</div>
+<p class="highlight-body">
+When Bond of Life reaches $\ge 30\%$ Max HP, Arlecchino converts Normal, Charged, and Plunging attacks into non-overrideable Pyro DMG. She gains a flat 40% Pyro DMG Bonus in combat but is completely immune to external healing, relying solely on casting <em>Balemoon Rising</em> for emergency HP restoration.
+</p>
+</div>
+</div>
 
-    <!-- 7. Team Requirements & Synergies -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>🧩 Team Requirements</h2>
-      </div>
-      <div class="ratings-grid" style="margin-bottom: 1.25rem;">
-        <div class="rating-item"><span class="rating-category">Support Dependency</span><span style="font-weight: 700;">Medium</span></div>
-        <div class="rating-item"><span class="rating-category">Premium Dependency</span><span style="font-weight: 700;">Low / Moderate</span></div>
-        <div class="rating-item"><span class="rating-category">Reaction Reliance</span><span style="font-weight: 700;">High (Vaporize / Overload)</span></div>
-        <div class="rating-item"><span class="rating-category">Team Flexibility</span><span class="rating-stars">★★★★☆</span></div>
-      </div>
-      <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-        <strong>Recommended Teammates:</strong><br>
-        • <strong>Vaporize Ceiling:</strong> Arlecchino + Yelan + Bennett + Kazuha / Zhongli<br>
-        • <strong>Overload Power:</strong> Arlecchino + Chevreuse + Fischl + Bennett / Beidou<br>
-        • <strong>F2P Accessible:</strong> Arlecchino + Xingqiu + Bennett + Sucrose
-      </p>
-    </section>
+<div class="analysis-bento-card bento-col-4">
+<span class="card-header-tag">[ 02 // TALENT PRIORITY ]</span>
+<h3 class="card-subtitle">Skill Leveling Order</h3>
+<div class="talent-priority-list">
+<div class="talent-node pri-1">1. Normal Attack</div>
+<div class="talent-node pri-2">2. Elemental Skill</div>
+<div class="talent-node pri-3">3. Elemental Burst</div>
+</div>
+<p class="talent-note">
+<strong>Normal Attack (Invitation to a Beheading)</strong> directly dictates the scaling of her Pyro-infused normal strikes and must be crowned first. <strong>Elemental Skill (All Is Ash)</strong> is leveled second for Directive scaling, while <strong>Elemental Burst (Balemoon Rising)</strong> serves as an emergency self-heal and cooldown reset.
+</p>
+</div>
+</div>
 
-    <!-- 8. Weapons & Artifacts Matrix -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>⭐ Weapons & Artifacts</h2>
-      </div>
-      <div class="data-table-wrap" style="margin-bottom: 1.5rem;">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Priority</th>
-              <th>Weapon Name</th>
-              <th>Rarity</th>
-              <th>Notes / Performance</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Signature (R1)</strong></td>
-              <td>Crimson Moon's Semblance</td>
-              <td>5★</td>
-              <td>Best-in-slot. Direct Bond of Life generation and damage bonus boost.</td>
-            </tr>
-            <tr>
-              <td><strong>Best 5★ Alt</strong></td>
-              <td>Primordial Jade Winged-Spear / Staff of Homa</td>
-              <td>5★</td>
-              <td>PJWS offers near-permanent max stack uptime; Homa provides massive CRIT DMG.</td>
-            </tr>
-            <tr>
-              <td><strong>Best 4★ (BP)</strong></td>
-              <td>Deathmatch / Ballad of the Fjords</td>
-              <td>4★</td>
-              <td>High CRIT Rate baseline; Fjords is phenomenal in Vaporize teams.</td>
-            </tr>
-            <tr>
-              <td><strong>Best 3★ F2P</strong></td>
-              <td>White Tassel (R5)</td>
-              <td>3★</td>
-              <td>Incredible F2P performance. Boosts normal attacks by 48% with CRIT Rate sub-stat.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<!-- 03 & 04: Stat Benchmarks + Artifacts -->
+<div class="bento-row">
+<div class="analysis-bento-card bento-col-6">
+<span class="card-header-tag">[ 03 // STAT GOAL BENCHMARKS ]</span>
+<h3 class="card-subtitle">Target Performance Benchmarks</h3>
+<div class="data-table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>Stat Metric</th>
+<th>Target Threshold</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ATK</strong></td>
+<td class="text-gold bold">2,000 ~ 2,500+</td>
+<td>Core damage multiplier scaling; unlocks up to +20% All Elemental/Physical RES via A2 passive.</td>
+</tr>
+<tr>
+<td><strong>CRIT Rate</strong></td>
+<td class="text-blue bold">70% ~ 80%</td>
+<td>Critical for consistent damage delivery across high-frequency Pyro normal attack strings.</td>
+</tr>
+<tr>
+<td><strong>CRIT DMG</strong></td>
+<td class="text-purple bold">160% ~ 200%+</td>
+<td>Primary damage amplification stat stacked across weapon substats and Circlet.</td>
+</tr>
+<tr>
+<td><strong>Energy Recharge</strong></td>
+<td class="bold">100% ~ 120%</td>
+<td>Low requirement; Burst is used reactively for healing and reset rather than strictly every rotation.</td>
+</tr>
+<tr>
+<td><strong>Elemental Mastery</strong></td>
+<td>100 ~ 150</td>
+<td>Valuable supplementary stat in Vaporize, OverVape, and Forward Melt team compositions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
-      <div class="ratings-grid">
-        <div class="rating-item"><span class="rating-category">Recommended Set</span><span style="font-weight: 700; color: #ffffff;">Fragment of Harmonic Whimsy (4pc)</span></div>
-        <div class="rating-item"><span class="rating-category">Alternative Set</span><span style="font-weight: 600; color: var(--text-muted);">Gladiator's Finale (4pc)</span></div>
-        <div class="rating-item"><span class="rating-category">Main Stats</span><span style="font-weight: 600; color: var(--text-muted);">ATK% / Pyro DMG / CRIT</span></div>
-        <div class="rating-item"><span class="rating-category">F2P Friendliness</span><span class="rating-stars">★★★★☆ 4.5/5</span></div>
-      </div>
-    </section>
+<div class="analysis-bento-card bento-col-6">
+<span class="card-header-tag">[ 04 // ARTIFACT LOADOUTS ]</span>
+<h3 class="card-subtitle">Best-in-Slot & Main Stat Setup</h3>
+<div class="stack-list">
+<div class="item-rank-row">
+<img class="item-rank-avatar" src="../assets/images/artifacts/harmonic_whimsy.webp" alt="Fragment of Harmonic Whimsy">
+<div class="item-rank-info">
+<div class="item-rank-name">Fragment of Harmonic Whimsy (4pc) <span class="item-rank-tag">BiS</span></div>
+<div class="item-rank-desc">Provides up to +54% All DMG bonus triggered continuously by Bond of Life fluctuations.</div>
+</div>
+</div>
+<div class="item-rank-row">
+<img class="item-rank-avatar" src="../assets/images/artifacts/gladiators_finale.webp" alt="Gladiator's Finale">
+<div class="item-rank-info">
+<div class="item-rank-name">Gladiator's Finale / Echoes (4pc) <span class="item-rank-tag tag-subtle">Alternative</span></div>
+<div class="item-rank-desc">Provides an unconditional +35% Normal Attack DMG bonus without rotation conditions.</div>
+</div>
+</div>
+</div>
 
-    <!-- 9. Constellation Scaling (C0 Benchmark) -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>🌌 Constellation Scaling (C0 Benchmark)</h2>
-      </div>
-      <div class="ratings-grid" style="grid-template-columns: 1fr;">
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: #38bdf8; min-width: 40px;">C0</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Complete hypercarry kit. Elite raw normal attack damage output without constellation requirements.</span>
-        </div>
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: var(--tier-s); min-width: 40px;">C1</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Direct +100% normal attack multiplier boost and complete interruption resistance while attacking (eliminates need for shielder).</span>
-        </div>
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: var(--tier-s); min-width: 40px;">C2</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Blood-Debt Direct instantly converts to Due, dealing a 900% ATK Pyro AoE nuke upon collection with +20% all Elemental/Physical RES.</span>
-        </div>
-        <div class="rating-item" style="justify-content: flex-start; gap: 1rem;">
-          <span style="font-weight: 700; color: #a855f7; min-width: 40px;">C6</span>
-          <span style="font-size: 0.88rem; color: var(--text-muted);">Transforms her Elemental Burst into a nuclear screen-wipe scaling off current Bond of Life with +700% CDMG.</span>
-        </div>
-      </div>
-    </section>
+<div class="mainstat-grid">
+<div class="mainstat-cell">
+<div class="mainstat-label">SANDS</div>
+<div class="mainstat-val">ATK% / EM</div>
+</div>
+<div class="mainstat-cell">
+<div class="mainstat-label">GOBLET</div>
+<div class="mainstat-val">Pyro DMG Bonus</div>
+</div>
+<div class="mainstat-cell">
+<div class="mainstat-label">CIRCLET</div>
+<div class="mainstat-val">CRIT Rate / CRIT DMG</div>
+</div>
+</div>
+<p class="substat-hierarchy">
+<strong>Substat Priority:</strong> CRIT Rate > CRIT DMG > ATK% > Elemental Mastery > Energy Recharge
+</p>
+</div>
+</div>
 
-    <!-- 10. Damage Showcase Reality vs Realistic Performance -->
-    <section class="section-block">
-      <div class="section-header-wrap">
-        <h2>📸 Damage Showcase Reality Check</h2>
-      </div>
-      <div class="showcase-comparison">
-        <div class="showcase-panel showcase-reality">
-          <h3>✅ Realistic C0 Abyss Baseline</h3>
-          <ul>
-            <li>• <strong>Weapon:</strong> R5 White Tassel / R1 Deathmatch.</li>
-            <li>• <strong>Artifacts:</strong> 4pc Gladiator or Whimsy (~70% CRIT / 160% CDMG, 2,100 ATK).</li>
-            <li>• <strong>Team:</strong> Bennett (C6/C1) + Xingqiu + Kazuha / Zhongli.</li>
-            <li>• <strong>Output:</strong> 40k–80k per normal attack hit, steadily tapering as Bond of Life expends.</li>
-          </ul>
-        </div>
-        <div class="showcase-panel showcase-trap">
-          <h3>⚠️ Misleading Showcase Setup (Screenshots)</h3>
-          <ul>
-            <li>• <strong>Weapon / Constellation:</strong> C6 R5 Crimson Moon's Semblance.</li>
-            <li>• <strong>Distortions:</strong> Food buffs + 200% CDMG artifact fish + Level 60 boss with -80% native RES.</li>
-            <li>• <strong>Reality:</strong> Millions of damage on a single Burst hit does not represent realistic sustained C0 normal attack rotations.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<!-- 05: Weapons Hierarchy -->
+<div class="bento-row">
+<div class="analysis-bento-card bento-col-12">
+<span class="card-header-tag">[ 05 // WEAPON TIER LIST ]</span>
+<h3 class="card-title">Polearm Arsenal Hierarchy</h3>
+<div class="item-grid-auto">
+<div class="item-rank-row">
+<div class="item-rank-info">
+<div class="item-rank-name">Crimson Moon's Semblance <span class="item-rank-tag">Signature BiS</span></div>
+<div class="item-rank-desc">Best-in-slot weapon granting +25% BoL on CA hit and an unconditional +24% All DMG bonus.</div>
+</div>
+</div>
+<div class="item-rank-row">
+<div class="item-rank-info">
+<div class="item-rank-name">Staff of Homa <span class="item-rank-tag tag-red">5★ Alt</span></div>
+<div class="item-rank-desc">High base ATK with massive CRIT DMG secondary stat and consistent HP-to-ATK conversion.</div>
+</div>
+</div>
+<div class="item-rank-row">
+<div class="item-rank-info">
+<div class="item-rank-name">Primordial Jade Winged-Spear <span class="item-rank-tag tag-purple">5★ Stat Stick</span></div>
+<div class="item-rank-desc">High CRIT Rate stat stick providing easy-to-maintain ATK% and All DMG stacking passives.</div>
+</div>
+</div>
+<div class="item-rank-row">
+<div class="item-rank-info">
+<div class="item-rank-name">Deathmatch / Ballad of the Fjords <span class="item-rank-tag tag-blue">Best 4★ BP</span></div>
+<div class="item-rank-desc">High CRIT Rate battle pass options providing solid ATK and Elemental Mastery buffs.</div>
+</div>
+</div>
+<div class="item-rank-row">
+<div class="item-rank-info">
+<div class="item-rank-name">White Tassel (R5) <span class="item-rank-tag tag-green">F2P BiS</span></div>
+<div class="item-rank-desc">Accessible 3★ exploration polearm offering CRIT Rate and a massive +48% Normal Attack DMG bonus.</div>
+</div>
+</div>
+<div class="item-rank-row">
+<div class="item-rank-info">
+<div class="item-rank-name">Blackcliff Pole / Sacrificer's Staff <span class="item-rank-tag tag-subtle">Viable Alt</span></div>
+<div class="item-rank-desc">Solid CRIT DMG stat sticks that offer offensive scaling and accessible Starglitter exchange.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-    <!-- 11. Final Verdict -->
-    <section class="verdict-box">
-      <span class="badge-tier badge-tier-s" style="display: inline-block; margin-bottom: 0.75rem;">S TIER</span>
-      <h2>FINAL VERDICT</h2>
-      <p class="verdict-summary">Arlecchino is one of the strongest and most comfortable sustained single-target carries in the game due to her non-existent energy needs and flexible swap times. However, because she occupies the crowded on-field Pyro carry niche, evaluate your current roster: if you already have Mavuika or Hu Tao built, she is a comfort luxury pull rather than an account necessity.</p>
-      <div class="verdict-recommendations">
-        <span class="rec-pill" style="color: #4ade80; border-color: rgba(34, 197, 94, 0.3);">New Players: 🟢 High Priority</span>
-        <span class="rec-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">Mid-Game: 🟢 Recommended</span>
-        <span class="rec-pill" style="color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Established: 🟡 Evaluate Redundancy</span>
-      </div>
-    </section>
+<!-- 06, 07, 08: Team Lineups (Standard & Stacked Dual Support) -->
+<div class="bento-row">
+<!-- Team Card 1 -->
+<div class="analysis-bento-card bento-col-4">
+<span class="card-header-tag">[ 06 // HEXEREI OVERVAPE ]</span>
+<h3 class="card-subtitle">Hexerei Reaction Core</h3>
+<div class="team-lineup-card">
+<div class="team-avatar-strip">
+<div class="team-char-cell">
+<img class="team-char-avatar" src="../assets/images/characters/arlecchino.webp" alt="Arlecchino">
+<span class="team-char-name">Arlecchino</span>
+<span class="team-char-role">Main DPS</span>
+</div>
+<div class="team-char-cell">
+<img class="team-char-avatar" src="../assets/images/characters/mona.webp" alt="Mona">
+<span class="team-char-name">Mona</span>
+<span class="team-char-role">Hexerei / Omen</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/fischl.webp" alt="Fischl">
+<span class="team-char-name">Fischl</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/yelan.webp" alt="Yelan">
+<span class="team-char-name">Yelan</span>
+</div>
+<span class="team-char-role">Electro / Hydro Sub</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/nicole.webp" alt="Nicole">
+<span class="team-char-name">Nicole</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett">
+<span class="team-char-name">Bennett</span>
+</div>
+<span class="team-char-role">ATK Buffer / Sustain</span>
+</div>
+</div>
+<p class="team-desc">Combines Mona's Omen and Nicole's ATK buffs to maximize Arlecchino's frontloaded normal strings during Overload and Vaporize procs.</p>
+</div>
+</div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <p>Genshin DPS & Pull Value Archive • Character Evaluation</p>
-    </footer>
-  </div>
+<!-- Team Card 2 -->
+<div class="analysis-bento-card bento-col-4">
+<span class="card-header-tag">[ 07 // FORWARD MELT & HYPER ]</span>
+<h3 class="card-subtitle">Citlali & Cryo Core</h3>
+<div class="team-lineup-card">
+<div class="team-avatar-strip">
+<div class="team-char-cell">
+<img class="team-char-avatar" src="../assets/images/characters/arlecchino.webp" alt="Arlecchino">
+<span class="team-char-name">Arlecchino</span>
+<span class="team-char-role">Main DPS</span>
+</div>
+<div class="team-char-cell">
+<img class="team-char-avatar" src="../assets/images/characters/bennett.webp" alt="Bennett">
+<span class="team-char-name">Bennett</span>
+<span class="team-char-role">ATK Engine</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/citlali.webp" alt="Citlali">
+<span class="team-char-name">Citlali</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/rosaria.webp" alt="Rosaria">
+<span class="team-char-name">Rosaria</span>
+</div>
+<span class="team-char-role">Cryo Applicator</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/escoffier.webp" alt="Escoffier">
+<span class="team-char-name">Escoffier</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/kazuha.webp" alt="Kazuha">
+<span class="team-char-name">Kazuha</span>
+</div>
+<span class="team-char-role">Shred / VV Buffer</span>
+</div>
+</div>
+<p class="team-desc">Forward Melt setup using Citlali or Escoffier for persistent Cryo application, amplifying Arlecchino's high-scaling normal attacks.</p>
+</div>
+</div>
 
-  <script src="../js/character.js"></script>
+<!-- Team Card 3 -->
+<div class="analysis-bento-card bento-col-4">
+<span class="card-header-tag">[ 08 // DUAL-DPS & F2P VAPORIZE ]</span>
+<h3 class="card-subtitle">Varesa Dual & F2P Lineups</h3>
+<div class="team-lineup-card">
+<div class="team-avatar-strip">
+<div class="team-char-cell">
+<img class="team-char-avatar" src="../assets/images/characters/arlecchino.webp" alt="Arlecchino">
+<span class="team-char-name">Arlecchino</span>
+<span class="team-char-role">Main DPS</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/varesa.webp" alt="Varesa">
+<span class="team-char-name">Varesa</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/xingqiu.webp" alt="Xingqiu">
+<span class="team-char-name">Xingqiu</span>
+</div>
+<span class="team-char-role">Dual DPS / Hydro App</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/iansan.webp" alt="Iansan">
+<span class="team-char-name">Iansan</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/xiangling.webp" alt="Xiangling">
+<span class="team-char-name">Xiangling</span>
+</div>
+<span class="team-char-role">Kinetic / Pyro Sub</span>
+</div>
+<div class="team-char-cell multi">
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/chevreuse.webp" alt="Chevreuse">
+<span class="team-char-name">Chevreuse</span>
+</div>
+<div class="team-sub-char">
+<img class="team-char-avatar" src="../assets/images/characters/candace.webp" alt="Candace">
+<span class="team-char-name">Candace</span>
+</div>
+<span class="team-char-role">Overload Shred / NA Buff</span>
+</div>
+</div>
+<p class="team-desc">Bridges Blood-Debt Due wait time with Varesa in Chevreuse Overload, or runs Xingqiu and Candace for accessible F2P Vaporize.</p>
+</div>
+</div>
+</div>
+
+<!-- 09: Constellations Breakdown -->
+<div class="bento-row">
+<div class="analysis-bento-card bento-col-12">
+<span class="card-header-tag">[ 09 // CONSTELLATION VALUE ASSESSMENT ]</span>
+<h3 class="card-title">Constellation Assessment</h3>
+<div class="data-table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>Tier</th>
+<th>Name</th>
+<th>Rating</th>
+<th>Combat Mechanics & Pull Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C1</strong></td>
+<td>"All Reprisals and Arrears, Mine to Bear..."</td>
+<td class="rating-cell text-red">★★★ (KEY VALUE)</td>
+<td>Masque of the Red Death scaling increased by 120%; grants heavy interruption resistance during Pyro normal attacks, allowing players to drop shielders.</td>
+</tr>
+<tr>
+<td><strong>C2</strong></td>
+<td>"All Rewards and Retribution, Mine to Bestow..."</td>
+<td class="rating-cell text-gold">★★★</td>
+<td>Blood-Debt Directives immediately apply as Blood-Debt Due; absorbing them unleashes Balemoon Bloodfire dealing 900% ATK as AoE Pyro DMG and +20% All RES.</td>
+</tr>
+<tr>
+<td><strong>C3</strong></td>
+<td>"You Shall Become a New Member of Our Family..."</td>
+<td class="rating-cell text-muted">★★☆☆</td>
+<td>Increases Normal Attack (Invitation to a Beheading) Level by 3.</td>
+</tr>
+<tr>
+<td><strong>C4</strong></td>
+<td>"You Shall Love and Protect Each Other Henceforth..."</td>
+<td class="rating-cell text-gold">★★☆</td>
+<td>Absorbing a Blood-Debt Directive reduces Balemoon Rising CD by 2s and restores 15 Energy to Arlecchino.</td>
+</tr>
+<tr>
+<td><strong>C5</strong></td>
+<td>"For Alone, We Are as Good as Dead..."</td>
+<td class="rating-cell text-muted">★★☆☆</td>
+<td>Increases Elemental Burst (Balemoon Rising) Level by 3.</td>
+</tr>
+<tr>
+<td><strong>C6</strong></td>
+<td>"From This Day On, We Shall Delight in New Life Together."</td>
+<td class="rating-cell text-purple">★★★★★ (WHALE NUKER)</td>
+<td>Balemoon Rising DMG is increased by ATK multiplied by 700% of current BoL%; using Skill grants +10% CRIT Rate and +70% CRIT DMG to Normal Attacks and Burst for 20s.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- 10 & 11: Strengths vs Limitations -->
+<div class="bento-row">
+<div class="analysis-bento-card bento-col-6 border-green">
+<span class="card-header-tag text-green">[ 10 // STRENGTHS ]</span>
+<ul class="bullet-point-list">
+<li>Self-Sufficient Hypercarry: High raw scalings and innate +40% Pyro DMG Bonus allow her to run effectively with 3 buffer supports or a shielder.</li>
+<li>Versatile Team Archetypes: Flexible combat driver across Vaporize, Forward Melt, Chevreuse Overload, and Mono-Pyro setups.</li>
+<li>Exploration Flight Utility: Charged Attack hold provides high-speed aerial hover sprinting to traverse terrain and water gaps.</li>
+</ul>
+</div>
+
+<div class="analysis-bento-card bento-col-6 border-red">
+<span class="card-header-tag text-red">[ 11 // LIMITATIONS & TRAPS ]</span>
+<ul class="bullet-point-list">
+<li>High-Risk Self-Sustain: Cannot be healed by team healers in combat; surviving requires managing Bond of Life for Burst heals or running a shielder.</li>
+<li>Interruption Sensitivity: Without C1 or dedicated shielders, taking hits during normal attack combos causes significant DPS loss.</li>
+<li>Meta Reaction Disconnect: Lacks direct scaling with Nod-Krai elemental reactions (Lunar-Bloom / Lunar-Charged), requiring hyperinvestment to match modern ceilings.</li>
+</ul>
+</div>
+</div>
+
+<!-- 12: Final Verdict -->
+<div class="bento-row">
+<div class="analysis-bento-card bento-col-12 verdict-bento-card">
+<span class="card-header-tag">[ 12 // FINAL VERDICT ]</span>
+<h2 class="verdict-title">A TIER — THE SUPREME BALEMOON HARBINGER</h2>
+<p class="card-desc">
+Arlecchino remains a mechanically rewarding, high-ceiling Pyro hypercarry centered around her unique Bond of Life engine. While evolving meta landscapes favor frontloaded reaction setups, her high raw normal attack scaling, diverse team options across Melt, Vape, and Overload, and massive C1/C2 spikes ensure she remains a formidable on-field carry.
+</p>
+<div class="verdict-chips-row">
+<span class="character-chip chip-green-border">Pyro Carries: 🟢 High-Output Bond of Life Carry</span>
+<span class="character-chip chip-blue-border">Targeting C1: 🟢 Poise & +120% Scaling Spike</span>
+<span class="character-chip chip-yellow-border">C0 Baseline: 🟢 Complete & Self-Sufficient</span>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+<div class="footer-meta">
+<span>GENSHIN DPS ARCHIVE // CHARACTER ANALYSIS</span>
+<span class="dim">INDEPENDENT COMPUTATIONAL THEORYCRAFTING</span>
+</div>
+<p class="footer-disclaimer">
+Not affiliated with or endorsed by HoYoverse. Genshin Impact is a registered trademark of HoYoverse.
+</p>
+</footer>
+
+</div>
+
 </body>
 </html>
