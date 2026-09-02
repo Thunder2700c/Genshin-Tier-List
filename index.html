@@ -11,16 +11,17 @@
 </head>
 <body>
 
+  <!-- Ambient Glow Backdrop Layer (Single Grounded Anchor Glow + Noise) -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
     <div class="ambient-glow glow-gold"></div>
-    <div class="ambient-glow glow-blue"></div>
   </div>
 
   <div class="site-container">
     
+    <!-- Top System Telemetry Bar -->
     <header class="system-bar">
       <div class="sys-left">
-        <span class="status-pulse"></span>
+        <span class="sys-status"></span>
         <span class="mono-meta">ARCHIVE // V7.0</span>
         <span class="mono-meta dim">STELLAR SHIFT</span>
       </div>
@@ -29,6 +30,7 @@
       </div>
     </header>
 
+    <!-- Hero Title & Axiom Section -->
     <section class="hero-section">
       <div class="hero-label-wrap">
         <span class="section-tag">[ 00 // DIRECTORY ]</span>
@@ -45,6 +47,7 @@
         </p>
       </div>
 
+      <!-- Core Philosophy Alert Banner -->
       <div class="philosophy-strip">
         <div class="strip-badge">
           <span class="strip-icon">⚠️</span>
@@ -56,18 +59,25 @@
       </div>
     </section>
 
+    <!-- Master Bento Grid (Refined Row-Math Summing to 12 per row) -->
     <main class="archive-grid">
       
-      <a href="tiers/ss-tier.html" class="grid-card card-ss">
+      <!-- 1. SS Tier Card (Span 8, Row-span 2) -->
+      <a href="tiers/ss-tier.html" class="grid-card card-ss" id="ssCard">
         <div class="card-top-bar">
-          <span class="tier-index gold">[ 01 // SS TIER ]</span>
+          <div class="rank-indicator-wrap">
+            <span class="tier-label-text gold">SS TIER</span>
+            <div class="strength-bar-track">
+              <div class="strength-bar-fill" style="width: 95%; background: var(--tier-ss);"></div>
+            </div>
+          </div>
           <span class="card-status-badge ss-badge">EXCEPTIONAL</span>
         </div>
 
         <div class="card-hero-content">
           <h2 class="card-title">SS TIER</h2>
           <p class="card-summary">
-            Pinnacle combat ceiling, unmatched reaction scalability in 7.0 Stellar-Conduct, and essential account-clearing value.
+            Pinnacle combat ceiling, unmatched reaction scalability across 7.0 Stellar-Conduct, and essential account-clearing value with zero luxury redundancy.
           </p>
           
           <div class="roster-preview-pills">
@@ -85,16 +95,22 @@
         </div>
       </a>
 
+      <!-- 2. S Tier Card (Span 4, Row-span 2) -->
       <a href="tiers/s-tier.html" class="grid-card card-s">
         <div class="card-top-bar">
-          <span class="tier-index red">[ 02 // S TIER ]</span>
+          <div class="rank-indicator-wrap">
+            <span class="tier-label-text red">S TIER</span>
+            <div class="strength-bar-track">
+              <div class="strength-bar-fill" style="width: 80%; background: var(--tier-s);"></div>
+            </div>
+          </div>
           <span class="card-status-badge s-badge">TOP TIER</span>
         </div>
 
         <div class="card-hero-content">
           <h3 class="card-title">S TIER</h3>
           <p class="card-summary">
-            Extremely high damage output with minor rotation constraints or role specializations.
+            Extremely high raw damage output and strong reaction scalability with minor rotational constraints or specialized support pairings.
           </p>
           <div class="roster-preview-pills">
             <span class="character-chip">Varka</span>
@@ -105,20 +121,25 @@
 
         <div class="card-action-footer">
           <span>View S Tier</span>
-          <span class="action-arrow">→</span>
         </div>
       </a>
 
-      <a href="tiers/a-plus-tier.html" class="grid-card card-s">
+      <!-- 3. A+ Tier Card (Span 5) -->
+      <a href="tiers/a-plus-tier.html" class="grid-card card-a-plus">
         <div class="card-top-bar">
-          <span class="tier-index red">[ 03 // A+ TIER ]</span>
-          <span class="card-status-badge s-badge">HIGH CEILING</span>
+          <div class="rank-indicator-wrap">
+            <span class="tier-label-text" style="color: #f97316;">A+ TIER</span>
+            <div class="strength-bar-track">
+              <div class="strength-bar-fill" style="width: 70%; background: #f97316;"></div>
+            </div>
+          </div>
+          <span class="card-status-badge" style="background: rgba(249, 115, 22, 0.18); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.35);">CONDITIONAL PEAK</span>
         </div>
 
         <div class="card-hero-content">
           <h3 class="card-title">A+ TIER</h3>
           <p class="card-summary">
-            Devastating burst carries with high personal motion values tempered by specific setup conditions.
+            Tremendous offensive ceiling and near-S tier damage output, moderated by strict reaction windows or resource pacing.
           </p>
           <div class="roster-preview-pills">
             <span class="character-chip">Mualani</span>
@@ -131,13 +152,18 @@
 
         <div class="card-action-footer">
           <span>View A+ Tier</span>
-          <span class="action-arrow">→</span>
         </div>
       </a>
 
+      <!-- 4. A Tier Card (Span 3) -->
       <a href="tiers/a-tier.html" class="grid-card card-a">
         <div class="card-top-bar">
-          <span class="tier-index purple">[ 04 // A TIER ]</span>
+          <div class="rank-indicator-wrap">
+            <span class="tier-label-text purple">A TIER</span>
+            <div class="strength-bar-track">
+              <div class="strength-bar-fill" style="width: 60%; background: var(--tier-a);"></div>
+            </div>
+          </div>
           <span class="card-status-badge a-badge">VERY STRONG</span>
         </div>
 
@@ -150,19 +176,37 @@
             <span class="character-chip">Arlecchino</span>
             <span class="character-chip">Neuvillette</span>
             <span class="character-chip">Klee</span>
-            <span class="character-chip">Venti</span>
           </div>
         </div>
 
         <div class="card-action-footer">
           <span>View A Tier</span>
-          <span class="action-arrow">→</span>
         </div>
       </a>
 
+      <!-- 5. Protocol 1 Card (Span 4) -> 5 + 3 + 4 = 12 total for row 3 -->
+      <div class="grid-card protocol-card">
+        <div class="card-top-bar">
+          <span class="tier-index cyan">[ PROTOCOL // 01 ]</span>
+        </div>
+        <div class="card-hero-content">
+          <h4 class="card-sub-title">C0 REALISTIC BASELINE</h4>
+          <p class="card-summary">
+            Zero whale screenshot distortions. Assumes 4-star weapons and realistic multi-wave ER requirements.
+          </p>
+        </div>
+        <div class="protocol-footer-tag">BENCHMARK: ACCESSIBLE CLEARING</div>
+      </div>
+
+      <!-- 6. B Tier Card (Span 4) -->
       <a href="tiers/b-tier.html" class="grid-card card-b">
         <div class="card-top-bar">
-          <span class="tier-index blue">[ 05 // B TIER ]</span>
+          <div class="rank-indicator-wrap">
+            <span class="tier-label-text blue">B TIER</span>
+            <div class="strength-bar-track">
+              <div class="strength-bar-fill" style="width: 40%; background: var(--tier-b);"></div>
+            </div>
+          </div>
           <span class="card-status-badge b-badge">VIABLE</span>
         </div>
 
@@ -174,19 +218,23 @@
           <div class="roster-preview-pills">
             <span class="character-chip">Ayaka</span>
             <span class="character-chip">Gaming (C6)</span>
-            <span class="character-chip">Raiden (C2)</span>
           </div>
         </div>
 
         <div class="card-action-footer">
           <span>View B Tier</span>
-          <span class="action-arrow">→</span>
         </div>
       </a>
 
+      <!-- 7. C Tier Card (Span 4) -->
       <a href="tiers/c-tier.html" class="grid-card card-c">
         <div class="card-top-bar">
-          <span class="tier-index green">[ 06 // C TIER ]</span>
+          <div class="rank-indicator-wrap">
+            <span class="tier-label-text green">C TIER</span>
+            <div class="strength-bar-track">
+              <div class="strength-bar-fill" style="width: 25%; background: var(--tier-c);"></div>
+            </div>
+          </div>
           <span class="card-status-badge c-badge">NICHE</span>
         </div>
 
@@ -198,29 +246,15 @@
           <div class="roster-preview-pills">
             <span class="character-chip">Yoimiya</span>
             <span class="character-chip">Diluc</span>
-            <span class="character-chip">Itto</span>
           </div>
         </div>
 
         <div class="card-action-footer">
           <span>View C Tier</span>
-          <span class="action-arrow">→</span>
         </div>
       </a>
 
-      <div class="grid-card protocol-card">
-        <div class="card-top-bar">
-          <span class="tier-index cyan">[ PROTOCOL // 01 ]</span>
-        </div>
-        <div class="card-hero-content">
-          <h4 class="card-sub-title">C0 REALISTIC BASELINE</h4>
-          <p class="card-summary">
-            Zero whale screenshot distortions. All ratings assume 4-star weapons, attainable artifact sub-stats, and realistic multi-wave Energy Recharge requirements.
-          </p>
-        </div>
-        <div class="protocol-footer-tag">BENCHMARK: ACCESSIBLE CLEARING</div>
-      </div>
-
+      <!-- 8. Protocol 2 Card (Span 4) -> 4 + 4 + 4 = 12 total for row 4 -->
       <div class="grid-card protocol-card">
         <div class="card-top-bar">
           <span class="tier-index gold">[ PROTOCOL // 02 ]</span>
@@ -228,7 +262,7 @@
         <div class="card-hero-content">
           <h4 class="card-sub-title">ACCOUNT REDUNDANCY RADAR</h4>
           <p class="card-summary">
-            Identifies overlapping on-field elemental roles before you spend Primogems, ensuring your roster completes missing reaction puzzles.
+            Identifies overlapping roles before spending Primogems to ensure missing reaction puzzles are covered.
           </p>
         </div>
         <div class="protocol-footer-tag">GOAL: MAX PRIMOGEM EFFICIENCY</div>
@@ -236,6 +270,7 @@
 
     </main>
 
+    <!-- Technical Footer -->
     <footer class="site-footer">
       <div class="footer-meta">
         <span>GENSHIN DPS ARCHIVE // VER 7.0</span>
@@ -248,6 +283,19 @@
 
   </div>
 
+  <!-- Mouse tracking script for SS card spotlight effect -->
+  <script>
+    const ssCard = document.getElementById('ssCard');
+    if (ssCard) {
+      ssCard.addEventListener('mousemove', e => {
+        const rect = ssCard.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / ssCard.clientWidth) * 100;
+        const y = ((e.clientY - rect.top) / ssCard.clientHeight) * 100;
+        ssCard.style.setProperty('--mouse-x', `${x}%`);
+        ssCard.style.setProperty('--mouse-y', `${y}%`);
+      });
+    }
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
