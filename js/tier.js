@@ -69,33 +69,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!cursor || !follower) return;
 
-  let mouseX = 0;
-  let mouseY = 0;
-  let followerX = 0;
-  let followerY = 0;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let followerX = mouseX;
+  let followerY = mouseY;
 
-  // Instant position for the small dot
-  document.addEventListener('mousemove', (e) => {
+  // Update mouse position
+  window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
   });
 
-  // Smooth follow for the outer ring
-  function animate() {
-    followerX += (mouseX - followerX) * 0.15;
-    followerY += (mouseY - followerY) * 0.15;
-    follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
-    requestAnimationFrame(animate);
-  }
-  animate();
+  // Smooth animation loop
+  function render() {
+    // Small dot follows instantly
+    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
 
-  // Grow on interactive elements
-  const growTargets = document.querySelectorAll(
+    // Outer ring follows with lag
+    followerX += (mouseX - followerX) * 0.18;
+    followerY += (mouseY - followerY) * 0.18;
+    follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+
+    requestAnimationFrame(render);
+  }
+  render();
+
+  // Expand on interactive elements
+  const targets = document.querySelectorAll(
     'a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input, .card-ss, .protocol-card'
   );
 
-  growTargets.forEach((el) => {
+  targets.forEach((el) => {
     el.addEventListener('mouseenter', () => follower.classList.add('active'));
     el.addEventListener('mouseleave', () => follower.classList.remove('active'));
   });
