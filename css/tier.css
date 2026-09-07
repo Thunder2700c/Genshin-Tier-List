@@ -612,3 +612,35 @@ body {
   .step-btn { width: 100%; }
   .character-grid { grid-template-columns: 1fr; }
 }
+
+/* Cell Cursor */
+.cursor {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: #e8c87a;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
+}
+.cursor-follower {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(232, 200, 122, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+.cursor-follower.active {
+  width: 56px;
+  height: 56px;
+  border-color: #e8c87a;
+}
+body {
+  cursor: none;
+}
