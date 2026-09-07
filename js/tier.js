@@ -74,27 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
   let followerX = mouseX;
   let followerY = mouseY;
 
-  // Update mouse position
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
 
-  // Smooth animation loop
   function render() {
-    // Small dot follows instantly
-    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    // Center the small dot exactly on the mouse
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top  = mouseY + 'px';
+    cursor.style.transform = 'translate(-50%, -50%)';
 
-    // Outer ring follows with lag
+    // Smooth follow for the ring
     followerX += (mouseX - followerX) * 0.18;
     followerY += (mouseY - followerY) * 0.18;
-    follower.style.transform = `translate(${followerX}px, ${followerY}px)`;
+    follower.style.left = followerX + 'px';
+    follower.style.top  = followerY + 'px';
+    follower.style.transform = 'translate(-50%, -50%)';
 
     requestAnimationFrame(render);
   }
   render();
 
-  // Expand on interactive elements
   const targets = document.querySelectorAll(
     'a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input, .card-ss, .protocol-card'
   );
