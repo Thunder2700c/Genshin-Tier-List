@@ -613,9 +613,11 @@ body {
   .character-grid { grid-template-columns: 1fr; }
 }
 
-/* Cell Cursor */
+/* Cursor */
 .cursor {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 8px;
   height: 8px;
   background: #e8c87a;
@@ -624,23 +626,34 @@ body {
   z-index: 10000;
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
+  will-change: transform;
 }
+
 .cursor-follower {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(232, 200, 122, 0.5);
+  border: 1px solid rgba(232, 200, 122, 0.55);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
 }
+
 .cursor-follower.active {
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border-color: #e8c87a;
 }
+
 body {
-  cursor: none;
+  cursor: none !important;
+}
+
+a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input {
+  cursor: none !important;
 }
