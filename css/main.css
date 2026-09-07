@@ -630,7 +630,7 @@ body {
   background: #e8c87a;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 10000;
+  z-index: 99999;
   mix-blend-mode: difference;
   transform: translate(-50%, -50%);
   will-change: transform;
@@ -642,25 +642,21 @@ body {
   left: 0;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(232, 200, 122, 0.55);
+  border: 1.5px solid rgba(232, 200, 122, 0.6);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99998;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
   will-change: transform;
 }
 
 .cursor-follower.active {
-  width: 54px;
-  height: 54px;
+  width: 52px;
+  height: 52px;
   border-color: #e8c87a;
 }
 
-body {
-  cursor: none !important;
-}
-
-a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input {
+body, a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input {
   cursor: none !important;
 }
