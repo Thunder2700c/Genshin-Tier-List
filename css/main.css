@@ -620,7 +620,7 @@ body {
   }
 }
 
-/* Cursor */
+/* Codegrid-Optimized Hardware-Accelerated Cursor */
 .cursor {
   position: fixed;
   top: 0;
@@ -632,8 +632,8 @@ body {
   pointer-events: none;
   z-index: 99999;
   mix-blend-mode: difference;
-  will-change: left, top;
-  transform: none; /* important */
+  will-change: transform;
+  opacity: 0; /* Managed cleanly by GSAP */
 }
 
 .cursor-follower {
@@ -642,22 +642,25 @@ body {
   left: 0;
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(232, 200, 122, 0.6);
+  border: 1.5px solid rgba(232, 200, 122, 0.65);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
-  will-change: left, top;
-  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-  transform: none; /* important */
+  will-change: transform;
+  opacity: 0; /* Managed cleanly by GSAP */
+  background: transparent;
 }
 
-.cursor-follower.active {
-  width: 52px;
-  height: 52px;
-  border-color: #e8c87a;
+/* Hide OS pointer on desktop hover devices only */
+@media (hover: hover) and (pointer: fine) {
+  body, a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input {
+    cursor: none !important;
+  }
 }
 
-body, a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input {
-  cursor: none !important;
+/* Disable custom cursor elements entirely on touchscreens to save mobile battery */
+@media (hover: none) or (pointer: coarse) {
+  .cursor, .cursor-follower {
+    display: none !important;
+  }
 }
-
