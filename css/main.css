@@ -661,15 +661,3 @@ body, a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .sear
   cursor: none !important;
 }
 
-/* Tubes Cursor Trail Canvas */
-#tubes-cursor-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 99997; /* Floats behind your gold ring (99998) and gold dot (99999) */
-}
-
