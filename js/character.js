@@ -21,48 +21,101 @@ document.addEventListener('DOMContentLoaded', () => {
     block.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     observer.observe(block);
   });
+
+  // Codegrid-Style 60-120 FPS GSAP quickTo Cursor
+  initSmoothCursor();
 });
 
-// Cursor 
-(function () {
+function initSmoothCursor() {
   const cursor = document.querySelector('.cursor');
   const follower = document.querySelector('.cursor-follower');
 
-  if (!cursor || !follower) return;
+  // Verify elements exist and user is on a desktop pointer device
+  if (!cursor || !follower || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    return;
+  }
 
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let followerX = mouseX;
-  let followerY = mouseY;
+  // Check if GSAP is available
+  if (typeof gsap === 'undefined') {
+    console.warn('GSAP is required for smooth cursor rendering.');
+    return;
+  }
+
+  // Pre-center both elements using GPU percent transforms
+  gsap.set([cursor, follower], {
+    xPercent: -50,
+    yPercent: -50,
+    opacity: 0
+  });
+
+  // quickTo pipes coordinates directly to GPU translate3d with zero CPU layout thrashing
+  // Dot: near-instant response (0.08s)
+  const xDot = gsap.quickTo(cursor, 'x', { duration: 0.08, ease: 'power3.out' });
+  const yDot = gsap.quickTo(cursor, 'y', { duration: 0.08, ease: 'power3.out' });
+
+  // Follower Ring: fluid organic easing (0.35s)
+  const xFollower = gsap.quickTo(follower, 'x', { duration: 0.35, ease: 'power3.out' });
+  const yFollower = gsap.quickTo(follower, 'y', { duration: 0.35, ease: 'power3.out' });
+
+  let isVisible = false;
 
   window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    const { clientX, clientY } = e;
+
+    if (!isVisible) {
+      gsap.to([cursor, follower], { opacity: 1, duration: 0.25, ease: 'power2.out' });
+      isVisible = true;
+    }
+
+    xDot(clientX);
+    yDot(clientY);
+    xFollower(clientX);
+    yFollower(clientY);
   });
 
-  function render() {
-    // Center the small dot exactly on the mouse
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
-    cursor.style.transform = 'translate(-50%, -50%)';
+  window.addEventListener('mouseleave', () => {
+    gsap.to([cursor, follower], { opacity: 0, duration: 0.25, ease: 'power2.out' });
+    isVisible = false;
+  });
 
-    // Smooth follow for the ring
-    followerX += (mouseX - followerX) * 0.18;
-    followerY += (mouseY - followerY) * 0.18;
-    follower.style.left = followerX + 'px';
-    follower.style.top  = followerY + 'px';
-    follower.style.transform = 'translate(-50%, -50%)';
-
-    requestAnimationFrame(render);
-  }
-  render();
-
-  const targets = document.querySelectorAll(
-    'a, button, .grid-card, .char-card, .elem-btn, .tier-pill, .step-btn, .search-input, .card-ss, .protocol-card'
+  // Interactive Target Expansion using GPU scale instead of width/height
+  const interactiveTargets = document.querySelectorAll(
+    'a, button, .analysis-bento-card, .item-rank-row, .team-lineup-card, .talent-node, .decision-box, .verdict-bento-card, .character-chip, .step-btn, .elem-btn, .grid-card, .char-card, .search-input, .tier-pill'
   );
 
-  targets.forEach((el) => {
-    el.addEventListener('mouseenter', () => follower.classList.add('active'));
-    el.addEventListener('mouseleave', () => follower.classList.remove('active'));
+  interactiveTargets.forEach((target) => {
+    target.addEventListener('mouseenter', () => {
+      gsap.to(follower, {
+        scale: 1.55,
+        borderColor: '#e8c87a',
+        backgroundColor: 'rgba(232, 200, 122, 0.08)',
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+      gsap.to(cursor, {
+        scale: 0.6,
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
+
+    target.addEventListener('mouseleave', () => {
+      gsap.to(follower, {
+        scale: 1,
+        borderColor: 'rgba(232, 200, 122, 0.65)',
+        backgroundColor: 'transparent',
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+      gsap.to(cursor, {
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out',
+        overwrite: 'auto'
+      });
+    });
   });
-})();
+}
