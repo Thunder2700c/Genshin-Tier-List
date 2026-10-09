@@ -1,22 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Stagger reveal animation for cards
-  const cards = document.querySelectorAll('.grid-card');
-  
-  cards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(12px)';
-    card.style.transition = 'opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)';
-    
-    setTimeout(() => {
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, 45 * index);
-  });
+  // 1. Hardware-Accelerated GSAP Entrance Animation
+  initEntranceSequence();
 
-  // Codegrid-Style 60-120 FPS GSAP quickTo Cursor
+  // 2. Multi-Surface Spatial Glass Light Reflection Tracking
+  initSpatialSpotlightEngine();
+
+  // 3. Codegrid-Style 60-120 FPS GSAP quickTo Cursor (Preserved Unchanged)
   initSmoothCursor();
 });
 
+/**
+ * Orchestrates a smooth visionOS floating entrance reveal for Bento tiles.
+ */
+function initEntranceSequence() {
+  const cards = document.querySelectorAll('.grid-card');
+  const heroElements = document.querySelectorAll('.system-bar, .hero-section > *');
+
+  if (typeof gsap !== 'undefined') {
+    // Spatial entrance with GSAP if available
+    gsap.from(heroElements, {
+      opacity: 0,
+      y: 18,
+      duration: 0.7,
+      stagger: 0.08,
+      ease: 'power3.out'
+    });
+
+    gsap.from(cards, {
+      opacity: 0,
+      y: 24,
+      scale: 0.98,
+      duration: 0.75,
+      stagger: 0.06,
+      ease: 'power3.out',
+      delay: 0.2
+    });
+  } else {
+    // Native fallback
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      card.style.transition = 'opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 50 * index);
+    });
+  }
+}
+
+/**
+ * Coordinates interactive light refractions across all Bento tiles,
+ * creating dynamic specular highlights on frosted glass as the pointer moves.
+ */
+function initSpatialSpotlightEngine() {
+  const cards = document.querySelectorAll('.grid-card');
+
+  cards.forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / card.clientWidth) * 100;
+      const y = ((e.clientY - rect.top) / card.clientHeight) * 100;
+
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    });
+  });
+}
+
+/**
+ * Codegrid-Style 60-120 FPS GSAP quickTo Cursor
+ * PRESERVED EXACTLY AS SPECIFIED — DO NOT MODIFY
+ */
 function initSmoothCursor() {
   const cursor = document.querySelector('.cursor');
   const follower = document.querySelector('.cursor-follower');
