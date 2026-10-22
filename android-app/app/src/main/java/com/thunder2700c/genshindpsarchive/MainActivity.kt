@@ -624,7 +624,7 @@ private fun CharacterDetailScreen(
                     horizontalArrangement = Arrangement.spacedBy(15.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    CharacterPortrait(character.image, character.name, Modifier.size(118.dp))
+                    CharacterPortrait(character.detailImage, character.name, Modifier.size(118.dp))
                     Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(7.dp)) {
                         TierBadge(character.tier)
                         Text(character.name, color = TextMain, fontSize = 22.sp, lineHeight = 25.sp, fontWeight = FontWeight.Black)
@@ -819,7 +819,8 @@ private data class Character(
     val pullValue: String,
     val summary: String,
     val role: String,
-    val image: String
+    val image: String,
+    val detailImage: String = image
 )
 
 private object CharacterRepository {
@@ -843,7 +844,8 @@ private object CharacterRepository {
                             pullValue = item.optString("pullValue", ""),
                             summary = item.optString("summary", ""),
                             role = item.optString("role", ""),
-                            image = item.optString("image", "")
+                            image = item.optString("image", ""),
+                            detailImage = item.optString("detailImage", item.optString("image", ""))
                         )
                     )
                 }
