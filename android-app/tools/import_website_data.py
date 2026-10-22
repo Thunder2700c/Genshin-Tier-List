@@ -215,10 +215,14 @@ def main() -> None:
                     if hinted.is_file():
                         candidates.append(hinted)
                 if not candidates:
-                    for ext in (".webp", ".png", ".jpg", ".jpeg"):
-                        candidate = portraits_source / (slug + ext)
-                        if candidate.is_file():
-                            candidates.append(candidate)
+                    # Some detail pages use a -1 suffix for the only available portrait.
+                    for stem in (slug, slug + "-1"):
+                        for ext in (".webp", ".png", ".jpg", ".jpeg"):
+                            candidate = portraits_source / (stem + ext)
+                            if candidate.is_file():
+                                candidates.append(candidate)
+                        if candidates:
+                            break
                 if not candidates:
                     candidates = [
                         p for p in portraits_source.iterdir()
