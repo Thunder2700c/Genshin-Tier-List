@@ -45,8 +45,11 @@ jobs:
       - name: Test source content importer
         run: python -m unittest discover -s android-app/tools -p "test_*.py"
 
-      - name: Verify source content importer
+      - name: Generate offline content bundle
         run: python android-app/tools/import_website_data.py --source-root . --output-dir android-app/app/build/generated/websiteAssets
+
+      - name: Validate offline content bundle
+        run: python android-app/tools/validate_offline_bundle.py --bundle-dir android-app/app/build/generated/websiteAssets
 
       - name: Assemble debug APK
         run: gradle -p android-app --no-daemon assembleDebug
