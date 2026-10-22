@@ -1,10 +1,38 @@
 """Smoke tests for migration from the website's static tier-card markup."""
 import unittest
+import tempfile
+from pathlib import Path
 
-from import_website_data import TierCardParser
+from import_website_data import TierCardParser, detail_portrait_hint
 
 
 class TierCardParserTests(unittest.TestCase):
+
+    def test_detail_poster_is_read_from_character_profile(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "tiers").mkdir()
+            profiles = root / "characters"
+            profiles.mkdir()
+            profile = profiles / "demo-character.html"
+            profile.write_text(
+                '<div class="char-portrait-frame">'
+                '<img src="../assets/images/characters/demo-character-1.webp" alt="Demo">'
+                '</div>',
+                encoding="utf-8",
+            )
+
+            self.assertEqual(
+                detail_portrait_hint(root, "../characters/demo-character.html"),
+                "demo-character-1.webp",
+            )
+
+    def test_detail_poster_import_rejects_path_outside_source_root(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            outside = root.parent / "outside-profile.html"
+            self.assertEqual(detail_portrait_hint(root, "../../outside-profile.html"), "")
+
     def test_nested_character_card_fields_are_preserved(self):
         html = """
         <a href="../characters/demo-character.html" class="char-card"
