@@ -1,0 +1,57 @@
+name: Android Build
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "android-app/**"
+      - "tiers/**"
+      - "assets/images/characters/**"
+      - ".github/workflows/android-build.yml"
+  pull_request:
+    paths:
+      - "android-app/**"
+      - "tiers/**"
+      - "assets/images/characters/**"
+      - ".github/workflows/android-build.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  assemble-debug:
+    name: Build debug APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle 8.13
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.13"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify source content importer
+        run: python android-app/tools/import_website_data.py --source-root . --output-dir android-app/app/build/generated/websiteAssets
+
+      - name: Assemble debug APK
+        run: gradle -p android-app --no-daemon assembleDebug
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: genshin-dps-archive-debug-apk
+          path: android-app/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
