@@ -40,23 +40,31 @@ def main() -> None:
         raise SystemExit("Missing tier content: " + ", ".join(sorted(missing_tiers)))
 
     broken_images = []
-    missing_images = 0
+    missing_card_images = 0
+    missing_detail_posters = 0
     for item in characters:
-        image = str(item.get("image", "")).strip()
-        if not image:
-            missing_images += 1
-            continue
-        image_file = (bundle_dir / image).resolve()
-        if bundle_dir not in image_file.parents or not image_file.is_file():
-            broken_images.append(f"{item.get('slug', '?')}: {image}")
+        slug = item.get("slug", "?")
+        for field, counter_name in (("image", "card"), ("detailImage", "detail")):
+            image = str(item.get(field, "")).strip()
+            if not image:
+                if counter_name == "card":
+                    missing_card_images += 1
+                else:
+                    missing_detail_posters += 1
+                continue
+            image_file = (bundle_dir / image).resolve()
+            if bundle_dir not in image_file.parents or not image_file.is_file():
+                broken_images.append(f"{slug} ({field}): {image}")
 
     if broken_images:
-        raise SystemExit("Broken offline portrait references:\n" + "\n".join(broken_images))
+        raise SystemExit("Broken offline portrait references:\\n" + "\\n".join(broken_images))
 
     print(
         "Offline bundle valid: "
         f"{len(characters)} characters, tiers {', '.join(tier for tier in ('SS', 'S', 'A+', 'A', 'B', 'C') if tier in tiers)}, "
-        f"{len(characters) - missing_images} bundled portraits, {missing_images} portrait placeholders."
+        f"{len(characters) - missing_card_images} card portraits available, "
+        f"{len(characters) - missing_detail_posters} detail posters available, "
+        f"{missing_card_images} card portrait placeholders."
     )
 
 
