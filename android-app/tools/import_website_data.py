@@ -60,15 +60,14 @@ def detail_portrait_hint(source_root: Path, detail_path: str) -> str:
 
     html = page.read_text(encoding="utf-8", errors="replace")
     section = re.search(
-        r'class=["\\'][^"\\']*char-portrait-frame[^"\\']*["\\'][\\s\\S]*?'
-        r'<img\\b[^>]*\\bsrc=["\\']([^"\\']+)["\\']',
+        r"""class=["'][^"']*char-portrait-frame[^"']*["'][\s\S]*?<img\b[^>]*\bsrc=["']([^"']+)["']""",
         html,
         re.I,
     )
     if not section:
         return ""
     match = re.search(
-        r"(?:^|/)characters/([^/?#]+\\.(?:webp|png|jpe?g))",
+        r"(?:^|/)characters/([^/?#]+\.(?:webp|png|jpe?g))",
         section.group(1),
         re.I,
     )
