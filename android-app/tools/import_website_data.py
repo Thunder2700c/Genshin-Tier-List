@@ -46,6 +46,35 @@ def slug_from_href(href: str, fallback: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", fallback.lower()).strip("-")
 
 
+def detail_portrait_hint(source_root: Path, detail_path: str) -> str:
+    """Return the profile page's local hero-poster filename, when that page exists."""
+    if not detail_path:
+        return ""
+    page = (source_root / "tiers" / detail_path).resolve()
+    try:
+        page.relative_to(source_root.resolve())
+    except ValueError:
+        return ""
+    if not page.is_file():
+        return ""
+
+    html = page.read_text(encoding="utf-8", errors="replace")
+    section = re.search(
+        r'class=["\\'][^"\\']*char-portrait-frame[^"\\']*["\\'][\\s\\S]*?'
+        r'<img\\b[^>]*\\bsrc=["\\']([^"\\']+)["\\']',
+        html,
+        re.I,
+    )
+    if not section:
+        return ""
+    match = re.search(
+        r"(?:^|/)characters/([^/?#]+\\.(?:webp|png|jpe?g))",
+        section.group(1),
+        re.I,
+    )
+    return match.group(1) if match else ""
+
+
 class TierCardParser(HTMLParser):
     def __init__(self, tier: str) -> None:
         super().__init__(convert_charrefs=True)
@@ -201,21 +230,18 @@ def main() -> None:
                 continue
             seen.add(slug)
 
-            # The tier page stores a website-relative portrait path. Import that file
-            # into the generated APK assets so portraits are available without a network.
-            source_parser = Path(character.get("detailPath") or "")
-            fields_image = ""
-            # Match by the source card's character slug first; this mirrors the site's
-            # current naming convention and avoids relying on remote URLs.
+            # Import a card-sized portrait for directory rows and, where available,
+            # the larger profile poster for the detail screen. Everything is bundled
+            # locally so character visuals never depend on a network request.
+            image_hint = Path(character.get("sourceImage") or "").name
             candidates = []
             if portraits_source.is_dir():
-                image_hint = Path(character.get("sourceImage") or "").name
                 if image_hint:
                     hinted = portraits_source / image_hint
                     if hinted.is_file():
                         candidates.append(hinted)
                 if not candidates:
-                    # Some detail pages use a -1 suffix for the only available portrait.
+                    # Some cards reference no file, while their profile page has a -1 poster.
                     for stem in (slug, slug + "-1"):
                         for ext in (".webp", ".png", ".jpg", ".jpeg"):
                             candidate = portraits_source / (stem + ext)
@@ -228,16 +254,43 @@ def main() -> None:
                         p for p in portraits_source.iterdir()
                         if p.is_file() and p.stem.lower() == slug.lower()
                     ]
-            character.pop("sourceImage", None)
+
+            card_image = ""
             if candidates:
                 chosen = candidates[0]
-                fields_image = chosen.name
                 destination = portraits_output / chosen.name
                 if not destination.exists() or destination.stat().st_size != chosen.stat().st_size:
                     shutil.copy2(chosen, destination)
-                character["image"] = "characters/" + fields_image
+                card_image = "characters/" + chosen.name
+            character["image"] = card_image
+
+            detail_hint = detail_portrait_hint(source_root, character.get("detailPath", ""))
+            detail_candidates = []
+            if detail_hint:
+                hinted_detail = portraits_source / Path(detail_hint).name
+                if hinted_detail.is_file():
+                    detail_candidates.append(hinted_detail)
+            if not detail_candidates and portraits_source.is_dir():
+                for stem in (slug + "-1", slug):
+                    for ext in (".webp", ".png", ".jpg", ".jpeg"):
+                        candidate = portraits_source / (stem + ext)
+                        if candidate.is_file():
+                            detail_candidates.append(candidate)
+                    if detail_candidates:
+                        break
+
+            if detail_candidates:
+                poster = detail_candidates[0]
+                poster_destination = portraits_output / poster.name
+                if not poster_destination.exists() or poster_destination.stat().st_size != poster.stat().st_size:
+                    shutil.copy2(poster, poster_destination)
+                character["detailImage"] = "characters/" + poster.name
             else:
-                character["image"] = ""
+                # If a separate poster is missing, reuse the card portrait instead of
+                # making the character profile visually empty.
+                character["detailImage"] = card_image
+
+            character.pop("sourceImage", None)
             characters.append(character)
 
     payload = {
