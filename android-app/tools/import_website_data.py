@@ -132,7 +132,8 @@ class TierCardParser(HTMLParser):
         name = fields.get("name") or card["slug"].replace("-", " ").title()
         rarity_text = fields.get("rarityText", "")
         rarity_match = re.search(r"(\d)", card.get("rarityAttribute", ""))
-        rarity = int(rarity_match.group(1)) if rarity_match else max(4, min(5, rarity_text.count("★")))
+        star_count = rarity_text.count("★")
+        rarity = int(rarity_match.group(1)) if rarity_match else (4 if star_count == 4 else 5)
 
         metric = fields.get("combatPower", "")
         score_matches = re.findall(r"\d+(?:\.\d+)?", metric)
@@ -159,6 +160,7 @@ class TierCardParser(HTMLParser):
             "summary": summary,
             "role": role,
             "image": "",
+            "sourceImage": card.get("imageSource", ""),
             "detailPath": card.get("href", ""),
         })
         card.pop("rarityAttribute", None)
@@ -207,15 +209,22 @@ def main() -> None:
             # current naming convention and avoids relying on remote URLs.
             candidates = []
             if portraits_source.is_dir():
-                for ext in (".webp", ".png", ".jpg", ".jpeg"):
-                    candidate = portraits_source / (slug + ext)
-                    if candidate.is_file():
-                        candidates.append(candidate)
-            if not candidates and portraits_source.is_dir():
-                candidates = [
-                    p for p in portraits_source.iterdir()
-                    if p.is_file() and p.stem.lower() == slug.lower()
-                ]
+                image_hint = Path(character.get("sourceImage") or "").name
+                if image_hint:
+                    hinted = portraits_source / image_hint
+                    if hinted.is_file():
+                        candidates.append(hinted)
+                if not candidates:
+                    for ext in (".webp", ".png", ".jpg", ".jpeg"):
+                        candidate = portraits_source / (slug + ext)
+                        if candidate.is_file():
+                            candidates.append(candidate)
+                if not candidates:
+                    candidates = [
+                        p for p in portraits_source.iterdir()
+                        if p.is_file() and p.stem.lower() == slug.lower()
+                    ]
+            character.pop("sourceImage", None)
             if candidates:
                 chosen = candidates[0]
                 fields_image = chosen.name
