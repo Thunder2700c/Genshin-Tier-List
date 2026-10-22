@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
-import androidx.activity.compose.enableEdgeToEdge
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -210,7 +210,8 @@ private fun GenshinArchiveApp() {
                         tab = "ROSTER"
                     },
                     onOpenCharacter = { selectedSlug = it },
-                    onOpenRoster = { tab = "ROSTER" }
+                    onOpenRoster = { tab = "ROSTER" },
+                    onToggleFavorite = { toggleFavorite(it) }
                 )
                 tab == "ROSTER" -> RosterScreen(
                     characters = characters,
@@ -244,7 +245,8 @@ private fun HomeScreen(
     owned: Set<String>,
     onOpenTier: (String) -> Unit,
     onOpenCharacter: (String) -> Unit,
-    onOpenRoster: () -> Unit
+    onOpenRoster: () -> Unit,
+    onToggleFavorite: (String) -> Unit
 ) {
     val ranked = remember(characters) {
         characters.sortedWith(compareBy<Character>({ tierRank(it.tier) }, { -(it.combatPower.toFloatOrNull() ?: 0f) }, { it.name }))
@@ -333,7 +335,7 @@ private fun HomeScreen(
                     isFavorite = favorites.contains(character.slug),
                     isOwned = owned.contains(character.slug),
                     onClick = { onOpenCharacter(character.slug) },
-                    onToggleFavorite = { onOpenCharacter(character.slug) }
+                    onToggleFavorite = { onToggleFavorite(character.slug) }
                 )
             }
         }
@@ -753,7 +755,7 @@ private fun TierBadge(tier: String) {
 @Composable
 private fun CharacterPortrait(path: String, name: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current
-    val bitmap by produceState<Bitmap?>(initialValue = null, path) {
+    val bitmap by produceState<Bitmap?>(initialValue = null, key1 = path) {
         value = if (path.isBlank()) null else withContext(Dispatchers.IO) {
             loadPortrait(context, path)
         }
